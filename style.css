@@ -1293,17 +1293,20 @@ display: inline-block;
 margin: 15px 0;
 }
 .single .pinbin-copy, .page .pinbin-copy, .search .pinbin-copy {
-padding: 2% 8%;
-color: #444;
-font-size: 15px;
-line-height: 18px;
-width: auto;
-max-width: 640px;
-margin: 0 auto;
-text-align: justify;
+	padding: 2% 8%;
+	color: #444;
+	font-size: 15px;
+	line-height: 18px;
+	width: auto;
+	/* max-width: 640px; */
+	max-width: 1140px;
+	margin: 0 auto;
+	text-align: justify;
 }
 .page .pinbin-copy h1, .search .pinbin-copy h1 {
-text-align: center;
+	text-align: center;
+	margin: 0 0 60px 0;
+	line-height: 1;
 }
 .error404 .pinbin-copy, .search-results .page-header, .search-results .pinbin-copy {
 color: #000;
@@ -2162,6 +2165,9 @@ a.search_menu {
 	.home #wrap {
 	  margin-top: -15px;
 	}
+	.page #wrap {
+    margin-top: 150px;
+	}
 	h1 {
     font-size: 2em;
   }
@@ -2519,5 +2525,23 @@ div.wpcf7-validation-errors {
   .page-template-residency-page .pinbin-copy {
       width: 80%;
       padding: 0 10%;
+  }
+}
+
+/*  FIX GUTEMBERG COLUMNS BLOCK */
+@media (min-width: 600px) {
+	.wp-block-column {
+	  flex-basis: 100%;
+	}
+}
+@media (min-width: 768px) {
+  .wp-block-column:nth-child(odd) {
+    margin-right:32px;
+  }
+  .wp-block-column:not(:first-child),.wp-block-column:nth-child(2n) {
+    margin-left: 32px
+  }
+  .wp-block-column:not(:last-child) {
+    margin-right: 32px;
   }
 }
