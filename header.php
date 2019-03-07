@@ -41,6 +41,8 @@
 				echo '<div id="logo">CONCEPTUAL FINE ARTS</div>';
 
 			endif; ?>
+
+			<?php if(is_page('about-us')): ?>
 				<div id="headline">
 					<?php
 						$count_posts = wp_count_posts();
@@ -53,37 +55,40 @@
 					<span class="headline1"><span class="postcount"><?php echo $split_count_posts; ?></span> art writings and</span>
 					<span class="headline2">a meta-gallery space</span>
 				</div>
+			<?php endif; ?>
 
-				<?php
-				wp_nav_menu( array(
-			    'menu'				=> 'Header-menu',
-					'menu_id'			=> 'header-menu',
-					'container'			=> 'ul',
-				) );
-				?>
-    </div>
-
-    <div id="lang-switcher">
 			<?php
-				if ( class_exists( 'WPGlobus' ) ) {
-					//print_r(WPGlobus::Config());
-					foreach( WPGlobus::Config()->enabled_languages as $lang ) {
-						if ( $lang == WPGlobus::Config()->language ) {
-							echo  "<span>".$lang."</span>";
-							continue;
-						}
-						echo ' <a href="' . WPGlobus_Utils::localize_current_url( $lang ). '">' . $lang . '</a>';
-					}
-				}
+			wp_nav_menu( array(
+		    'menu'				=> 'Header-menu',
+				'menu_id'			=> 'header-menu',
+				'container'			=> 'ul',
+			) );
 			?>
-		</div>
 
-		<div id="social-pad">
-      <ul>
-        <li class="FB_btn"><a href="https://www.facebook.com/Conceptualfinearts" target="_blank">FB</a></li>
-        <li class="IG_btn"><a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank">IG</a></li>
-      </ul>
-    </div>
+	    <div id="lang-switcher">
+				<?php
+					if ( class_exists( 'WPGlobus' ) ) {
+						//print_r(WPGlobus::Config());
+						foreach( WPGlobus::Config()->enabled_languages as $lang ) {
+							if ( $lang == WPGlobus::Config()->language ) {
+								echo  "<span>".$lang."</span>";
+								continue;
+							}
+							echo ' <a href="' . WPGlobus_Utils::localize_current_url( $lang ). '">' . $lang . '</a>';
+						}
+					}
+				?>
+			</div>
+
+			<div id="social-pad">
+	      <ul>
+	        <li class="FB_btn"><a href="https://www.facebook.com/Conceptualfinearts" target="_blank">FB</a></li>
+	        <li class="IG_btn"><a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank">IG</a></li>
+	      </ul>
+	    </div>
+
+			
+		</div>
 
   </nav>
 
