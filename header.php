@@ -42,21 +42,6 @@
 
 			endif; ?>
 
-			<?php if(is_page('about-us')): ?>
-				<div id="headline">
-					<?php
-						$count_posts = wp_count_posts();
-						$doubled_posts = str_split($count_posts->publish * 2);
-						$split_count_posts = '';
-						foreach ($doubled_posts as $number) {
-							$split_count_posts .= "<span>".$number."</span>";
-						}
-					?>
-					<span class="headline1"><span class="postcount"><?php echo $split_count_posts; ?></span> art writings and</span>
-					<span class="headline2">a meta-gallery space</span>
-				</div>
-			<?php endif; ?>
-
 			<?php
 			wp_nav_menu( array(
 		    'menu'				=> 'Header-menu',
@@ -87,7 +72,7 @@
 	      </ul>
 	    </div>
 
-			
+
 		</div>
 
   </nav>

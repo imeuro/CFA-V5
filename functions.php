@@ -550,3 +550,19 @@ function mpoet_get_undo_unsubscribe(){
 }
 
 add_shortcode('mailpoet_undo_unsubscribe', 'mpoet_get_undo_unsubscribe');
+
+
+
+// shortcode to insert
+  function tagline_shortcode() {
+		$count_posts = wp_count_posts();
+		$doubled_posts = str_split($count_posts->publish * 2);
+		$split_count_posts = '';
+		foreach ($doubled_posts as $number) {
+			$split_count_posts .= "<span>".$number."</span>";
+		}
+		$short_txt .= '<span class="CFA_headline"><span class="postcount">'.$split_count_posts.'</span> art writings and a meta-gallery space</span>';
+
+    return $short_txt;
+}
+add_shortcode('CFA_tagline', 'tagline_shortcode');

@@ -8,13 +8,20 @@ Template Name: residency
 <?php get_header(); ?>
 <?php
 $BGimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full', false );
+if ($BGimage) :
 ?>
 <style>
 	.page-template-residency-page {
 			background: url('<?php echo $BGimage[0] ?>') fixed center center rgba(255,255,255,0.85);
 	}
-</style>
+  .page-template-residency-page #site-navigation {
+    background: transparent;
+  }
 
+</style>
+<?php
+endif;
+?>
 
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
