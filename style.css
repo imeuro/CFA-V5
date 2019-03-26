@@ -743,7 +743,7 @@ text-decoration: none;
 #main-nav-wrapper #logo {
   width: 283px;
   height: 115px;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
   margin: 0 auto;
   cursor: pointer;
   position: relative;
@@ -944,7 +944,7 @@ transition: all 250ms ease-in-out;
 }
 
 #lang-switcher {
-  margin-top: -45px;
+  margin-top: -95px;
   float: left;
   text-transform: uppercase;
   text-align: center;
@@ -976,7 +976,7 @@ transition: all 250ms ease-in-out;
 
 
 #social-pad {
-  margin-top: -45px;
+  margin-top: -95px;
   float: right;
   text-transform: uppercase;
   text-align: center;
