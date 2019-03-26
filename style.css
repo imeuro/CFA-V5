@@ -1197,7 +1197,16 @@ line-height: 18px;
   margin: 0;
   padding: 0;
 }
-.home .pinbin-copy p, .archive .pinbin-copy p {line-height: 26px;font-size: 24px;text-transform: uppercase;position: absolute;bottom: 0;padding: 5px 25px;background: rgba(0, 0, 0, 0.5);border-radius: 2px;}
+.home .pinbin-copy p, .archive .pinbin-copy p {
+  line-height: 26px;
+  font-size: 24px;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0;
+  padding: 5px 25px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+}
 .home .pinbin-copy p small, .archive .pinbin-copy p small {font-size: 1.1rem;}
 
 .home .pinbin-copy p span, .archive .pinbin-copy p span {
@@ -1230,6 +1239,7 @@ margin: 15px 0;
 .single .pinbin-copy {
   max-width: 640px;
   text-align: justify;
+  box-sizing: content-box;
 }
 
 .page .pinbin-copy h1, .search .pinbin-copy h1 {
