@@ -1114,7 +1114,7 @@ transition: all 250ms ease-in-out;
 #modal .post {
     margin: 0 auto;
     text-align: center;
-    top: 125px;
+    top: 25px;
 }
 
 #modal .post .pinbin-copy p {
@@ -2322,9 +2322,9 @@ p.wysija-paragraph {
   display: inline-block;
 }
 @media only screen and (max-width: 640px) {
-	p.wysija-paragraph {
-	  width: 90%;
-	}
+  p.wysija-paragraph {
+    width: 90%;
+  }
 }
 .widget_wysija_cont .wysija-paragraph label {
     width: 100%;
@@ -2464,10 +2464,10 @@ div.wpcf7-validation-errors {
 }
 
 .explore-columns {
-	text-align: center;
+  text-align: center;
 }
 @media (min-width: 802px) {
-	.explore-columns {
-	  text-align: left;
-	}
+  .explore-columns {
+    text-align: left;
+  }
 }
