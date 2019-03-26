@@ -1135,7 +1135,7 @@ transition: all 250ms ease-in-out;
     padding: 1.5rem 0 0.5rem 0;
 }
 
-.single h1 {text-align: center;line-height: 1em;margin: 150px 100px 10px 100px;}
+.single h1 {text-align: center;line-height: 1em;margin: 175px 100px 10px 100px;}
 
 .single p a, .posttags a {
   color: #000;
