@@ -1019,13 +1019,13 @@ transition: all 250ms ease-in-out;
 @media only screen and (max-width: 640px) {
   #lang-switcher {
     position: relative;
-    top: 115px;
+    top: 105px;
     left: -20px;
     z-index: 11;
   }
   #social-pad {
     position: relative;
-    top: 115px;
+    top: 105px;
     right: -10px;
     z-index: 11;
   }
@@ -2082,6 +2082,7 @@ a.search_menu {
   }
   .page #wrap {
     margin-top: 0;
+    padding-top: 200px;
     margin: 0 auto 0 auto;
   }
   h1 {
