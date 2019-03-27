@@ -522,9 +522,10 @@ if (istpl.contains('home') == true || istpl.contains('archive') == true) { // ch
 	      $container.isotope( 'appended', jQuery( newElements ) );
 	      setTimeout(function(){$container.isotope('reLayout');}, 1000);
 	    }
-
-	    ga('send', 'pageview', '/scroll/'+pageNum);
-	    //console.log('scroll/'+pageNum);
+			var trackerName = ga.getAll()[0].get('name');
+			ga(trackerName + '.send' 'pageview', '/scroll/'+pageNum);
+	    //ga('send', 'pageview', '/scroll/'+pageNum);
+	    console.log('scroll/'+pageNum);
 	  });
 
 
