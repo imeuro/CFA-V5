@@ -1019,13 +1019,13 @@ transition: all 250ms ease-in-out;
 @media only screen and (max-width: 640px) {
   #lang-switcher {
     position: relative;
-    top: 65px;
+    top: 115px;
     left: -20px;
     z-index: 11;
   }
   #social-pad {
     position: relative;
-    top: 65px;
+    top: 115px;
     right: -10px;
     z-index: 11;
   }
@@ -2066,7 +2066,7 @@ a.search_menu {
   body.menu_open #main-nav-wrapper { z-index: 1; }
   #post-area {
   width: 640px;
-  margin: 200px auto 0 auto;
+  margin: 0 auto 0 auto;
   clear: both;
   }
   #wrap {
@@ -2082,6 +2082,7 @@ a.search_menu {
   }
   h1 {
     font-size: 2em;
+    line-height: 1;
   }
   #post-area .post, #post-area .post img {
     width: 640px;
