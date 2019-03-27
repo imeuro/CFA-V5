@@ -1077,6 +1077,7 @@ transition: all 250ms ease-in-out;
 .menu_open #modal.hidden { right: -100vw; }
 .menu_open #modal > * { opacity: .25; }
 
+/*
 #modal #closecard {
   position: fixed;
   top: 120px;
@@ -1109,7 +1110,7 @@ transition: all 250ms ease-in-out;
 #modal #closecard:hover:after {
   opacity:.5;
 }
-
+*/
 
 #modal .post {
     margin: 0 auto;
