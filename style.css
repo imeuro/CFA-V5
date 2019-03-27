@@ -1239,6 +1239,7 @@ margin: 15px 0;
 .single .pinbin-copy {
   width: 80vw;
   max-width: 640px;
+  margin-top: 0;
   text-align: justify;
   box-sizing: content-box;
 }
