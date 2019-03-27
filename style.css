@@ -424,7 +424,7 @@ body {
     color: #000305;
     font-size: 1.6rem; /* Base font size: 16px */
     font-weight: 300;
-    font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Arapey", serif;
     line-height: 1.4rem;
     margin: 0;
     padding: 0;
@@ -2376,7 +2376,7 @@ p.wysija-paragraph {
 }
 span.wpcf7-not-valid-tip { color: #fdb62c; }
 .widget_wysija_cont .updated {
-    font-family: "Arapey",serif;
+    font-family: "Arapey", serif;
     font-size: 2rem;
     border: 1px solid #fdb62c;
     border-radius: 3px;
