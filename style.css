@@ -1212,7 +1212,7 @@ line-height: 18px;
 .home .pinbin-copy p span, .archive .pinbin-copy p span {
   display: block;
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
   text-transform: none;
   color: rgba(255,255,255,0.75);
@@ -1237,6 +1237,7 @@ margin: 15px 0;
   box-sizing: border-box;
 }
 .single .pinbin-copy {
+  width: 80vw;
   max-width: 640px;
   text-align: justify;
   box-sizing: content-box;
