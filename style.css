@@ -1031,7 +1031,7 @@ transition: all 250ms ease-in-out;
   }
   #site-navigation.shrink #lang-switcher,
   #site-navigation.shrink #social-pad {
-     top: 45px;
+     top: 95px;
   }
   .modal-open #lang-switcher { z-index: 9; }
 }
@@ -2066,8 +2066,11 @@ a.search_menu {
   body.menu_open #main-nav-wrapper { z-index: 1; }
   #post-area {
   width: 640px;
-  margin: 0 auto 0 auto;
+  margin: 200px auto 0 auto;
   clear: both;
+  }
+  .archive.category #post-area {
+    margin-top: 0px;
   }
   #wrap {
   margin: 15px auto;
