@@ -26,13 +26,13 @@ var resizzabolHeader = function() {
 	me.init = function() {
 		menu_v5.append('<span class="shade"></span>');
 		window.addEventListener('scroll', function() { me.scrolling(); });
-	}
+	};
 	me.shrink = function() {
 		header_v5.addClass('shrink').find('.shade').css('display','none');
-	}
+	};
 	me.expand = function() {
 		header_v5.removeClass('shrink').find('.shade').css('display','block');
-	}
+	};
 	me.scrolling = function() {
 		if ( modal.hasClass('empty') === true || $('body').hasClass('single') === false ) {
 			if( header_v5.offset().top > logo_v5.height() ) {
@@ -41,15 +41,15 @@ var resizzabolHeader = function() {
 				me.expand();
 			}
 		} else { me.shrink(); }
-	}
-}
+	};
+};
 var eyesonHeader = new resizzabolHeader();
 eyesonHeader.init();
 
 // Home: sballa larghezza delle immagini per creare un po' di casino.
 var randomFromInterval = function(from,to) {
     return Math.floor(Math.random()*(to-from+1)+from);
-}
+};
 
 
 // ridimensiona layout dopo window load/resize
@@ -77,7 +77,7 @@ var okresize = function() {
 		});
 
 	}
-}
+};
 
 
 
@@ -169,30 +169,32 @@ var CFAslidersettings = {
     nextEl: '.nextContainer',
     prevEl: '.prevContainer',
   }
-}
+};
 
 
 var RepositionArrows = function(isModal) {
-	if (isModal == true) {
-		var container = "#modal";
+	var container;
+	if (isModal === true) {
+		container = "#modal";
 	} else{
-		var container = "body";
+		container = "body";
 	}
 	var sliderTop = jQuery(container+' #CFAslider').offset().top - jQuery(container+' article').offset().top;
 	var sliderPicH = jQuery(container+' #CFAslider .swiper-slide-active img').height();
 	var arrowH = jQuery(container+' .prevContainer').outerHeight();
 	var arrowW = jQuery(container+' .prevContainer').outerWidth();
+	var ArrHorOffset;
 	if (sw > 767) {
-		var ArrHorOffset = jQuery(container+' article .pinbin-copy').offset().left + (arrowW/2);
+		ArrHorOffset = jQuery(container+' article .pinbin-copy').offset().left + (arrowW/2);
 	} else {
-		var ArrHorOffset = 0;
+		ArrHorOffset = 0;
 	}
 	var arrowsPosTop = ( sliderTop + (sliderPicH/2) ) - (arrowH/2);
 
 	jQuery(container+' .prevContainer,.nextContainer').css('top',arrowsPosTop);
 	jQuery(container+' .prevContainer').css('left',ArrHorOffset);
 	jQuery(container+' .nextContainer').css('right',ArrHorOffset);
-}
+};
 
 
 // Foglia: actions at window load
@@ -230,7 +232,7 @@ jQuery(window).load(function(){
 
 // Foglia: Swiper init (see also @ line #308: modalSwiper )
 //===============================
-if (jQuery('body').hasClass('single') && jQuery('#CFAslider').length != 0) {
+if (jQuery('body').hasClass('single') && jQuery('#CFAslider').length !== 0) {
 	//console.debug('swiper init for single page');
 	fogliaSwiper = new Swiper ('.CFAslider', CFAslidersettings );
 
@@ -243,7 +245,7 @@ if (jQuery('body').hasClass('single') && jQuery('#CFAslider').length != 0) {
 	},1000);
 	fogliaSwiper.on('slideChangeTransitionEnd', function(){
 		RepositionArrows();
-	})
+	});
 	fogliaSwiper.on('lazyImageReady', function () {
 		fogliaSwiper.update();
 	});
@@ -300,7 +302,7 @@ function ThatFabulousLightbox() {
 						});
 
 						// modal: Swiper init (see also @ line #348: fogliaSwiper )
-						if (jQuery('#CFAslider').length != 0) {
+						if (jQuery('#CFAslider').length !== 0) {
 							modalSwiper = new Swiper ('.CFAslider', CFAslidersettings );
 							modalSwiper.init();
 							setTimeout(function(){
@@ -310,7 +312,7 @@ function ThatFabulousLightbox() {
 							},1000);
 							modalSwiper.on('slideChangeTransitionEnd', function(){
 								RepositionArrows(true);
-							})
+							});
 							modalSwiper.on('lazyImageReady', function () {
 								modalSwiper.update();
 							});
@@ -357,12 +359,13 @@ function ThatFabulousLightbox() {
 // Homepage/Archives Functions
 ////////////////////////////////////
 
-if (istpl.contains('home') == true || istpl.contains('archive') == true) { // check classe in body
 
-	// Home: sballa larghezza delle immagini per creare un po' di casino.
-	function randomFromInterval(from,to) {
-	    return Math.floor(Math.random()*(to-from+1)+from);
-	}
+// Home: sballa larghezza delle immagini per creare un po' di casino.
+function randomFromInterval(from,to) {
+    return Math.floor(Math.random()*(to-from+1)+from);
+}
+
+if (istpl.contains('home') === true || istpl.contains('archive') === true) { // check classe in body
 
 	// Home: custom layout mode: spineAlign
 	//===============================
@@ -426,12 +429,10 @@ if (istpl.contains('home') == true || istpl.contains('archive') == true) { // ch
 
 	      setTimeout(function(){
 	        jQuery('#post-area.isotope').isotope('reLayout');
-	      },1000)
-	  }
-	  else if(sw<=767 && sw>640){
+	      },1000);
+	  } else if(sw<=767 && sw>640){
 	    jQuery('#post-area.isotope').isotope('destroy');
-	  }
-	  else if(sw<=640){
+	  } else if(sw<=640){
 	    jQuery('#post-area.isotope').isotope('destroy');
 	  }
 	});
@@ -466,7 +467,7 @@ if (istpl.contains('home') == true || istpl.contains('archive') == true) { // ch
 
 
 	    }
-	  })
+	  });
 
 	  var pageNum = 0;
 	  $container.infinitescroll({
