@@ -430,9 +430,9 @@ if (istpl.contains('home') === true || istpl.contains('archive') === true) { // 
 	      setTimeout(function(){
 	        jQuery('#post-area.isotope').isotope('reLayout');
 	      },1000);
-	  } else if(sw<=767 && sw>640){
+	  } else if (sw<=767 && sw>640) {
 	    jQuery('#post-area.isotope').isotope('destroy');
-	  } else if(sw<=640){
+	  } else if (sw<=640) {
 	    jQuery('#post-area.isotope').isotope('destroy');
 	  }
 	});
