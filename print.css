@@ -15,14 +15,16 @@ h3.wp-caption-text.gallery-caption {
 font-size: 12px;
 }
 
-p {
+p { 
   widows:3;
   orphans: 3;
-  page-break-before: always;
-  font-size: 12px; 
-  line-height: 18px;
+  font-size: 14px; 
+  line-height: 20px;
 }
-
+#site-navigation { position: initial; }
+#logo { 
+    -webkit-print-color-adjust: exact;
+}
 #whitecurtain, 
 ul#header-menu, 
 #lang-switcher, 
@@ -30,4 +32,4 @@ ul#header-menu,
 div.crafty-social-buttons {
     display: none;
 }
-body:after { content: "Copyright 2015 by Conceptual Fine Arts. All Rights Reserved."; font-size:11px;  }
+body:after { content: "© Conceptual Fine Arts. All Rights Reserved."; font-size:12px; text-align: center;  }
