@@ -23,15 +23,11 @@ p {
   line-height: 18px;
 }
 
-#whitecurtain,
-#blackcurtain,
-#blockwindow,
-.container .prevContainer,
-.container .nextContainer,
-.container .selectorsBlock,
-.gallery-item:not(.selected),
-.shareaholic-canvas,
-.posttags {
-  display: none;
+#whitecurtain, 
+ul#header-menu, 
+#lang-switcher, 
+#social-pad, 
+div.crafty-social-buttons {
+    display: none;
 }
 body:after { content: "Copyright 2015 by Conceptual Fine Arts. All Rights Reserved."; font-size:11px;  }
