@@ -24,6 +24,7 @@ p {
 #site-navigation { position: initial; }
 #logo { 
     -webkit-print-color-adjust: exact;
+    position: initial;
 }
 #whitecurtain, 
 ul#header-menu, 
