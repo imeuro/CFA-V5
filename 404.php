@@ -9,7 +9,8 @@
 
    		<div class="post type-post type-404"><h2>
 				<div class="pinbin-copy container">
-
+					<br><br>
+					<br><br>
 					<h1><?php _e( '404: Not Found', 'pinbin') ?></h1>
 					<br><br>
 					<p>Apologies, the article at the Url you requested is not available.<br>
