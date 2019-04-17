@@ -3,14 +3,26 @@
 /*        PRINT-ONLY LAYOUT       */
 /**********************************/
 
-body {
-width: 768px;
-margin: 20px auto;
+@page {
+   margin: 2cm;
+   size: portrait;
 }
-#main-nav-wrapper {
-left: 0;
-width: 768px;
+#logo-print { 
+    margin-top: 20px;
+    text-align: center;
 }
+#whitecurtain,
+#site-navigation,
+.prevContainer,
+.nextContainer,
+div.crafty-social-buttons {
+    display: none;
+}
+
+.single h1 {
+    margin-top: 50px;
+}
+
 h3.wp-caption-text.gallery-caption {
 font-size: 12px;
 }
@@ -21,16 +33,11 @@ p {
   font-size: 14px; 
   line-height: 20px;
 }
-#site-navigation { position: initial; }
-#logo { 
-    -webkit-print-color-adjust: exact;
-    position: initial;
+
+body:after { 
+	content: "© Conceptual Fine Arts. All Rights Reserved."; 
+	font-size:12px; 
+	text-align: center; 
+	width: 100%;
+	display: block;
 }
-#whitecurtain, 
-ul#header-menu, 
-#lang-switcher, 
-#social-pad, 
-div.crafty-social-buttons {
-    display: none;
-}
-body:after { content: "© Conceptual Fine Arts. All Rights Reserved."; font-size:12px; text-align: center;  }

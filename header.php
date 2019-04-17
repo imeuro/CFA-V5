@@ -32,6 +32,13 @@
 <div id="whitecurtain"></div>
 
  	<!-- logo and navigation -->
+
+<?php
+if ($_GET['print'] == 'enabled') {
+		echo '<div id="logo-print"><img src="'.get_template_directory_uri().'/images/logo-CFA-orange.svg" width="283" alt="CONCEPTUAL FINE ARTS" /></div>';
+}
+?>
+
  <nav id="site-navigation">
 
     <div id="main-nav-wrapper" class="<?php if (!is_home() || !is_front_page()) : echo 'single '; endif; ?>left on">
@@ -39,7 +46,6 @@
 				echo '<h1 id="logo">CONCEPTUAL FINE ARTS</h1> ';
 			else:
 				echo '<div id="logo">CONCEPTUAL FINE ARTS</div>';
-
 			endif; ?>
 
 			<?php
