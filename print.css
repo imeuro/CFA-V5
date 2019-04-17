@@ -10,12 +10,14 @@
 #logo-print { 
     margin-top: 20px;
     text-align: center;
+    display: block;
 }
 #whitecurtain,
 #site-navigation,
 .prevContainer,
 .nextContainer,
-div.crafty-social-buttons {
+div.crafty-social-buttons,
+.posttags {
     display: none;
 }
 
@@ -33,11 +35,13 @@ p {
   font-size: 14px; 
   line-height: 20px;
 }
+img { max-height:  }
 
 body:after { 
 	content: "© Conceptual Fine Arts. All Rights Reserved."; 
 	font-size:12px; 
 	text-align: center; 
 	width: 100%;
-	display: block;
+	display: inline-block;
+	padding-bottom: 60px;
 }

@@ -772,6 +772,8 @@ nav#archive-nav-below a {
 }
 .single #main-nav-wrapper #logo svg { height: 60px; }
 
+#logo-print { display: none; }
+
 
 span.CFA_headline {
   padding-left: 1px;
