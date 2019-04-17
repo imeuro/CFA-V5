@@ -39,11 +39,14 @@ p {
   font-size: 14px; 
   line-height: 20px;
 }
-article img, article #gallery-1 img {
+.container #CFAslider,
+article img,
+article #gallery-1 img {
 	max-height: 300px;
 	height: auto;
 	width: auto !important;
 	max-width: 100%;
+	margin-bottom: 30px;
 }
 
 body:after { 

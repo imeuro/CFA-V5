@@ -2,7 +2,7 @@
 ================================================== */
 
 var sw = document.body.clientWidth;
-var istpl = document.body.classList; // istpl.contains('my-class-name')
+var bodyClasses = document.body.classList; // bodyClasses.contains('my-class-name')
 var ENV = window.location.host;
 var basepath = '/cfa/';
 if (ENV == 'localhost' || ENV == 'nas.imeuro.io') { basepath = '/conceptualfinearts/cfa/'; }
@@ -34,7 +34,7 @@ var resizzabolHeader = function() {
 		header_v5.removeClass('shrink').find('.shade').css('display','block');
 	};
 	me.scrolling = function() {
-		if ( modal.hasClass('empty') === true || $('body').hasClass('single') === false ) {
+		if ( modal.hasClass('empty') === true || bodyClasses.contains('single') === false ) {
 			if( header_v5.offset().top > logo_v5.height() ) {
 				me.shrink();
 			} else {
@@ -232,7 +232,7 @@ jQuery(window).load(function(){
 
 // Foglia: Swiper init (see also @ line #308: modalSwiper )
 //===============================
-if (jQuery('body').hasClass('single') && jQuery('#CFAslider').length !== 0) {
+if (bodyClasses.contains('single') && jQuery('#CFAslider').length !== 0) {
 	//console.debug('swiper init for single page');
 	fogliaSwiper = new Swiper ('.CFAslider', CFAslidersettings );
 
@@ -253,11 +253,51 @@ if (jQuery('body').hasClass('single') && jQuery('#CFAslider').length !== 0) {
 }
 
 
+// Foglia: handle printing event
+//===============================
+if (window.location.search.substr(1) == "print=enabled") {
+	
+	var destroyFogliaswiper = function() {
+    if (typeof fogliaSwiper == 'object'){ 
+				fogliaSwiper.destroy();
+				console.log('fogliaswiper destroyed.');
+		} 
+  };
+
+	if (window.matchMedia) {
+		var checkprinting = window.matchMedia('print');
+		checkprinting.addListener(destroyFogliaswiper);
+	}
+
+	window.onbeforeprint = destroyFogliaswiper;
+
+	setTimeout(function(){
+		console.log('printing...');
+		window.self.print();
+	},500);
+
+} else { //redirect to printable version
+
+	var suggest_printable = function() {
+    window.location.replace("?print=enabled")
+  };
+
+	if (window.matchMedia) {
+		var checkprinting = window.matchMedia('print');
+		checkprinting.addListener(suggest_printable);
+	}
+
+	window.onbeforeprint = suggest_printable;
+
+}
+
+
+
 // prepare for that fantastic lightbox!
 //===============================
 
 function ThatFabulousLightbox() {
-	if (jQuery('body').hasClass('single')) {
+	if (bodyClasses.contains('single')) {
 		jQuery('.posttags a').attr('target','_parent'); // ???
 	}
 	else {
@@ -365,7 +405,7 @@ function randomFromInterval(from,to) {
     return Math.floor(Math.random()*(to-from+1)+from);
 }
 
-if (istpl.contains('home') === true || istpl.contains('archive') === true) { // check classe in body
+if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') === true) { // check classe in body
 
 	// Home: custom layout mode: spineAlign
 	//===============================
