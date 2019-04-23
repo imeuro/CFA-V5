@@ -36,18 +36,6 @@ function CFA_setup() {
 	add_image_size('summary-image', 300, 9999);
 	add_image_size('detail-image', 750, 9999);
 
-	/**
-	 * Change the default "sizes" attribute created by WordPress
-	 * for the content archive thumbnails
-	 */
-	function CFA_image_sizes( $sizes, $size, $image_src, $image_meta, $attachment_id ) {
-		if( is_archive() && is_main_query() || is_home() ) {
-			$sizes = '(min-width: 1280px) 1024px, (min-width: 768px) 640px, (min-width: 480px) 640px, 320px';
-		}
-		return $sizes;
-	}
-	add_filter( 'wp_calculate_image_sizes', 'CFA_image_sizes', 10, 5 );
-
 
 	/**
 	 * Make theme available for translation
@@ -534,11 +522,13 @@ add_filter('xmlrpc_enabled', '__return_false');
 // GESTIONE IMMAGINI RESPONSIVE (WP 4.4+)
 // https://www.smashingmagazine.com/2015/12/responsive-images-in-wordpress-core/
 function adjust_image_sizes_attr( $sizes, $size ) {
-   $sizes = '(min-width: 1280px) 640px, (min-width: 768px) 320px, (min-width: 480px) 640px, 320px';
+   $sizes = '(min-width: 1280px) 1024px, (min-width: 768px) 640px, (min-width: 480px) 640px, 320px';
    //var_dump($sizes);
    return $sizes;
 }
 add_filter( 'wp_calculate_image_sizes', 'adjust_image_sizes_attr', 10 , 2 );
+
+
 
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
