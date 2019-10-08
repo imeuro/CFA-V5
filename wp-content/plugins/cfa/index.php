@@ -22,8 +22,8 @@ function get_langswitcherDOM() {
 		$ldom .= '<a href="'.get_site_url('','/it/').'" data-lang="IT">IT</a>';
 	} elseif ( is_single() ) {
 		$trandlationID = get_field('translation',$post->ID)[0];
-		//if ($trandlationID == null) { $trandlationID = 0; }
-		var_dump($trandlationID);
+		// if ($trandlationID == null) { $trandlationID = 0; }
+		// var_dump($trandlationID);
 		if ( 'cfa_translations' == get_post_type() ) :
 			$ldom .= '<a href="'.get_the_permalink($trandlationID).'" data-lang="EN">EN</a>';
 			$ldom .= '<span data-lang="IT">IT</span>';
