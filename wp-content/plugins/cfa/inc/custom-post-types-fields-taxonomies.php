@@ -53,8 +53,8 @@ function CFA_custom_post_type() {
 
 
 	$labels2 = array(
-		'name'                  => _x( 'translations', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'translation', 'Post Type Singular Name', 'text_domain' ),
+		'name'                  => _x( 'Translations', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Translation', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'             => __( 'Translations', 'text_domain' ),
 		'name_admin_bar'        => __( 'Translations', 'text_domain' ),
 		'archives'              => __( 'Translations Archives', 'text_domain' ),
@@ -118,5 +118,32 @@ function CFA_custom_post_type() {
 add_action( 'init', 'CFA_custom_post_type', 0 );
 
 
+
+/** 
+ * Snippet Name: Count custom post type items in dashboard 
+ * Snippet URL: http://www.wpcustoms.net/snippets/count-custom-post-type-items-dashboard/ 
+ */  
+ function wpc_cpt_glance_counter( $items = array() ) {  
+    $post_types = array( 'cfa_translations' ); // add your custom post type name here  
+    foreach( $post_types as $type ) {  
+        if( ! post_type_exists( $type ) ) continue;  
+        $num_posts = wp_count_posts( $type );  
+        if( $num_posts ) {  
+            $published = intval( $num_posts->publish );  
+            $post_type = get_post_type_object( $type );  
+            $text = _n( '%s ' . $post_type->labels->singular_name, '%s ' . $post_type->labels->name, $published, 'your_textdomain' );  
+            $text = sprintf( $text, number_format_i18n( $published ) );  
+            if ( current_user_can( $post_type->cap->edit_posts ) ) {  
+            $output = '<a href="edit.php?post_type=' . $post_type->name . '">' . $text . '</a>';  
+                echo '<li class="post-count ' . $post_type->name . '-count">' . $output . '</li>';  
+            } else {  
+            $output = '<span>' . $text . '</span>';  
+                echo '<li class="post-count ' . $post_type->name . '-count">' . $output . '</li>';  
+            }  
+        }  
+    }  
+    return $items;  
+}  
+add_filter( 'dashboard_glance_items', 'wpc_cpt_glance_counter', 10, 1 ); 
 
 ?>

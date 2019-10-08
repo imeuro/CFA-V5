@@ -45,7 +45,7 @@
 
 			<?php
 			wp_nav_menu( array(
-		    'menu'				=> 'Header-menu',
+		    	'menu'				=> 'Header-menu',
 				'menu_id'			=> 'header-menu',
 				'container'			=> 'ul',
 			) );
@@ -55,13 +55,15 @@
 				<?php
 					if ( class_exists( 'WPGlobus' ) ) {
 						//print_r(WPGlobus::Config());
-						foreach( WPGlobus::Config()->enabled_languages as $lang ) {
-							if ( $lang == WPGlobus::Config()->language ) {
-								echo  "<span>".$lang."</span>";
-								continue;
-							}
-							echo ' <a href="' . WPGlobus_Utils::localize_current_url( $lang ). '">' . $lang . '</a>';
-						}
+						// foreach( WPGlobus::Config()->enabled_languages as $lang ) {
+						// 	if ( $lang == WPGlobus::Config()->language ) {
+						// 		echo  "<span>".$lang."</span>";
+						// 		continue;
+						// 	}
+						// 	echo ' <a href="' . WPGlobus_Utils::localize_current_url( $lang ). '">' . $lang . '</a>';
+						// }
+					} else if ( function_exists('get_langswitcherDOM') ) {
+						echo get_langswitcherDOM();
 					}
 				?>
 			</div>
