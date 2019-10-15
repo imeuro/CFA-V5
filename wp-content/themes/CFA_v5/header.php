@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
       <!--meta name="keywords" content="a list, of keywords, separated, by commas"-->
       <meta name="description" content="<?php
-        if ( is_home() ) : bloginfo('description');
+        if ( is_home() || is_page('it') ) : bloginfo('description');
         else :
           global $post;
           setup_postdata( $post );
@@ -17,7 +17,15 @@
           echo $post_desc;
         endif;
       ?>">
-      <meta name="language" content="EN">
+
+      <?php 
+      if (is_page('it') || get_post_type(get_the_ID()) == 'cfa_translations') : 
+      	$lang = 'IT'; 
+      else: 
+      	$lang = 'EN'; 
+      endif; 
+      ?>
+      <meta name="language" content="<?php echo $lang; ?>">
       <title><?php wp_title('&#124;', true, 'right'); ?></title>
       <link href="https://www.conceptualfinearts.com/cfa/favicon.ico" rel="shortcut icon" type="image/x-icon" />
       <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -36,47 +44,37 @@
 
  <nav id="site-navigation">
 
-    <div id="main-nav-wrapper" class="<?php if (!is_home() || !is_front_page()) : echo 'single '; endif; ?>left on">
-			<?php if (is_home() || is_front_page()) :
-				echo '<h1 id="logo">CONCEPTUAL FINE ARTS</h1> ';
-			else:
-				echo '<div id="logo">CONCEPTUAL FINE ARTS</div>';
-			endif; ?>
+    <div id="main-nav-wrapper" class="<?php if (!is_home() || !is_front_page() || !is_page('it')) : echo 'single '; endif; ?>left on">
+		<?php if (is_home() || is_front_page() || is_page('it')) :
+			echo '<h1 id="logo">CONCEPTUAL FINE ARTS</h1> ';
+		else:
+			echo '<div id="logo">CONCEPTUAL FINE ARTS</div>';
+		endif; ?>
 
+		<?php
+		wp_nav_menu( array(
+	    	'menu'				=> 'Header-menu',
+			'menu_id'			=> 'header-menu',
+			'container'			=> 'ul',
+		) );
+		?>
+
+		<div id="lang-switcher">
 			<?php
-			wp_nav_menu( array(
-		    	'menu'				=> 'Header-menu',
-				'menu_id'			=> 'header-menu',
-				'container'			=> 'ul',
-			) );
+				if ( function_exists('get_langswitcherDOM') ) {
+					echo get_langswitcherDOM();
+				}
 			?>
-
-	    <div id="lang-switcher">
-				<?php
-					if ( class_exists( 'WPGlobus' ) ) {
-						//print_r(WPGlobus::Config());
-						// foreach( WPGlobus::Config()->enabled_languages as $lang ) {
-						// 	if ( $lang == WPGlobus::Config()->language ) {
-						// 		echo  "<span>".$lang."</span>";
-						// 		continue;
-						// 	}
-						// 	echo ' <a href="' . WPGlobus_Utils::localize_current_url( $lang ). '">' . $lang . '</a>';
-						// }
-					} else if ( function_exists('get_langswitcherDOM') ) {
-						echo get_langswitcherDOM();
-					}
-				?>
-			</div>
-
-			<div id="social-pad">
-	      <ul>
-	        <li class="FB_btn"><a href="https://www.facebook.com/Conceptualfinearts" target="_blank">FB</a></li>
-	        <li class="IG_btn"><a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank">IG</a></li>
-	      </ul>
-	    </div>
-
-
 		</div>
+
+		<div id="social-pad">
+			<ul>
+				<li class="FB_btn"><a href="https://www.facebook.com/Conceptualfinearts" target="_blank">FB</a></li>
+				<li class="IG_btn"><a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank">IG</a></li>
+			</ul>
+		</div>
+
+	</div>
 
   </nav>
 

@@ -399,6 +399,12 @@ function ThatFabulousLightbox() {
 // Homepage/Archives Functions
 ////////////////////////////////////
 
+// make home ITA as close as possible to home ENG
+if (bodyClasses.contains('page-template-index_ita') === true) {
+	bodyClasses.remove('page');
+	bodyClasses.add('home');
+}
+
 
 // Home: sballa larghezza delle immagini per creare un po' di casino.
 function randomFromInterval(from,to) {
@@ -484,7 +490,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 
 		// effetto hover su immagini in hp (idem a #234)
 		if(sw>1024){
-			jQuery('article.post .pinbin-image').each( function() {
+			jQuery('article.post .pinbin-image, article.cfa_translations .pinbin-image').each( function() {
 						jQuery(this).hoverdir({speed : 1000});
 			});
 
