@@ -23,7 +23,7 @@ function get_langswitcherDOM() {
 	} elseif ( is_single() ) {
 		$translationID = get_field('translation',$post->ID)[0];
 		$translationURL = get_the_permalink($translationID);
-		// var_dump($translationID);
+		//var_dump($translationID);
 
 		if ( 'cfa_translations' == get_post_type() ) :
 			if ($translationID == null) { $translationURL = home_url('/'); } // No translation -> link to home ENG

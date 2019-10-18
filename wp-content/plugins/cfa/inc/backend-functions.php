@@ -99,6 +99,6 @@ function bidirectional_acf_update_value( $value, $post_id, $field  ) {
     
 }
 
-add_filter('acf/update_value/name=related_posts', 'bidirectional_acf_update_value', 10, 3);
+add_filter('acf/update_value/name=translation', 'bidirectional_acf_update_value', 10, 3);
 
 ?>
