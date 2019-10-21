@@ -17,10 +17,10 @@ function get_langswitcherDOM() {
 
 	$ldom = '';
 
-	if ( is_home() || is_front_page() || is_page() ) {
+	if ( is_home() || is_front_page() ) {
 		$ldom .= '<a href="'.home_url('/').'" data-lang="EN">EN</a>';
 		$ldom .= '<a href="'.home_url('/it/').'" data-lang="IT">IT</a>';
-	} elseif ( is_single() ) {
+	} elseif ( is_single() || is_page() ) {
 		$translationID = get_field('translation',$post->ID)[0];
 		$translationURL = get_the_permalink($translationID);
 		//var_dump($translationID);
