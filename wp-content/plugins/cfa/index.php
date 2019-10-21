@@ -16,14 +16,16 @@ include('inc/backend-functions.php');
 function get_langswitcherDOM() {
 
 	$ldom = '';
+	global $post;
 
 	if ( is_home() || is_front_page() ) {
 		$ldom .= '<a href="'.home_url('/').'" data-lang="EN">EN</a>';
 		$ldom .= '<a href="'.home_url('/it/').'" data-lang="IT">IT</a>';
 	} elseif ( is_single() || is_page() ) {
 		$translationID = get_field('translation',$post->ID)[0];
-		$translationURL = get_the_permalink($translationID);
-		//var_dump($translationID);
+		$translationURL = get_permalink($translationID);
+		// var_dump($translationURL);
+		// var_dump($post);
 
 		if ( 'cfa_translations' == get_post_type() || $post->post_parent == '95535' ) :
 			if ($translationID == null) { $translationURL = home_url('/'); } // No translation -> link to home ENG
