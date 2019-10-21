@@ -62,7 +62,7 @@
 		<div id="lang-switcher">
 			<?php
 				if ( function_exists('get_langswitcherDOM') ) {
-					echo get_langswitcherDOM();
+					echo get_langswitcherDOM(); // plugins/cfa/index.php
 				}
 			?>
 		</div>
