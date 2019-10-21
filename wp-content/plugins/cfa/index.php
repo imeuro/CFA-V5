@@ -25,7 +25,7 @@ function get_langswitcherDOM() {
 		$translationURL = get_the_permalink($translationID);
 		//var_dump($translationID);
 
-		if ( 'cfa_translations' == get_post_type() ) :
+		if ( 'cfa_translations' == get_post_type() || $post->post_parent == '95535' ) :
 			if ($translationID == null) { $translationURL = home_url('/'); } // No translation -> link to home ENG
 			$ldom .= '<a href="'.$translationURL.'" data-lang="EN">EN</a>';
 			$ldom .= '<span data-lang="IT">IT</span>';
