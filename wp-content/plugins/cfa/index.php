@@ -32,7 +32,7 @@ function get_langswitcherDOM() {
 		else : 
 			if ($translationID == null) { $translationURL = home_url('/it/'); } // No translation ->link to home ITA
 			$ldom .= '<span data-lang="EN">EN</span>';
-			$ldom .= '<a href="'.$translationURL.'" data-lang="IT">IT</span>';
+			$ldom .= '<a href="'.$translationURL.'" data-lang="IT">IT</a>';
 		endif;
 	}
 	return $ldom;
