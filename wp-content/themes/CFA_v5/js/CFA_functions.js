@@ -8,51 +8,43 @@ var basepath = '/cfa/';
 if (ENV == 'localhost' || ENV == 'nas.imeuro.io') { basepath = '/conceptualfinearts/cfa/'; }
 var themepath = basepath+'wp-content/themes/CFA_v5/';
 var $container = jQuery('#post-area');
-var whitecurtain = document.getElementById('whitecurtain');
-var modal = document.getElementById('modal');
-var Jmodal = jQuery('#modal');
-var AltLang = document.getElementById('lang-switcher');
-var JAltLang = jQuery('#lang-switcher');
-var header_v5 = document.getElementById('site-navigation');
-var logo_v5 = document.getElementById('logo');
-var menu_v5 = document.getElementById('header-menu');
+var modal = jQuery('#modal');
+var header_v5 = jQuery('#site-navigation');
+var logo_v5 = jQuery('#logo');
+var menu_v5 = jQuery('#header-menu');
 var modalSwiper = '';
 var fogliaSwiper = '';
 
 
 
 ////////////////////////////////////
-// HEADER resizabble allo scroll - non serve più
+// HEADER resizabble allo scroll
 ////////////////////////////////////
-// var resizzabolHeader = function() {
-// 	var me = this;
+var resizzabolHeader = function() {
+	var me = this;
 
-// 	me.init = function() {
-// 		menu_v5.innerHTML +=('<span class="shade"></span>');
-// 		window.addEventListener('scroll', function() { me.scrolling(); });
-// 	};
-// 	me.shrink = function() {
-// 		header_v5.classList.add('shrink');
-// 		header_v5.querySelector('.shade').style.display= 'none';
-// 	};
-// 	me.expand = function() {
-// 		header_v5.classList.remove('shrink');
-// 		header_v5.querySelector('.shade').style.display='block';
-// 	};
-// 	me.scrolling = function() {
-// 		if ( modal.classList.contains('empty') === true || bodyClasses.contains('single') === false ) {
-// 			HeaderH =  window.getComputedStyle(header_v5).height.substring(0,  window.getComputedStyle(header_v5).height.length - 2);
-// 			console.debug(HeaderH);
-// 			if( header_v5.offsetHeight > HeaderH ) {
-// 				me.shrink();
-// 			} else {
-// 				me.expand();
-// 			}
-// 		} else { me.shrink(); }
-// 	};
-// };
-// var eyesonHeader = new resizzabolHeader();
-// eyesonHeader.init();
+	me.init = function() {
+		menu_v5.append('<span class="shade"></span>');
+		window.addEventListener('scroll', function() { me.scrolling(); });
+	};
+	me.shrink = function() {
+		header_v5.addClass('shrink').find('.shade').css('display','none');
+	};
+	me.expand = function() {
+		header_v5.removeClass('shrink').find('.shade').css('display','block');
+	};
+	me.scrolling = function() {
+		if ( modal.hasClass('empty') === true || bodyClasses.contains('single') === false ) {
+			if( header_v5.offset().top > logo_v5.height() ) {
+				me.shrink();
+			} else {
+				me.expand();
+			}
+		} else { me.shrink(); }
+	};
+};
+var eyesonHeader = new resizzabolHeader();
+eyesonHeader.init();
 
 // Home: sballa larghezza delle immagini per creare un po' di casino.
 var randomFromInterval = function(from,to) {
@@ -97,9 +89,9 @@ var okresize = function() {
 jQuery(document).ready(function($){
 
 	jQuery('#logo').click(function(){
-	  if (Jmodal.children().length !== 0) {
+	  if (modal.children().length !== 0) {
       parent.update_url(basepath);
-			Jmodal.addClass('hidden empty').delay(1000).html('');
+			modal.addClass('hidden empty').delay(1000).html('');
 	  } else {
 			window.location.href = basepath;
 		}
@@ -113,11 +105,10 @@ jQuery(window).load(function(){
 	// rimuovi whitecurtain at window loaded
 	$container.imagesLoaded().done( function( instance ) {
 		console.log('all images successfully loaded');
-		whitecurtain.classList.add('transparent');
+		jQuery('#whitecurtain').addClass('transparent');
 
 		setTimeout(function(){
-			whitecurtain.classList.add('hidden')
-			whitecurtain.classList.remove('transparent');
+			jQuery('#whitecurtain').addClass('hidden').removeClass('transparent');
 		},2000);
 
 	}).fail( function() {
@@ -319,39 +310,32 @@ function ThatFabulousLightbox() {
 			if (theUrl) {
 
 				var theID = jQuery(this).attr('id');
+				//var header = "<div id=\"closecard\" class=\"GTMtrack\"><svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 100 125\" version=\"1.1\" xml:space=\"preserve\" x=\"0px\" y=\"0px\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" stroke-linejoin=\"round\" stroke-miterlimit=\"1.41421\"><g transform=\"matrix(-1,0,0,1,146.036,2)\"><path d=\"M110.879,46.5L98.439,34.061C97.854,33.475 97.854,32.525 98.439,31.939C99.025,31.354 99.975,31.354 100.561,31.939C100.561,31.939 111.975,43.354 115.555,46.934C116.141,47.519 116.141,48.469 115.555,49.055C112.135,52.475 101.091,63.519 100.561,64.049C99.975,64.635 99.025,64.635 98.439,64.049C97.854,63.463 97.854,62.514 98.439,61.928L110.867,49.5L77.5,49.5C77.102,49.5 76.721,49.342 76.439,49.061C76.158,48.779 76,48.398 76,48C76,47.602 76.158,47.221 76.439,46.939C76.721,46.658 77.102,46.5 77.5,46.5L110.879,46.5Z\" fill=\"#f7a414\"/></g></svg></div>";
+				var header = ""; // "si fotta la freccia"
 
-				// eyesonHeader.shrink();
-				modal.classList.remove('hidden');
+				eyesonHeader.shrink();
+				modal.removeClass('hidden');
 
-				// actually load the article content into the modal
-				Jmodal.load( theUrl+" #"+theID, function( response, status, xhr ) {
+				modal.load( theUrl+" #"+theID, function( response, status, xhr ) {
 					// console.debug(status);
 
 					if ( status == "success" ) {
 
-						modal.prepend(header_v5);
+						modal.prepend(header);
 						parent.update_url(theUrl);
-						modal.classList.remove('empty');
-						document.body.classList.add('modal-open');
-
-						/** TODO: **/
-						// update links to translated versions
-						// var oldLS = document.querySelector('#modal #lang-switcher');
-						// oldLS.parentNode.removeChild(oldLS);
-						jQuery('#modal #lang-switcher').load(theUrl+" #lang-switcher *");
-
+						modal.removeClass('empty');
+						jQuery('body').addClass('modal-open');
 
 						// chiudi tutto
-						jQuery('#logo').click(function(){
+						jQuery('#modal #logo, #modal #closecard').click(function(){
 							console.debug('click logo');
 							parent.update_url(basepath);
-							modal.classList.add('hidden');
-							modal.classList.add('empty');
-							document.body.classList.remove('modal-open');
+							modal.addClass('hidden empty');
+							jQuery('body').removeClass('modal-open');
 							setTimeout(function(){
 								console.log('rimosso content');
-								modal.innerHTML = '';
-								// eyesonHeader.scrolling();
+								modal.html('');
+								eyesonHeader.scrolling();
 							},2000);
 
 
@@ -374,31 +358,31 @@ function ThatFabulousLightbox() {
 							});
 						}
 
-						
+						var PinitScript=document.createElement('script');
+						PinitScript.type='text/javascript';
+						PinitScript.src='//assets.pinterest.com/js/pinit_main.js';
+
+						// modal: add print button - borrowed by Shareaholicn
 
 						setTimeout(function(){
-						document.querySelector('ul.crafty-social-buttons-list').innerHTML+=('<li><a class="crafty-social-button csb-print" href="?print=enabled" target="_blank" title="Print this Page" rel="nofollow"><img class="crafty-social-button-image" alt="Print this Page" width="48" height="48" src="'+themepath+'images/print.png"></a></li>');
+						jQuery("body").append(PinitScript);
+						jQuery('ul.crafty-social-buttons-list').append('<li><a class="crafty-social-button csb-print" href="?print=enabled" target="_blank" title="Print this Page" rel="nofollow"><img class="crafty-social-button-image" alt="Print this Page" width="48" height="48" src="'+themepath+'images/print.png"></a></li>');
 						}, 3000);
 
 					}
 
 					if ( status == "error" ) {
 						var msg = "<div class=\"post type-post type-404\"><h2>"+ xhr.status + ' ' + xhr.statusText +"</h2><p>Apologies, the article at "+theUrl+" is not available</p>\n<p>You'll be redirected to the home page in 5 seconds.</p></div>";
-						Jmodal.html( header + msg  );
+						jQuery( modal ).html( header + msg  );
 						setTimeout(function(){
-							modal.classList.add('hidden empty');
+							modal.addClass('hidden empty');
 						},5000);
 						setTimeout(function(){
-							modal.innerHTML('');
+							modal.empty();
 						},500);
 
 					}
 				});
-
-				// check for the alt language version (bit tricky but...)
-
-
-
 			}
 
 		});
@@ -414,13 +398,6 @@ function ThatFabulousLightbox() {
 ////////////////////////////////////
 // Homepage/Archives Functions
 ////////////////////////////////////
-
-// make home ITA as close as possible to home ENG
-if (bodyClasses.contains('page-template-index_ita') === true) {
-	bodyClasses.remove('page');
-	bodyClasses.add('home');
-	bodyClasses.add('home-ITA');
-}
 
 
 // Home: sballa larghezza delle immagini per creare un po' di casino.
@@ -507,7 +484,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 
 		// effetto hover su immagini in hp (idem a #234)
 		if(sw>1024){
-			jQuery('article.post .pinbin-image, article.cfa_translations .pinbin-image').each( function() {
+			jQuery('article.post .pinbin-image').each( function() {
 						jQuery(this).hoverdir({speed : 1000});
 			});
 
