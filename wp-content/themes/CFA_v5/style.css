@@ -1720,7 +1720,7 @@ article .nextContainer {
   position: absolute;
   top: 0;
   width: 70px;
-  height: 120px;
+  height: 100%;
   z-index: 8;
   cursor: pointer;
   transition: top 300ms ease-in-out;
@@ -2314,7 +2314,7 @@ a.search_menu {
     width: 120%;
   }
   .container .nextContainer,
-  .container .prevContainer { opacity: .25; }
+  .container .prevContainer { opacity: .75; }
   .container .nextContainer .next span {
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
@@ -2458,13 +2458,15 @@ div.wpcf7-validation-errors {
   text-align: justify;
 }
 .page-template-residency-page .has-post-thumbnail .pinbin-copy a {color: #fff; text-decoration: underline;}
-.page-template-residency-page .has-post-thumbnail .pinbin-copy span {
+.page-template-residency-page .has-post-thumbnail .pinbin-copy > span {
   background: rgba(0,0,0,0.5);
-  display: table;
-  clear: both;
-  float: none;
-  padding: 5px 10px;
-  color: #fff;
+    display: block;
+    clear: both;
+    float: none;
+    padding: 5px 10px;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
 }
 @media only screen and (max-width: 640px) {
   .page-template-residency-page .pinbin-copy {
