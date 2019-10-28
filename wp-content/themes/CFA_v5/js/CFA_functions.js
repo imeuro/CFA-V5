@@ -232,7 +232,7 @@ jQuery(window).load(function(){
 
 // Foglia: Swiper init (see also @ line #308: modalSwiper )
 //===============================
-if (bodyClasses.contains('single') && jQuery('#CFAslider').length !== 0) {
+if ((bodyClasses.contains('single') || bodyClasses.contains('page') )&& jQuery('#CFAslider').length !== 0) {
 	//console.debug('swiper init for single page');
 	fogliaSwiper = new Swiper ('.CFAslider', CFAslidersettings );
 
