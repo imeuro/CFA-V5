@@ -9,7 +9,7 @@
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
        
-   		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+   		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         
         <?php if ( has_post_thumbnail() ) { ?>			
 				<div class="pinbin-image"><?php the_post_thumbnail( 'detail-image' );  ?></div>
@@ -25,7 +25,7 @@
                 
          		</div>          
                 
-       </div>
+       </article>
        
 		<?php endwhile; endif; ?>      
     <div id="footerbutton">

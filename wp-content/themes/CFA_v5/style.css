@@ -1718,7 +1718,7 @@ select {
 article .prevContainer,
 article .nextContainer {
   position: absolute;
-  top: 40%;
+  top: 0;
   width: 70px;
   height: 120px;
   z-index: 8;
@@ -1733,41 +1733,42 @@ article .prevContainer:after,
 article .nextContainer:before,
 article .nextContainer:after {
   content: " ";
-  width: 50px;
-  height: 2px;
-  background-color: rgba(255,255,255,0.5);
+  width: 20px;
+  height: 5px;
+  background-color: rgb(245, 163, 47);
   display: inline-block;
   position: absolute;
-  left: 10px;
-  box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+  right: 10px;
   transition: background 150ms ease-in-out;
 }
 article .prevContainer:before {
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  top: 40px;
+  transform: rotate(-45deg);
+  top: 40%;
 }
 article .prevContainer:after {
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  top: 75px;
+  transform: rotate(45deg);
+  top: calc(40% + 11px);
 }
 
 article .nextContainer:before {
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  top: 40px;
+  transform: rotate(45deg);
+  top: 40%;
+  left: 10px;
 }
 article .nextContainer:after {
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  top: 75px;
+  transform: rotate(-45deg);
+  top: calc(40% + 11px);
+  left: 10px;
 }
 article .prevContainer:hover:before,
 article .prevContainer:hover:after,
 article .nextContainer:hover:before,
 article .nextContainer:hover:after {
-  background-color: rgba(255,255,255,1);
+  background-color: rgba(245, 163, 47,.85);
 }
 
 

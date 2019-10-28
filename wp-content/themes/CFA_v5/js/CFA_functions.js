@@ -179,21 +179,18 @@ var RepositionArrows = function(isModal) {
 	} else{
 		container = "body";
 	}
-	var sliderTop = jQuery(container+' #CFAslider').offset().top - jQuery(container+' article').offset().top;
-	var sliderPicH = jQuery(container+' #CFAslider .swiper-slide-active img').height();
-	var arrowH = jQuery(container+' .prevContainer').outerHeight();
-	var arrowW = jQuery(container+' .prevContainer').outerWidth();
-	var ArrHorOffset;
-	if (sw > 767) {
-		ArrHorOffset = jQuery(container+' article .pinbin-copy').offset().left + (arrowW/2);
-	} else {
-		ArrHorOffset = 0;
-	}
-	var arrowsPosTop = ( sliderTop + (sliderPicH/2) ) - (arrowH/2);
 
-	jQuery(container+' .prevContainer,.nextContainer').css('top',arrowsPosTop);
-	jQuery(container+' .prevContainer').css('left',ArrHorOffset);
-	jQuery(container+' .nextContainer').css('right',ArrHorOffset);
+	var slidercontainer = document.querySelectorAll(container+' #CFAslider');
+	var Parr = document.querySelectorAll(container+' .prevContainer');
+	var Narr = document.querySelectorAll(container+' .nextContainer');
+
+	Array.from(Parr).forEach( function(element, index) {
+		slidercontainer[index].insertBefore(Parr[index],null);
+	});
+	Array.from(Narr).forEach( function(element, index) {
+		slidercontainer[index].insertBefore(Narr[index],null);
+	});
+
 };
 
 
@@ -233,25 +230,25 @@ jQuery(window).load(function(){
 // Foglia: Swiper init (see also @ line #308: modalSwiper )
 //===============================
 if ((bodyClasses.contains('single') || bodyClasses.contains('page') )&& jQuery('#CFAslider').length !== 0) {
-	//console.debug('swiper init for single page');
-	fogliaSwiper = new Swiper ('.CFAslider', CFAslidersettings );
 
+	fogliaSwiper = document.querySelectorAll('.CFAslider');
 
-	fogliaSwiper.init();
-	setTimeout(function(){
-		//console.debug('fogliaSwiper slideTo1');
-		fogliaSwiper.update();
-		RepositionArrows();
-	},1000);
-	fogliaSwiper.on('slideChangeTransitionEnd', function(){
-		RepositionArrows();
+	Array.from(fogliaSwiper).forEach(function (element, index) {
+		var curSwiper = new Swiper (element, CFAslidersettings );
+		curSwiper.init();
+		console.debug(curSwiper);
+
+		setTimeout(function(){
+			curSwiper.update();	
+			RepositionArrows();
+		},500);	
+
+		curSwiper.on('lazyImageReady', function () {
+			curSwiper.update();
+			RepositionArrows();
+		});
 	});
-	fogliaSwiper.on('lazyImageReady', function () {
-		fogliaSwiper.update();
-	});
-
 }
-
 
 // Foglia: handle printing event
 //===============================
@@ -349,12 +346,10 @@ function ThatFabulousLightbox() {
 								//console.debug('fogliaSwiper slideTo1');
 								modalSwiper.update();
 								RepositionArrows(true);
-							},1000);
-							modalSwiper.on('slideChangeTransitionEnd', function(){
-								RepositionArrows(true);
-							});
+							},500);
 							modalSwiper.on('lazyImageReady', function () {
 								modalSwiper.update();
+								RepositionArrows(true);
 							});
 						}
 
