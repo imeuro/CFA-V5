@@ -1740,6 +1740,7 @@ select {
   border-radius: 10px;
   cursor: pointer;
 }
+/* frecce Swiper
 article .prevContainer,
 article .nextContainer {
   position: absolute;
@@ -1794,7 +1795,7 @@ article .prevContainer:hover:after,
 article .nextContainer:hover:before,
 article .nextContainer:hover:after {
   background-color: rgba(245, 163, 47,.85);
-}
+}*/
 
 
 
@@ -2350,6 +2351,7 @@ a.search_menu {
     margin-right: -10%;
     width: 120%;
   }
+/* frecce Swiper
   .container .nextContainer,
   .container .prevContainer { opacity: .75; }
   .container .nextContainer .next span {
@@ -2363,6 +2365,7 @@ a.search_menu {
     border-bottom: 15px solid transparent;
     border-right: 20px solid #000;
   }
+*/  
   #gallery-2 .gallery-caption {
     padding: 0 8% 40px 8%;
   }

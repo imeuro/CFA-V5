@@ -20,40 +20,6 @@ var modalSwiper = '';
 var fogliaSwiper = '';
 
 
-
-////////////////////////////////////
-// HEADER resizabble allo scroll - non serve più
-////////////////////////////////////
-// var resizzabolHeader = function() {
-// 	var me = this;
-
-// 	me.init = function() {
-// 		menu_v5.innerHTML +=('<span class="shade"></span>');
-// 		window.addEventListener('scroll', function() { me.scrolling(); });
-// 	};
-// 	me.shrink = function() {
-// 		header_v5.classList.add('shrink');
-// 		header_v5.querySelector('.shade').style.display= 'none';
-// 	};
-// 	me.expand = function() {
-// 		header_v5.classList.remove('shrink');
-// 		header_v5.querySelector('.shade').style.display='block';
-// 	};
-// 	me.scrolling = function() {
-// 		if ( modal.classList.contains('empty') === true || bodyClasses.contains('single') === false ) {
-// 			HeaderH =  window.getComputedStyle(header_v5).height.substring(0,  window.getComputedStyle(header_v5).height.length - 2);
-// 			console.debug(HeaderH);
-// 			if( header_v5.offsetHeight > HeaderH ) {
-// 				me.shrink();
-// 			} else {
-// 				me.expand();
-// 			}
-// 		} else { me.shrink(); }
-// 	};
-// };
-// var eyesonHeader = new resizzabolHeader();
-// eyesonHeader.init();
-
 // Home: sballa larghezza delle immagini per creare un po' di casino.
 var randomFromInterval = function(from,to) {
     return Math.floor(Math.random()*(to-from+1)+from);
@@ -174,33 +140,34 @@ var CFAslidersettings = {
   },
 
   // Navigation arrows
-  navigation: {
-    nextEl: '.nextContainer',
-    prevEl: '.prevContainer',
-  }
+  // navigation: {
+  //   nextEl: '.nextContainer',
+  //   prevEl: '.prevContainer',
+  // }
 };
 
 
-var RepositionArrows = function(isModal) {
-	var container;
-	if (isModal === true) {
-		container = "#modal";
-	} else{
-		container = "body";
-	}
+// no arrows in Swiper!
+// var RepositionArrows = function(isModal) {
+// 	var container;
+// 	if (isModal === true) {
+// 		container = "#modal";
+// 	} else{
+// 		container = "body";
+// 	}
 
-	var slidercontainer = document.querySelectorAll(container+' #CFAslider');
-	var Parr = document.querySelectorAll(container+' .prevContainer');
-	var Narr = document.querySelectorAll(container+' .nextContainer');
+// 	var slidercontainer = document.querySelectorAll(container+' #CFAslider');
+// 	var Parr = document.querySelectorAll(container+' .prevContainer');
+// 	var Narr = document.querySelectorAll(container+' .nextContainer');
 
-	Array.from(Parr).forEach( function(element, index) {
-		slidercontainer[index].insertBefore(Parr[index],null);
-	});
-	Array.from(Narr).forEach( function(element, index) {
-		slidercontainer[index].insertBefore(Narr[index],null);
-	});
+// 	Array.from(Parr).forEach( function(element, index) {
+// 		slidercontainer[index].insertBefore(Parr[index],null);
+// 	});
+// 	Array.from(Narr).forEach( function(element, index) {
+// 		slidercontainer[index].insertBefore(Narr[index],null);
+// 	});
 
-};
+// };
 
 
 // Foglia: actions at window load
@@ -249,12 +216,12 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') )&& jQuery('
 
 		setTimeout(function(){
 			curSwiper.update();	
-			RepositionArrows();
+			// RepositionArrows();
 		},500);	
 
 		curSwiper.on('lazyImageReady', function () {
 			curSwiper.update();
-			RepositionArrows();
+			// RepositionArrows();
 		});
 	});
 }
@@ -361,11 +328,11 @@ function ThatFabulousLightbox() {
 							setTimeout(function(){
 								//console.debug('fogliaSwiper slideTo1');
 								modalSwiper.update();
-								RepositionArrows(true);
+								// RepositionArrows(true);
 							},500);
 							modalSwiper.on('lazyImageReady', function () {
 								modalSwiper.update();
-								RepositionArrows(true);
+								// RepositionArrows(true);
 							});
 						}
 
