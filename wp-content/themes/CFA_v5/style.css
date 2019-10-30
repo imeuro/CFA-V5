@@ -1740,6 +1740,26 @@ select {
   border-radius: 10px;
   cursor: pointer;
 }
+.gutenberg-swiper-block {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0;
+  list-style:none;
+}
+.gutenberg-swiper-block .gallery-item {
+  text-align: center;
+  width: 100%;
+}
+.gutenberg-swiper-block img {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 0 auto;
+}
+.gutenberg-swiper-block .gallery-caption {
+  margin-left: 0;
+}
 /* frecce Swiper
 article .prevContainer,
 article .nextContainer {

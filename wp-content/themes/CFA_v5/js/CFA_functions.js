@@ -205,24 +205,75 @@ jQuery(window).load(function(){
 
 // Foglia: Swiper init (see also @ line #308: modalSwiper )
 //===============================
-if ((bodyClasses.contains('single') || bodyClasses.contains('page') )&& document.querySelector('.CFAslider').length !== 0) {
+if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && document.querySelector('.CFAslider, .wp-block-gallery').length !== 0) {
 
-	fogliaSwiper = document.querySelectorAll('.CFAslider');
+	fogliaSwiper = document.querySelectorAll('.CFAslider, .wp-block-gallery');
 
 	Array.from(fogliaSwiper).forEach(function (element, index) {
-		var curSwiper = new Swiper (element, CFAslidersettings );
-		curSwiper.init();
-		console.debug(curSwiper);
 
-		setTimeout(function(){
-			curSwiper.update();	
-			// RepositionArrows();
-		},500);	
+		if (element.classList.contains('wp-block-gallery') === true) {
 
-		curSwiper.on('lazyImageReady', function () {
-			curSwiper.update();
-			// RepositionArrows();
-		});
+			// 'element' will be wrapped with a div.swiper-container.CFAslider
+			var Swrapper = document.createElement('div');
+			element.parentNode.insertBefore(Swrapper, element);
+			Swrapper.appendChild(element);
+
+			// div.swiper-container.CFAslider will be wrapped with a div.container
+			var Swrapper2 = document.createElement('div');
+			Swrapper.parentNode.insertBefore(Swrapper2, Swrapper);
+			Swrapper2.appendChild(Swrapper);
+
+			//reset and add some classes to make it work...
+			Swrapper.className = '';
+			element.className = '';
+			Swrapper.classList.add('swiper-container','CFAslider');
+			Swrapper2.classList.add('container');
+			element.classList.add('swiper-wrapper','gutenberg-swiper-block');
+
+			var Sslides = element.childNodes;
+			//console.debug(Sslides);
+			Array.from(Sslides).forEach(function (e, i) {
+				e.className = '';
+				e.classList.add('swiper-slide', 'gallery-item');
+				var Sdida= e.getElementsByTagName('figcaption');
+				Sdida.className = 'gallery-caption';
+			});
+
+			// add the navigation bullets...
+			Snavigation = document.createElement('div');
+			Swrapper.appendChild(Snavigation);
+			Snavigation.classList.add('swiper-pagination');
+
+			var BlockSwiper = new Swiper (Swrapper, CFAslidersettings );
+			BlockSwiper.init();
+
+			setTimeout(function(){
+				BlockSwiper.update();	
+				// RepositionArrows();
+			},500);
+
+			BlockSwiper.on('lazyImageReady', function () {
+				BlockSwiper.update();
+				// RepositionArrows();
+			});
+
+		} else { // Legacy carousels with shortcodes
+			var curSwiper = new Swiper (element, CFAslidersettings );
+			curSwiper.init();
+			console.debug(curSwiper);
+
+			setTimeout(function(){
+				curSwiper.update();	
+				// RepositionArrows();
+			},500);
+
+			curSwiper.on('lazyImageReady', function () {
+				curSwiper.update();
+				// RepositionArrows();
+			});	
+		}
+
+
 	});
 }
 
