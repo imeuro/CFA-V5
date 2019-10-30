@@ -39,7 +39,7 @@ p {
   font-size: 14px; 
   line-height: 20px;
 }
-.container #CFAslider,
+.container .CFAslider,
 article img,
 article #gallery-1 img {
 	max-height: 300px;

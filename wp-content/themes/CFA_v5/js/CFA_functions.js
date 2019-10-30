@@ -156,7 +156,7 @@ var CFAslidersettings = {
 // 		container = "body";
 // 	}
 
-// 	var slidercontainer = document.querySelectorAll(container+' #CFAslider');
+// 	var slidercontainer = document.querySelectorAll(container+' .CFAslider');
 // 	var Parr = document.querySelectorAll(container+' .prevContainer');
 // 	var Narr = document.querySelectorAll(container+' .nextContainer');
 
@@ -205,7 +205,7 @@ jQuery(window).load(function(){
 
 // Foglia: Swiper init (see also @ line #308: modalSwiper )
 //===============================
-if ((bodyClasses.contains('single') || bodyClasses.contains('page') )&& jQuery('#CFAslider').length !== 0) {
+if ((bodyClasses.contains('single') || bodyClasses.contains('page') )&& document.querySelector('.CFAslider').length !== 0) {
 
 	fogliaSwiper = document.querySelectorAll('.CFAslider');
 
@@ -322,7 +322,7 @@ function ThatFabulousLightbox() {
 						});
 
 						// modal: Swiper init (see also @ line #348: fogliaSwiper )
-						if (jQuery('#CFAslider').length !== 0) {
+						if (document.querySelector('.CFAslider').length !== 0) {
 							modalSwiper = new Swiper ('.CFAslider', CFAslidersettings );
 							modalSwiper.init();
 							setTimeout(function(){

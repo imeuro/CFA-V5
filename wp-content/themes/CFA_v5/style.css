@@ -1716,7 +1716,7 @@ select {
   max-width: 640px;
   min-width: 270px;
 }
-.container #CFAslider {
+.container .CFAslider {
   width: 100%;
   max-width: 720px;
   height: auto;
@@ -1726,13 +1726,13 @@ select {
   transition:all 1s;
 }
 
-#CFAslider .swiper-pagination {
+.CFAslider .swiper-pagination {
   width: 100%;
   max-width: 640px;
   position: initial;
   margin-bottom: 40px;
 }
-#CFAslider .swiper-pagination-bullet {
+.CFAslider .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
   margin: 0 5px;
@@ -2346,7 +2346,7 @@ a.search_menu {
   #wrap.fixd {
     margin-top: -102px;
   }
-  .container #CFAslider {
+  .container .CFAslider {
     margin-left: -10%;
     margin-right: -10%;
     width: 120%;

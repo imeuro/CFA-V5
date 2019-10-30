@@ -252,7 +252,7 @@ function CFA_gallery_shortcode($attr) {
 		</style>";
 	$size_class = sanitize_html_class( $size );
 	$gallery_div = "<div class='container'>\n
-	<div class='swiper-container CFAslider' id='CFAslider'>\n
+	<div class='swiper-container CFAslider'>\n
 	<ul id='$selector' class='gallery slider swiper-wrapper galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class}'>\n\n";
 	$output = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
 
