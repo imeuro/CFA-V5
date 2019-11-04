@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Foto Background
+Template Name: residency
 */
 
 ?>
@@ -8,18 +8,25 @@ Template Name: Foto Background
 <?php get_header(); ?>
 <?php
 $BGimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full', false );
+if ($BGimage) :
 ?>
 <style>
 	.page-template-residency-page {
 			background: url('<?php echo $BGimage[0] ?>') fixed center center rgba(255,255,255,0.85);
 	}
-</style>
+  .page-template-residency-page #site-navigation {
+    background: transparent;
+  }
 
+</style>
+<?php
+endif;
+?>
 
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-   		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+   		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
        			<div class="pinbin-copy container">
 							<span>
@@ -32,7 +39,7 @@ $BGimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'ful
 							</span>
          		</div>
 
-       </div>
+      </article>
 
 		<?php endwhile; endif; ?>
     <div id="footerbutton">

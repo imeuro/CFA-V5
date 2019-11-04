@@ -83,7 +83,7 @@ function CFA_scripts() {
 	wp_enqueue_script( 'jquery-unveil', get_template_directory_uri() . '/js/jquery.unveil.js', array( 'imagesloaded' ), null, true );
 	wp_enqueue_script( 'CFA-functions', get_template_directory_uri() . '/js/CFA_functions.js', array( 'imagesloaded' ), '', true );
 
-	if ( is_home() || is_front_page() || is_archive() ) {
+	if ( is_home() || is_front_page() || is_archive() || is_page('it') ) {
 		wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js', array( 'jquery' ), null, true );
 		wp_enqueue_script( 'jquery-hoverdir', get_template_directory_uri() . '/js/jquery.hoverdir.js', array( 'jquery-isotope' ), null, true );
 		wp_enqueue_script( 'jquery-infinitescroll', get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array( 'jquery-hoverdir' ), null, true );
@@ -252,7 +252,7 @@ function CFA_gallery_shortcode($attr) {
 		</style>";
 	$size_class = sanitize_html_class( $size );
 	$gallery_div = "<div class='container'>\n
-	<div class='swiper-container CFAslider' id='CFAslider'>\n
+	<div class='swiper-container CFAslider'>\n
 	<ul id='$selector' class='gallery slider swiper-wrapper galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class}'>\n\n";
 	$output = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
 
@@ -293,11 +293,14 @@ function CFA_gallery_shortcode($attr) {
 	}
 	if($frecce=='ok') :
 
+		// $output .= "\n
+		// <div class=\"swiper-pagination\"></div>\n
+		// </div>\n
+		// <div class=\"prevContainer\"></div>\n
+		// <div class=\"nextContainer\"></div>\n\n";
 		$output .= "\n
 		<div class=\"swiper-pagination\"></div>\n
-		</div>\n
-		<div class=\"prevContainer\"></div>\n
-		<div class=\"nextContainer\"></div>\n\n";
+		</div>\n\n";
 
 	else:
 
@@ -425,49 +428,7 @@ class CSS_Menu_Maker_Walker extends Walker {
 
 
 // Register Custom Post Type
-function CFA_custom_post_type() {
 
-	$labels = array(
-		'name'                => _x( 'CFA Authors', 'Post Type General Name', 'text_domain' ),
-		'singular_name'       => _x( 'CFA Author', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'           => __( 'CFA Authors', 'text_domain' ),
-		'name_admin_bar'      => __( 'CFA Authors', 'text_domain' ),
-		'parent_item_colon'   => __( 'Parent Item:', 'text_domain' ),
-		'all_items'           => __( 'All Items', 'text_domain' ),
-		'add_new_item'        => __( 'Add New Item', 'text_domain' ),
-		'add_new'             => __( 'Add New', 'text_domain' ),
-		'new_item'            => __( 'New Item', 'text_domain' ),
-		'edit_item'           => __( 'Edit Item', 'text_domain' ),
-		'update_item'         => __( 'Update Item', 'text_domain' ),
-		'view_item'           => __( 'View Item', 'text_domain' ),
-		'search_items'        => __( 'Search Item', 'text_domain' ),
-		'not_found'           => __( 'Not found', 'text_domain' ),
-		'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
-	);
-	$args = array(
-		'label'               => __( 'CFA Author', 'text_domain' ),
-		'description'         => __( 'CFA Authors', 'text_domain' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'thumbnail', ),
-		'taxonomies'          => array( 'category', 'post_tag' ),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'menu_position'       => 20,
-		'menu_icon'           => 'dashicons-businessman',
-		'show_in_admin_bar'   => true,
-		'show_in_nav_menus'   => true,
-		'can_export'          => true,
-		'has_archive'         => true,
-		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
-	);
-	register_post_type( 'cfa_authors', $args );
-
-}
-add_action( 'init', 'CFA_custom_post_type', 0 );
 
 //////////////////////////////////////
 //
