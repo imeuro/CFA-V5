@@ -53,6 +53,7 @@ var resizzabolHeader = function() {
 var eyesonHeader = new resizzabolHeader();
 eyesonHeader.init();
 
+
 // Home: sballa larghezza delle immagini per creare un po' di casino.
 var randomFromInterval = function(from,to) {
     return Math.floor(Math.random()*(to-from+1)+from);
