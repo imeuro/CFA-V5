@@ -27,18 +27,22 @@ var resizzabolHeader = function() {
 	var me = this;
 
 	me.init = function() {
-		menu_v5.append('<span class="shade"></span>');
+		menu_v5.innerHTML = menu_v5.innerHTML+'<span class="shade"></span>';
 		window.addEventListener('scroll', function() { me.scrolling(); });
 	};
 	me.shrink = function() {
-		header_v5.addClass('shrink').find('.shade').css('display','none');
+		header_v5.classList.add('shrink');
+		document.querySelector('#header-menu .shade').style.display = 'none';
 	};
 	me.expand = function() {
-		header_v5.removeClass('shrink').find('.shade').css('display','block');
+		header_v5.classList.remove('shrink')
+		document.querySelector('#header-menu .shade').style.display = 'block';
 	};
 	me.scrolling = function() {
-		if ( modal.hasClass('empty') === true || bodyClasses.contains('single') === false ) {
-			if( header_v5.offset().top > logo_v5.height() ) {
+		if ( modal.classList.contains('empty') === true || bodyClasses.contains('single') === false ) {
+			// console.log(header_v5.offsetTop);
+			// console.log(logo_v5.offsetHeight);
+			if( document.documentElement.scrollTop > logo_v5.offsetHeight ) {
 				me.shrink();
 			} else {
 				me.expand();
