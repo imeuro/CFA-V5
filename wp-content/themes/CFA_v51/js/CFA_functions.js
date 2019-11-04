@@ -20,6 +20,41 @@ var modalSwiper = '';
 var fogliaSwiper = '';
 
 
+////////////////////////////////////
+// HEADER resizabble allo scroll
+////////////////////////////////////
+var resizzabolHeader = function() {
+	var me = this;
+
+	me.init = function() {
+		menu_v5.append('<span class="shade"></span>');
+		window.addEventListener('scroll', function() { me.scrolling(); });
+	};
+	me.shrink = function() {
+		header_v5.addClass('shrink').find('.shade').css('display','none');
+	};
+	me.expand = function() {
+		header_v5.removeClass('shrink').find('.shade').css('display','block');
+	};
+	me.scrolling = function() {
+		if ( modal.hasClass('empty') === true || bodyClasses.contains('single') === false ) {
+			if( header_v5.offset().top > logo_v5.height() ) {
+				me.shrink();
+			} else {
+				me.expand();
+			}
+		} else { me.shrink(); }
+	};
+};
+var eyesonHeader = new resizzabolHeader();
+eyesonHeader.init();
+
+// Home: sballa larghezza delle immagini per creare un po' di casino.
+var randomFromInterval = function(from,to) {
+    return Math.floor(Math.random()*(to-from+1)+from);
+};
+
+
 // Home: sballa larghezza delle immagini per creare un po' di casino.
 var randomFromInterval = function(from,to) {
     return Math.floor(Math.random()*(to-from+1)+from);
