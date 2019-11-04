@@ -344,16 +344,12 @@ function ThatFabulousLightbox() {
 
 					if ( status == "success" ) {
 
-						modal.prepend(header_v5);
 						parent.update_url(theUrl);
 						modal.classList.remove('empty');
 						document.body.classList.add('modal-open');
 
-						/** TODO: **/
 						// update links to translated versions
-						// var oldLS = document.querySelector('#modal #lang-switcher');
-						// oldLS.parentNode.removeChild(oldLS);
-						jQuery('#modal #lang-switcher').load(theUrl+" #lang-switcher *");
+						jQuery('#site-navigation #lang-switcher').load(theUrl+" #lang-switcher *");
 
 
 						// chiudi tutto
@@ -373,7 +369,7 @@ function ThatFabulousLightbox() {
 						});
 
 						// modal: Swiper init (see also @ line #348: fogliaSwiper )
-						if (document.querySelector('.CFAslider').length !== 0) {
+						if (document.querySelector('.CFAslider') !== null) {
 							modalSwiper = new Swiper ('.CFAslider', CFAslidersettings );
 							modalSwiper.init();
 							setTimeout(function(){
