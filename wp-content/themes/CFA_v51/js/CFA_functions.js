@@ -6,7 +6,7 @@ var bodyClasses = document.body.classList; // bodyClasses.contains('my-class-nam
 var ENV = window.location.host;
 var basepath = '/cfa/';
 if (ENV == 'localhost' || ENV == 'nas.imeuro.io') { basepath = '/conceptualfinearts/cfa/'; }
-var themepath = basepath+'wp-content/themes/CFA_v5/';
+var themepath = basepath+'wp-content/themes/CFA_v51/';
 var $container = jQuery('#post-area');
 var whitecurtain = document.getElementById('whitecurtain');
 var modal = document.getElementById('modal');
