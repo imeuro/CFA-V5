@@ -1,5 +1,14 @@
 <!DOCTYPE html>
-<html <?php language_attributes();?>>
+<?php 
+if (is_page('it') || get_post_type(get_the_ID()) == 'cfa_translations') : 
+  $lang = 'IT'; 
+  $lang_attr = "it-IT";
+else: 
+  $lang = 'EN'; 
+  $lang_attr = "en-US";
+endif; 
+?>
+<html lang="<?php echo $lang_attr;?>">
 
   <head>
     	<meta charset="<?php bloginfo('charset'); ?>" />
@@ -19,11 +28,11 @@
       ?>">
 
       <?php 
-      if (is_page('it') || get_post_type(get_the_ID()) == 'cfa_translations') : 
-      	$lang = 'IT'; 
-      else: 
-      	$lang = 'EN'; 
-      endif; 
+      // if (is_page('it') || get_post_type(get_the_ID()) == 'cfa_translations') : 
+      // 	$lang = 'IT'; 
+      // else: 
+      // 	$lang = 'EN'; 
+      // endif; 
       ?>
       <meta name="language" content="<?php echo $lang; ?>">
       <title><?php wp_title('&#124;', true, 'right'); ?></title>
