@@ -1313,7 +1313,11 @@ div.wpcf7 input[type="submit"] {
   height: auto;
   margin: 0 auto;
 }
-
+.pinbin-copy iframe {
+  border: none;
+  border-radius: 3px;
+  max-width: 100%;
+}
 
 /* Post style on frontpage
 --------------------------------------------------------------*/
