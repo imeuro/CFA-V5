@@ -1283,7 +1283,7 @@ div.wpcf7 input[type="submit"] {
 }
 .post .pinbin-copy p,
 .cfa_translations .pinbin-copy p {
-  padding-bottom: 1.5rem;
+  padding: 15px 25px;
 }
 .pinbin-copy p.pinbin-meta {
   width: 100%;

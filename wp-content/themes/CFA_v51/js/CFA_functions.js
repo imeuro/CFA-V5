@@ -5,7 +5,7 @@ var sw = document.body.clientWidth;
 var bodyClasses = document.body.classList; // bodyClasses.contains('my-class-name')
 var ENV = window.location.host;
 var basepath = '/cfa/';
-if (ENV == 'localhost' || ENV == 'nas.imeuro.io') { basepath = '/conceptualfinearts/cfa/'; }
+if (ENV == 'localhost' || ENV == 'nas.imeuro.io' || ENV == 'www.meuro.dev') { basepath = '/conceptualfinearts/cfa/'; }
 var themepath = basepath+'wp-content/themes/CFA_v51/';
 var $container = jQuery('#post-area');
 var whitecurtain = document.getElementById('whitecurtain');
@@ -214,22 +214,22 @@ var CFAslidersettings = {
 //===============================
 
 jQuery(window).load(function(){
-  console.log('done with page load.');
-  jQuery('article.post .pinbin-image').addClass('newitem');
-  okresize();
+	console.log('done with page load.');
+	jQuery('article.post .pinbin-image').addClass('newitem');
+	okresize();
 
-  jQuery('.archive-month-container').isotope({
-    columnWidth: 160
-  });
+	jQuery('.archive-month-container').isotope({
+		columnWidth: 160
+	});
 
 	// Foglia: init that fantastic lightbox!
 	//===============================
 	ThatFabulousLightbox();
 
 
-  // Foglia: LAZYLOAD (actually is unveil.js)
+  	// Foglia: LAZYLOAD (actually is unveil.js)
 	//===============================
-  jQuery("img.unveil").unveil();
+	jQuery("img.unveil").unveil();
 
 
 	// Foglia: add print button - borrowed by Shareaholic
@@ -525,7 +525,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 	  //console.log(sw);
 
 	  if (sw>767) {
-	        jQuery('#post-area').isotope({
+	      jQuery('#post-area').isotope({
 	        layoutMode: 'spineAlign',
 	        //disable resizing
 	        resizable: false,

@@ -43,7 +43,6 @@ $postnum++;
                   ?>
                   <div class="pinbin-copy">
                     <p>
-                      <small><?php the_time('F j, Y'); ?></small><br />
 	                    <?php
 	                    if (get_the_title()!='') :
 	                       echo '<strong>'.get_the_title().'</strong>';
