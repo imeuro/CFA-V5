@@ -231,15 +231,6 @@ jQuery(window).load(function(){
 	//===============================
 	jQuery("img.unveil").unveil();
 
-
-	// Foglia: add print button - borrowed by Shareaholic
-	//===============================
-	if (jQuery('.csb-print').length === 0) {
-		setTimeout(function(){
-		jQuery('ul.crafty-social-buttons-list').append('<li><a class="crafty-social-button csb-print" href="?print=enabled" target="_blank" title="Print this Page" rel="nofollow"><img class="crafty-social-button-image" alt="Print this Page" width="48" height="48" src="'+themepath+'images/print.png"></a></li>');
-		}, 3000);
-	}
-
 });
 
 
@@ -618,7 +609,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 
 	    scan_urls();
 
-			ThatFabulousLightbox();
+		ThatFabulousLightbox();
 
 	    if (jQuery("#post-area").hasClass('isotope')) {
 	      $container.children('.newitem').hide();

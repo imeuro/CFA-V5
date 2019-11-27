@@ -1957,22 +1957,44 @@ div#closemenu:hover,
 }
 .search-results .pinbin-copy.otherway a {width: 100px;}
 
-div.crafty-social-buttons {
-  margin-top: 100px;
+.post-pubdate:before { 
+  content: "First publication date:";
+  font-weight: 700;
+  font-size: 14px;
+  clear: both;
+}
+.post-pubdate {
+  line-height: 28px;
+  text-align: right; 
+}
+
+.share-link {
+  margin-top: 50px;
   border-top: 1px solid #888;
   background: transparent;
 }
-#blackcurtain div.crafty-social-buttons { display: none; }
-div.crafty-social-buttons ul li img {
+.share-link ul {
+  list-style: none;
+  margin: 30px 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.share-link ul li img {
   display: inline-block;
   padding: 10px 5px;
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
 }
-div.crafty-social-buttons .crafty-social-caption {
-  line-height: 50px;
-  margin-top: 15px;
-  color: #444;
+.share-link ul li img:hover {
+  opacity: .5;
 }
 
+.share-link-buttons-whatsapp { display:block; }
+@media only screen and (min-width: 768px) { .share-link-buttons-whatsapp { display:none; }
+}
 
 /* roba Bio (contenuto del post type: cfa_authors) */
 small.author { font-size: 120%; }
