@@ -425,6 +425,7 @@ class CSS_Menu_Maker_Walker extends Walker {
 
 
 // Register Custom Post Type
+/*
 function CFA_custom_post_type() {
 
 	$labels = array(
@@ -467,7 +468,8 @@ function CFA_custom_post_type() {
 	register_post_type( 'cfa_authors', $args );
 
 }
-add_action( 'init', 'CFA_custom_post_type', 0 );
+*/
+// add_action( 'init', 'CFA_custom_post_type', 0 );
 
 //////////////////////////////////////
 //
