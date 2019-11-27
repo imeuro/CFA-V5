@@ -1961,6 +1961,7 @@ div#closemenu:hover,
   content: "First publication date:";
   font-weight: 700;
   font-size: 14px;
+  line-height: 14px;
   display:block;
 }
 .post-pubdate {
