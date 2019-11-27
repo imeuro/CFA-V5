@@ -12,7 +12,6 @@
 
         <?php
 				if (!get_field('author_name',$post->ID)) :  // old format ?>
-          <small class="date"><?php the_time('F j, Y'); ?></small><br />
           <h1><?php the_title(); ?></h1>
         <?php else :  // new format ?>
           <br /><h1><?php the_title(); ?></h1><br />
@@ -28,8 +27,6 @@
               <?php the_field('author_name',$post->ID); ?>
             <?php } ?>
             </small>
-            &nbsp;-&nbsp;
-            <small class="time"><?php the_time('F j, Y'); ?></small>
           </div>
         <?php endif; ?>
 
@@ -45,6 +42,8 @@
           <?php the_content('Read more'); ?>
 
         	<div class="pagelink"><?php wp_link_pages(); ?></div>
+
+          <small class="date"><?php the_time('F j, Y'); ?></small><br />
 
         </div>
         	<div class="posttags container"><?php the_tags('<h3>Tags</h3> #', ', #', '<br />'); ?></div>
