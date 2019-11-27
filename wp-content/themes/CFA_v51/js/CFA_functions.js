@@ -102,6 +102,10 @@ var okresize = function() {
 
 jQuery(document).ready(function($){
 
+	// Website Credits
+	console.log("%c\n CONCEPTUAL FINE ARTS \n Powered by: Mauro Fioravanzi \n since oct 2013 \n",'background:#fff;color:#F7A420;font-weight:700');
+
+
 	jQuery('#logo').click(function(){
 	  if (Jmodal.children().length !== 0) {
       parent.update_url(basepath);
@@ -180,34 +184,11 @@ var CFAslidersettings = {
   },
 
   // Navigation arrows
-  // navigation: {
-  //   nextEl: '.nextContainer',
-  //   prevEl: '.prevContainer',
-  // }
+  navigation: {
+    nextEl: '.nextContainer',
+    prevEl: '.prevContainer',
+  }
 };
-
-
-// no arrows in Swiper!
-// var RepositionArrows = function(isModal) {
-// 	var container;
-// 	if (isModal === true) {
-// 		container = "#modal";
-// 	} else{
-// 		container = "body";
-// 	}
-
-// 	var slidercontainer = document.querySelectorAll(container+' .CFAslider');
-// 	var Parr = document.querySelectorAll(container+' .prevContainer');
-// 	var Narr = document.querySelectorAll(container+' .nextContainer');
-
-// 	Array.from(Parr).forEach( function(element, index) {
-// 		slidercontainer[index].insertBefore(Parr[index],null);
-// 	});
-// 	Array.from(Narr).forEach( function(element, index) {
-// 		slidercontainer[index].insertBefore(Narr[index],null);
-// 	});
-
-// };
 
 
 // Foglia: actions at window load
@@ -413,12 +394,6 @@ function ThatFabulousLightbox() {
 								// RepositionArrows(true);
 							});
 						}
-
-						
-
-						setTimeout(function(){
-						document.querySelector('ul.crafty-social-buttons-list').innerHTML+=('<li><a class="crafty-social-button csb-print" href="?print=enabled" target="_blank" title="Print this Page" rel="nofollow"><img class="crafty-social-button-image" alt="Print this Page" width="48" height="48" src="'+themepath+'images/print.png"></a></li>');
-						}, 3000);
 
 					}
 

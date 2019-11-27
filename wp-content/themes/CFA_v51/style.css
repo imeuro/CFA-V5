@@ -1764,12 +1764,12 @@ select {
 .gutenberg-swiper-block .gallery-caption {
   margin-left: 0;
 }
-/* frecce Swiper
+/* frecce Swiper */
 article .prevContainer,
 article .nextContainer {
   position: absolute;
   top: 0;
-  width: 70px;
+  width: 33%;
   height: 100%;
   z-index: 8;
   cursor: pointer;
@@ -1777,50 +1777,6 @@ article .nextContainer {
 }
 article .prevContainer { left: 0; }
 article .nextContainer { right: 0; }
-
-article .prevContainer:before,
-article .prevContainer:after,
-article .nextContainer:before,
-article .nextContainer:after {
-  content: " ";
-  width: 20px;
-  height: 5px;
-  background-color: rgb(245, 163, 47);
-  display: inline-block;
-  position: absolute;
-  right: 10px;
-  transition: background 150ms ease-in-out;
-}
-article .prevContainer:before {
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  top: 40%;
-}
-article .prevContainer:after {
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  top: calc(40% + 11px);
-}
-
-article .nextContainer:before {
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  top: 40%;
-  left: 10px;
-}
-article .nextContainer:after {
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  top: calc(40% + 11px);
-  left: 10px;
-}
-article .prevContainer:hover:before,
-article .prevContainer:hover:after,
-article .nextContainer:hover:before,
-article .nextContainer:hover:after {
-  background-color: rgba(245, 163, 47,.85);
-}*/
-
 
 
 .shareaholic-canvas:before {

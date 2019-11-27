@@ -293,14 +293,14 @@ function CFA_gallery_shortcode($attr) {
 	}
 	if($frecce=='ok') :
 
-		// $output .= "\n
-		// <div class=\"swiper-pagination\"></div>\n
-		// </div>\n
-		// <div class=\"prevContainer\"></div>\n
-		// <div class=\"nextContainer\"></div>\n\n";
 		$output .= "\n
+		<div class=\"prevContainer\"></div>\n
+		<div class=\"nextContainer\"></div>\n
 		<div class=\"swiper-pagination\"></div>\n
 		</div>\n\n";
+		// $output .= "\n
+		// <div class=\"swiper-pagination\"></div>\n
+		// </div>\n\n";
 
 	else:
 
