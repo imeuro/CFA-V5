@@ -1735,6 +1735,7 @@ select {
   max-width: 640px;
   position: initial;
   margin-bottom: 40px;
+  margin-top: 10px;
 }
 .CFAslider .swiper-pagination-bullet {
   width: 10px;

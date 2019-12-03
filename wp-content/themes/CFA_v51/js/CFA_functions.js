@@ -225,10 +225,18 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && documen
 
 		if (element.classList.contains('wp-block-gallery') === true) {
 
+			var da_element = element;
+			if (element.nodeName == 'FIGURE') { // shit happens :(
+
+				da_element = element.firstChild;
+				da_element.classList.remove('blocks-gallery-grid');
+
+			}
+
 			// 'element' will be wrapped with a div.swiper-container.CFAslider
 			var Swrapper = document.createElement('div');
-			element.parentNode.insertBefore(Swrapper, element);
-			Swrapper.appendChild(element);
+			da_element.parentNode.insertBefore(Swrapper, da_element);
+			Swrapper.appendChild(da_element);
 
 			// div.swiper-container.CFAslider will be wrapped with a div.container
 			var Swrapper2 = document.createElement('div');
@@ -237,13 +245,13 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && documen
 
 			//reset and add some classes to make it work...
 			Swrapper.className = '';
-			element.className = '';
+			da_element.className = '';
 			Swrapper.classList.add('swiper-container','CFAslider');
 			Swrapper2.classList.add('container');
-			element.classList.add('swiper-wrapper','gutenberg-swiper-block');
 
-			var Sslides = element.childNodes;
-			//console.debug(Sslides);
+			da_element.classList.add('swiper-wrapper','gutenberg-swiper-block');
+
+			var Sslides = da_element.childNodes;
 			Array.from(Sslides).forEach(function (e, i) {
 				e.className = '';
 				e.classList.add('swiper-slide', 'gallery-item');
@@ -251,22 +259,30 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && documen
 				Sdida.className = 'gallery-caption';
 			});
 
-			// add the navigation bullets...
-			Snavigation = document.createElement('div');
-			Swrapper.appendChild(Snavigation);
-			Snavigation.classList.add('swiper-pagination');
 
+			// add the navigation bullets + arrows...
+			var Snavigation = document.createElement('div');
+			var SLarr = document.createElement('div');
+			var SRarr = document.createElement('div');
+
+			Swrapper.appendChild(Snavigation);
+			Swrapper.appendChild(SLarr);
+			Swrapper.appendChild(SRarr);
+
+			Snavigation.classList.add('swiper-pagination');
+			SLarr.classList.add('prevContainer');
+			SRarr.classList.add('nextContainer');
+
+			// aaaaand finally init dat shit
 			var BlockSwiper = new Swiper (Swrapper, CFAslidersettings );
 			BlockSwiper.init();
 
 			setTimeout(function(){
 				BlockSwiper.update();	
-				// RepositionArrows();
 			},500);
 
 			BlockSwiper.on('lazyImageReady', function () {
 				BlockSwiper.update();
-				// RepositionArrows();
 			});
 
 		} else { // Legacy carousels with shortcodes
