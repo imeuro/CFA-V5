@@ -1770,7 +1770,7 @@ article .prevContainer,
 article .nextContainer {
   position: absolute;
   top: 0;
-  width: 33%;
+  width: 50%;
   height: 100%;
   z-index: 8;
   cursor: pointer;

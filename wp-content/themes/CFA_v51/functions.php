@@ -174,7 +174,7 @@ function CFA_gallery_shortcode($attr) {
 		'icontag'    => 'span',
 		'captiontag' => 'h3',
 		'columns'    => 1,
-		'size'       => 'medium',
+		'size'       => '1536x1536',
 		'include'    => '',
 		'exclude'    => ''
 	), $attr, 'gallery'));
