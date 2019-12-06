@@ -54,6 +54,10 @@ var eyesonHeader = new resizzabolHeader();
 eyesonHeader.init();
 
 
+// protect images - attempt
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+
 // Home: sballa larghezza delle immagini per creare un po' di casino.
 var randomFromInterval = function(from,to) {
     return Math.floor(Math.random()*(to-from+1)+from);
