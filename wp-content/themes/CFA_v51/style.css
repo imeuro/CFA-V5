@@ -1281,10 +1281,7 @@ div.wpcf7 input[type="submit"] {
   clear: both;
   max-width: 100%;
 }
-.post .pinbin-copy p,
-.cfa_translations .pinbin-copy p {
-  padding: 15px 25px;
-}
+
 .pinbin-copy p.pinbin-meta {
   width: 100%;
   display: inline-block;
@@ -1850,7 +1847,7 @@ input#searchsubmit {
   font-weight: normal;
 }
 .wp-caption,
-.wp-block-image figcaption {margin-bottom: 1.5rem; width: 100%; text-align: center;}
+.wp-block-image figcaption {margin-bottom: 1.5rem; box-sizing: border-box; text-align: center;}
 
 
 #searchform {margin: 50px 0 0 0;text-align: right;width: 100%;max-width: 280px;position: relative;float: right;}
