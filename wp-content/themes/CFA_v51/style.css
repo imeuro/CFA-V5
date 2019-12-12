@@ -1849,7 +1849,8 @@ input#searchsubmit {
   text-transform:capitalize;
   font-weight: normal;
 }
-.wp-caption {margin-bottom: 1.5rem; width: 100%; text-align: center;}
+.wp-caption,
+.wp-block-image figcaption {margin-bottom: 1.5rem; width: 100%; text-align: center;}
 
 
 #searchform {margin: 50px 0 0 0;text-align: right;width: 100%;max-width: 280px;position: relative;float: right;}
@@ -2407,7 +2408,8 @@ a.search_menu {
 
 #wpadminbar {display: none}
 .gallery-caption,
-.pinbin-copy p.wp-caption-text {font-size: 1.25rem; line-height: 1.5rem; margin: 1em; padding-bottom: 0em;}
+.pinbin-copy p.wp-caption-text,
+.wp-block-image figcaption {font-size: 1.25rem; line-height: 1.5rem; margin: 1em; padding-bottom: 0em;}
 
 .widget_wysija_cont {
     display: inline-block;
