@@ -1310,6 +1310,8 @@ div.wpcf7 input[type="submit"] {
   height: auto;
   margin: 0 auto;
 }
+figure.wp-block-image {margin: 60px auto;}
+
 .pinbin-copy iframe {
   border: none;
   border-radius: 3px;
