@@ -10,8 +10,12 @@
   Tags: light, white, black, photoblogging, one-column, flexible-width, custom-background, custom-menu, full-width-template, microformats, theme-options
 */
 
-/* colour styles : reset
--------------------------------------------------------------- */
+/* 
+###################
+OFFICIAL CFA ORANGE IS:
+#f5a32f
+###################
+*/
 
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 
@@ -80,6 +84,7 @@ html {
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /**
@@ -524,7 +529,7 @@ div#closemenu span {
   margin-top: -7px;
   display: inline-block;
 }
-#blackcurtain #menu-coldx,
+/*
 #blackcurtain #patrons-coldx,
 #blackcurtain #menu-colsx,
 #blackcurtain #patrons-colsx,
@@ -587,6 +592,7 @@ div#closemenu span {
   color: #fff; 
   text-decoration: none;
 }
+
 #blockwindow {
   position: fixed;
   top: -400px;
@@ -646,9 +652,7 @@ div#closemenu span {
   margin: 0;
   display: block;
 }
-#blockwindow a:hover {
-  color: #ff5ba2;
-}
+*/
 
 
 #main-nav-wrapper {
@@ -789,7 +793,7 @@ span.postcount span {
   text-align: center;
 }
 span.postcount span:last-child {
-  color: #f5a330;
+  color: #f5a32f;
 }
 
 
@@ -816,7 +820,7 @@ ul#header-menu li a {
   line-height: 20px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #f7a414;
+  color: #f5a32f;
   font-family: 'BenchNine', sans-serif;
   font-weight: 700;
   opacity: 1;
@@ -892,7 +896,7 @@ div.wpcf7 input[type="submit"] {
   font-size: 24px;
   font-weight: 300;
   background: #fff;
-  color: #f7a414;
+  color: #f5a32f;
   font-family: 'BenchNine', sans-serif;
   border: 0;
   padding: 1rem;
@@ -959,7 +963,7 @@ div.wpcf7 input[type="submit"] {
   margin-bottom: 3px;
 }
 #lang-switcher a {
-  color: #f5a330;
+  color: #f5a32f;
   text-decoration: none
 }
 
@@ -1062,41 +1066,6 @@ div.wpcf7 input[type="submit"] {
 
 .menu_open #modal.hidden { right: -100vw; }
 .menu_open #modal > * { opacity: .25; }
-
-/*
-#modal #closecard {
-  position: fixed;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 49px;
-  height: 49px;
-  cursor: pointer;
-  z-index: 10;
-}
-#modal #closecard:after {
-  content: "BACK";
-  float: left;
-  display: inline-block;
-  font-family: 'BenchNine', sans-serif;
-  font-weight: 100;
-  font-size: 12px;
-  color: #f7a414;
-  position: absolute;
-  top: 18px;
-  left: 40px;
-}
-#modal #closecard g {
-  -webkit-transition: opacity 150ms ease-in-out;
-  transition: opacity 150ms ease-in-out;
-  fill: #f5a32f;
-  opacity: 1;
-}
-#modal #closecard:hover g.
-#modal #closecard:hover:after {
-  opacity:.5;
-}
-*/
 
 #modal .post,
 #modal .cfa_translations {
@@ -1643,7 +1612,7 @@ blockquote {
   line-height: 23px;
   color: #111;
   margin-left: 20px;
-  border-left: 1px dotted #999;
+  border-left: 2px solid #f5a32f;
   padding-left: 25px;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -1906,7 +1875,7 @@ div#closemenu:hover,
   clear: both;
   display: inline-block;
   padding: 10px 10px;
-  color: #f7a414;
+  color: #f5a32f;
   font-family: 'BenchNine', sans-serif;
   text-transform: uppercase;
   text-decoration: none;
@@ -2263,7 +2232,7 @@ a.search_menu {
     padding-right: 0;
   }
   #menu_handle svg > g {
-    fill: #F5A32F;
+    fill: #f5a32f;
   }
 
   #modal {
@@ -2451,31 +2420,31 @@ p.wysija-paragraph {
   display: inline-block;
   font-size: 20px;
   line-height: 20px;
-  background: #f7a414;
+  background: #f5a32f;
   color: #fff;
   font-family: 'BenchNine', sans-serif;
   padding: 10px 40px;
   text-transform: uppercase;
   cursor: pointer;
   margin: 50px auto;
-  border: 1px solid #f7a414;
+  border: 1px solid #f5a32f;
   box-sizing: border-box;
 }
-span.wpcf7-not-valid-tip { color: #fdb62c; }
+span.wpcf7-not-valid-tip { color: #f5a32f; }
 .widget_wysija_cont .updated {
   font-family: "Arapey", serif;
   font-size: 2rem;
-  border: 1px solid #fdb62c;
+  border: 1px solid #f5a32f;
   border-radius: 3px;
   color: #fff;
-  background: #fdb62c;
+  background: #f5a32f;
   text-align: center;
   margin: 40px 0;
   padding: 20px;
 }
 div.wpcf7-validation-errors {
-  border: 1px solid #fdb62c;
-  color: #fdb62c;
+  border: 1px solid #f5a32f;
+  color: #f5a32f;
   text-align: center;
   padding: 20px;
   margin: 0;
