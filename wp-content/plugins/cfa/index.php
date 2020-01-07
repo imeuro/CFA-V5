@@ -12,6 +12,7 @@ if( ! defined( 'ABSPATH') ) { exit; }
 
 include('inc/custom-post-types-fields-taxonomies.php');
 include('inc/backend-functions.php');
+include('inc/blocks-functions.php');
 
 function get_langswitcherDOM() {
 

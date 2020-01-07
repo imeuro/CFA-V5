@@ -55,7 +55,7 @@ eyesonHeader.init();
 
 
 // protect images - attempt
-document.addEventListener('contextmenu', event => event.preventDefault());
+// document.addEventListener('contextmenu', event => event.preventDefault());
 
 
 // Home: sballa larghezza delle immagini per creare un po' di casino.
