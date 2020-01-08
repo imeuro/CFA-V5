@@ -12,31 +12,17 @@ add_action( 'enqueue_block_editor_assets', 'CFA_GutenBlock' );
 
 
 
-function foo_image_render( $attributes, $content ) {
-	/**
-	 * Here you find an array with the ids of all 
-	 * the images that are in your image.
-	 * 
-	 * for example: 
-	 * $attributes = [
-	 *     "ids" => [ 12, 34, 56, 78 ]
-	 * ]
-	 *
-	 * Now have fun querying them,
-	 * arrangin them and returning your constructed markup!
-	*/
-	// print_r($content);
-	// print_r($attributes);
+function cfa_image_render( $attributes, $content ) {
 	$code = '<figure class="wp-block-image '.$attributes['className'].'">';
 	$code .= wp_get_attachment_image($attributes['id'],$attributes['sizeSlug'], false, array( "loading" => "lazy", "class" => "img-responsive" ));
 	$code .= '</figure>';
 
 	return $code;
 }
-function foo_register_image() {
+function cfa_register_image() {
 	register_block_type( 'core/image', array(
-		'render_callback' => 'foo_image_render',
+		'render_callback' => 'cfa_image_render',
 	) );
 }
-add_action( 'init', 'foo_register_image' );
+add_action( 'init', 'cfa_register_image' );
 ?>
