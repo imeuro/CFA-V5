@@ -532,3 +532,11 @@ add_shortcode('mailpoet_undo_unsubscribe', 'mpoet_get_undo_unsubscribe');
     return $short_txt;
 }
 add_shortcode('CFA_tagline', 'tagline_shortcode');
+
+
+function justITPosts( $query ) {
+    if ( $query->is_page('it')  ) {
+        $query->set( 'post_type', 'cfa_translations' );
+    }
+}
+add_action( 'pre_get_posts', 'justITPosts' );
