@@ -561,7 +561,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 
 	    }
 	  });
-
+	  
 	  var pageNum = 0;
 	  $container.infinitescroll({
 	    loading: {
@@ -592,6 +592,13 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 	  },
 	  // call Isotope as a callback
 	  function( newElements ) {
+	  	newElements.forEach(function(item, index) {
+		 if (newElements[index].classList.contains('no-results')) {
+		 		item.classList.add('hidden');
+		  		$container.infinitescroll('destroy');
+		  }
+	  	})
+	  	
 	    pageNum++;
 
 			if(sw>1024){
@@ -617,8 +624,9 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 	      $container.isotope( 'appended', jQuery( newElements ) );
 	      setTimeout(function(){$container.isotope('reLayout');}, 1000);
 	    }
-			var trackerName = ga.getAll()[0].get('name');
-			ga(trackerName + '.send', 'pageview', '/scroll/'+pageNum);
+
+		var trackerName = ga.getAll()[0].get('name');
+		ga(trackerName + '.send', 'pageview', '/scroll/'+pageNum);
 	    //ga('send', 'pageview', '/scroll/'+pageNum);
 	    console.log('scroll/'+pageNum);
 	  });

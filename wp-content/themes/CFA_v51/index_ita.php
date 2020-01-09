@@ -17,16 +17,20 @@ $ITargs = array(
 // The Query
 $ITquery = new WP_Query( $ITargs );
 
+// Pagination fix
+$temp_query = $wp_query;
+$wp_query   = NULL;
+$wp_query   = $ITquery;
+
 // The Loop
-if ( $ITquery->have_posts() ) { ?>
-  <div id="post-area"><!--class="scroller"-->
+if (have_posts()) { 
+?>
+<div id="post-area"><!--class="scroller"-->
 
 <?php
-  $postnum=0;
-  while ( $ITquery->have_posts() ) {
-    $ITquery->the_post();
-    $postnum++;
-?>
+$postnum=0;
+while (have_posts()) { the_post();
+  ?>
 
       <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
 
@@ -93,7 +97,10 @@ if ( $ITquery->have_posts() ) { ?>
         </div><!-- .entry-content -->
 </article><!-- #post-0 -->
 
-<?php } ?>
+<?php } 
+// Reset postdata
+wp_reset_postdata();
+?>
 
 
     <div id="footerbutton">
@@ -102,7 +109,12 @@ if ( $ITquery->have_posts() ) { ?>
 
 
     <nav id="nav-below" class="navigation" role="navigation">
-        <div class="view-previous"><?php next_posts_link( __( '&#171; Previous', 'pinbin' ),$ITquery->max_num_pages ) ?></div>
-        <div class="view-next"><?php previous_posts_link( __( 'Next &#187;', 'pinbin' ),$ITquery->max_num_pages ) ?> </div>
+        <div class="view-previous"><?php next_posts_link( __( '&#171; Previous', 'pinbin' ) ) ?></div>
+        <div class="view-next"><?php previous_posts_link( __( 'Next &#187;', 'pinbin' ) ) ?> </div>
     </nav>
-<?php get_footer(); ?>
+<?php 
+// Reset main query object
+$wp_query = NULL;
+$wp_query = $temp_query;
+
+get_footer(); ?>
