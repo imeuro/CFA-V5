@@ -595,6 +595,8 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 	  	newElements.forEach(function(item, index) {
 		 if (newElements[index].classList.contains('no-results')) {
 		 		item.classList.add('hidden');
+		 		newElements[0].innerHTML='<p>Sorry, no other post available.</p>'
+		 		newElements[0].classList.remove('hidden');
 		  		$container.infinitescroll('destroy');
 		  }
 	  	})
