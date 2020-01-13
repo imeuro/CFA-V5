@@ -169,17 +169,19 @@ window.addEventListener('popstate', function(event) {
 
 var CFAslidersettings = {
 	init: false,
-  direction: 'horizontal',
+	direction: 'horizontal',
 	autoHeight: true,
-  loop: true,
+	loop: true,
 	keyboard: true,
 	preloadImages: false,
-  lazy: {
-    loadPrevNext: true,
-  },
+	lazy: {
+    	loadPrevNext: true,
+    	loadPrevNextAmount: 1,
+    	loadOnTransitionStart: true
+  	},
 	fadeEffect: {
-    crossFade: true
-  },
+	crossFade: true
+	},
 
   // If we need pagination
   pagination: {
@@ -221,92 +223,34 @@ jQuery(window).load(function(){
 
 // Foglia: Swiper init (see also @ line #308: modalSwiper )
 //===============================
+
+
 if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && document.querySelector('.CFAslider, .wp-block-gallery') !== null) {
 
 	fogliaSwiper = document.querySelectorAll('.CFAslider, .wp-block-gallery');
 
 	Array.from(fogliaSwiper).forEach(function (element, index) {
 
-		if (element.classList.contains('wp-block-gallery') === true) {
+		var curSwiper = new Swiper (element, CFAslidersettings );
+		curSwiper.init();
+		console.debug(curSwiper);
 
-			var da_element = element;
-			if (element.nodeName == 'FIGURE') { // shit happens :(
+		curSwiper.on('init', function() { 
+			updateSwipeArea(300); 
+		});
+		curSwiper.on('lazyImageReady', function () {
+			updateSwipeArea(100);
+		});	
 
-				da_element = element.firstChild;
-				da_element.classList.remove('blocks-gallery-grid');
-
-			}
-
-			// 'element' will be wrapped with a div.swiper-container.CFAslider
-			var Swrapper = document.createElement('div');
-			da_element.parentNode.insertBefore(Swrapper, da_element);
-			Swrapper.appendChild(da_element);
-
-			// div.swiper-container.CFAslider will be wrapped with a div.container
-			var Swrapper2 = document.createElement('div');
-			Swrapper.parentNode.insertBefore(Swrapper2, Swrapper);
-			Swrapper2.appendChild(Swrapper);
-
-			//reset and add some classes to make it work...
-			Swrapper.className = '';
-			da_element.className = '';
-			Swrapper.classList.add('swiper-container','CFAslider');
-			Swrapper2.classList.add('container');
-
-			da_element.classList.add('swiper-wrapper','gutenberg-swiper-block');
-
-			var Sslides = da_element.childNodes;
-			Array.from(Sslides).forEach(function (e, i) {
-				e.className = '';
-				e.classList.add('swiper-slide', 'gallery-item');
-				var Sdida= e.getElementsByTagName('figcaption');
-				Sdida.className = 'gallery-caption';
-			});
-
-
-			// add the navigation bullets + arrows...
-			var Snavigation = document.createElement('div');
-			var SLarr = document.createElement('div');
-			var SRarr = document.createElement('div');
-
-			Swrapper.appendChild(Snavigation);
-			Swrapper.appendChild(SLarr);
-			Swrapper.appendChild(SRarr);
-
-			Snavigation.classList.add('swiper-pagination');
-			SLarr.classList.add('prevContainer');
-			SRarr.classList.add('nextContainer');
-
-			// aaaaand finally init dat shit
-			var BlockSwiper = new Swiper (Swrapper, CFAslidersettings );
-			BlockSwiper.init();
-
-			setTimeout(function(){
-				BlockSwiper.update();	
-			},500);
-
-			BlockSwiper.on('lazyImageReady', function () {
-				BlockSwiper.update();
-			});
-
-		} else { // Legacy carousels with shortcodes
-			var curSwiper = new Swiper (element, CFAslidersettings );
-			curSwiper.init();
-			console.debug(curSwiper);
-
+		function updateSwipeArea(delay) {
 			setTimeout(function(){
 				curSwiper.update();	
-				// RepositionArrows();
-			},500);
-
-			curSwiper.on('lazyImageReady', function () {
-				curSwiper.update();
-				// RepositionArrows();
-			});	
+			},delay);
 		}
 
+	})
 
-	});
+
 }
 
 // Foglia: handle printing event
@@ -401,18 +345,29 @@ function ThatFabulousLightbox() {
 						});
 
 						// modal: Swiper init (see also @ line #348: fogliaSwiper )
-						if (document.querySelector('.CFAslider') !== null) {
-							modalSwiper = new Swiper ('.CFAslider', CFAslidersettings );
-							modalSwiper.init();
-							setTimeout(function(){
-								//console.debug('fogliaSwiper slideTo1');
-								modalSwiper.update();
-								// RepositionArrows(true);
-							},500);
-							modalSwiper.on('lazyImageReady', function () {
-								modalSwiper.update();
-								// RepositionArrows(true);
-							});
+						if (document.querySelector('.CFAslider, .wp-block-gallery') !== null) {
+							modalSwiper = document.querySelectorAll('.CFAslider, .wp-block-gallery');
+
+							Array.from(modalSwiper).forEach(function (element, index) {
+
+								var curModalSwiper = new Swiper (element, CFAslidersettings );
+								curModalSwiper.init();
+								// console.debug(curModalSwiper);
+								curModalSwiper.on('init', function() { 
+									updateModalSwipeArea(1000); 
+								});
+								curModalSwiper.on('lazyImageReady', function () {
+									updateModalSwipeArea(100);
+								});	
+
+								function updateModalSwipeArea(delay) {
+									setTimeout(function(){
+										curModalSwiper.update();
+										console.debug('curModalSwiper updated.')	
+									},delay);
+								}
+
+							})
 						}
 
 					}
