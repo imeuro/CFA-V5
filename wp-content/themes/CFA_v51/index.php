@@ -33,12 +33,12 @@ $postnum++;
                     $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, 'medium' );
                     $imgsrcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'medium' );
                     //$imgsizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'medium' );
-                    echo '<img src="'.$imgsrc[0].'" srcset="'.$imgsrcset.'" sizes="(min-width: 769px) 640px, (min-width: 767px) 320px, (min-width: 480px) 640px, 320px" />';
+                    echo '<img src="'.$imgsrc[0].'" srcset="'.$imgsrcset.'" sizes="(min-width: 769px) 640px, (min-width: 767px) 320px, (min-width: 480px) 640px, 320px" loading="lazy" />';
                   } else {
                     $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, 'medium' );
                     $imgsrcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'medium' );
                     $imgsizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'medium' );
-                    echo '<img src="'.$imgsrc[0].'" srcset="'.$imgsrcset.'" sizes="'.$imgsizes.'" />';
+                    echo '<img src="'.$imgsrc[0].'" srcset="'.$imgsrcset.'" sizes="'.$imgsizes.'" loading="lazy" />';
                   }
                   ?>
                   <div class="pinbin-copy">

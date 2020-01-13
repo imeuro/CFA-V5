@@ -529,131 +529,6 @@ div#closemenu span {
   margin-top: -7px;
   display: inline-block;
 }
-/*
-#blackcurtain #patrons-coldx,
-#blackcurtain #menu-colsx,
-#blackcurtain #patrons-colsx,
-#blackcurtain #residency-coldx,
-#blackcurtain #about-coldx {
-  width: 100%;
-  min-height: 100%;
-  padding: 40px 2.5% 140px 2.5%;
-  margin: 0;
-  float: left;
-  position: relative;
-  box-sizing: border-box;
-}
-#blackcurtain #menu-colsx,
-#blackcurtain #patrons-colsx {
-  padding-top: 20px
-}
-#blackcurtain #menu-coldx.hidden,
-#blackcurtain #menu-colsx.hidden,
-#blackcurtain #patrons-coldx.hidden,
-#blackcurtain #patrons-colsx.hidden { display: none; }
-#blackcurtain .halfcol {
-  width: 40%;
-  height: 100%;
-  min-height: 400px;
-  padding: 0 5%;
-  margin-top: 50px;
-  float: left;
-  overflow: hidden;
-}
-#blackcurtain .fullcol {
-  width: 50%;
-  height: 100%;
-  padding: 0 25%;
-  float: left;
-  overflow: hidden;
-}
-
-#blackcurtain .fullcol span {
-  background: rgba(0,0,0,0.5);
-  display: table;
-  clear: both;
-  float: none;
-  padding: 5px 10px;
-  width: 100%;
-  box-sizing: border-box;
-}
-#blackcurtain p {
-  line-height: 2.25rem;
-  font-size: 1.75rem;
-  font-weight: 100;
-  margin: 10px 0 30px 0;
-  text-align: justify;
-}
-#blackcurtain h3 {
-  line-height: 1.75rem;
-  font-size: 1.75rem;
-}
-#blackcurtain a {
-  color: #fff; 
-  text-decoration: none;
-}
-
-#blockwindow {
-  position: fixed;
-  top: -400px;
-  left: 33%;
-  z-index:150;
-  width: 33%;
-  height: 300px;
-  background: #000;
-  border: 15px solid #fff;
-}
-#blockwindow ul {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  float: left;
-  margin: 0;
-  padding: 0;
-}
-#blockwindow ul li {
-  width: 40%;
-  padding: 5%;
-  position: absolute;
-  list-style: none;
-}
-#blockwindow ul li#menu-item-7751 {
-  float: left;
-  text-align: left;
-  top: 0;
-  left: 0;
-}
-#blockwindow ul li#menu-item-8060 {
-  float: right;
-  text-align: right;
-  top: 0;
-  right: 0;
-}
-#blockwindow ul li#menu-item-7756 {
-  float: left;
-  text-align: left;
-  bottom: 0;
-  left: 0;
-}
-#blockwindow ul li#menu-item-7752 {
-  float: right;
-  text-align: right;
-  bottom: 0;
-  right: 0;
-}
-
-#blockwindow a {
-  font-family: 'BenchNine', sans-serif;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #FFF;
-  font-size: 30px;
-  line-height: 30px;
-  margin: 0;
-  display: block;
-}
-*/
-
 
 #main-nav-wrapper {
   display: block;
@@ -1279,8 +1154,11 @@ div.wpcf7 input[type="submit"] {
   height: auto;
   margin: 0 auto;
 }
-figure.wp-block-image {margin: 60px auto;}
-
+figure.wp-block-image { margin: 60px auto; }
+.wp-block-image img {
+  width: 100%;
+  height: auto;
+}
 .pinbin-copy iframe {
   border: none;
   border-radius: 3px;
