@@ -70,7 +70,7 @@ function CFA_scripts() {
 	global $post;
 
 	wp_enqueue_style( 'style', get_stylesheet_uri(), '', '', 'all'  );
-	wp_enqueue_style( 'CFA-font', 'https://fonts.googleapis.com/css?family=Arapey|BenchNine:700' );
+	wp_enqueue_style( 'CFA-font', 'https://fonts.googleapis.com/css?family=Arapey|BenchNine:700&display=swap' );
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.97074.js', array( 'jquery' ), null, true );
