@@ -2542,3 +2542,22 @@ div.wpcf7-validation-errors {
 }
 
 .no-underline a { text-decoration: none; }
+
+ul#ToC-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul#ToC-list li a {
+    color: #f5a32f;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    padding: 5px;
+}
+
+ul#ToC-list li {
+    padding: 3PX 0;
+}

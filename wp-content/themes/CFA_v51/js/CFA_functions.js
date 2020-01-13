@@ -347,6 +347,32 @@ if (window.location.search.substr(1) == "print=enabled") {
 
 }
 
+// Foglia: handle auto-summary generation
+if (bodyClasses.contains('single') || bodyClasses.contains('page')) { 
+	// there will be a flag in backend, adding a specific class to body, which enables auto summary (Table Of Contents) functionality
+
+	var Sumheaders=document.querySelectorAll('h2,h3,h4,h5');
+	if (Sumheaders.length > 1) {
+
+		var ToC = document.createElement('nav');
+		ToC.classList.add('table-of-content');
+		ToC.setAttribute('role', 'navigation');
+		
+		var Sumitem='';
+		Sumheaders.forEach(function(item,index){
+			item.setAttribute('id', 'content-'+index);
+		    Sumitem=Sumitem+"\n<li><a href='#content-"+index+"'>"+item.textContent+"</a></li>";
+		});
+
+		ToC.innerHTML="\n<h2>SUMMARY:</h2>\n<ul id='ToC-list'>"+Sumitem+"\n</ul>";
+
+		var ToCTarget = document.querySelector('.excerpt-container');
+		ToCTarget.appendChild(ToC, ToCTarget);
+
+
+	}
+}
+
 
 
 // prepare for that fantastic lightbox!
