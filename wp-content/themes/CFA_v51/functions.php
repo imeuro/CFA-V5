@@ -540,7 +540,12 @@ function r2o_overwrite_yoast_publish_date( $content ) {
     $date->setTimezone(new DateTimeZone(get_option('timezone_string')));
     return $date->format('c');
 };
-// add the filter
 add_filter( 'wpseo_og_article_published_time', 'r2o_overwrite_yoast_publish_date', 90, 2 );
- 
+
+function CFA_change_pubdate( $data ) { 
+  $data['datePublished'] = get_post_modified_time('c',true); 
+  return $data; 
+}
+add_filter( 'wpseo_schema_article', 'CFA_change_pubdate' );
+add_filter( 'wpseo_schema_webpage', 'CFA_change_pubdate' );
 

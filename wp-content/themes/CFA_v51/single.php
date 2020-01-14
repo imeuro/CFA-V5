@@ -43,7 +43,7 @@
 
           <div class="clear"></div>
 
-          <p class="post-pubdate"><?php the_time('F j, Y'); ?></p>
+          <p class="post-pubdate"><?php echo get_post_modified_time('F j, Y'); ?></p>
 
           <div class="clear"></div>
 
