@@ -104,7 +104,7 @@ var okresize = function() {
 ////////////////////////////////////
 
 
-jQuery(document).ready(function($){
+document.addEventListener("DOMContentLoaded", function() {
 
 	// Website Credits
 	console.log("%c\n CONCEPTUAL FINE ARTS \n Powered by: Mauro Fioravanzi \n since oct 2013 \n",'background:#fff;color:#F7A420;font-weight:700');
@@ -233,7 +233,7 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && documen
 
 		var curSwiper = new Swiper (element, CFAslidersettings );
 		curSwiper.init();
-		console.debug(curSwiper);
+		//console.debug(curSwiper);
 
 		curSwiper.on('init', function() { 
 			updateSwipeArea(300); 
@@ -292,51 +292,58 @@ if (window.location.search.substr(1) == "print=enabled") {
 }
 
 // Foglia: handle auto-summary generation
-if (bodyClasses.contains('single') || bodyClasses.contains('page')) { 
-	// there will be a flag in backend, adding a specific class to body, which enables auto summary (Table Of Contents) functionality
+var get_summary = function() {
 
-	var Sumheaders=document.querySelectorAll('h2,h3,h4');
-	if (Sumheaders.length > 1) {
+	if (bodyClasses.contains('single') || bodyClasses.contains('page') || bodyClasses.contains('modal-open')) { 
+		// there will be a flag in backend, adding a specific class to body, which enables auto summary (Table Of Contents) functionality
 
-		var ToC = document.createElement('nav');
-		ToC.classList.add('table-of-content');
-		ToC.setAttribute('role', 'navigation');
-		
-		var Sumitem='';
-		var Hindex=1;
-		Sumheaders.forEach(function(item,index){
-			item.setAttribute('id', 'content-'+index);
-		 	Sumitem = Sumitem+"\n<li><a class='ToC-scroll' data-href='#content-"+index+"'>"+Hindex+". "+item.textContent+"</a></li>";
-			Hindex++;
-		});
+		var Sumheaders=document.querySelectorAll('h2,h3,h4');
+		if (Sumheaders.length > 1) {
 
-		ToC.innerHTML="\n<h3 class='ToC-heading'>Summary:</h3>\n<ul id='ToC-list'>"+Sumitem+"\n</ul>";
-
-		var ToCTarget = document.querySelector('.excerpt-container');
-		ToCTarget.appendChild(ToC, ToCTarget);
-
-		function scrollTo(element) {
-			if (sw>640) {
-				Stop = element.offsetTop - 180;
-			} else {
-				Stop = element.offsetTop;
-			}
-		  window.scroll({
-		    behavior: 'smooth',
-		    left: 0,
-		    top: Stop
-		  }); 
-		}
-
-		var ToClinks = document.querySelectorAll(".ToC-scroll");
-		ToClinks.forEach(function(item,index){
-			item.addEventListener("click",function(e){
-				e.preventDefault;
-			  scrollTo(document.getElementById('content-'+index));
+			var ToC = document.createElement('nav');
+			ToC.classList.add('table-of-content');
+			ToC.setAttribute('role', 'navigation');
+			
+			var Sumitem='';
+			var Hindex=1;
+			Sumheaders.forEach(function(item,index){
+				item.setAttribute('id', 'content-'+index);
+			 	Sumitem = Sumitem+"\n<li><a class='ToC-scroll' data-href='#content-"+index+"'>"+Hindex+". "+item.textContent+"</a></li>";
+				Hindex++;
 			});
-		});
+
+			ToC.innerHTML="\n<h3 class='ToC-heading'>Summary:</h3>\n<ul id='ToC-list'>"+Sumitem+"\n</ul>";
+
+			var ToCTarget = document.querySelector('.excerpt-container');
+			ToCTarget.appendChild(ToC, ToCTarget);
+
+			function scrollTo(element) {
+				if (sw>640) {
+					Stop = element.offsetTop - 180;
+				} else {
+					Stop = element.offsetTop;
+				}
+			  window.scroll({
+			    behavior: 'smooth',
+			    left: 0,
+			    top: Stop
+			  }); 
+			}
+
+			var ToClinks = document.querySelectorAll(".ToC-scroll");
+			ToClinks.forEach(function(item,index){
+				item.addEventListener("click",function(e){
+					e.preventDefault;
+				  scrollTo(document.getElementById('content-'+index));
+				});
+			});
+		}
 	}
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  get_summary();
+});
 
 
 
@@ -374,10 +381,12 @@ function ThatFabulousLightbox() {
 						// update links to translated versions
 						jQuery('#site-navigation #lang-switcher').load(theUrl+" #lang-switcher *");
 
+						get_summary();
+
 
 						// chiudi tutto
 						jQuery('#logo').click(function(){
-							console.debug('click logo');
+							// console.debug('click logo');
 							parent.update_url(basepath);
 							modal.classList.add('hidden');
 							modal.classList.add('empty');
@@ -385,7 +394,6 @@ function ThatFabulousLightbox() {
 							setTimeout(function(){
 								console.log('rimosso content');
 								modal.innerHTML = '';
-								// eyesonHeader.scrolling();
 							},2000);
 
 
@@ -410,7 +418,7 @@ function ThatFabulousLightbox() {
 								function updateModalSwipeArea(delay) {
 									setTimeout(function(){
 										curModalSwiper.update();
-										console.debug('curModalSwiper updated.')	
+										// console.debug('curModalSwiper updated.')	
 									},delay);
 								}
 
