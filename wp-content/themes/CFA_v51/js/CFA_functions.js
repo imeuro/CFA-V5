@@ -351,7 +351,7 @@ if (window.location.search.substr(1) == "print=enabled") {
 if (bodyClasses.contains('single') || bodyClasses.contains('page')) { 
 	// there will be a flag in backend, adding a specific class to body, which enables auto summary (Table Of Contents) functionality
 
-	var Sumheaders=document.querySelectorAll('h2,h3,h4,h5');
+	var Sumheaders=document.querySelectorAll('h2,h3,h4');
 	if (Sumheaders.length > 1) {
 
 		var ToC = document.createElement('nav');
@@ -361,15 +361,29 @@ if (bodyClasses.contains('single') || bodyClasses.contains('page')) {
 		var Sumitem='';
 		Sumheaders.forEach(function(item,index){
 			item.setAttribute('id', 'content-'+index);
-		    Sumitem=Sumitem+"\n<li><a href='#content-"+index+"'>"+item.textContent+"</a></li>";
+		    Sumitem=Sumitem+"\n<li><a class='ToC-scroll' data-href='#content-"+index+"'>"+index+". "+item.textContent+"</a></li>";
 		});
 
-		ToC.innerHTML="\n<h2>SUMMARY:</h2>\n<ul id='ToC-list'>"+Sumitem+"\n</ul>";
+		ToC.innerHTML="\n<h3 class='ToC-heading'>Summary:</h3>\n<ul id='ToC-list'>"+Sumitem+"\n</ul>";
 
 		var ToCTarget = document.querySelector('.excerpt-container');
 		ToCTarget.appendChild(ToC, ToCTarget);
 
+		function scrollTo(element) {
+		  window.scroll({
+		    behavior: 'smooth',
+		    left: 0,
+		    top: element.offsetTop - 	120
+		  });
+		}
 
+		var ToClinks = document.querySelectorAll(".ToC-scroll");
+		ToClinks.forEach(function(item,index){
+			item.addEventListener("click",function(e){
+				e.preventDefault;
+			  scrollTo(document.getElementById('content-'+index));
+			});
+		});
 	}
 }
 
