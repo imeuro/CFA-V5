@@ -292,7 +292,7 @@ if (window.location.search.substr(1) == "print=enabled") {
 }
 
 // Foglia: handle auto-summary generation
-var get_summary = function() {
+var get_summary = function(context) {
 
 	if (bodyClasses.contains('single') || bodyClasses.contains('page') || bodyClasses.contains('modal-open')) { 
 		// there will be a flag in backend, adding a specific class to body, which enables auto summary (Table Of Contents) functionality
@@ -317,13 +317,13 @@ var get_summary = function() {
 			var ToCTarget = document.querySelector('.excerpt-container');
 			ToCTarget.appendChild(ToC, ToCTarget);
 
-			function scrollTo(element) {
-				if (sw>640) {
+			function scrollTo(element,context) {
+				if (sw>640 && context=='window') {
 					Stop = element.offsetTop - 180;
 				} else {
 					Stop = element.offsetTop;
 				}
-			  window.scroll({
+			  context.scroll({
 			    behavior: 'smooth',
 			    left: 0,
 			    top: Stop
@@ -334,7 +334,7 @@ var get_summary = function() {
 			ToClinks.forEach(function(item,index){
 				item.addEventListener("click",function(e){
 					e.preventDefault;
-				  scrollTo(document.getElementById('content-'+index));
+				  scrollTo(document.getElementById('content-'+index),context);
 				});
 			});
 		}
@@ -342,7 +342,7 @@ var get_summary = function() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  get_summary();
+  get_summary('window');
 });
 
 
@@ -381,7 +381,7 @@ function ThatFabulousLightbox() {
 						// update links to translated versions
 						jQuery('#site-navigation #lang-switcher').load(theUrl+" #lang-switcher *");
 
-						get_summary();
+						get_summary(modal);
 
 
 						// chiudi tutto
