@@ -38,6 +38,10 @@
 							<?php the_excerpt(); ?>
 						</div>
 					<?php endif; ?>
+          
+          <?php if (get_field('display_automatic_summary')): ?>
+            <div class="container summary-container"></div>
+          <?php endif; ?>
 
           <?php the_content('Read more'); ?>
 

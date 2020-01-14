@@ -294,7 +294,10 @@ if (window.location.search.substr(1) == "print=enabled") {
 // Foglia: handle auto-summary generation
 var get_summary = function(context) {
 
-	if (bodyClasses.contains('single') || bodyClasses.contains('page') || bodyClasses.contains('modal-open')) { 
+	var ToCTarget = document.querySelector('.summary-container');
+
+	if (ToCTarget && ToCTarget !== null) {
+	// if (bodyClasses.contains('single') || bodyClasses.contains('page') || bodyClasses.contains('modal-open')) { 
 		// there will be a flag in backend, adding a specific class to body, which enables auto summary (Table Of Contents) functionality
 
 		var Sumheaders=document.querySelectorAll('.pinbin-copy h2,.pinbin-copy h3,.pinbin-copy h4');
@@ -314,8 +317,7 @@ var get_summary = function(context) {
 
 			ToC.innerHTML="\n<h3 class='ToC-heading'>Summary:</h3>\n<ul id='ToC-list'>"+Sumitem+"\n</ul>";
 
-			var ToCTarget = document.querySelector('.excerpt-container');
-			ToCTarget.appendChild(ToC, ToCTarget);
+				ToCTarget.appendChild(ToC, ToCTarget);
 
 			function scrollTo(element,context) {
 				if (sw>640 && context==window) {

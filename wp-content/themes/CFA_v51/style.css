@@ -1762,7 +1762,7 @@ div#closemenu:hover,
 .search-results .pinbin-copy.otherway a {width: 100px;}
 
 .post-pubdate:before { 
-  content: "First publication date:";
+  content: "Last update:";
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
