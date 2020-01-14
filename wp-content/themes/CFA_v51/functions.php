@@ -533,3 +533,14 @@ add_shortcode('mailpoet_undo_unsubscribe', 'mpoet_get_undo_unsubscribe');
 }
 add_shortcode('CFA_tagline', 'tagline_shortcode');
 
+
+// define the wpseo_opengraph_show_publish_date callback
+function r2o_overwrite_yoast_publish_date( $content ) {
+    $date = new DateTime(get_post_modified_time('c',true));
+    $date->setTimezone(new DateTimeZone(get_option('timezone_string')));
+    return $date->format('c');
+};
+// add the filter
+add_filter( 'wpseo_og_article_published_time', 'r2o_overwrite_yoast_publish_date', 90, 2 );
+ 
+
