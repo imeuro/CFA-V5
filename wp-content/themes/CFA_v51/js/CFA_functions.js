@@ -303,10 +303,11 @@ if (bodyClasses.contains('single') || bodyClasses.contains('page')) {
 		ToC.setAttribute('role', 'navigation');
 		
 		var Sumitem='';
+		var Hindex=1;
 		Sumheaders.forEach(function(item,index){
 			item.setAttribute('id', 'content-'+index);
-			var Hindex = index++;
 		 	Sumitem = Sumitem+"\n<li><a class='ToC-scroll' data-href='#content-"+index+"'>"+Hindex+". "+item.textContent+"</a></li>";
+			Hindex++;
 		});
 
 		ToC.innerHTML="\n<h3 class='ToC-heading'>Summary:</h3>\n<ul id='ToC-list'>"+Sumitem+"\n</ul>";
