@@ -317,7 +317,7 @@ if (bodyClasses.contains('single') || bodyClasses.contains('page')) {
 
 		function scrollTo(element) {
 			if (sw>640) {
-				Stop = element.offsetTop - 160;
+				Stop = element.offsetTop - 180;
 			} else {
 				Stop = element.offsetTop;
 			}
