@@ -316,11 +316,16 @@ if (bodyClasses.contains('single') || bodyClasses.contains('page')) {
 		ToCTarget.appendChild(ToC, ToCTarget);
 
 		function scrollTo(element) {
+			if (sw>640) {
+				Stop = element.offsetTop - 160;
+			} else {
+				Stop = element.offsetTop;
+			}
 		  window.scroll({
 		    behavior: 'smooth',
 		    left: 0,
-		    top: element.offsetTop - 	120
-		  });
+		    top: Stop
+		  }); 
 		}
 
 		var ToClinks = document.querySelectorAll(".ToC-scroll");
