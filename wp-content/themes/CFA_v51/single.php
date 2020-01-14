@@ -52,7 +52,7 @@
 
 
         <div class="share-link">
-          <h3 class="share-link-title">Share this page:</h3>
+          <div class="share-link-title">Share this page:</div>
 
           <ul class="share-link-buttons-list">
             <li class="share-link-buttons">

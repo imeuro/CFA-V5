@@ -297,7 +297,7 @@ var get_summary = function(context) {
 	if (bodyClasses.contains('single') || bodyClasses.contains('page') || bodyClasses.contains('modal-open')) { 
 		// there will be a flag in backend, adding a specific class to body, which enables auto summary (Table Of Contents) functionality
 
-		var Sumheaders=document.querySelectorAll('h2,h3,h4');
+		var Sumheaders=document.querySelectorAll('.pinbin-copy h2,.pinbin-copy h3,.pinbin-copy h4');
 		if (Sumheaders.length > 1) {
 
 			var ToC = document.createElement('nav');
