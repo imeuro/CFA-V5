@@ -2420,3 +2420,33 @@ div.wpcf7-validation-errors {
 }
 
 .no-underline a { text-decoration: none; }
+
+ul#ToC-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+}
+.ToC-heading {
+  font-size: 20px;
+  font-style: normal;
+}
+
+ul#ToC-list li a {
+    color: #2f2f2f;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 30px;
+    padding: 0 2px;
+    margin-right: 10px;
+    cursor: pointer;
+    display: inline;
+    border-bottom: 1px solid #f5a32f;
+    /* text-decoration: underline; */
+}
+
+ul#ToC-list li {
+    padding: 3px 0;
+    display: inline;
+}
