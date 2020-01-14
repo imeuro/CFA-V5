@@ -318,7 +318,7 @@ var get_summary = function(context) {
 			ToCTarget.appendChild(ToC, ToCTarget);
 
 			function scrollTo(element,context) {
-				if (sw>640 && context=='window') {
+				if (sw>640 && context==window) {
 					Stop = element.offsetTop - 180;
 				} else {
 					Stop = element.offsetTop;
@@ -342,7 +342,7 @@ var get_summary = function(context) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  get_summary('window');
+  get_summary(window);
 });
 
 
