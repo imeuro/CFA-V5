@@ -305,7 +305,8 @@ if (bodyClasses.contains('single') || bodyClasses.contains('page')) {
 		var Sumitem='';
 		Sumheaders.forEach(function(item,index){
 			item.setAttribute('id', 'content-'+index);
-		    Sumitem=Sumitem+"\n<li><a class='ToC-scroll' data-href='#content-"+index+"'>"+index+1+". "+item.textContent+"</a></li>";
+			var Hindex = index++;
+		 	Sumitem = Sumitem+"\n<li><a class='ToC-scroll' data-href='#content-"+index+"'>"+Hindex+". "+item.textContent+"</a></li>";
 		});
 
 		ToC.innerHTML="\n<h3 class='ToC-heading'>Summary:</h3>\n<ul id='ToC-list'>"+Sumitem+"\n</ul>";
