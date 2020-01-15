@@ -15,6 +15,7 @@ add_action( 'enqueue_block_editor_assets', 'CFA_GutenBlock' );
 function cfa_image_render( $attributes, $content ) {
 	$code = '<figure class="wp-block-image '.$attributes['className'].'">';
 	$code .= wp_get_attachment_image($attributes['id'],$attributes['sizeSlug'], false, array( "loading" => "lazy", "class" => "img-responsive" ));
+	$code .= '<figcaption>'.wp_get_attachment_caption($attributes['id']).'</figcaption>';
 	$code .= '</figure>';
 
 	return $code;
@@ -41,6 +42,7 @@ function cfa_gallery_render( $attributes, $content ) {
 		$imgAttr = wp_get_attachment_image_src($imgID,"medium", false);
 		$code .= '<li class="swiper-slide gallery-item">';
 		$code .= '<img data-src="'.$imgAttr[0].'" class="swiper-lazy" />';
+		$code .= '<small>'.wp_get_attachment_caption($imgID).'</small>';
 		$code .= '</li>';
 	}
 	$code .= '<span class="swiper-lazy-preloader"></span>';
