@@ -2450,3 +2450,39 @@ ul#ToC-list li {
     padding: 3px 0;
     display: inline;
 }
+
+#uplink {
+  outline: none;
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,.5);
+  border: none;
+  border-radius: 3px;
+  z-index: 10;
+  opacity: .75;
+  transition: opacity 150ms ease-in-out;
+  margin: 0;
+  padding: 0;
+}
+#uplink:hover { opacity: 1 }
+#uplink:before,
+#uplink:after {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 13px;
+  width: 15px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #f5a32f;
+  transform: rotate(-50deg);
+  display: inline-block;
+}
+#uplink:after {
+  left: initial;
+  right: 13px;
+  transform: rotate(50deg);
+}

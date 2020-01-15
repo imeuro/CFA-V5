@@ -319,19 +319,6 @@ var get_summary = function(context) {
 
 				ToCTarget.appendChild(ToC, ToCTarget);
 
-			function scrollTo(element,context) {
-				if (sw>640 && context==window) {
-					Stop = element.offsetTop - 180;
-				} else {
-					Stop = element.offsetTop;
-				}
-			  context.scroll({
-			    behavior: 'smooth',
-			    left: 0,
-			    top: Stop
-			  }); 
-			}
-
 			var ToClinks = document.querySelectorAll(".ToC-scroll");
 			ToClinks.forEach(function(item,index){
 				item.addEventListener("click",function(e){
@@ -343,11 +330,44 @@ var get_summary = function(context) {
 	}
 }
 
+// Foglia: button to return to the top of the article
+var goTopLink = function(context) {
+	if (bodyClasses.contains('single') || bodyClasses.contains('page') || bodyClasses.contains('modal-open')) {
+		var Uplink = document.createElement('button');
+		Uplink.setAttribute('id','uplink');
+		Uplink.classList.add('hidden');
+		document.getElementsByTagName('body')[0].appendChild(Uplink);
+		Uplink.addEventListener("click",function() { 
+			scrollTo(document.getElementsByTagName('body')[0],context);
+		});
+		context.addEventListener('scroll', function() {
+			if (document.documentElement.scrollTop > 500) {
+				Uplink.classList.remove('hidden');
+			} else {
+				Uplink.classList.add('hidden');
+			}
+		});
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function() {
+  goTopLink(window);
   get_summary(window);
 });
 
 
+function scrollTo(element,context) {
+	if (sw>640 && context==window) {
+		Stop = element.offsetTop - 180;
+	} else {
+		Stop = element.offsetTop;
+	}
+	context.scroll({
+		behavior: 'smooth',
+		left: 0,
+		top: Stop
+	});
+}
 
 // prepare for that fantastic lightbox!
 //===============================
@@ -383,6 +403,7 @@ function ThatFabulousLightbox() {
 						// update links to translated versions
 						jQuery('#site-navigation #lang-switcher').load(theUrl+" #lang-switcher *");
 
+						goTopLink(modal);
 						get_summary(modal);
 
 
@@ -397,6 +418,9 @@ function ThatFabulousLightbox() {
 								console.log('rimosso content');
 								modal.innerHTML = '';
 							},2000);
+
+							var uplinkbtn = document.getElementById("uplink");
+  							uplinkbtn.parentNode.removeChild(uplinkbtn);
 
 
 						});
@@ -615,11 +639,11 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 	  	
 	    pageNum++;
 
-			if(sw>1024){
+		if(sw>1024){
 	      jQuery('article.post .pinbin-image').each( function() {
 	        jQuery(this).hoverdir({speed : 1000});
 	      });
-			}
+		}
 
 	    okresize();
 
