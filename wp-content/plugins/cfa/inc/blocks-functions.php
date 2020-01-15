@@ -25,7 +25,7 @@ function cfa_register_image() {
 		'render_callback' => 'cfa_image_render',
 	) );
 }
-add_action( 'init', 'cfa_register_image' );
+// add_action( 'init', 'cfa_register_image' );
 
 
 
