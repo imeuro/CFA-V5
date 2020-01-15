@@ -15,7 +15,8 @@ wp.domReady( () => {
 		      attribute: "alt",
 		      "default": ""
 		    },
-	});
+		}
+	};
 
 	wp.blocks.registerBlockStyle('core/gallery', {
 	    name: 'CFA-gallery',
@@ -29,6 +30,7 @@ wp.domReady( () => {
 		      attribute: "alt",
 		      "default": ""
 		    },
+		}
 	});
 
 } );
