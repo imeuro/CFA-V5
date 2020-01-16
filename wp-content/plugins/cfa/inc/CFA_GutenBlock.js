@@ -16,7 +16,7 @@ wp.domReady( () => {
 		      "default": ""
 		    },
 		}
-	};
+	});
 
 	wp.blocks.registerBlockStyle('core/gallery', {
 	    name: 'CFA-gallery',
@@ -33,4 +33,4 @@ wp.domReady( () => {
 		}
 	});
 
-} );
+});
