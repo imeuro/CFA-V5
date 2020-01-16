@@ -63,5 +63,5 @@ function cfa_register_gallery() {
 		'render_callback' => 'cfa_gallery_render',
 	) );
 }
-add_action( 'init', 'cfa_register_gallery' );
+// add_action( 'init', 'cfa_register_gallery' );
 ?>
