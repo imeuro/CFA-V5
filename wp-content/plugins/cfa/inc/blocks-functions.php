@@ -15,7 +15,11 @@ add_action( 'enqueue_block_editor_assets', 'CFA_GutenBlock' );
 function cfa_image_render( $attributes, $content ) {
 	$code = '<figure class="wp-block-image '.$attributes['className'].'">';
 	$code .= wp_get_attachment_image($attributes['id'],$attributes['sizeSlug'], false, array( "loading" => "lazy", "class" => "img-responsive" ));
-	$code .= '<figcaption>'.wp_get_attachment_caption($attributes['id']).'</figcaption>';
+	// only $content has the real image caption!
+	// https://stackoverflow.com/questions/9253027/get-everything-between-tag-and-tag-with-php
+	$regex = '#<figcaption>(.*?)</figcaption>#';
+	preg_match($regex, $content, $rightFigcaption);
+	$code .= '<figcaption>'.$rightFigcaption[1].'</figcaption>';
 	$code .= '</figure>';
 
 	return $code;
@@ -59,5 +63,5 @@ function cfa_register_gallery() {
 		'render_callback' => 'cfa_gallery_render',
 	) );
 }
-add_action( 'init', 'cfa_register_gallery' );
+// add_action( 'init', 'cfa_register_gallery' );
 ?>

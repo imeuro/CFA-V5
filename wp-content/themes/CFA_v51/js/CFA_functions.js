@@ -16,8 +16,10 @@ var JAltLang = jQuery('#lang-switcher');
 var header_v5 = document.getElementById('site-navigation');
 var logo_v5 = document.getElementById('logo');
 var menu_v5 = document.getElementById('header-menu');
-var modalSwiper = '';
+var modalSwiper = [];
 var fogliaSwiper = '';
+var BlockSwiper = [];
+var curModalSwiper = [];
 
 
 ////////////////////////////////////
@@ -55,7 +57,9 @@ eyesonHeader.init();
 
 
 // protect images - attempt
-document.addEventListener('contextmenu', event => event.preventDefault());
+if (ENV != 'localhost') {
+	document.addEventListener('contextmenu', event => event.preventDefault());
+}
 
 
 // Home: sballa larghezza delle immagini per creare un po' di casino.
@@ -167,34 +171,6 @@ window.addEventListener('popstate', function(event) {
 // Foglia / Foglia in Modal Functions
 ////////////////////////////////////
 
-var CFAslidersettings = {
-	init: false,
-	direction: 'horizontal',
-	autoHeight: true,
-	loop: true,
-	keyboard: true,
-	preloadImages: false,
-	lazy: {
-    	loadPrevNext: true,
-    	loadPrevNextAmount: 1,
-    	loadOnTransitionStart: true
-  	},
-	fadeEffect: {
-	crossFade: true
-	},
-
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-		clickable: true
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.nextContainer',
-    prevEl: '.prevContainer',
-  }
-};
 
 
 // Foglia: actions at window load
@@ -223,7 +199,40 @@ jQuery(window).load(function(){
 
 // Foglia: Swiper init (see also @ line #308: modalSwiper )
 //===============================
+var CFAslidersettings = {
+	init: false,
+	direction: 'horizontal',
+	autoHeight: true,
+	loop: true,
+	keyboard: true,
+	preloadImages: false,
+	lazy: {
+    	loadPrevNext: false,
+    	// loadPrevNextAmount: 1,
+    	loadOnTransitionStart: true
+  	},
+	fadeEffect: {
+	crossFade: true
+	},
 
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+		clickable: true
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.nextContainer',
+    prevEl: '.prevContainer',
+  }
+};
+
+function updateSwipeArea(SWname,delay) {
+	setTimeout(function(){
+		SWname.update();	
+	},delay);
+}
 
 if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && document.querySelector('.CFAslider, .wp-block-gallery') !== null) {
 
@@ -231,25 +240,92 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && documen
 
 	Array.from(fogliaSwiper).forEach(function (element, index) {
 
-		var curSwiper = new Swiper (element, CFAslidersettings );
-		curSwiper.init();
-		//console.debug(curSwiper);
 
-		curSwiper.on('init', function() { 
-			updateSwipeArea(300); 
-		});
-		curSwiper.on('lazyImageReady', function () {
-			updateSwipeArea(100);
-		});	
+		if (element.classList.contains('wp-block-gallery') === true) {
 
-		function updateSwipeArea(delay) {
-			setTimeout(function(){
-				curSwiper.update();	
-			},delay);
+			var da_element = element;
+			if (element.nodeName == 'FIGURE') { // shit happens :(
+
+				da_element = element.firstChild;
+				da_element.classList.remove('blocks-gallery-grid');
+
+			}
+
+			// 'element' will be wrapped with a div.swiper-container.CFAslider
+			var Swrapper = document.createElement('div');
+			da_element.parentNode.insertBefore(Swrapper, da_element);
+			Swrapper.appendChild(da_element);
+
+			// div.swiper-container.CFAslider will be wrapped with a div.container
+			var Swrapper2 = document.createElement('div');
+			Swrapper.parentNode.insertBefore(Swrapper2, Swrapper);
+			Swrapper2.appendChild(Swrapper);
+
+			//reset and add some classes to make it work...
+			Swrapper.className = '';
+			da_element.className = '';
+			Swrapper.classList.add('swiper-container','CFAslider');
+			Swrapper2.classList.add('container');
+
+			da_element.classList.add('swiper-wrapper','gutenberg-swiper-block');
+
+			var Sslides = da_element.childNodes;
+			Array.from(Sslides).forEach(function (e, i) {
+				e.className = '';
+				e.classList.add('swiper-slide', 'gallery-item');
+				var Simg= e.querySelector('img');
+				var Simgsrc = Simg.getAttribute('src');
+				Simg.removeAttribute('src');
+				Simg.setAttribute('data-src', Simgsrc);
+				Simg.classList.add('swiper-lazy');
+				var Sfig= e.querySelector('figure'); // to be removed
+				Ssaveme=Sfig.innerHTML;
+				e.innerHTML = Ssaveme;
+				var Sdida= e.querySelector('figcaption');
+				Sdida.classList.add('gallery-caption');
+				var Sloader = document.createElement('div');
+				e.appendChild(Sloader);
+				Sloader.classList.add('swiper-lazy-preloader');
+			});
+
+
+			// add the navigation bullets + arrows...
+			var Snavigation = document.createElement('div');
+			var SLarr = document.createElement('div');
+			var SRarr = document.createElement('div');
+
+			Swrapper.appendChild(Snavigation);
+			Swrapper.appendChild(SLarr);
+			Swrapper.appendChild(SRarr);
+
+			Snavigation.classList.add('swiper-pagination');
+			SLarr.classList.add('prevContainer');
+			SRarr.classList.add('nextContainer');
+
+			// aaaaand finally init dat shit
+			BlockSwiper[index] = new Swiper (Swrapper, CFAslidersettings );
+			BlockSwiper[index].on('init', function() { 
+				updateSwipeArea(BlockSwiper[index],300); 
+			});
+			BlockSwiper[index].on('lazyImageReady', function () {
+				console.log('lazyImageReady........');
+			updateSwipeArea(BlockSwiper[index],100);
+			});
+			BlockSwiper[index].init();
+			console.log(index+'init!');
+
+		} else { // Legacy carousels with shortcodes
+			var curSwiper = new Swiper (element, CFAslidersettings );
+			curSwiper.on('init', function() { 
+				updateSwipeArea(curSwiper,300); 
+			});
+			curSwiper.on('lazyImageReady', function () {
+				updateSwipeArea(curSwiper,100);
+			});	
+			curSwiper.init();
 		}
-
-	})
-
+		
+	});
 
 }
 
@@ -427,28 +503,102 @@ function ThatFabulousLightbox() {
 
 						// modal: Swiper init (see also @ line #348: fogliaSwiper )
 						if (document.querySelector('.CFAslider, .wp-block-gallery') !== null) {
-							modalSwiper = document.querySelectorAll('.CFAslider, .wp-block-gallery');
+							modalSwiper = document.querySelectorAll('#modal .CFAslider, #modal .wp-block-gallery');
+
+							console.debug(modalSwiper);
 
 							Array.from(modalSwiper).forEach(function (element, index) {
 
-								var curModalSwiper = new Swiper (element, CFAslidersettings );
-								curModalSwiper.init();
-								// console.debug(curModalSwiper);
-								curModalSwiper.on('init', function() { 
-									updateModalSwipeArea(1000); 
-								});
-								curModalSwiper.on('lazyImageReady', function () {
-									updateModalSwipeArea(100);
-								});	
+								if (element.classList.contains('wp-block-gallery') === true) {
 
-								function updateModalSwipeArea(delay) {
-									setTimeout(function(){
-										curModalSwiper.update();
-										// console.debug('curModalSwiper updated.')	
-									},delay);
+									var da_element = element;
+									if (element.nodeName == 'FIGURE') { // shit happens :(
+
+										da_element = element.firstChild;
+										da_element.classList.remove('blocks-gallery-grid');
+
+									}
+
+									// 'element' will be wrapped with a div.swiper-container.CFAslider
+									var Swrapper = document.createElement('div');
+									da_element.parentNode.insertBefore(Swrapper, da_element);
+									Swrapper.appendChild(da_element);
+
+									// div.swiper-container.CFAslider will be wrapped with a div.container
+									var Swrapper2 = document.createElement('div');
+									Swrapper.parentNode.insertBefore(Swrapper2, Swrapper);
+									Swrapper2.appendChild(Swrapper);
+
+									//reset and add some classes to make it work...
+									Swrapper.className = '';
+									da_element.className = '';
+									Swrapper.classList.add('swiper-container','CFAslider');
+									Swrapper2.classList.add('container');
+
+									da_element.classList.add('swiper-wrapper','gutenberg-swiper-block');
+
+									var Sslides = da_element.childNodes;
+									Array.from(Sslides).forEach(function (e, i) {
+										e.className = '';
+										e.classList.add('swiper-slide', 'gallery-item');
+										var Simg= e.querySelector('img');
+										var Simgsrc = Simg.getAttribute('src');
+										Simg.removeAttribute('src');
+										Simg.setAttribute('data-src', Simgsrc);
+										Simg.classList.add('swiper-lazy');
+										var Sfig= e.querySelector('figure'); // to be removed
+										Ssaveme=Sfig.innerHTML;
+										e.innerHTML = Ssaveme;
+										var Sdida= e.querySelector('figcaption');
+										Sdida.classList.add('gallery-caption');
+										var Sloader = document.createElement('div');
+										e.appendChild(Sloader);
+										Sloader.classList.add('swiper-lazy-preloader');
+									});
+
+
+									// add the navigation bullets + arrows...
+									var Snavigation = document.createElement('div');
+									var SLarr = document.createElement('div');
+									var SRarr = document.createElement('div');
+
+									Swrapper.appendChild(Snavigation);
+									Swrapper.appendChild(SLarr);
+									Swrapper.appendChild(SRarr);
+
+									Snavigation.classList.add('swiper-pagination');
+									SLarr.classList.add('prevContainer');
+									SRarr.classList.add('nextContainer');
+
+									// console.debug(Swrapper);
+									// console.debug(CFAslidersettings);
+									// console.debug(modalSwiper[index]);
+
+
+									// aaaaand finally init dat shit
+									curModalSwiper[index] = new Swiper (Swrapper, CFAslidersettings );
+									curModalSwiper[index].on('init', function() { 
+										updateSwipeArea(curModalSwiper[index],300); 
+									});
+									curModalSwiper[index].on('lazyImageReady', function () {
+										console.log('lazyImageReady........');
+									updateSwipeArea(curModalSwiper[index],100);
+									});
+									curModalSwiper[index].init();
+									console.log(index+'init!');
+
+								} else { // Legacy carousels with shortcodes
+									curModalSwiper[index] = new Swiper (element, CFAslidersettings );
+									curModalSwiper[index].on('init', function() { 
+										updateSwipeArea(curModalSwiper,300); 
+									});
+									curModalSwiper[index].on('lazyImageReady', function () {
+										updateSwipeArea(curModalSwiper,100);
+									});	
+									curModalSwiper[index].init();
 								}
 
-							})
+							});
 						}
 
 					}

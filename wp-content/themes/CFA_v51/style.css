@@ -1155,6 +1155,7 @@ div.wpcf7 input[type="submit"] {
   margin: 0 auto;
 }
 figure.wp-block-image { margin: 60px auto; }
+.wp-block-gallery figure.wp-block-image { margin: 0 auto; }
 .wp-block-image img {
   width: 100%;
   height: auto;
