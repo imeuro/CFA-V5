@@ -18,6 +18,8 @@ wp.domReady( () => {
 		}
 	});
 
+/* Gallery-specific captions doesn't work anymore...
+
 	// wp.blocks.registerBlockStyle('core/gallery', {
 	//		name: 'CFA-gallery',
 	//		label: 'CFA Gallery',
@@ -32,5 +34,5 @@ wp.domReady( () => {
 	// 	    },
 	// 	}
 	// });
-
+*/
 });

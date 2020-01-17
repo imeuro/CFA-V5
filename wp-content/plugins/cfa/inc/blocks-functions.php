@@ -11,7 +11,7 @@ add_action( 'enqueue_block_editor_assets', 'CFA_GutenBlock' );
 
 
 
-
+/*
 function cfa_image_render( $attributes, $content ) {
 	$code = '<figure class="wp-block-image '.$attributes['className'].'">';
 	$code .= wp_get_attachment_image($attributes['id'],$attributes['sizeSlug'], false, array( "loading" => "lazy", "class" => "img-responsive" ));
@@ -29,8 +29,8 @@ function cfa_register_image() {
 		'render_callback' => 'cfa_image_render',
 	) );
 }
-// add_action( 'init', 'cfa_register_image' );
-
+add_action( 'init', 'cfa_register_image' );
+*/
 
 
 
