@@ -19,6 +19,7 @@ var menu_v5 = document.getElementById('header-menu');
 var modalSwiper = [];
 var fogliaSwiper = '';
 var BlockSwiper = [];
+var curModalSwiper = [];
 
 
 ////////////////////////////////////
@@ -571,53 +572,33 @@ function ThatFabulousLightbox() {
 
 									// console.debug(Swrapper);
 									// console.debug(CFAslidersettings);
-									console.debug(modalSwiper[index]);
+									// console.debug(modalSwiper[index]);
 
 
 									// aaaaand finally init dat shit
-									modalSwiper[index] = new Swiper (Swrapper, CFAslidersettings );
-									modalSwiper[index].on('init', function() { 
-										updateSwipeArea(BlockSwiper[index],300); 
+									curModalSwiper[index] = new Swiper (Swrapper, CFAslidersettings );
+									curModalSwiper[index].on('init', function() { 
+										updateSwipeArea(curModalSwiper[index],300); 
 									});
-									modalSwiper[index].on('lazyImageReady', function () {
+									curModalSwiper[index].on('lazyImageReady', function () {
 										console.log('lazyImageReady........');
-									updateSwipeArea(BlockSwiper[index],100);
+									updateSwipeArea(curModalSwiper[index],100);
 									});
-									modalSwiper[index].init();
+									curModalSwiper[index].init();
 									console.log(index+'init!');
 
 								} else { // Legacy carousels with shortcodes
-									var curModalSwiper = new Swiper (element, CFAslidersettings );
-									curModalSwiper.on('init', function() { 
-										updateSwipeArea(curSwiper,300); 
+									curModalSwiper[index] = new Swiper (element, CFAslidersettings );
+									curModalSwiper[index].on('init', function() { 
+										updateSwipeArea(curModalSwiper,300); 
 									});
-									curModalSwiper.on('lazyImageReady', function () {
-										updateSwipeArea(curSwiper,100);
+									curModalSwiper[index].on('lazyImageReady', function () {
+										updateSwipeArea(curModalSwiper,100);
 									});	
-									curModalSwiper.init();
+									curModalSwiper[index].init();
 								}
-		
 
-
-
-								// var curModalSwiper = new Swiper (element, CFAslidersettings );
-								// curModalSwiper.init();
-								// // console.debug(curModalSwiper);
-								// curModalSwiper.on('init', function() { 
-								// 	updateModalSwipeArea(1000); 
-								// });
-								// curModalSwiper.on('lazyImageReady', function () {
-								// 	updateModalSwipeArea(100);
-								// });	
-
-								// function updateModalSwipeArea(delay) {
-								// 	setTimeout(function(){
-								// 		curModalSwiper.update();
-								// 		// console.debug('curModalSwiper updated.')	
-								// 	},delay);
-								// }
-
-							})
+							});
 						}
 
 					}
