@@ -2422,6 +2422,9 @@ div.wpcf7-validation-errors {
 
 .no-underline a { text-decoration: none; }
 
+.table-of-content {
+    margin-bottom: 100px;
+}
 ul#ToC-list {
     list-style: none;
     margin: 0;
