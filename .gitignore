@@ -2,6 +2,7 @@
 php_errorlog
 .DS_Store
 
+
 wp-config.php
 wp-config.*
 wp-content/advanced-cache.php
