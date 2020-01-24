@@ -51,9 +51,12 @@
 
           <div class="clear"></div>
 
-
         </div>
 
+
+        <div class="posttags"><?php the_tags('<h3 class="posttags-title">Tags:</h3> ',', ',' '); ?></div>
+
+        <div class="clear"></div>
 
         <div class="share-link">
           <div class="share-link-title">Share this page:</div>
@@ -85,8 +88,6 @@
             </li>
           </ul>
         </div>
-
-        <div class="posttags container"><?php the_tags('<h3>Tags</h3> #', ', #', '<br />'); ?></div>
 
         <div class="clear"></div>
 

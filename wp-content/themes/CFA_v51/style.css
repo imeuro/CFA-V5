@@ -1370,14 +1370,7 @@ article.cfa_translations .pinbin-text a span {
 .post-prev a:hover {
   background: #777;
 }
-.posttags {
-  color: #000;
-  font-size: 1.6rem;
-  font-weight: normal;
-}
-.posttags.container {
-  margin-bottom: 100px;
-}
+
 .view-next {
   float: right;
 }
@@ -1780,13 +1773,23 @@ div#closemenu:hover,
   background: transparent;
   padding-left: 25px;
   padding-right: 25px;
+  text-align: center; 
 }
-.share-link-title { 
+.posttags {
+    text-align: center;
+    margin-top: 50px;
+}
+.share-link-title, .posttags-title  { 
   margin-top: 10px;
   text-align: center;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 500;
+}
+.posttags-title { display: inline; }
+.posttags a:before {
+  content: "#";
+  margin: 0 3px;
 }
 .share-link ul {
   list-style: none;
