@@ -64,6 +64,9 @@ add_action( 'after_setup_theme', 'CFA_setup' );
 
 
 if (!is_admin())
+	add_filter( 'wpcf7_load_js', '__return_false' );
+	add_filter( 'wpcf7_load_css', '__return_false' );
+
 	add_action( 'wp_enqueue_scripts', 'CFA_scripts' );
 
 function CFA_scripts() {
@@ -72,25 +75,50 @@ function CFA_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri(), '', '', 'all'  );
 	wp_enqueue_style( 'CFA-font', 'https://fonts.googleapis.com/css?family=Arapey|BenchNine:700&display=swap' );
 
-	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.97074.js', array( 'jquery' ), null, true );
-	wp_enqueue_script( 'Swiper', get_template_directory_uri() . '/js/swiper.min.js', array( 'jquery' ), null, true );
+	
+
 	wp_enqueue_style( 'Swiper', get_template_directory_uri() . '/js/swiper.min.css', '', '4.1.0', 'all'  );
 
 	wp_enqueue_style( 'print', get_template_directory_uri() . "/print.css", 'style-css', '1.0', 'print' );
 
-	wp_enqueue_script( 'jquery-isotope', get_template_directory_uri() . '/js/jquery.isotope.min.js', array( 'modernizr' ), null, true );
-	wp_enqueue_script( 'jquery-unveil', get_template_directory_uri() . '/js/jquery.unveil.js', array( 'imagesloaded' ), null, true );
-	wp_enqueue_script( 'CFA-functions', get_template_directory_uri() . '/js/CFA_functions.js', array( 'imagesloaded' ), '', true );
+
 
 	if ( is_home() || is_front_page() || is_archive() || is_page('it') ) {
-		wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js', array( 'jquery' ), null, true );
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'jquery-migrate' );
+		wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.97074.js', array( 'jquery' ), null, true );
+		wp_enqueue_script( 'jquery-isotope', get_template_directory_uri() . '/js/jquery.isotope.min.js', array( 'modernizr' ), null, true );
 		wp_enqueue_script( 'jquery-hoverdir', get_template_directory_uri() . '/js/jquery.hoverdir.js', array( 'jquery-isotope' ), null, true );
 		wp_enqueue_script( 'jquery-infinitescroll', get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array( 'jquery-hoverdir' ), null, true );
-
 	}
 
+	if(is_page('newsletter')) {
+		if ( function_exists( 'wpcf7_enqueue_scripts') && function_exists( 'wpcf7_enqueue_styles' ) ) {
+			wpcf7_enqueue_scripts();
+			wpcf7_enqueue_styles();
+		}
+	}
+
+	wp_enqueue_script( 'Swiper', get_template_directory_uri() . '/js/swiper.min.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'CFA-functions', get_template_directory_uri() . '/js/CFA_functions.js', array( 'jquery' ), null, true );
+
+
 }
+
+
+// Remove JQuery migrate:
+// https://www.infophilic.com/remove-jquery-migrate-wordpress/
+
+function remove_jquery_migrate( $scripts ) {
+	global $post;
+	if ( !is_admin() && isset( $scripts->registered['jquery'] ) ) {
+		$script = $scripts->registered['jquery'];
+		if ( $script->deps ) { // Check whether the script has any dependencies
+			$script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
+		}
+	}
+}
+add_action( 'wp_default_scripts', 'remove_jquery_migrate' );
 
 /**
  * wp_title() Filter for better SEO.
@@ -132,8 +160,7 @@ endif;
 
 
 /* limite a X parole */
-function string_limit_words($string, $word_limit)
-{
+function string_limit_words($string, $word_limit) {
   $words = explode(' ', $string, ($word_limit + 1));
   if(count($words) > $word_limit)
   array_pop($words);
@@ -349,96 +376,6 @@ function fixed_img_caption_shortcode($attr, $content = null) {
  . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
 }
 
-
-
-//////////////////////////////////////
-//
-//  v 1.5 additions starting here
-//
-//////////////////////////////////////
-
-
-class CSS_Menu_Maker_Walker extends Walker {
-
-  var $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
-
-  function start_lvl( &$output, $depth = 0, $args = array() ) {
-    /*$indent = str_repeat("\t", $depth);
-    $output .= "\n$indent<dt class=\"sub-menu\">\n";*/
-  }
-
-  function end_lvl( &$output, $depth = 0, $args = array() ) {
-    /*$indent = str_repeat("\t", $depth);
-    $output .= "$indent</dt>\n";*/
-  }
-
-  function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-
-    global $wp_query;
-    $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-    $class_names = $value = '';
-    $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-
-    /* Add active class */
-    if(in_array('current-menu-item', $classes)) {
-      $classes[] = 'active';
-      unset($classes['current-menu-item']);
-    }
-
-    /* Check for children */
-    $children = get_posts(array('post_type' => 'nav_menu_item', 'nopaging' => true, 'numberposts' => 1, 'meta_key' => '_menu_item_menu_item_parent', 'meta_value' => $item->ID));
-    if (!empty($children)) {
-      $classes[] = 'has-sub';
-    }
-
-    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-
-    $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-    $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-
-    $output .= $indent . '<dd' . $id . $value . $class_names .'>';
-
-    $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-    $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-    $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-    $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-
-    $item_output = $args->before;
-    $item_output .= '<a'. $attributes .'><span>';
-    $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-    $item_output .= '</span></a>';
-    $item_output .= $args->after;
-
-    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-  }
-
-  function end_el( &$output, $item, $depth = 0, $args = array() ) {
-    $output .= "</dd>\n";
-  }
-}
-
-
-
-//////////////////////////////////////
-//
-//  v 1.6 post type for CFA Authors
-//
-//////////////////////////////////////
-
-
-// Register Custom Post Type
-
-
-//////////////////////////////////////
-//
-// 26 jan 2016
-// restore 'get shortlink button':
-// http://wptavern.com/how-to-restore-the-get-shortlink-button-in-wordpress-4-4
-//
-//////////////////////////////////////
-add_filter( 'get_shortlink', function( $shortlink ) {return $shortlink;} );
-
 //////////////////////////////////////
 //
 // 27 jan 2016
@@ -478,18 +415,6 @@ add_filter('manage_post_posts_columns' , 'set_columns_order');
 
 
 add_filter('xmlrpc_enabled', '__return_false');
-
-
-// GESTIONE IMMAGINI RESPONSIVE (WP 4.4+)
-// https://www.smashingmagazine.com/2015/12/responsive-images-in-wordpress-core/
-function adjust_image_sizes_attr( $sizes, $size ) {
-   $sizes = '(min-width: 1280px) 1024px, (min-width: 768px) 640px, (min-width: 480px) 640px, 320px';
-   //var_dump($sizes);
-   return $sizes;
-}
-add_filter( 'wp_calculate_image_sizes', 'adjust_image_sizes_attr', 10 , 2 );
-
-
 
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );

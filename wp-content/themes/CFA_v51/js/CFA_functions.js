@@ -7,12 +7,9 @@ var ENV = window.location.host;
 var basepath = '/cfa/';
 if (ENV == 'localhost' || ENV == 'nas.imeuro.io' || ENV == 'www.meuro.dev') { basepath = '/conceptualfinearts/cfa/'; }
 var themepath = basepath+'wp-content/themes/CFA_v51/';
-var $container = jQuery('#post-area');
 var whitecurtain = document.getElementById('whitecurtain');
 var modal = document.getElementById('modal');
-var Jmodal = jQuery('#modal');
 var AltLang = document.getElementById('lang-switcher');
-var JAltLang = jQuery('#lang-switcher');
 var header_v5 = document.getElementById('site-navigation');
 var logo_v5 = document.getElementById('logo');
 var menu_v5 = document.getElementById('header-menu');
@@ -20,6 +17,16 @@ var modalSwiper = [];
 var fogliaSwiper = '';
 var BlockSwiper = [];
 var curModalSwiper = [];
+
+if (typeof jQuery == "function") {
+	var $container = jQuery('#post-area');
+	var Jmodal = jQuery('#modal');
+	var JAltLang = jQuery('#lang-switcher');
+} else {
+	var $container = '';
+	var Jmodal = '';
+	var JAltLang = '';
+}
 
 
 ////////////////////////////////////
@@ -114,36 +121,22 @@ document.addEventListener("DOMContentLoaded", function() {
 	console.log("%c\n CONCEPTUAL FINE ARTS \n Powered by: Mauro Fioravanzi \n since oct 2013 \n",'background:#fff;color:#F7A420;font-weight:700');
 
 
-	jQuery('#logo').click(function(){
-	  if (Jmodal.children().length !== 0) {
-      parent.update_url(basepath);
-			Jmodal.addClass('hidden empty').delay(1000).html('');
-	  } else {
+	document.getElementById('logo').addEventListener('click', function(){
+		if (modal.childElementCount !== 0) {
+			parent.update_url(basepath);
+			modal.classList.add('hidden empty');
+			modal.innerHTML = '';
+			//Jmodal.addClass('hidden empty').delay(1000).html('');
+		} else {
 			window.location.href = basepath;
 		}
 	});
 
 });
 
-jQuery(window).load(function(){
+window.addEventListener("load", function() {
 	console.log('done with page load.');
-
-	// rimuovi whitecurtain at window loaded
-	$container.imagesLoaded().done( function( instance ) {
-		console.log('all images successfully loaded');
-		whitecurtain.classList.add('transparent');
-
-		setTimeout(function(){
-			whitecurtain.classList.add('hidden')
-			whitecurtain.classList.remove('transparent');
-		},2000);
-
-	}).fail( function() {
-    console.log('all images loaded, at least one is broken');
-		jQuery('#whitecurtain').fadeOut(2000); //anyway..
-  });
-
-
+	document.getElementById('whitecurtain').classList.add('hidden');
 });
 
 // update the url if you click on a post
@@ -176,24 +169,13 @@ window.addEventListener('popstate', function(event) {
 // Foglia: actions at window load
 //===============================
 
-jQuery(window).load(function(){
+document.addEventListener("load", function() {
 	console.log('done with page load.');
-	jQuery('article.post .pinbin-image').addClass('newitem');
 	okresize();
-
-	jQuery('.archive-month-container').isotope({
-		columnWidth: 160
-	});
 
 	// Foglia: init that fantastic lightbox!
 	//===============================
 	ThatFabulousLightbox();
-
-
-  	// Foglia: LAZYLOAD (actually is unveil.js)
-	//===============================
-	jQuery("img.unveil").unveil();
-
 });
 
 
@@ -731,7 +713,6 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 		}
 		okresize();
 
-		$container.imagesLoaded().done( function( instance ) {
 
 	    if (sw>767) {
 
@@ -747,7 +728,6 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 
 
 	    }
-	  });
 	  
 	  var pageNum = 0;
 	  $container.infinitescroll({
