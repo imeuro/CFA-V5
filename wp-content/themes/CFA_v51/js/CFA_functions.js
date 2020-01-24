@@ -463,7 +463,7 @@ function ThatFabulousLightbox() {
 
 				var theID = jQuery(this).attr('id');
 
-				// eyesonHeader.shrink();
+				eyesonHeader.shrink();
 				modal.classList.remove('hidden');
 
 				// actually load the article content into the modal
@@ -493,6 +493,7 @@ function ThatFabulousLightbox() {
 							setTimeout(function(){
 								console.log('rimosso content');
 								modal.innerHTML = '';
+								eyesonHeader.scrolling();
 							},2000);
 
 							var uplinkbtn = document.getElementById("uplink");
