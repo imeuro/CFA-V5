@@ -1,5 +1,7 @@
 *.log
+php_errorlog
 .DS_Store
+
 
 wp-config.php
 wp-config.*
