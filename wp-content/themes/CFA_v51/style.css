@@ -701,6 +701,19 @@ ul#header-menu li a {
   opacity: 1;
   transition: opacity 200ms ease-in-out;
 }
+ul#header-menu li a.funny {
+  font-size: 36px;
+  line-height: 29px;
+  font-weight: 700;
+  background-image: url(https://media.giphy.com/media/9PcEY5kYpR3QrQxxhL/giphy.gif);
+  background-position: center center;
+  background-size: contain;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  background-clip: text;
+}
 ul#header-menu li a:hover {
   opacity: .75;
 }
