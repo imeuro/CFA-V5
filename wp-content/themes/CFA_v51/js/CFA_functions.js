@@ -2,7 +2,7 @@
 ================================================== */
 
 var sw = document.body.clientWidth;
-var bodyClasses = document.body.classList; // bodyClasses.contains('my-class-name')
+var bodyClasses = document.body.classList; // usage: bodyClasses.contains('my-class-name')
 var ENV = window.location.host;
 var basepath = '/cfa/';
 if (ENV == 'localhost' || ENV == 'nas.imeuro.io' || ENV == 'www.meuro.dev') { basepath = '/conceptualfinearts/cfa/'; }
@@ -82,32 +82,33 @@ var randomFromInterval = function(from,to) {
 
 
 // ridimensiona layout dopo window load/resize
-var okresize = function() {
-	if (sw > 767) {
+if (typeof jQuery == "function") {
+	var okresize = function() {
+		if (sw > 767) {
 
-		jQuery('.newitem img').each(function() {
-			var blockwidth = jQuery(this).width();
-			var blockheight = jQuery(this).height();
-			//console.log('pppp'+blockwidth);
-			var percent;
-			if (blockwidth === 0 ) {blockwidth = 640; }
-			if (blockwidth>=480) {
-				if (blockwidth>blockheight) {
-					percent = randomFromInterval(0,5);
-				} else {
-					percent = randomFromInterval(0,30);
+			jQuery('.newitem img').each(function() {
+				var blockwidth = jQuery(this).width();
+				var blockheight = jQuery(this).height();
+				//console.log('pppp'+blockwidth);
+				var percent;
+				if (blockwidth === 0 ) {blockwidth = 640; }
+				if (blockwidth>=480) {
+					if (blockwidth>blockheight) {
+						percent = randomFromInterval(0,5);
+					} else {
+						percent = randomFromInterval(0,30);
+					}
 				}
-			}
-			var resizedwidth = blockwidth-((percent*blockwidth)/100);
-			//console.log('resizedwidth: '+resizedwidth);
-			jQuery(this).css('width',resizedwidth+'px');
+				var resizedwidth = blockwidth-((percent*blockwidth)/100);
+				//console.log('resizedwidth: '+resizedwidth);
+				jQuery(this).css('width',resizedwidth+'px');
 
-			jQuery(this).parent().parent().removeClass('newitem');
-		});
+				jQuery(this).parent().parent().removeClass('newitem');
+			});
 
-	}
-};
-
+		}
+	};
+}
 
 
 ////////////////////////////////////
@@ -140,13 +141,15 @@ window.addEventListener("load", function() {
 });
 
 // update the url if you click on a post
-function scan_urls() {
-  var link = jQuery('div.pinbin-image a');
-  link.each(function() {
-    jQuery(this).click(function() {
-      update_url( jQuery(this).attr('href') );
-    });
-  });
+if (typeof jQuery == "function") {
+	function scan_urls() {
+	  var link = jQuery('div.pinbin-image a');
+	  link.each(function() {
+	    jQuery(this).click(function() {
+	      update_url( jQuery(this).attr('href') );
+	    });
+	  });
+	}
 }
 
 function update_url(getUrl) {
@@ -317,10 +320,10 @@ if (window.location.search.substr(1) == "print=enabled") {
 	
 	var destroyFogliaswiper = function() {
     if (typeof fogliaSwiper == 'object'){ 
-				fogliaSwiper.destroy();
-				console.log('fogliaswiper destroyed.');
+			fogliaSwiper.destroy();
+			console.log('fogliaswiper destroyed.');
 		} 
-  };
+	};
 
 	if (window.matchMedia) {
 		var checkprinting = window.matchMedia('print');
@@ -337,8 +340,8 @@ if (window.location.search.substr(1) == "print=enabled") {
 } else { //redirect to printable version
 
 	var suggest_printable = function() {
-    window.location.replace("?print=enabled")
-  };
+		window.location.replace("?print=enabled")
+	};
 
 	if (window.matchMedia) {
 		var checkprinting = window.matchMedia('print');
@@ -355,8 +358,8 @@ var get_summary = function(context) {
 	var ToCTarget = document.querySelector('.summary-container');
 
 	if (ToCTarget && ToCTarget !== null) {
-	// if (bodyClasses.contains('single') || bodyClasses.contains('page') || bodyClasses.contains('modal-open')) { 
-		// there will be a flag in backend, adding a specific class to body, which enables auto summary (Table Of Contents) functionality
+
+		// there is a flag in backend, adding specific DOM to the page, which enables auto summary (Table Of Contents) functionality
 
 		var Sumheaders=document.querySelectorAll('.pinbin-copy h2,.pinbin-copy h3,.pinbin-copy h4');
 		if (Sumheaders.length > 1) {
@@ -429,182 +432,182 @@ function scrollTo(element,context) {
 
 // prepare for that fantastic lightbox!
 //===============================
+if (typeof jQuery == "function") {
+	function ThatFabulousLightbox() {
+		if (bodyClasses.contains('single')) {
+			jQuery('.posttags a').attr('target','_parent'); // ???
+		}
+		else {
+			jQuery('article.post:not(.type-post-patrons)').click(function(e) {
 
-function ThatFabulousLightbox() {
-	if (bodyClasses.contains('single')) {
-		jQuery('.posttags a').attr('target','_parent'); // ???
-	}
-	else {
-		jQuery('article.post:not(.type-post-patrons)').click(function(e) {
+				e.preventDefault();
 
-			e.preventDefault();
+				var theUrl = jQuery(this).find('div > a').attr('href');
+				console.log('loading contents from: '+theUrl);
+				if (theUrl) {
 
-			var theUrl = jQuery(this).find('div > a').attr('href');
-			console.log('loading contents from: '+theUrl);
-			if (theUrl) {
+					var theID = jQuery(this).attr('id');
 
-				var theID = jQuery(this).attr('id');
+					eyesonHeader.shrink();
+					modal.classList.remove('hidden');
 
-				eyesonHeader.shrink();
-				modal.classList.remove('hidden');
+					// actually load the article content into the modal
+					Jmodal.load( theUrl+" #"+theID, function( response, status, xhr ) {
+						// console.debug(status);
 
-				// actually load the article content into the modal
-				Jmodal.load( theUrl+" #"+theID, function( response, status, xhr ) {
-					// console.debug(status);
+						if ( status == "success" ) {
 
-					if ( status == "success" ) {
+							parent.update_url(theUrl);
+							modal.classList.remove('empty');
+							document.body.classList.add('modal-open');
 
-						parent.update_url(theUrl);
-						modal.classList.remove('empty');
-						document.body.classList.add('modal-open');
+							// update links to translated versions
+							jQuery('#site-navigation #lang-switcher').load(theUrl+" #lang-switcher *");
 
-						// update links to translated versions
-						jQuery('#site-navigation #lang-switcher').load(theUrl+" #lang-switcher *");
-
-						goTopLink(modal);
-						get_summary(modal);
-
-
-						// chiudi tutto
-						jQuery('#logo').click(function(){
-							// console.debug('click logo');
-							parent.update_url(basepath);
-							modal.classList.add('hidden');
-							modal.classList.add('empty');
-							document.body.classList.remove('modal-open');
-							setTimeout(function(){
-								console.log('rimosso content');
-								modal.innerHTML = '';
-								eyesonHeader.scrolling();
-							},2000);
-
-							var uplinkbtn = document.getElementById("uplink");
-  							uplinkbtn.parentNode.removeChild(uplinkbtn);
+							goTopLink(modal);
+							get_summary(modal);
 
 
-						});
+							// chiudi tutto
+							jQuery('#logo').click(function(){
+								// console.debug('click logo');
+								parent.update_url(basepath);
+								modal.classList.add('hidden');
+								modal.classList.add('empty');
+								document.body.classList.remove('modal-open');
+								setTimeout(function(){
+									console.log('rimosso content');
+									modal.innerHTML = '';
+									eyesonHeader.scrolling();
+								},2000);
 
-						// modal: Swiper init (see also @ line #348: fogliaSwiper )
-						if (document.querySelector('.CFAslider, .wp-block-gallery') !== null) {
-							modalSwiper = document.querySelectorAll('#modal .CFAslider, #modal .wp-block-gallery');
+								var uplinkbtn = document.getElementById("uplink");
+	  							uplinkbtn.parentNode.removeChild(uplinkbtn);
 
-							console.debug(modalSwiper);
-
-							Array.from(modalSwiper).forEach(function (element, index) {
-
-								if (element.classList.contains('wp-block-gallery') === true) {
-
-									var da_element = element;
-									if (element.nodeName == 'FIGURE') { // shit happens :(
-
-										da_element = element.firstChild;
-										da_element.classList.remove('blocks-gallery-grid');
-
-									}
-
-									// 'element' will be wrapped with a div.swiper-container.CFAslider
-									var Swrapper = document.createElement('div');
-									da_element.parentNode.insertBefore(Swrapper, da_element);
-									Swrapper.appendChild(da_element);
-
-									// div.swiper-container.CFAslider will be wrapped with a div.container
-									var Swrapper2 = document.createElement('div');
-									Swrapper.parentNode.insertBefore(Swrapper2, Swrapper);
-									Swrapper2.appendChild(Swrapper);
-
-									//reset and add some classes to make it work...
-									Swrapper.className = '';
-									da_element.className = '';
-									Swrapper.classList.add('swiper-container','CFAslider');
-									Swrapper2.classList.add('container');
-
-									da_element.classList.add('swiper-wrapper','gutenberg-swiper-block');
-
-									var Sslides = da_element.childNodes;
-									Array.from(Sslides).forEach(function (e, i) {
-										e.className = '';
-										e.classList.add('swiper-slide', 'gallery-item');
-										var Simg= e.querySelector('img');
-										var Simgsrc = Simg.getAttribute('src');
-										Simg.removeAttribute('src');
-										Simg.setAttribute('data-src', Simgsrc);
-										Simg.classList.add('swiper-lazy');
-										var Sfig= e.querySelector('figure'); // to be removed
-										Ssaveme=Sfig.innerHTML;
-										e.innerHTML = Ssaveme;
-										var Sdida= e.querySelector('figcaption');
-										Sdida.classList.add('gallery-caption');
-										var Sloader = document.createElement('div');
-										e.appendChild(Sloader);
-										Sloader.classList.add('swiper-lazy-preloader');
-									});
-
-
-									// add the navigation bullets + arrows...
-									var Snavigation = document.createElement('div');
-									var SLarr = document.createElement('div');
-									var SRarr = document.createElement('div');
-
-									Swrapper.appendChild(Snavigation);
-									Swrapper.appendChild(SLarr);
-									Swrapper.appendChild(SRarr);
-
-									Snavigation.classList.add('swiper-pagination');
-									SLarr.classList.add('prevContainer');
-									SRarr.classList.add('nextContainer');
-
-									// console.debug(Swrapper);
-									// console.debug(CFAslidersettings);
-									// console.debug(modalSwiper[index]);
-
-
-									// aaaaand finally init dat shit
-									curModalSwiper[index] = new Swiper (Swrapper, CFAslidersettings );
-									curModalSwiper[index].on('init', function() { 
-										updateSwipeArea(curModalSwiper[index],300); 
-									});
-									curModalSwiper[index].on('lazyImageReady', function () {
-										console.log('lazyImageReady........');
-									updateSwipeArea(curModalSwiper[index],100);
-									});
-									curModalSwiper[index].init();
-									console.log(index+'init!');
-
-								} else { // Legacy carousels with shortcodes
-									curModalSwiper[index] = new Swiper (element, CFAslidersettings );
-									curModalSwiper[index].on('init', function() { 
-										updateSwipeArea(curModalSwiper,300); 
-									});
-									curModalSwiper[index].on('lazyImageReady', function () {
-										updateSwipeArea(curModalSwiper,100);
-									});	
-									curModalSwiper[index].init();
-								}
 
 							});
+
+							// modal: Swiper init (see also @ line #348: fogliaSwiper )
+							if (document.querySelector('.CFAslider, .wp-block-gallery') !== null) {
+								modalSwiper = document.querySelectorAll('#modal .CFAslider, #modal .wp-block-gallery');
+
+								console.debug(modalSwiper);
+
+								Array.from(modalSwiper).forEach(function (element, index) {
+
+									if (element.classList.contains('wp-block-gallery') === true) {
+
+										var da_element = element;
+										if (element.nodeName == 'FIGURE') { // shit happens :(
+
+											da_element = element.firstChild;
+											da_element.classList.remove('blocks-gallery-grid');
+
+										}
+
+										// 'element' will be wrapped with a div.swiper-container.CFAslider
+										var Swrapper = document.createElement('div');
+										da_element.parentNode.insertBefore(Swrapper, da_element);
+										Swrapper.appendChild(da_element);
+
+										// div.swiper-container.CFAslider will be wrapped with a div.container
+										var Swrapper2 = document.createElement('div');
+										Swrapper.parentNode.insertBefore(Swrapper2, Swrapper);
+										Swrapper2.appendChild(Swrapper);
+
+										//reset and add some classes to make it work...
+										Swrapper.className = '';
+										da_element.className = '';
+										Swrapper.classList.add('swiper-container','CFAslider');
+										Swrapper2.classList.add('container');
+
+										da_element.classList.add('swiper-wrapper','gutenberg-swiper-block');
+
+										var Sslides = da_element.childNodes;
+										Array.from(Sslides).forEach(function (e, i) {
+											e.className = '';
+											e.classList.add('swiper-slide', 'gallery-item');
+											var Simg= e.querySelector('img');
+											var Simgsrc = Simg.getAttribute('src');
+											Simg.removeAttribute('src');
+											Simg.setAttribute('data-src', Simgsrc);
+											Simg.classList.add('swiper-lazy');
+											var Sfig= e.querySelector('figure'); // to be removed
+											Ssaveme=Sfig.innerHTML;
+											e.innerHTML = Ssaveme;
+											var Sdida= e.querySelector('figcaption');
+											Sdida.classList.add('gallery-caption');
+											var Sloader = document.createElement('div');
+											e.appendChild(Sloader);
+											Sloader.classList.add('swiper-lazy-preloader');
+										});
+
+
+										// add the navigation bullets + arrows...
+										var Snavigation = document.createElement('div');
+										var SLarr = document.createElement('div');
+										var SRarr = document.createElement('div');
+
+										Swrapper.appendChild(Snavigation);
+										Swrapper.appendChild(SLarr);
+										Swrapper.appendChild(SRarr);
+
+										Snavigation.classList.add('swiper-pagination');
+										SLarr.classList.add('prevContainer');
+										SRarr.classList.add('nextContainer');
+
+										// console.debug(Swrapper);
+										// console.debug(CFAslidersettings);
+										// console.debug(modalSwiper[index]);
+
+
+										// aaaaand finally init dat shit
+										curModalSwiper[index] = new Swiper (Swrapper, CFAslidersettings );
+										curModalSwiper[index].on('init', function() { 
+											updateSwipeArea(curModalSwiper[index],300); 
+										});
+										curModalSwiper[index].on('lazyImageReady', function () {
+											console.log('lazyImageReady........');
+										updateSwipeArea(curModalSwiper[index],100);
+										});
+										curModalSwiper[index].init();
+										console.log(index+'init!');
+
+									} else { // Legacy carousels with shortcodes
+										curModalSwiper[index] = new Swiper (element, CFAslidersettings );
+										curModalSwiper[index].on('init', function() { 
+											updateSwipeArea(curModalSwiper,300); 
+										});
+										curModalSwiper[index].on('lazyImageReady', function () {
+											updateSwipeArea(curModalSwiper,100);
+										});	
+										curModalSwiper[index].init();
+									}
+
+								});
+							}
+
 						}
 
-					}
+						if ( status == "error" ) {
+							var msg = "<div class=\"post type-post type-404\"><h2>"+ xhr.status + ' ' + xhr.statusText +"</h2><p>Apologies, the article at "+theUrl+" is not available</p>\n<p>You'll be redirected to the home page in 5 seconds.</p></div>";
+							Jmodal.html( header + msg  );
+							setTimeout(function(){
+								modal.classList.add('hidden empty');
+							},5000);
+							setTimeout(function(){
+								modal.innerHTML('');
+							},500);
 
-					if ( status == "error" ) {
-						var msg = "<div class=\"post type-post type-404\"><h2>"+ xhr.status + ' ' + xhr.statusText +"</h2><p>Apologies, the article at "+theUrl+" is not available</p>\n<p>You'll be redirected to the home page in 5 seconds.</p></div>";
-						Jmodal.html( header + msg  );
-						setTimeout(function(){
-							modal.classList.add('hidden empty');
-						},5000);
-						setTimeout(function(){
-							modal.innerHTML('');
-						},500);
+						}
+					});
+				}
 
-					}
-				});
-			}
+			});
 
-		});
-
+		}
 	}
 }
-
 
 
 
@@ -629,178 +632,177 @@ function randomFromInterval(from,to) {
 
 if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') === true) { // check classe in body
 
-	// Home: custom layout mode: spineAlign
-	//===============================
+	if (typeof jQuery == "function") {
 
-	if (sw>767) {
-		jQuery.Isotope.prototype._spineAlignReset = function() {
-		  this.spineAlign = {
-		    colA: 0,
-		    colB: 0
-		  };
-		};
+		// Home: custom layout mode: spineAlign
+		//===============================
+		if (sw>767) {
+			jQuery.Isotope.prototype._spineAlignReset = function() {
+			  this.spineAlign = {
+			    colA: 0,
+			    colB: 0
+			  };
+			};
 
-		jQuery.Isotope.prototype._spineAlignLayout = function( $elems ) {
-		  var instance = this,
-		      props = this.spineAlign,
-		      gutterWidth = Math.round( this.options.spineAlign && this.options.spineAlign.gutterWidth ) || 0,
-		      centerX = Math.round(this.element.width() / 2);
-
-
-		  $elems.each(function(){
-		    var $this = jQuery(this),
-		        isColA = props.colA <= props.colB,
-		        x = isColA ?
-		          centerX - ( $this.outerWidth(true) + gutterWidth / 2 ) : // left side
-		          centerX + gutterWidth / 2, // right side
-		        y = isColA ? props.colA : props.colB;
-		    instance._pushPosition( $this, x, y );
-		    props[( isColA ? 'colA' : 'colB' )] += $this.outerHeight(true);
-		  });
-		};
+			jQuery.Isotope.prototype._spineAlignLayout = function( $elems ) {
+			  var instance = this,
+			      props = this.spineAlign,
+			      gutterWidth = Math.round( this.options.spineAlign && this.options.spineAlign.gutterWidth ) || 0,
+			      centerX = Math.round(this.element.width() / 2);
 
 
-		jQuery.Isotope.prototype._spineAlignGetContainerSize = function() {
-		  var size = {};
-		  size.height = this.spineAlign[( this.spineAlign.colB > this.spineAlign.colA ? 'colB' : 'colA' )];
-		  return size;
-		};
+			  $elems.each(function(){
+			    var $this = jQuery(this),
+			        isColA = props.colA <= props.colB,
+			        x = isColA ?
+			          centerX - ( $this.outerWidth(true) + gutterWidth / 2 ) : // left side
+			          centerX + gutterWidth / 2, // right side
+			        y = isColA ? props.colA : props.colB;
+			    instance._pushPosition( $this, x, y );
+			    props[( isColA ? 'colA' : 'colB' )] += $this.outerHeight(true);
+			  });
+			};
 
-		jQuery.Isotope.prototype._spineAlignResizeChanged = function() {
 
-		  return true;
-		};
-	}
+			jQuery.Isotope.prototype._spineAlignGetContainerSize = function() {
+			  var size = {};
+			  size.height = this.spineAlign[( this.spineAlign.colB > this.spineAlign.colA ? 'colB' : 'colA' )];
+			  return size;
+			};
 
-	// Home: actions at window resize
-	//===============================
+			jQuery.Isotope.prototype._spineAlignResizeChanged = function() {
 
-	jQuery(window).resize(function() {
-	  sw = document.body.clientWidth;
-	  //console.log(sw);
-
-	  if (sw>767) {
-	      jQuery('#post-area').isotope({
-	        layoutMode: 'spineAlign',
-	        //disable resizing
-	        resizable: false,
-	        spineAlign: {
-	          gutterWidth: 10
-	        }
-	      });
-
-	      setTimeout(function(){
-	        jQuery('#post-area.isotope').isotope('reLayout');
-	      },1000);
-	  } else if (sw<=767 && sw>640) {
-	    jQuery('#post-area.isotope').isotope('destroy');
-	  } else if (sw<=640) {
-	    jQuery('#post-area.isotope').isotope('destroy');
-	  }
-	});
-
-	// Home: actions at window load
-	//===============================
-
-	jQuery(window).load(function(){
-
-		// effetto hover su immagini in hp (idem a #234)
-		if(sw>1024){
-			jQuery('article.post .pinbin-image, article.cfa_translations .pinbin-image').each( function() {
-						jQuery(this).hoverdir({speed : 1000});
-			});
-
+			  return true;
+			};
 		}
-		okresize();
 
+		// Home: actions at window resize
+		//===============================
 
-	    if (sw>767) {
+		jQuery(window).resize(function() {
+		  sw = document.body.clientWidth;
+		  //console.log(sw);
 
-	      $container.isotope({
-	        layoutMode: 'spineAlign',
-	        //disable resizing
-	        resizable: false,
-	        spineAlign: {
-	          gutterWidth: 10
-	        }
-	      });
-	      $container.isotope('reLayout');
+		  if (sw>767) {
+		      jQuery('#post-area').isotope({
+		        layoutMode: 'spineAlign',
+		        //disable resizing
+		        resizable: false,
+		        spineAlign: {
+		          gutterWidth: 10
+		        }
+		      });
 
-
-	    }
-	  
-	  var pageNum = 0;
-	  $container.infinitescroll({
-	    loading: {
-	      finished: undefined,
-	      finishedMsg: "<em>No other items to load.</em>",
-	      img: themepath+"images/tiny_red.gif",
-	      msg: null,
-	      msgText: "",
-	      selector: null,
-	      speed: 'fast',
-	      start: undefined
-	    },
-	    state: {
-	      isDuringAjax: false,
-	      isInvalidPage: false,
-	      isDestroyed: false,
-	      isDone: false, // For when it goes all the way through the archive.
-	      isPaused: false,
-	      currPage: 1
-	    },
-	    navSelector  : '#nav-below',    // selector for the paged navigation
-	    nextSelector : '#nav-below .view-previous a',  // selector for the NEXT link (to page 2)
-	    itemSelector : '.post',     // selector for all items you'll retrieve
-	    animate      : false,
-	    extraScrollPx: 250,
-	    bufferPx     : 50,
-	    errorCallback: function(){$container.isotope('reLayout');}
-	  },
-	  // call Isotope as a callback
-	  function( newElements ) {
-	  	newElements.forEach(function(item, index) {
-		 if (newElements[index].classList.contains('no-results')) {
-		 		item.classList.add('hidden');
-		 		newElements[0].innerHTML='<p>Sorry, no other post available.</p>'
-		 		newElements[0].classList.remove('hidden');
-		  		$container.infinitescroll('destroy');
+		      setTimeout(function(){
+		        jQuery('#post-area.isotope').isotope('reLayout');
+		      },1000);
+		  } else if (sw<=767 && sw>640) {
+		    jQuery('#post-area.isotope').isotope('destroy');
+		  } else if (sw<=640) {
+		    jQuery('#post-area.isotope').isotope('destroy');
 		  }
-	  	})
-	  	
-	    pageNum++;
+		});
 
-		if(sw>1024){
-	      jQuery('article.post .pinbin-image').each( function() {
-	        jQuery(this).hoverdir({speed : 1000});
-	      });
-		}
+		// Home: actions at window load
+		//===============================
 
-	    okresize();
+		jQuery(window).load(function(){
 
-	    scan_urls();
-
-		ThatFabulousLightbox();
-
-	    if (jQuery("#post-area").hasClass('isotope')) {
-	      $container.children('.newitem').hide();
-				jQuery('.post-patrons').each(function(i){
-					if (i >= 1) {
-						jQuery(this).parent().remove();
-					}
+			// effetto hover su immagini in hp (idem a #234)
+			if(sw>1024){
+				jQuery('article.post .pinbin-image, article.cfa_translations .pinbin-image').each( function() {
+							jQuery(this).hoverdir({speed : 1000});
 				});
-	      $container.children('.newitem').fadeIn(500);
-	      $container.isotope( 'appended', jQuery( newElements ) );
-	      setTimeout(function(){$container.isotope('reLayout');}, 1000);
-	    }
 
-		var trackerName = ga.getAll()[0].get('name');
-		ga(trackerName + '.send', 'pageview', '/scroll/'+pageNum);
-	    //ga('send', 'pageview', '/scroll/'+pageNum);
-	    console.log('scroll/'+pageNum);
-	  });
+			}
+			okresize();
 
 
+		    if (sw>767) {
 
-	});
+		      $container.isotope({
+		        layoutMode: 'spineAlign',
+		        //disable resizing
+		        resizable: false,
+		        spineAlign: {
+		          gutterWidth: 10
+		        }
+		      });
+		      $container.isotope('reLayout');
+
+
+		    }
+		  
+		  var pageNum = 0;
+		  $container.infinitescroll({
+		    loading: {
+		      finished: undefined,
+		      finishedMsg: "<em>No other items to load.</em>",
+		      img: themepath+"images/tiny_red.gif",
+		      msg: null,
+		      msgText: "",
+		      selector: null,
+		      speed: 'fast',
+		      start: undefined
+		    },
+		    state: {
+		      isDuringAjax: false,
+		      isInvalidPage: false,
+		      isDestroyed: false,
+		      isDone: false, // For when it goes all the way through the archive.
+		      isPaused: false,
+		      currPage: 1
+		    },
+		    navSelector  : '#nav-below',    // selector for the paged navigation
+		    nextSelector : '#nav-below .view-previous a',  // selector for the NEXT link (to page 2)
+		    itemSelector : '.post',     // selector for all items you'll retrieve
+		    animate      : false,
+		    extraScrollPx: 250,
+		    bufferPx     : 50,
+		    errorCallback: function(){$container.isotope('reLayout');}
+		  },
+		  // call Isotope as a callback
+		  function( newElements ) {
+		  	newElements.forEach(function(item, index) {
+			 if (newElements[index].classList.contains('no-results')) {
+			 		item.classList.add('hidden');
+			 		newElements[0].innerHTML='<p>Sorry, no other post available.</p>'
+			 		newElements[0].classList.remove('hidden');
+			  		$container.infinitescroll('destroy');
+			  }
+		  	})
+		  	
+		    pageNum++;
+
+			if(sw>1024){
+		      jQuery('article.post .pinbin-image').each( function() {
+		        jQuery(this).hoverdir({speed : 1000});
+		      });
+			}
+
+		    okresize();
+
+		    scan_urls();
+
+			ThatFabulousLightbox();
+
+		    if (jQuery("#post-area").hasClass('isotope')) {
+		      $container.children('.newitem').hide();
+					jQuery('.post-patrons').each(function(i){
+						if (i >= 1) {
+							jQuery(this).parent().remove();
+						}
+					});
+		      $container.children('.newitem').fadeIn(500);
+		      $container.isotope( 'appended', jQuery( newElements ) );
+		      setTimeout(function(){$container.isotope('reLayout');}, 1000);
+		    }
+
+			var trackerName = ga.getAll()[0].get('name');
+			ga(trackerName + '.send', 'pageview', '/scroll/'+pageNum);
+		    //ga('send', 'pageview', '/scroll/'+pageNum);
+		    console.log('scroll/'+pageNum);
+		  });
+		});
+	}
 }
