@@ -85,7 +85,7 @@ function CFA_scripts() {
 
 	if ( is_home() || is_front_page() || is_archive() || is_page('it') ) {
 		wp_register_script('jquery', ("https://code.jquery.com/jquery-1.12.4.min.js"), false);
-		wp_register_script('jquery-migrate', ("https://code.jquery.com/jquery-migrate-3.1.0.min.js"), false);
+		wp_register_script('jquery-migrate', ("https://code.jquery.com/jquery-migrate-1.4.1.min.js"), false);
 		wp_enqueue_script('jquery');
 		wp_enqueue_script( 'jquery-migrate', array( 'jquery' ), null, false );
 		wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.97074.js', array( 'jquery' ), null, true );
