@@ -59,20 +59,22 @@ if (ENV == 'www.conceptualfinearts.com') {
 
 // NEWSLETTER popup
 let showPopNL = (timer) => {
-	let popDiv = document.getElementById('popNL');
-	let popClose = popDiv.querySelector('.popclose');
-	let popSure = popDiv.querySelector('.popsure');
+	if (document.getElementById('popNL') !== null) {
+		let popDiv = document.getElementById('popNL');
+		let popClose = popDiv.querySelector('.popclose');
+		let popSure = popDiv.querySelector('.popsure');
 
-	setTimeout(function(){
-		popDiv.classList.remove('hidden');
-	}, timer);
+		setTimeout(function(){
+			popDiv.classList.remove('hidden');
+		}, timer);
 
-	popSure.addEventListener("click", () => {
-		location.href=basepath+'/newsletter/';
-	});
-	popClose.addEventListener("click", () => {
-		popDiv.classList.add('hidden');
-	});
+		popSure.addEventListener("click", () => {
+			location.href=basepath+'/newsletter/';
+		});
+		popClose.addEventListener("click", () => {
+			popDiv.classList.add('hidden');
+		});
+	}
 }
 
 
