@@ -96,4 +96,3 @@ window.addEventListener("load", function() {
 	document.getElementById('whitecurtain').classList.add('hidden');
 	showPopNL(5000);
 });
->>>>>>> dejQuery
