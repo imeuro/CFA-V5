@@ -1,26 +1,31 @@
-/* custom CFA Functions - SITEWIDE
+/* custom CFA Functions
 ================================================== */
+
 var sw = document.body.clientWidth;
-var bodyClasses = document.body.classList; // usage: bodyClasses.contains('my-class-name')
+var bodyClasses = document.body.classList; // bodyClasses.contains('my-class-name')
 var ENV = window.location.host;
 var basepath = '/cfa/';
 if (ENV == 'localhost' || ENV == 'nas.imeuro.io' || ENV == 'www.meuro.dev') { basepath = '/conceptualfinearts/cfa/'; }
 var themepath = basepath+'wp-content/themes/CFA_v51/';
+var $container = jQuery('#post-area');
 var whitecurtain = document.getElementById('whitecurtain');
 var modal = document.getElementById('modal');
+var Jmodal = jQuery('#modal');
 var AltLang = document.getElementById('lang-switcher');
+var JAltLang = jQuery('#lang-switcher');
 var header_v5 = document.getElementById('site-navigation');
 var logo_v5 = document.getElementById('logo');
 var menu_v5 = document.getElementById('header-menu');
+var modalSwiper = [];
+var fogliaSwiper = '';
+var BlockSwiper = [];
+var curModalSwiper = [];
+
 
 
 ////////////////////////////////////
-// Sitewide Functions
-////////////////////////////////////
-
-
-
 // HEADER resizabble allo scroll
+////////////////////////////////////
 var resizzabolHeader = function() {
 	var me = this;
 
@@ -53,47 +58,76 @@ eyesonHeader.init();
 
 
 // protect images - attempt
-if (ENV == 'www.conceptualfinearts.com') {
+if (ENV != 'localhost') {
 	document.addEventListener('contextmenu', event => event.preventDefault());
 }
 
-// NEWSLETTER popup
-let showPopNL = (timer) => {
-	if (document.getElementById('popNL') !== null) {
-		let popDiv = document.getElementById('popNL');
-		let popClose = popDiv.querySelector('.popclose');
-		let popSure = popDiv.querySelector('.popsure');
 
-		setTimeout(function(){
-			popDiv.classList.remove('hidden');
-		}, timer);
+// Home: sballa larghezza delle immagini per creare un po' di casino.
+var randomFromInterval = function(from,to) {
+    return Math.floor(Math.random()*(to-from+1)+from);
+};
 
-		popSure.addEventListener("click", () => {
-			location.href=basepath+'/newsletter/';
+
+// Home: sballa larghezza delle immagini per creare un po' di casino.
+var randomFromInterval = function(from,to) {
+    return Math.floor(Math.random()*(to-from+1)+from);
+};
+
+
+// ridimensiona layout dopo window load/resize
+var okresize = function() {
+	if (sw > 767) {
+
+		jQuery('.newitem img').each(function() {
+			var blockwidth = jQuery(this).width();
+			var blockheight = jQuery(this).height();
+			//console.log('pppp'+blockwidth);
+			var percent;
+			if (blockwidth === 0 ) {blockwidth = 640; }
+			if (blockwidth>=480) {
+				if (blockwidth>blockheight) {
+					percent = randomFromInterval(0,5);
+				} else {
+					percent = randomFromInterval(0,30);
+				}
+			}
+			var resizedwidth = blockwidth-((percent*blockwidth)/100);
+			//console.log('resizedwidth: '+resizedwidth);
+			jQuery(this).css('width',resizedwidth+'px');
+
+			jQuery(this).parent().parent().removeClass('newitem');
 		});
-		popClose.addEventListener("click", () => {
-			popDiv.classList.add('hidden');
-		});
+
 	}
-}
+};
 
+
+
+////////////////////////////////////
+// Sitewide Functions
+////////////////////////////////////
 
 
 document.addEventListener("DOMContentLoaded", function() {
-	console.debug('typeof jQuery:'+typeof jQuery);
+
 	// Website Credits
 	console.log("%c\n CONCEPTUAL FINE ARTS \n Powered by: Mauro Fioravanzi \n since oct 2013 \n",'background:#fff;color:#F7A420;font-weight:700');
 
 
-	document.getElementById('logo').addEventListener('click', function(){
+	jQuery('#logo').click(function(){
+	  if (Jmodal.children().length !== 0) {
+      parent.update_url(basepath);
+			Jmodal.addClass('hidden empty').delay(1000).html('');
+	  } else {
 			window.location.href = basepath;
+		}
 	});
 
 });
 
-window.addEventListener("load", function() {
+jQuery(window).load(function(){
 	console.log('done with page load.');
-<<<<<<< HEAD
 
 	// rimuovi whitecurtain at window loaded
 	$container.imagesLoaded().done( function( instance ) {
@@ -249,9 +283,7 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && documen
 				Ssaveme=Sfig.innerHTML;
 				e.innerHTML = Ssaveme;
 				var Sdida= e.querySelector('figcaption');
-				if (Sdida) {
-					Sdida.classList.add('gallery-caption');
-				}
+				Sdida.classList.add('gallery-caption');
 				var Sloader = document.createElement('div');
 				e.appendChild(Sloader);
 				Sloader.classList.add('swiper-lazy-preloader');
@@ -417,9 +449,38 @@ function scrollTo(element,context) {
 // prepare for that fantastic lightbox!
 //===============================
 
+// Vanilla JS equivalent of jQuery .load()
+function AjaxGetPage(url, what, where, TheCallback) {
+    var cached=sessionStorage[url];
+    if(!what){what="body";} // default to grabbing body tag
+    if(where && where.split){where=document.querySelector(where);}
+    if(!where){where=document.querySelector(what);}
+    if(cached){return where.innerHTML=cached;}
+    var request = new XMLHttpRequest();
+    // request.responseType='document';
+
+    request.onreadystatechange = function() {
+	  if(request.readyState === 4) {
+	    where.innerHTML = 'fetching content...';
+	    if(request.status === 200) { 
+	      where.innerHTML = request.responseText;
+	    } else {
+	      where.innerHTML = 'An error occurred during your request: ' +  request.status + ' ' + request.statusText;
+	    } 
+	  }
+	}
+	request.addEventListener('load', TheCallback(request.status), false);
+    request.open("GET", url, true);
+    request.send();
+    return request;
+}
+
+
 function ThatFabulousLightbox() {
 	if (bodyClasses.contains('single')) {
-		jQuery('.posttags a').attr('target','_parent'); // ???
+		// Array.from(document.querySelectorAll('.posttags a')).forEach(function(el){
+		// 	el.attr('target','_parent'); // ???
+		// });
 	}
 	else {
 		jQuery('article.post:not(.type-post-patrons)').click(function(e) {
@@ -431,11 +492,148 @@ function ThatFabulousLightbox() {
 			if (theUrl) {
 
 				var theID = jQuery(this).attr('id');
+				console.log('theID: '+theID);
 
 				eyesonHeader.shrink();
 				modal.classList.remove('hidden');
 
+				var modalCallBack = function(status) {
+
+					parent.update_url(theUrl);
+					modal.classList.remove('empty');
+					document.body.classList.add('modal-open');
+
+					// update links to translated versions
+					jQuery('#site-navigation #lang-switcher').load(theUrl+" #lang-switcher *");
+
+					goTopLink(modal);
+					get_summary(modal);
+
+
+					// chiudi tutto
+					jQuery('#logo').click(function(){
+						// console.debug('click logo');
+						parent.update_url(basepath);
+						modal.classList.add('hidden');
+						modal.classList.add('empty');
+						document.body.classList.remove('modal-open');
+						setTimeout(function(){
+							console.log('rimosso content');
+							modal.innerHTML = '';
+							eyesonHeader.scrolling();
+						},2000);
+
+						var uplinkbtn = document.getElementById("uplink");
+							uplinkbtn.parentNode.removeChild(uplinkbtn);
+
+
+					});
+
+					// modal: Swiper init (see also @ line #348: fogliaSwiper )
+					if (document.querySelector('.CFAslider, .wp-block-gallery') !== null) {
+						modalSwiper = document.querySelectorAll('#modal .CFAslider, #modal .wp-block-gallery');
+
+						console.debug(modalSwiper);
+
+						Array.from(modalSwiper).forEach(function (element, index) {
+
+							if (element.classList.contains('wp-block-gallery') === true) {
+
+								var da_element = element;
+								if (element.nodeName == 'FIGURE') { // shit happens :(
+
+									da_element = element.firstChild;
+									da_element.classList.remove('blocks-gallery-grid');
+
+								}
+
+								// 'element' will be wrapped with a div.swiper-container.CFAslider
+								var Swrapper = document.createElement('div');
+								da_element.parentNode.insertBefore(Swrapper, da_element);
+								Swrapper.appendChild(da_element);
+
+								// div.swiper-container.CFAslider will be wrapped with a div.container
+								var Swrapper2 = document.createElement('div');
+								Swrapper.parentNode.insertBefore(Swrapper2, Swrapper);
+								Swrapper2.appendChild(Swrapper);
+
+								//reset and add some classes to make it work...
+								Swrapper.className = '';
+								da_element.className = '';
+								Swrapper.classList.add('swiper-container','CFAslider');
+								Swrapper2.classList.add('container');
+
+								da_element.classList.add('swiper-wrapper','gutenberg-swiper-block');
+
+								var Sslides = da_element.childNodes;
+								Array.from(Sslides).forEach(function (e, i) {
+									e.className = '';
+									e.classList.add('swiper-slide', 'gallery-item');
+									var Simg= e.querySelector('img');
+									var Simgsrc = Simg.getAttribute('src');
+									Simg.removeAttribute('src');
+									Simg.setAttribute('data-src', Simgsrc);
+									Simg.classList.add('swiper-lazy');
+									var Sfig= e.querySelector('figure'); // to be removed
+									Ssaveme=Sfig.innerHTML;
+									e.innerHTML = Ssaveme;
+									var Sdida= e.querySelector('figcaption');
+									Sdida.classList.add('gallery-caption');
+									var Sloader = document.createElement('div');
+									e.appendChild(Sloader);
+									Sloader.classList.add('swiper-lazy-preloader');
+								});
+
+
+								// add the navigation bullets + arrows...
+								var Snavigation = document.createElement('div');
+								var SLarr = document.createElement('div');
+								var SRarr = document.createElement('div');
+
+								Swrapper.appendChild(Snavigation);
+								Swrapper.appendChild(SLarr);
+								Swrapper.appendChild(SRarr);
+
+								Snavigation.classList.add('swiper-pagination');
+								SLarr.classList.add('prevContainer');
+								SRarr.classList.add('nextContainer');
+
+								// console.debug(Swrapper);
+								// console.debug(CFAslidersettings);
+								// console.debug(modalSwiper[index]);
+
+
+								// aaaaand finally init dat shit
+								curModalSwiper[index] = new Swiper (Swrapper, CFAslidersettings );
+								curModalSwiper[index].on('init', function() { 
+									updateSwipeArea(curModalSwiper[index],300); 
+								});
+								curModalSwiper[index].on('lazyImageReady', function () {
+									console.log('lazyImageReady........');
+								updateSwipeArea(curModalSwiper[index],100);
+								});
+								curModalSwiper[index].init();
+								console.log(index+'init!');
+
+							} else { // Legacy carousels with shortcodes
+								curModalSwiper[index] = new Swiper (element, CFAslidersettings );
+								curModalSwiper[index].on('init', function() { 
+									updateSwipeArea(curModalSwiper,300); 
+								});
+								curModalSwiper[index].on('lazyImageReady', function () {
+									updateSwipeArea(curModalSwiper,100);
+								});	
+								curModalSwiper[index].init();
+							}
+
+						});
+					}
+				}
+
 				// actually load the article content into the modal
+				AjaxGetPage(theUrl,"#"+theID,modal,modalCallBack);
+
+				/*
 				Jmodal.load( theUrl+" #"+theID, function( response, status, xhr ) {
 					// console.debug(status);
 
@@ -520,9 +718,7 @@ function ThatFabulousLightbox() {
 										Ssaveme=Sfig.innerHTML;
 										e.innerHTML = Ssaveme;
 										var Sdida= e.querySelector('figcaption');
-										if (Sdida) {
-											Sdida.classList.add('gallery-caption');
-										}
+										Sdida.classList.add('gallery-caption');
 										var Sloader = document.createElement('div');
 										e.appendChild(Sloader);
 										Sloader.classList.add('swiper-lazy-preloader');
@@ -587,6 +783,7 @@ function ThatFabulousLightbox() {
 
 					}
 				});
+				*/
 			}
 
 		});
@@ -795,8 +992,3 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 
 	});
 }
-=======
-	document.getElementById('whitecurtain').classList.add('hidden');
-	showPopNL(5000);
-});
->>>>>>> dejQuery
