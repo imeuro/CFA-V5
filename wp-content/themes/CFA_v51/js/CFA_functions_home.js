@@ -46,43 +46,43 @@ if (bodyClasses.contains('page-template-index_ita') === true) {
 // Home: custom layout mode: spineAlign
 //===============================
 if (sw>767) {
-    jQuery.Isotope.prototype._spineAlignReset = function() {
-      this.spineAlign = {
-        colA: 0,
-        colB: 0
-      };
+  jQuery.Isotope.prototype._spineAlignReset = function() {
+    this.spineAlign = {
+      colA: 0,
+      colB: 0
     };
+  };
 
-    jQuery.Isotope.prototype._spineAlignLayout = function( $elems ) {
-      var instance = this,
-          props = this.spineAlign,
-          gutterWidth = Math.round( this.options.spineAlign && this.options.spineAlign.gutterWidth ) || 0,
-          centerX = Math.round(this.element.width() / 2);
-
-
-      $elems.each(function(){
-        var $this = jQuery(this),
-            isColA = props.colA <= props.colB,
-            x = isColA ?
-              centerX - ( $this.outerWidth(true) + gutterWidth / 2 ) : // left side
-              centerX + gutterWidth / 2, // right side
-            y = isColA ? props.colA : props.colB;
-        instance._pushPosition( $this, x, y );
-        props[( isColA ? 'colA' : 'colB' )] += $this.outerHeight(true);
-      });
-    };
+  jQuery.Isotope.prototype._spineAlignLayout = function( $elems ) {
+    var instance = this,
+        props = this.spineAlign,
+        gutterWidth = Math.round( this.options.spineAlign && this.options.spineAlign.gutterWidth ) || 0,
+        centerX = Math.round(this.element.width() / 2);
 
 
-    jQuery.Isotope.prototype._spineAlignGetContainerSize = function() {
-      var size = {};
-      size.height = this.spineAlign[( this.spineAlign.colB > this.spineAlign.colA ? 'colB' : 'colA' )];
-      return size;
-    };
+    $elems.each(function(){
+      var $this = jQuery(this),
+          isColA = props.colA <= props.colB,
+          x = isColA ?
+            centerX - ( $this.outerWidth(true) + gutterWidth / 2 ) : // left side
+            centerX + gutterWidth / 2, // right side
+          y = isColA ? props.colA : props.colB;
+      instance._pushPosition( $this, x, y );
+      props[( isColA ? 'colA' : 'colB' )] += $this.outerHeight(true);
+    });
+  };
 
-    jQuery.Isotope.prototype._spineAlignResizeChanged = function() {
 
-      return true;
-    };
+  jQuery.Isotope.prototype._spineAlignGetContainerSize = function() {
+    var size = {};
+    size.height = this.spineAlign[( this.spineAlign.colB > this.spineAlign.colA ? 'colB' : 'colA' )];
+    return size;
+  };
+
+  jQuery.Isotope.prototype._spineAlignResizeChanged = function() {
+
+    return true;
+  };
 }
 
 // Home: actions at window resize
@@ -93,18 +93,18 @@ jQuery(window).resize(function() {
   //console.log(sw);
 
   if (sw>767) {
-      jQuery('#post-area').isotope({
-        layoutMode: 'spineAlign',
-        //disable resizing
-        resizable: false,
-        spineAlign: {
-          gutterWidth: 10
-        }
-      });
+    jQuery('#post-area').isotope({
+      layoutMode: 'spineAlign',
+      //disable resizing
+      resizable: false,
+      spineAlign: {
+        gutterWidth: 10
+      }
+    });
 
-      setTimeout(function(){
-        jQuery('#post-area.isotope').isotope('reLayout');
-      },1000);
+    setTimeout(function(){
+      jQuery('#post-area.isotope').isotope('reLayout');
+    },1000);
   } else {
     jQuery('#post-area.isotope').isotope('destroy');
   }
@@ -125,7 +125,7 @@ window.addEventListener("load", function() {
   }
 
   if (sw>767) {
-    console.debug('isotope..');
+    console.debug('isotope...');
     $container.isotope({
       layoutMode: 'spineAlign',
       //disable resizing
@@ -189,7 +189,6 @@ window.addEventListener("load", function() {
         });
       $container.children('.newitem').fadeIn(500);
       $container.isotope( 'appended', jQuery( newElements ) );
-      setTimeout(function(){$container.isotope('reLayout');}, 1000);
     }
 
     var trackerName = ga.getAll()[0].get('name');
@@ -198,7 +197,10 @@ window.addEventListener("load", function() {
     console.log('scroll/'+pageNum);
   });
 
+  // temp!!
+  setTimeout(function(){$container.isotope('reLayout');}, 1000);
   setTimeout(function(){$container.isotope('reLayout');}, 2000);
+  setTimeout(function(){$container.isotope('reLayout');}, 5000);
 
 });
 
