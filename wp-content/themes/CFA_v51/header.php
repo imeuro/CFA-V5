@@ -21,19 +21,10 @@ endif;
           global $post;
           setup_postdata( $post );
           $post_desc = get_the_excerpt();
-          //$post_desc = substr($post_desc, 7);  // toglie "&nbsp; " all'inizio
           $post_desc = str_replace('&nbsp; ','',$post_desc);
           echo $post_desc;
         endif;
       ?>">
-
-      <?php 
-      // if (is_page('it') || get_post_type(get_the_ID()) == 'cfa_translations') : 
-      // 	$lang = 'IT'; 
-      // else: 
-      // 	$lang = 'EN'; 
-      // endif; 
-      ?>
       <meta name="language" content="<?php echo $lang; ?>">
       <title><?php wp_title('&#124;', true, 'right'); ?></title>
       <link href="https://www.conceptualfinearts.com/cfa/favicon.ico" rel="shortcut icon" type="image/x-icon" />

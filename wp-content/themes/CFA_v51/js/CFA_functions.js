@@ -77,6 +77,19 @@ let showPopNL = (timer) => {
 	}
 }
 
+let cazzatadiExplore = () => {
+	let EXPitem = document.getElementById('menu-item-94491');
+	let EXPlink = EXPitem.firstChild.getAttribute('href');
+	let EXPcont = EXPitem.innerHTML;
+
+	EXPitem.innerHTML = '<div class="focus"><div class="focus--mask"><div class="focus--mask-inner">'+EXPcont+'</div></div></div>';
+
+	EXPitem.addEventListener("click", function() {
+		location.href = EXPlink;
+	});
+
+}
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -93,6 +106,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.addEventListener("load", function() {
 	console.log('done with page load.');
+	cazzatadiExplore();
 	document.getElementById('whitecurtain').classList.add('hidden');
-	showPopNL(5000);
 });
