@@ -9,18 +9,18 @@ function randomFromInterval(from,to) {
 
 // ridimensiona layout dopo window load/resize
 var okresize = function() {
-if (sw > 767) {
+  if (sw > 767) {
 
-  jQuery('.newitem img').each(function() {
-    var blockwidth = jQuery(this).width();
-    var blockheight = jQuery(this).height();
-    //console.log('pppp'+blockwidth);
-    var percent;
-    if (blockwidth === 0 ) {blockwidth = 640; }
-    if (blockwidth>=480) {
-      if (blockwidth>blockheight) {
-      percent = randomFromInterval(0,5);
-    } else {
+    jQuery('.newitem img').each(function() {
+      var blockwidth = jQuery(this).width();
+      var blockheight = jQuery(this).height();
+      //console.log('pppp'+blockwidth);
+      var percent;
+      if (blockwidth === 0 ) {blockwidth = 640; }
+      if (blockwidth>=480) {
+        if (blockwidth>blockheight) {
+        percent = randomFromInterval(0,5);
+      } else {
         percent = randomFromInterval(0,30);
         }
       }
@@ -110,18 +110,9 @@ jQuery(window).resize(function() {
   }
 });
 
-// Home: actions at window load
-//===============================
-
-jQuery(window).load(function(){
-
-
-
-});
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  // jQuery('#post-area.isotope').isotope('reLayout');
 });
 
 
@@ -206,5 +197,8 @@ window.addEventListener("load", function() {
     //ga('send', 'pageview', '/scroll/'+pageNum);
     console.log('scroll/'+pageNum);
   });
+
+  setTimeout(function(){$container.isotope('reLayout');}, 2000);
+
 });
 
