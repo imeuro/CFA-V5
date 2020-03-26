@@ -19,13 +19,16 @@ get_header(); ?>
 
 				<?php while (have_posts()) : the_post(); ?>	
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<?php if ( has_post_thumbnail() ) { ?>			
-						<div class="pinbin-image"><?php the_post_thumbnail( 'detail-image' );  ?></div>
+					<a class="search-item" href="<?php the_permalink() ?>">
+						<?php if ( has_post_thumbnail() ) { ?>			
+							<div class="pinbin-image"><?php the_post_thumbnail( 'summary-image' );  ?></div>
 						<?php } ?> 
-		       			<div class="pinbin-copy"><h2><a class="front-link" href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-		                <p class="pinbin-date"><?php the_time(get_option('date_format')); ?>  </p>
-		                  <?php the_excerpt(); ?> 
+		       			<div class="pinbin-copy">
+		       				<small class="pinbin-date"><?php the_time(get_option('date_format')); ?></small>
+		       				<h2><?php the_title(); ?></h2>
+		               		<?php the_excerpt(); ?> 
 		        		</div>
+	        		</a>
 		      	</div>
 				<?php endwhile; ?>
 			
