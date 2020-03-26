@@ -31,21 +31,17 @@ get_header(); ?>
 	        		</a>
 		      	</div>
 				<?php endwhile; ?>
-			
-			<?php elseif ( have_posts() && get_search_query()=="search" ) : ?>
-				<div style="height:70px;"></div>
+
 			<?php else : ?>
 
-				<article id="post-0" class="post no-results not-found">
-					<div style="height:200px;"></div>
-					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'pinbin' ); ?></h1>
+				<div class="search-item">
+					<header class="page-header">
+						<h1 class="page-title"><?php _e( 'Nothing Found', 'pinbin' ); ?></h1>
 					</header><!-- .entry-header -->
-
 					<div class="entry-content">
 						<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'pinbin' ); ?></p>
 					</div><!-- .entry-content -->
-				</article><!-- #post-0 -->
+				</div>
 
 			<?php endif; ?>
 

@@ -1128,12 +1128,13 @@ div.wpcf7 input[type="submit"] {
   display: block;
 }
 
-.search-results .search-item {
+.search-results .search-item,
+.search-no-results .search-item {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: space-around;
-  width: 100%;
+  width: 90vw;
   max-width: 640px;
   margin: 30px auto;
   padding: 0 0 30px 0;
@@ -1141,6 +1142,7 @@ div.wpcf7 input[type="submit"] {
   border-bottom: 1px solid #EEEEEE;
   text-decoration: none;
 }
+.search-no-results .search-item { flex-flow: column nowrap; }
 .search-results .search-item:hover {
   color: #eee
 
@@ -1150,6 +1152,7 @@ div.wpcf7 input[type="submit"] {
     display: inline-block;
     opacity: 1;
     transition: opacity 300ms ease-in-out;
+    margin-bottom: 20px;
 }
 .search-results .search-item .pinbin-image img {
   height: auto;
@@ -1184,6 +1187,14 @@ div.wpcf7 input[type="submit"] {
   opacity: .75;
 }
 
+@media only screen and (min-width:768px) {
+  .search-results .search-item {
+    flex-flow: row nowrap;
+  }
+  .search-results .search-item .pinbin-image {
+    margin-bottom: 0;
+  }
+}
 
 
 .page-id-8058 .pinbin-copy a,
