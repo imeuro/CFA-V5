@@ -12,6 +12,10 @@ get_header(); ?>
 				<header class="page-header">
 					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'pinbin' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</header>
+				
+				<div class="defloater"></div>
+				<div class="wp-block-column"><?php get_search_form(); ?></div>
+				<div class="defloater"></div>
 
 				<?php while (have_posts()) : the_post(); ?>	
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -42,13 +46,12 @@ get_header(); ?>
 
 			<?php endif; ?>
 
-				<?php get_search_form(); ?>
-
-
+				<div class="wp-block-column"><?php get_search_form(); ?></div>
+				<div class="defloater"></div>
 				<div class="pinbin-copy otherway container">
-          <h1>Or browse by:</h1>
+					<h1>Or browse by:</h1>
 					<p>&nbsp;</p>
-     		  <h2><a href="<?php echo get_permalink( get_page_by_path( 'hashcloud' ) ); ?>" title="A-Z index">A-Z index</a></h2>
+					<h2><a href="<?php echo get_permalink( get_page_by_path( 'hashcloud' ) ); ?>" title="A-Z index">A-Z index</a></h2>
 					<h2><a href="<?php echo get_permalink( get_page_by_path( 'archive' ) ); ?>" title="Timetable">Timetable</a></h2>
 					<p>&nbsp;</p>
  				</div>
