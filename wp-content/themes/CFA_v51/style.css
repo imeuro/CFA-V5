@@ -726,6 +726,7 @@ ul#header-menu li a:hover {
     height: 28px;
     margin-top: 0;
     overflow-x: scroll;
+    overflow-y: hidden;
   }
   #header-menu:after {
     position: absolute;
