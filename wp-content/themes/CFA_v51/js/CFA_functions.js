@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.addEventListener("load", function() {
 	console.log('done with page load.');
-	if (sw>=768) { cazzatadiExplore(); }
+	cazzatadiExplore();
+	//if (sw>=768) { cazzatadiExplore(); }
 	document.getElementById('whitecurtain').classList.add('hidden');
 });
