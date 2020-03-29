@@ -17,22 +17,4 @@ wp.domReady( () => {
 		    },
 		}
 	});
-
-/* Gallery-specific captions doesn't work anymore...
-
-	// wp.blocks.registerBlockStyle('core/gallery', {
-	//		name: 'CFA-gallery',
-	//		label: 'CFA Gallery',
-	//		isDefault: true,
- 	//		attributes: {
-	// 	    alt: {
-	// 	      type: "string",
-	// 	      source: "attribute",
-	// 	      selector: "img",
-	// 	      attribute: "alt",
-	// 	      "default": ""
-	// 	    },
-	// 	}
-	// });
-*/
 });
