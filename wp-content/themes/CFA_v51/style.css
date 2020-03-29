@@ -2743,6 +2743,8 @@ ul#ToC-list li {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-end;
+  border-top: 3px solid #f5a32f;
+  border-bottom: 3px solid #f5a32f;
 }
 #exhibition-banner a {
   display: block;
