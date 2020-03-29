@@ -69,14 +69,47 @@ endif;
 
 		<div id="social-pad">
 			<ul>
-				<li class="FB_btn"><a href="https://www.facebook.com/Conceptualfinearts" target="_blank">FB</a></li>
+				<!-- <li class="FB_btn"><a href="https://www.facebook.com/Conceptualfinearts" target="_blank">FB</a></li> -->
 				<li class="IG_btn"><a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank">IG</a></li>
 			</ul>
 		</div>
 
 	</div>
 
+
   </nav>
 
 <div class="clear"></div>
-<div id="wrap">
+<?php                       // exhibition banner
+$args = array(
+    'posts_per_page' => 1,
+    'category_name' => 'online-exhibitions',
+);
+$q = new WP_Query( $args);
+
+if ( ( is_home() || is_page('it') ) && $q->have_posts() ) {   // IF exhibition: print banner
+?>
+    <?php while ( $q->have_posts() ) {
+    $q->the_post(); 
+    if ( has_post_thumbnail() ) {
+      $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+    }
+    ?>
+    <div id="exhibition-banner" style="background-image: url('<?php echo $imgsrc[0]; ?>')">
+      <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"> 
+        <h4>ONLINE EXHIBITION</h4>
+        <h2><?php the_title(); ?></h2>
+        <?php the_excerpt(); ?>
+      </a>
+    </div>
+    <?php }
+    wp_reset_postdata(); ?>
+  </div>
+  <div id="wrap" class="with-exhibition">
+<?php }
+else {                      // ELSE IF NO exhibition
+?>
+  <div id="wrap">
+<?php } ?>
+
+

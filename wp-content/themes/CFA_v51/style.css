@@ -863,7 +863,7 @@ div.wpcf7 input[type="submit"] {
   text-transform: uppercase;
   text-align: center;
   font-size: 18px;
-  width: 160px;
+  width: 95px;
   opacity: 1;
   transition: top 250ms ease-in-out, opacity 150ms linear;
   position: relative;
@@ -874,7 +874,7 @@ div.wpcf7 input[type="submit"] {
   margin: 0;
   padding: 0;
   list-style: none;
-  width: 120px;
+  width: 60px;
   display: inline-block;
   float: left;
 }
@@ -1061,6 +1061,8 @@ div.wpcf7 input[type="submit"] {
   bottom: 0;
   padding: 5px 25px;
   background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border-radius: 0;
 }
 .home .pinbin-copy p small,
@@ -2630,6 +2632,7 @@ ul#ToC-list li {
     -webkit-filter: blur(3px);
             filter: blur(3px);
     padding-left: 3px;
+    color:#cac9c8;
   }
   #menu-item-94491 .focus:after {
     content: '';
@@ -2649,7 +2652,7 @@ ul#ToC-list li {
     border-radius: 30%;
     top: 0;
     left: 0;
-    background: #fff;
+    background: transparent;
     -webkit-animation: mask-move 1.5s linear infinite alternate;
             animation: mask-move 1.5s linear infinite alternate;
   }
@@ -2720,3 +2723,88 @@ ul#ToC-list li {
     padding-left: 3px;
   }
 }
+
+
+/* EXHIBITION BANNER */
+#exhibition-banner {
+  position: relative;
+  top: 170px;
+  width: 100%;
+  max-width: 1280px;
+  min-height: 50vh;
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+#exhibition-banner a {
+  display: block;
+  font-size: 14px;
+  -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  line-height: 26px;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0 25px;
+}
+#exhibition-banner a h4 {
+  font-size: 14px;
+}
+#exhibition-banner a h2 {
+  margin: 0;
+}
+#exhibition-banner a p {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding: 0;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 16px;
+  text-transform: none;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+}
+
+#post-area .post.category-online-exhibitions {
+    border: 3px solid #f5a32f;
+}
+#post-area .post.category-online-exhibitions img { float: left; }
+
+
+@media screen and (min-width: 768px) {
+  #exhibition-banner {
+    top: 180px;
+    min-height: 250px;
+    flex-flow: row nowrap;
+    justify-content: center;
+    border-radius: 2px;
+    text-align: center;
+  }
+  #wrap.with-exhibition {
+    margin-top: 200px;
+  }
+  #exhibition-banner a {
+    flex: 0 0 33%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;  
+  }
+  #exhibition-banner a p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
