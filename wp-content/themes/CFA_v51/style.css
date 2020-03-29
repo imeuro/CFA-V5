@@ -2791,6 +2791,8 @@ ul#ToC-list li {
     justify-content: center;
     border-radius: 2px;
     text-align: center;
+    background-size: 110%;
+    border:10px solid #f5a32f ;
   }
   #wrap.with-exhibition {
     margin-top: 200px;
@@ -2800,7 +2802,12 @@ ul#ToC-list li {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 33%;
   }
   #exhibition-banner a p {
     display: -webkit-box;

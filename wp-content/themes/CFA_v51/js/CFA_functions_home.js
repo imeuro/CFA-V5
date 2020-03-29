@@ -227,6 +227,30 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 }
 
 
+// parallaxx banner
+document.addEventListener("mousemove", parallax);
+    const bgpic = document.querySelector("#exhibition-banner");
+    const text = document.querySelector("#exhibition-banner a");
+    // Magic happens here
+    function parallax(e) {
+        let _w = window.innerWidth/2;
+        let _h = window.innerHeight/2;
+        let _mouseX = e.clientX;
+        let _mouseY = e.clientY;
+        let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${50 - (_mouseY - _h) * 0.01}%`;
+        let _depth2 = `${50 - (_mouseY - _h) * 0.006}%`;
+        let _depth3 = `${50 - (_mouseX - _w) * 0.003}%`;
+        // let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+        let x = `${_depth1}`;
+        let ty = `${_depth2}`;
+        let tx = `${_depth3}`;
+        console.log(ty);
+        bgpic.style.backgroundPosition = x;
+        text.style.top = ty;
+        text.style.left = tx;
+    }
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
   // ...
