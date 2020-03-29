@@ -92,7 +92,7 @@ if ( ( is_home() || is_page('it') ) && $q->have_posts() ) {   // IF exhibition: 
     <?php while ( $q->have_posts() ) {
     $q->the_post(); 
     if ( has_post_thumbnail() ) {
-      $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+      $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
     }
     ?>
     <div id="exhibition-banner" style="background-image: url('<?php echo $imgsrc[0]; ?>')">
