@@ -257,7 +257,7 @@ let makefullwidth = (element) => {  // per kunstmatrix, principalmente
 	const selEl = document.querySelectorAll(element);
 	if (selEl.length > 0) {
 		Array.from(selEl).forEach(function(el) {
-			const nextOne = el.nextSibling;
+			const nextOne = el.nextElementSibling;
 			console.debug(nextOne);
 			const wrapper = document.createElement('div');
 			wrapper.setAttribute('class', 'full-width-container');
