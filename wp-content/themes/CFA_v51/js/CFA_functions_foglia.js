@@ -261,7 +261,7 @@ let makefullwidth = (element) => {  // per kunstmatrix, principalmente
 			console.debug(nextOne);
 			const wrapper = document.createElement('div');
 			wrapper.setAttribute('class', 'full-width-container');
-			wrapper.style.cssText="position: absolute; height: 600px; left: 0; width: 100%; height: "+el.getAttribute('height');
+			wrapper.style.cssText="position: absolute; z-index: 20; height: 600px; left: 0; width: 100%; height: "+el.getAttribute('height');
 			nextOne.style.marginTop = el.getAttribute('height')+'px';
 			el.parentNode.insertBefore(wrapper, el);
 			wrapper.appendChild(el);
