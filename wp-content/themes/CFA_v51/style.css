@@ -2794,7 +2794,8 @@ ul#ToC-list li {
     border-radius: 2px;
     text-align: center;
     background-size: 110%;
-    border:10px solid #f5a32f ;
+    border-top: 5px solid #f5a32f ;
+    border-bottom: 5px solid #f5a32f ;
   }
   #wrap.with-exhibition {
     margin-top: 200px;

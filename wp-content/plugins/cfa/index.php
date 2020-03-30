@@ -40,4 +40,12 @@ function get_langswitcherDOM() {
 	}
 	return $ldom;
 }
+
+
+function exclude_category( $query ) {
+	if ( $query->is_home() && $query->is_main_query() ) {
+		$query->set( 'cat', '-2381' ); // Exhibitions
+	}
+}
+add_action( 'pre_get_posts', 'exclude_category' );
 ?>

@@ -81,9 +81,19 @@ endif;
 
 <div class="clear"></div>
 <?php                       // exhibition banner
+
+if (is_page('it')) :
+  $exhi_post_type = 'cfa_translations';
+else :
+  $exhi_post_type = 'post';
+endif;
 $args = array(
-    'posts_per_page' => 1,
-    'category_name' => 'online-exhibitions',
+  'post_type'         => $exhi_post_type,
+  'post_status'       => 'publish',
+  'posts_per_page'    => 1,
+  'orderby'           => 'date',
+  'order'             => 'DESC',
+  'category_name'     => 'online-exhibitions',
 );
 $q = new WP_Query( $args);
 

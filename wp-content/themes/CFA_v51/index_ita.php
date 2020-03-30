@@ -7,11 +7,12 @@ Template Name: home ITA
 <?php
 
 $ITargs = array(
-  'post_type'              => array( 'cfa_translations' ),
-  'post_status'            => array( 'publish' ),
-  'nopaging'               => false,
-  'posts_per_page'         => '10',
-  'paged' => get_query_var('paged') ? get_query_var('paged') : 1
+  'post_type'               => array( 'cfa_translations' ),
+  'post_status'             => array( 'publish' ),
+  'category__not_in'        => array( 2381 ), // Exhibitions
+  'nopaging'                => false,
+  'posts_per_page'          => '10',
+  'paged'                   => get_query_var('paged') ? get_query_var('paged') : 1
 );
 
 // The Query
