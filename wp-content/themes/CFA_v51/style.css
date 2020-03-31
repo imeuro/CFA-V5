@@ -2751,7 +2751,6 @@ ul#ToC-list li {
   position: relative;
   top: 170px;
   width: 100%;
-  max-width: 1280px;
   min-height: 50vh;
   padding: 0;
   margin: 0 auto;
