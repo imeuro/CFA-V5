@@ -80,26 +80,51 @@ endif;
   </nav>
 
 <div class="clear"></div>
-<?php                       // exhibition banner
+<?php                       
+////////////////////////////////////////////
+// exhibition banner
 
 if (is_page('it')) :
   $exhi_post_type = 'cfa_translations';
 else :
   $exhi_post_type = 'post';
 endif;
+
+// // get sticky posts from DB
+// $sticky = get_option('sticky_posts');
+// // check if there are any
+// if (!empty($sticky)) {
+//     // optional: sort the newest IDs first
+//     rsort($sticky);
+//     // override the query
+//     $args = array(
+//         'post__in' => $sticky
+//     );
+//     query_posts($args);
+//     // the loop
+//     while (have_posts()) {
+//          the_post();
+//          // your code
+//     }
+// }
+
+$sticky = get_option('sticky_posts');
+if (!empty($sticky)) {
 $args = array(
   'post_type'         => $exhi_post_type,
-  'post_status'       => 'publish',
+  'post_status'       => array( 'publish' ),
+  'cat'               => array( 2381 ),
+  'meta_key'          => 'display_banner',
+  'meta_value'        => 1,
   'posts_per_page'    => 1,
   'orderby'           => 'date',
-  'order'             => 'DESC',
-  'category_name'     => 'online-exhibitions',
+  'order'             => 'DESC'
 );
 $q = new WP_Query( $args);
 
 if ( ( is_home() || is_page('it') ) && $q->have_posts() ) {   // IF exhibition: print banner
-?>
-    <?php while ( $q->have_posts() ) {
+
+  while ( $q->have_posts() ) {
     $q->the_post(); 
     if ( has_post_thumbnail() ) {
       $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
@@ -112,14 +137,19 @@ if ( ( is_home() || is_page('it') ) && $q->have_posts() ) {   // IF exhibition: 
         <?php the_excerpt(); ?>
       </a>
     </div>
-    <?php }
-    wp_reset_postdata(); ?>
-  </div>
+    <?php
+  }
+  wp_reset_postdata(); ?>
+
   <div id="wrap" class="with-exhibition">
-<?php }
-else {                      // ELSE IF NO exhibition
+<?php 
+} else {                      // ELSE IF NO exhibition
 ?>
   <div id="wrap">
-<?php } ?>
+<?php } 
+
+
+}
+?>
 
 

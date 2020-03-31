@@ -221,7 +221,7 @@ var get_summary = function(context) {
 }
 
 // Foglia: button to return to the top of the article
-var goTopLink = function(context) {
+var bottomLinks = function(context) {
 	if (bodyClasses.contains('single') || bodyClasses.contains('page') || bodyClasses.contains('modal-open')) {
 		var Uplink = document.createElement('button');
 		Uplink.setAttribute('id','uplink');
@@ -230,15 +230,36 @@ var goTopLink = function(context) {
 		Uplink.addEventListener("click",function() { 
 			scrollTo(document.getElementsByTagName('body')[0],context);
 		});
+
+		let Showmehome = document.createElement('a');
+		let Hometext = document.createTextNode('HOME');
+		Showmehome.appendChild(Hometext);
+		Showmehome.setAttribute('id','showmehome');
+		Showmehome.classList.add('hidden');
+		document.body.appendChild(Showmehome);
+		Showmehome.addEventListener("click",function() { 
+			context.location.href="/"
+		});
+
 		context.addEventListener('scroll', function() {
 			if (document.documentElement.scrollTop > 500) {
 				Uplink.classList.remove('hidden');
+				Showmehome.classList.remove('hidden');
 			} else {
 				Uplink.classList.add('hidden');
+				Showmehome.classList.add('hidden');
 			}
 		});
 	}
 }
+let ShowMeHome = () => {
+	if( document.documentElement.scrollTop > logo_v5.offsetHeight ) {
+		showmehome.classList.remove('hidden');
+	} else {
+		showmehome.classList.add('hidden');
+	}
+}
+
 function scrollTo(element,context) {
 	if (sw>640 && context==window) {
 		Stop = element.offsetTop - 180;
@@ -271,9 +292,10 @@ let makefullwidth = (element) => {  // per kunstmatrix, principalmente
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  goTopLink(window);
+  bottomLinks(window);
   get_summary(window);
   makefullwidth('iframe[src^="https://art.kunstmatrix.com/apps/"]');
+  ShowMeHome();
 });
 
 

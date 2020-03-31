@@ -10,11 +10,13 @@
 
    		<article id="post-<?php the_ID(); ?>" <?php post_class('scroller'); ?>>
 
-        <?php
-				if (!get_field('author_name',$post->ID)) :  // old format ?>
+        <div class="pinbin-copy">
+
+          <?php
+        if (!get_field('author_name',$post->ID)) :  // old format ?>
           <h1><?php the_title(); ?></h1>
         <?php else :  // new format ?>
-          <br /><h1><?php the_title(); ?></h1><br />
+          <h1><?php the_title(); ?></h1>
           <div class="post-data">
             <small class="author">
             <?php if (get_field('author_link_int',$post->ID)) {
@@ -32,7 +34,6 @@
 
         <div class="clear"></div>
 
-        <div class="pinbin-copy">
 					<?php if (has_excerpt()): ?>
 						<div class="container excerpt-container">
 							<?php the_excerpt(); ?>

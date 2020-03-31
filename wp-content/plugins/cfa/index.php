@@ -44,7 +44,7 @@ function get_langswitcherDOM() {
 
 function exclude_category( $query ) {
 	if ( $query->is_home() && $query->is_main_query() ) {
-		$query->set( 'cat', '-2381' ); // Exhibitions
+		$query->set( 'category__not_in', 2381 ); // Exhibitions
 	}
 }
 add_action( 'pre_get_posts', 'exclude_category' );

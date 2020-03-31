@@ -824,9 +824,6 @@ div.wpcf7 input[type="submit"] {
 #main-nav-wrapper {
   transition: all 250ms ease-in-out;
 }
-.page #site-navigation {
-  background: #fff;
-}
 
 #lang-switcher {
   margin-top: -95px;
@@ -987,7 +984,7 @@ div.wpcf7 input[type="submit"] {
 .single h1 {
   text-align: center;
   line-height: 1em;
-  margin: 175px 100px 10px 100px;
+  margin: 10px 20px;
 }
 
 .single p a,
@@ -1107,7 +1104,14 @@ div.wpcf7 input[type="submit"] {
   text-align: justify;
   box-sizing: content-box;
 }
-
+@media all and (min-width: 768px) {
+  .single .pinbin-copy {
+    margin-top: 175px;
+    background: #fff;
+    z-index: 100;
+    position: relative;
+  }
+}
 .page .pinbin-copy h1,
 .search .pinbin-copy h1 {
   text-align: center;
@@ -2536,7 +2540,8 @@ ul#ToC-list li {
     display: inline;
 }
 
-#uplink {
+#uplink,
+#showmehome {
   outline: none;
   position: fixed;
   bottom: 45px;
@@ -2551,8 +2556,10 @@ ul#ToC-list li {
   transition: opacity 150ms ease-in-out;
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
-#uplink:hover { opacity: 1 }
+#uplink:hover,
+#showmehome:hover { opacity: 1 }
 #uplink:before,
 #uplink:after {
   content: "";
@@ -2570,6 +2577,37 @@ ul#ToC-list li {
   left: initial;
   right: 13px;
   transform: rotate(50deg);
+}
+#showmehome {
+  left: 40px;
+  bottom: 40px;
+  padding: 20px;
+  height: 20px;
+  display: inline-block;
+  font-size: 22px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f5a32f;
+  font-family: 'BenchNine', sans-serif;
+  font-weight: 700;
+}
+#showmehome:before,
+#showmehome:after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 12px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #f5a32f;
+  transform: rotate(-40deg);
+  display: inline-block;
+}
+#showmehome:after {
+  top: 31px;
+  transform: rotate(40deg);
 }
 
 
