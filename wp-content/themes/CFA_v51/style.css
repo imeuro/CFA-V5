@@ -2544,8 +2544,8 @@ ul#ToC-list li {
 #showmehome {
   outline: none;
   position: fixed;
-  bottom: 45px;
-  right: 40px;
+  bottom: 5px;
+  right: 20px;
   width: 50px;
   height: 50px;
   background: rgba(255,255,255,.5);
@@ -2579,11 +2579,11 @@ ul#ToC-list li {
   transform: rotate(50deg);
 }
 #showmehome {
-  left: 40px;
-  bottom: 40px;
+  left: 20px;
+  right: initial;
+  height: auto;
   padding: 20px;
   height: 20px;
-  display: inline-block;
   font-size: 22px;
   line-height: 20px;
   text-transform: uppercase;
@@ -2591,23 +2591,6 @@ ul#ToC-list li {
   color: #f5a32f;
   font-family: 'BenchNine', sans-serif;
   font-weight: 700;
-}
-#showmehome:before,
-#showmehome:after {
-  content: "";
-  position: absolute;
-  top: 25px;
-  left: 0;
-  width: 12px;
-  height: 3px;
-  border-radius: 3px;
-  background-color: #f5a32f;
-  transform: rotate(-40deg);
-  display: inline-block;
-}
-#showmehome:after {
-  top: 31px;
-  transform: rotate(40deg);
 }
 
 
