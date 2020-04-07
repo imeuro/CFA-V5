@@ -488,3 +488,8 @@ function CFA_change_pubdate( $data ) {
 add_filter( 'wpseo_schema_article', 'CFA_change_pubdate' );
 add_filter( 'wpseo_schema_webpage', 'CFA_change_pubdate' );
 
+
+
+add_theme_support( 'align-wide' );
+
+
