@@ -1270,11 +1270,16 @@ figure.wp-block-image { margin: 60px auto; }
   margin-left: calc(50% - 50vw);
 }
 
+
+.wp-block-image.alignfull img,
+.wp-block-image.alignwide img,
 .alignwide,
 .alignfull {
   width:  100vw;
   max-width:  100vw;
   margin-left:  calc(50% - 50vw);
+  position: relative;
+  left: calc(50% - 50vw);
 }
 
 
