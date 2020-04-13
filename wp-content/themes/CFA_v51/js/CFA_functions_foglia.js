@@ -274,27 +274,9 @@ function scrollTo(element,context) {
 }
 
 
-let makefullwidth = (element) => {  // per kunstmatrix, principalmente
-	const selEl = document.querySelectorAll(element);
-	if (selEl.length > 0) {
-		Array.from(selEl).forEach(function(el) {
-			const nextOne = el.nextElementSibling;
-			console.debug(nextOne);
-			const wrapper = document.createElement('div');
-			wrapper.setAttribute('class', 'full-width-container');
-			wrapper.style.cssText="position: absolute; z-index: 20; height: 600px; left: 0; width: 100%; height: "+el.getAttribute('height');
-			nextOne.style.marginTop = el.getAttribute('height')+'px';
-			el.parentNode.insertBefore(wrapper, el);
-			wrapper.appendChild(el);
-		});
-	}
-}
-
-
 document.addEventListener("DOMContentLoaded", function() {
   bottomLinks(window);
   get_summary(window);
-  makefullwidth('iframe[src^="https://art.kunstmatrix.com/apps/"]');
   ShowMeHome();
 });
 
