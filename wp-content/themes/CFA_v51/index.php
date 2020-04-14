@@ -30,7 +30,7 @@ $postnum++;
                   <?php
                   // check if the post has a Post Thumbnail assigned to it.
                   if ( has_post_thumbnail() ) {
-                    $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, 'large' );
+                    $imgsrc =  wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large' );
                     echo '<img src="'.$imgsrc[0].'" loading="lazy" />';
                   } else {
                     $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, 'large' );
