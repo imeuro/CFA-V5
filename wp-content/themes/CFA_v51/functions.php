@@ -492,4 +492,7 @@ add_filter( 'wpseo_schema_webpage', 'CFA_change_pubdate' );
 
 add_theme_support( 'align-wide' );
 
+// rimuove stupide immagini scaled:
+// https://hollypryce.com/disable-image-scaling-wordpress/
+add_filter( 'big_image_size_threshold', '__return_false' );
 
