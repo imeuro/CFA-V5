@@ -193,9 +193,8 @@ var get_summary = function(context) {
 		var Sumheaders=document.querySelectorAll('.pinbin-copy h2,.pinbin-copy h3,.pinbin-copy h4');
 		if (Sumheaders.length > 1) {
 
-			var ToC = document.createElement('nav');
-			ToC.classList.add('table-of-content');
-			ToC.setAttribute('role', 'navigation');
+			var ToC = document.createElement('div');
+			ToC.classList.add('indice');
 			
 			var Sumitem='';
 			var Hindex=1;
