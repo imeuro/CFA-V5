@@ -272,11 +272,26 @@ function scrollTo(element,context) {
 	});
 }
 
+let injectMicrio = () => {
+	const MicrioTag = document.querySelector('micr-io');
+	if (MicrioTag) {
+		console.debug('Micr.io tag present: injecting library...')
+		let Mscript = document.createElement('script');
+		Mscript.src = 'https://b.micr.io/micrio-2.8.min.js';
+		Mscript.type = 'text/javascript';
+		Mscript.async = 'async';
+		Mscript.id = 'micrio-2.8-lib';
+		document.body.append(Mscript);
+		MicrioTag.classList.add('alignfull');
+	}
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
   bottomLinks(window);
   get_summary(window);
   ShowMeHome();
+  injectMicrio();
 });
 
 
