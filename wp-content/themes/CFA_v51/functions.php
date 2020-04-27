@@ -110,6 +110,7 @@ function CFA_scripts() {
 	} else {
 		//wp_register_script('jquery', false);
 		//wp_enqueue_script('jquery');
+		wp_enqueue_script( 'Micrio', 'https://b.micr.io/micrio-2.8.min.js', array(), null, true );
 		wp_enqueue_script( 'Swiper', get_template_directory_uri() . '/js/swiper.min.js', array(), null, true );
 		wp_enqueue_script( 'CFA-functions-foglia', get_template_directory_uri() . '/js/CFA_functions_foglia.js', array( 'CFA-functions' ), null, true );
 
