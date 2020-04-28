@@ -272,9 +272,17 @@ function scrollTo(element,context) {
 	});
 }
 
+
+let checkGallery = () => {
+	const iframeInPage = document.querySelector('iframe');
+	if (iframeInPage && iframeInPage.src.includes('art.kunstmatrix.com')) {
+		iframeInPage.classList.add('alignfull');
+	}
+}
 let injectMicrio = () => {
 	const MicrioTag = document.querySelector('micr-io');
 	if (MicrioTag) {
+		MicrioTag.style.height = (window.innerHeight - 300)+'px';
 		console.debug('Micr.io tag present: injecting library...')
 		let Mscript = document.createElement('script');
 		Mscript.src = 'https://b.micr.io/micrio-2.8.min.js';
@@ -283,6 +291,26 @@ let injectMicrio = () => {
 		Mscript.id = 'micrio-2.8-lib';
 		document.body.append(Mscript);
 		MicrioTag.classList.add('alignfull');
+		if (MicrioTag.id == 'RDllz') { // night shift
+			let nightbtn = document.createElement('button');
+			nightbtn.innerHTML = 'Switch to night';
+			nightbtn.classList.add('micrio-switch','micrio-switch-night');
+			nightbtn.addEventListener('click', () => {
+				if (nightbtn.classList.contains('micrio-switch-night') === true) {
+					MicrioTag.id = 'ujpSG';
+					nightbtn.classList.toggle('micrio-switch-night');
+					nightbtn.classList.toggle('micrio-switch-day');
+					nightbtn.innerHTML = 'Switch to day';
+				} else {
+					MicrioTag.id = 'RDllz';
+					nightbtn.classList.toggle('micrio-switch-night');
+					nightbtn.classList.toggle('micrio-switch-day');
+					nightbtn.innerHTML = 'Switch to night';
+				}
+			});
+			MicrioTag.parentNode.insertBefore(nightbtn, MicrioTag.nextSibling);
+
+		}
 	}
 }
 
@@ -292,6 +320,7 @@ document.addEventListener("DOMContentLoaded", function() {
   get_summary(window);
   ShowMeHome();
   injectMicrio();
+  checkGallery();
 });
 
 

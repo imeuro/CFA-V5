@@ -1256,14 +1256,6 @@ div.wpcf7 input[type="submit"] {
 figure.wp-block-image { margin: 60px auto; }
 .wp-block-gallery figure.wp-block-image { margin: 0 auto; }
 
-.pinbin-copy iframe {
-  border: none;
-  border-radius: 3px;
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-}
-
 
 .wp-block-image.alignfull img,
 .wp-block-image.alignwide img,
@@ -2844,5 +2836,20 @@ ul#ToC-list li {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+
+button.micrio-switch {
+    font: 700 16px/32px 'Arapey';
+    color: #fff;
+    text-transform: uppercase;
+    background: #f5a32f;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 20px;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    outline: none !important;
 }
 
