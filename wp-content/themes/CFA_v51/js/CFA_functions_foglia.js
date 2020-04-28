@@ -282,7 +282,7 @@ let checkGallery = () => {
 let injectMicrio = () => {
 	const MicrioTag = document.querySelector('micr-io');
 	if (MicrioTag) {
-		MicrioTag.style.height = (window.innerHeight - 300)+'px';
+		MicrioTag.style.height = (window.innerHeight)+'px';
 		console.debug('Micr.io tag present: injecting library...')
 		let Mscript = document.createElement('script');
 		Mscript.src = 'https://b.micr.io/micrio-2.8.min.js';
