@@ -279,40 +279,85 @@ let checkGallery = () => {
 		iframeInPage.classList.add('alignfull');
 	}
 }
+
+let micrioInstance = null;
 let injectMicrio = () => {
-	const MicrioTag = document.querySelector('micr-io');
-	if (MicrioTag) {
-		MicrioTag.style.height = (window.innerHeight)+'px';
-		console.debug('Micr.io tag present: injecting library...')
+	const MicrioTag = document.querySelectorAll('a.micrio-code');
+	if (MicrioTag.length >= 1) {
+		console.debug('Micr.io tag present: injecting library...');
+		
 		let Mscript = document.createElement('script');
 		Mscript.src = 'https://b.micr.io/micrio-2.8.min.js';
 		Mscript.type = 'text/javascript';
 		Mscript.async = 'async';
 		Mscript.id = 'micrio-2.8-lib';
 		document.body.append(Mscript);
-		MicrioTag.classList.add('alignfull');
-		if (MicrioTag.id == 'RDllz') { // night shift
-			let nightbtn = document.createElement('button');
-			nightbtn.innerHTML = 'Switch to night';
-			nightbtn.classList.add('micrio-switch','micrio-switch-night');
-			nightbtn.addEventListener('click', () => {
-				if (nightbtn.classList.contains('micrio-switch-night') === true) {
-					MicrioTag.id = 'ujpSG';
-					nightbtn.classList.toggle('micrio-switch-night');
-					nightbtn.classList.toggle('micrio-switch-day');
-					nightbtn.innerHTML = 'Switch to day';
-				} else {
-					MicrioTag.id = 'RDllz';
-					nightbtn.classList.toggle('micrio-switch-night');
-					nightbtn.classList.toggle('micrio-switch-day');
-					nightbtn.innerHTML = 'Switch to night';
-				}
-			});
-			MicrioTag.parentNode.insertBefore(nightbtn, MicrioTag.nextSibling);
 
-		}
+		let Mdiv = document.createElement('div');
+		Mdiv.id = 'Micriocontent';
+		document.body.append(Mdiv);
+
+		Array.from(MicrioTag).forEach(function(el) {
+			const MicrioID = el.getAttribute('data-micrio-id');
+			el.addEventListener('click', function(){ 
+				initMicrioFS(MicrioID,Mdiv);
+			 });
+		});
+		return true
+	} else {
+		return false
 	}
 }
+
+let initMicrioFS = (MicrioID,Mdiv) => {
+	if (micrioInstance) { // reset
+		clearMicriocontent();
+	}
+	if (MicrioID) {
+		console.debug('generating Micrio DOM Elements...');
+		micrioInstance = new Micrio({
+			// Image ID, required
+			id: MicrioID,
+			// HTML element to put the image in, defaults to <body>
+			container: Mdiv,
+			// Listen to touch and mouse events, defaults to true
+			hookEvents: true,
+			// Initializes and draws image on instance creation, defaults to true
+			autoInit: true,
+			// How to render the initial view, like CSS background-size
+			// 'cover' or 'contain'. Defaults to 'contain'.
+			initType: 'cover',
+		});
+
+		micrioInstance.addEventListener('preset', () => {
+			console.debug('Micrio preset');
+			micrioInstance.camera.fullScreenToggle();
+		});
+		micrioInstance.addEventListener('load', () => {
+			console.debug('Micrio load');
+			// micrioInstance.camera.fullScreenToggle();
+		});
+		micrioInstance.addEventListener('show', () => {
+			console.debug('Micrio show');
+			document.addEventListener('fullscreenchange', clearMicriocontent);
+			document.addEventListener('webkitfullscreenchange', clearMicriocontent);
+			document.addEventListener('mozfullscreenchange', clearMicriocontent);
+			document.addEventListener('MSFullscreenChange', clearMicriocontent);
+		});
+	}
+
+}
+
+let clearMicriocontent = () => {
+	if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+		micrioInstance.destroy();
+		micrioInstance.container.removeAttribute('class');
+		micrioInstance.container.removeAttribute('style');
+		micrioInstance.container.firstElementChild.remove();
+		micrioInstance = null;
+	}
+}
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
