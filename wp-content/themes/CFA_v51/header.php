@@ -90,26 +90,6 @@ else :
   $exhi_post_type = 'post';
 endif;
 
-// // get sticky posts from DB
-// $sticky = get_option('sticky_posts');
-// // check if there are any
-// if (!empty($sticky)) {
-//     // optional: sort the newest IDs first
-//     rsort($sticky);
-//     // override the query
-//     $args = array(
-//         'post__in' => $sticky
-//     );
-//     query_posts($args);
-//     // the loop
-//     while (have_posts()) {
-//          the_post();
-//          // your code
-//     }
-// }
-
-$sticky = get_option('sticky_posts');
-if (!empty($sticky)) {
 $args = array(
   'post_type'         => $exhi_post_type,
   'post_status'       => array( 'publish' ),
@@ -147,9 +127,6 @@ if ( ( is_home() || is_page('it') ) && $q->have_posts() ) {   // IF exhibition: 
 ?>
   <div id="wrap">
 <?php } 
-
-
-}
 ?>
 
 

@@ -193,9 +193,8 @@ var get_summary = function(context) {
 		var Sumheaders=document.querySelectorAll('.pinbin-copy h2,.pinbin-copy h3,.pinbin-copy h4');
 		if (Sumheaders.length > 1) {
 
-			var ToC = document.createElement('nav');
-			ToC.classList.add('table-of-content');
-			ToC.setAttribute('role', 'navigation');
+			var ToC = document.createElement('div');
+			ToC.classList.add('indice');
 			
 			var Sumitem='';
 			var Hindex=1;
@@ -274,28 +273,99 @@ function scrollTo(element,context) {
 }
 
 
-let makefullwidth = (element) => {  // per kunstmatrix, principalmente
-	const selEl = document.querySelectorAll(element);
-	if (selEl.length > 0) {
-		Array.from(selEl).forEach(function(el) {
-			const nextOne = el.nextElementSibling;
-			console.debug(nextOne);
-			const wrapper = document.createElement('div');
-			wrapper.setAttribute('class', 'full-width-container');
-			wrapper.style.cssText="position: absolute; z-index: 20; height: 600px; left: 0; width: 100%; height: "+el.getAttribute('height');
-			nextOne.style.marginTop = el.getAttribute('height')+'px';
-			el.parentNode.insertBefore(wrapper, el);
-			wrapper.appendChild(el);
-		});
+let checkGallery = () => {
+	const iframeInPage = document.querySelector('iframe');
+	if (iframeInPage && iframeInPage.src.includes('art.kunstmatrix.com')) {
+		iframeInPage.classList.add('alignfull');
 	}
 }
+
+let micrioInstance = null;
+let injectMicrio = () => {
+	const MicrioTag = document.querySelectorAll('a.micrio-code');
+	if (MicrioTag.length >= 1) {
+		console.debug('Micr.io tag present: injecting library...');
+		
+		let Mscript = document.createElement('script');
+		Mscript.src = 'https://b.micr.io/micrio-2.8.min.js';
+		Mscript.type = 'text/javascript';
+		Mscript.async = 'async';
+		Mscript.id = 'micrio-2.8-lib';
+		document.body.append(Mscript);
+
+		let Mdiv = document.createElement('div');
+		Mdiv.id = 'Micriocontent';
+		document.body.append(Mdiv);
+
+		Array.from(MicrioTag).forEach(function(el) {
+			const MicrioID = el.getAttribute('data-micrio-id');
+			el.addEventListener('click', function(){ 
+				initMicrioFS(MicrioID,Mdiv);
+			 });
+		});
+		return true
+	} else {
+		return false
+	}
+}
+
+let initMicrioFS = (MicrioID,Mdiv) => {
+	if (micrioInstance) { // reset
+		clearMicriocontent();
+	}
+	if (MicrioID) {
+		console.debug('generating Micrio DOM Elements...');
+		micrioInstance = new Micrio({
+			// Image ID, required
+			id: MicrioID,
+			// HTML element to put the image in, defaults to <body>
+			container: Mdiv,
+			// Listen to touch and mouse events, defaults to true
+			hookEvents: true,
+			// Initializes and draws image on instance creation, defaults to true
+			autoInit: true,
+			// How to render the initial view, like CSS background-size
+			// 'cover' or 'contain'. Defaults to 'contain'.
+			initType: 'cover',
+		});
+
+		micrioInstance.addEventListener('preset', () => {
+			console.debug('Micrio preset');
+			micrioInstance.camera.fullScreenToggle();
+		});
+		micrioInstance.addEventListener('load', () => {
+			console.debug('Micrio load');
+			// micrioInstance.camera.fullScreenToggle();
+		});
+		micrioInstance.addEventListener('show', () => {
+			console.debug('Micrio show');
+			document.addEventListener('fullscreenchange', clearMicriocontent);
+			document.addEventListener('webkitfullscreenchange', clearMicriocontent);
+			document.addEventListener('mozfullscreenchange', clearMicriocontent);
+			document.addEventListener('MSFullscreenChange', clearMicriocontent);
+		});
+	}
+
+}
+
+let clearMicriocontent = () => {
+	if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+		micrioInstance.destroy();
+		micrioInstance.container.removeAttribute('class');
+		micrioInstance.container.removeAttribute('style');
+		micrioInstance.container.firstElementChild.remove();
+		micrioInstance = null;
+	}
+}
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
   bottomLinks(window);
   get_summary(window);
-  makefullwidth('iframe[src^="https://art.kunstmatrix.com/apps/"]');
   ShowMeHome();
+  injectMicrio();
+  checkGallery();
 });
 
 

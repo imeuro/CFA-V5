@@ -47,15 +47,11 @@ while (have_posts()) { the_post();
                   <?php
                   // check if the post has a Post Thumbnail assigned to it.
                   if ( has_post_thumbnail() ) {
-                    $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, 'medium' );
-                    $imgsrcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'medium' );
-                    //$imgsizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'medium' );
-                    echo '<img src="'.$imgsrc[0].'" srcset="'.$imgsrcset.'" sizes="(min-width: 769px) 640px, (min-width: 767px) 320px, (min-width: 480px) 640px, 320px" loading="lazy" />';
+                    $imgsrc =  wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large' );
+                    echo '<img src="'.$imgsrc[0].'" loading="lazy" />';
                   } else {
-                    $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, 'medium' );
-                    $imgsrcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'medium' );
-                    $imgsizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'medium' );
-                    echo '<img src="'.$imgsrc[0].'" srcset="'.$imgsrcset.'" sizes="'.$imgsizes.'" loading="lazy" />';
+                    $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, 'large' );
+                    echo '<img src="'.$imgsrc[0].'" loading="lazy" />';
                   }
                   ?>
                   <div class="pinbin-copy">

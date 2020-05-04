@@ -82,7 +82,7 @@ let cazzatadiExplore = () => {
 	let EXPlink = EXPitem.firstChild.getAttribute('href');
 	let EXPcont = EXPitem.innerHTML;
 
-	EXPitem.innerHTML = '<div class="focus"><div class="focus--mask"><div class="focus--mask-inner">'+EXPcont+'</div></div></div>';
+	EXPitem.innerHTML = '<div class="focus explore-menu-btn"><div class="focus--mask"><div class="focus--mask-inner">'+EXPcont+'</div></div></div>';
 
 	EXPitem.addEventListener("click", function() {
 		location.href = EXPlink;
