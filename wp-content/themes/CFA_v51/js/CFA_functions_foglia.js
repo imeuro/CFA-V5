@@ -296,6 +296,7 @@ let injectMicrio = () => {
 		let Mcss = document.createElement('style');
 		Mcss.type = 'text/css';
 		Mcss.innerHTML = `
+			.micrio-code { cursor: pointer; }
 			@font-face {
 			  font-family: "celtic";
 			  src: url(`+themepath+`/js/celt.ttf) format("truetype");
