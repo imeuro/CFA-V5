@@ -293,6 +293,19 @@ let injectMicrio = () => {
 		Mscript.id = 'micrio-2.8-lib';
 		document.body.append(Mscript);
 
+		let Mcss = document.createElement('style');
+		Mcss.type = 'text/css';
+		Mcss.innerHTML = `
+			@font-face {
+			  font-family: "celtic";
+			  src: url(`+themepath+`/js/celt.ttf) format("truetype");
+			}  
+			.marker-popup.class-test {
+				font-family: "celtic" !important;
+			    color: aqua !important;
+			}`;
+		document.head.append(Mcss);
+
 		let Mdiv = document.createElement('div');
 		Mdiv.id = 'Micriocontent';
 		document.body.append(Mdiv);
@@ -327,6 +340,7 @@ let initMicrioFS = (MicrioID,Mdiv) => {
 			// How to render the initial view, like CSS background-size
 			// 'cover' or 'contain'. Defaults to 'contain'.
 			initType: 'cover',
+			logo: false,
 		});
 
 		micrioInstance.addEventListener('preset', () => {
