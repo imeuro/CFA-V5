@@ -2762,8 +2762,6 @@ ul#ToC-list li {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-end;
-  border-top: 3px solid #f5a32f;
-  border-bottom: 3px solid #f5a32f;
 }
 #exhibition-banner a {
   display: block;
@@ -2807,17 +2805,15 @@ ul#ToC-list li {
 @media screen and (min-width: 768px) {
   #exhibition-banner {
     top: 180px;
-    min-height: 250px;
+    min-height: 275px;
     flex-flow: row nowrap;
     justify-content: center;
     border-radius: 2px;
     text-align: center;
     background-size: 110%;
-    border-top: 5px solid #f5a32f ;
-    border-bottom: 5px solid #f5a32f ;
   }
   #wrap.with-exhibition {
-    margin-top: 200px;
+    margin-top: 190px;
   }
   #exhibition-banner a {
     flex: 0 0 33%;

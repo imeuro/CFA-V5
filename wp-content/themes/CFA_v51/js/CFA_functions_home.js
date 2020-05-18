@@ -244,7 +244,7 @@ document.addEventListener("mousemove", parallax);
         let x = `${_depth1}`;
         let ty = `${_depth2}`;
         let tx = `${_depth3}`;
-        console.log(ty);
+        // console.log(ty);
         bgpic.style.backgroundPosition = x;
         text.style.top = ty;
         text.style.left = tx;
