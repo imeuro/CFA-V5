@@ -251,6 +251,7 @@ document.addEventListener("mousemove", parallax);
     }
 
 
+
 document.addEventListener("DOMContentLoaded", function() {
   // ...
 });
