@@ -16,50 +16,11 @@ while (have_posts()) : the_post();
 $postnum++;
 
 
-  if ( $postnum == 5 ) { ?>
-    <style type="text/css">
-      #post-ad-insert .pinbin-copy p {
-        background: rgba(255,255,255, 0.66);
-        width: calc(100% - 30px);
-        box-sizing: border-box;
-      }
-      #post-ad-insert .pinbin-copy p img {
-        width: 150px;
-      }
-
-      @media all and (min-width: 769px) {
-        #post-ad-insert .pinbin-copy p {
-          background-color: #fff;
-          backdrop-filter: none;
-          border-radius: 0;
-          width: auto;
-          /* background: rgba(255,255,255, 0.66); */
-          /* width: 100%; */
-        }
-        #post-ad-insert .pinbin-copy p img {
-          width: 175px;
-          /* display: block; */
-        }
-      }
-    </style>
-    <article id="post-ad-insert" class="post type-post has-post-thumbnail hentry isotope-item">
-      <div class="pinbin-image newitem">
-        <a href="https://kalliste.shop/?cid=CFA" target="_blank" class="left">
-          <figure>
-            <img src="wp-content/themes/CFA_v51/ads/kalliste-cover.png" loading="lazy" />
-            <div class="pinbin-copy">
-              <p><img src="wp-content/themes/CFA_v51/ads/kalliste-logo-trasp.png" loading="lazy" /></p>
-            </div>
-          </figure>
-        </a>
-      </div>
-    </article>
-  <?php
+  if ( $postnum == 6 ) { 
+    include(get_template_directory() . '/advblock.php');
   }
+
  ?>
-
-
-
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
          <?php

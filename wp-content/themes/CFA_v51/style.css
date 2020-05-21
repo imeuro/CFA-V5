@@ -2849,3 +2849,28 @@ button.micrio-switch {
     outline: none !important;
 }
 
+
+/* ADV STUFF */
+#post-ad-insert .pinbin-copy p {
+  background: rgba(255,255,255, 0.66);
+  width: calc(100% - 30px);
+  box-sizing: border-box;
+}
+#post-ad-insert .pinbin-copy p img {
+  width: 150px;
+}
+
+@media all and (min-width: 769px) {
+  #post-ad-insert .pinbin-copy p {
+    background-color: #fff;
+    backdrop-filter: none;
+    border-radius: 0;
+    width: auto;
+    /* background: rgba(255,255,255, 0.66); */
+    /* width: 100%; */
+  }
+  #post-ad-insert .pinbin-copy p img {
+    width: 175px;
+    /* display: block; */
+  }
+}
