@@ -2,7 +2,6 @@
 /**
  * Theme index file
  */
-
 ?>
 
 <?php get_header(); ?>
@@ -15,8 +14,7 @@ $postnum=0;
 while (have_posts()) : the_post();
 $postnum++;
 
-
-  if ( $postnum == 6 ) { 
+  if ( $postnum == 3) {
     include(get_template_directory() . '/advblock.php');
   }
 

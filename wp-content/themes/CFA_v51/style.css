@@ -1276,7 +1276,7 @@ figure.wp-block-image { margin: 60px auto; }
 
 #post-area .post,
 #post-area .cfa_translations {
-/*  max-width: 480px; */
+  max-width: 40vw;
   position: relative;
   margin-bottom: 10px;
 }
@@ -1369,6 +1369,7 @@ article.cfa_translations .pinbin-image a,
 article.cfa_translations .pinbin-image a img {
   display: block;
   position: relative;
+  max-width: 100%;
 }
 article.post .pinbin-image a,
 article.post .pinbin-text a,
@@ -1971,7 +1972,8 @@ a.search_menu {
 
   #post-area .post,
   #post-area .cfa_translations {
-    max-width: 480px;
+    max-width: 50%;
+
   }
 
   .pinbin-image img {
@@ -2852,26 +2854,52 @@ button.micrio-switch {
 
 
 /* ADV STUFF */
-#post-ad-insert .pinbin-copy p {
-  background: rgba(255,255,255, 0.66);
-  width: calc(100% - 30px);
-  box-sizing: border-box;
+#post-ad-insert .adv-block {
+  max-width: 100%
 }
-#post-ad-insert .pinbin-copy p img {
+#post-ad-insert .adv-image {
+  width: 100%;
+  max-width: 100%;
+}
+#post-ad-insert .adv-image img {
+  width: 100%;
+  max-width: 100%;
+}
+#post-ad-insert .adv-copy {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  width: calc(100% - 30px);
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  background: rgba(0,0,0, 0.5);
+  box-sizing: border-box;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(3px);
+  text-align: center;
+}
+#post-ad-insert .adv-copy p { margin: 0 auto; }
+#post-ad-insert .adv-copy img {
   width: 150px;
 }
 
 @media all and (min-width: 769px) {
-  #post-ad-insert .pinbin-copy p {
-    background-color: #fff;
-    backdrop-filter: none;
-    border-radius: 0;
-    width: auto;
-    /* background: rgba(255,255,255, 0.66); */
-    /* width: 100%; */
+  #post-ad-insert .adv-copy {
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+    background: rgba(0,0,0, 0.66);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+  }  
+  #post-ad-insert:hover .adv-copy {
+    opacity: 1;
   }
-  #post-ad-insert .pinbin-copy p img {
+  #post-ad-insert .adv-copy img {
     width: 175px;
-    /* display: block; */
   }
 }
