@@ -2872,12 +2872,13 @@ button.micrio-switch {
   left: 15px;
   width: calc(100% - 30px);
   height: auto;
+  min-height: 175px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   background: rgba(255,255,255, 0.5);
   box-sizing: border-box;
-  -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   text-align: center;
 }
