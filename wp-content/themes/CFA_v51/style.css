@@ -1276,7 +1276,7 @@ figure.wp-block-image { margin: 60px auto; }
 
 #post-area .post,
 #post-area .cfa_translations {
-/*  max-width: 480px; */
+  max-width: 40vw;
   position: relative;
   margin-bottom: 10px;
 }
@@ -1369,6 +1369,7 @@ article.cfa_translations .pinbin-image a,
 article.cfa_translations .pinbin-image a img {
   display: block;
   position: relative;
+  max-width: 100%;
 }
 article.post .pinbin-image a,
 article.post .pinbin-text a,
@@ -1971,7 +1972,7 @@ a.search_menu {
 
   #post-area .post,
   #post-area .cfa_translations {
-    max-width: 480px;
+    max-width: 50%;
   }
 
   .pinbin-image img {
@@ -2291,10 +2292,10 @@ a.search_menu {
     max-width: 320px;
   }
   #post-area .post {
-    margin: 15px 10px;
+    margin: 5px 0;
     display: inline-block;
     box-sizing: content-box;
-    width: calc(100% - 20px);
+    width: 100%;
   }
 
   #wrap {
