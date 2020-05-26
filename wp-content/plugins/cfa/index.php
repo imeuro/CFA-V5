@@ -44,7 +44,27 @@ function get_langswitcherDOM() {
 
 function exclude_category( $query ) {
 	if ( $query->is_home() && $query->is_main_query() ) {
-		$query->set( 'category__not_in', 2381 ); // Exhibitions
+		//$query->set( 'category__not_in', 2381 ); // cat. Online Exhibitions, ma non va bene...
+
+		$current_meta = array($query->get('meta_query'));
+		// aggiungiamo filtro per includere posts 
+		// senza CF display_banner
+		// oppure CF display_banner NON settato a 1
+		$custom_meta = array(
+			'relation' => 'OR',
+			array(
+				'key' => 'display_banner',
+				'compare' => 'NOT EXISTS'
+			),
+			array(
+				'key' => 'display_banner',
+				'type' => 'BINARY',
+				'value' => '1',
+				'compare' => '!='
+			)
+		);
+		$meta_query = $current_meta = $custom_meta;
+		$query->set('meta_query', array($meta_query));	
 	}
 }
 add_action( 'pre_get_posts', 'exclude_category' );

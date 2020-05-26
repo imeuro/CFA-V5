@@ -1973,7 +1973,6 @@ a.search_menu {
   #post-area .post,
   #post-area .cfa_translations {
     max-width: 50%;
-
   }
 
   .pinbin-image img {
@@ -2293,10 +2292,10 @@ a.search_menu {
     max-width: 320px;
   }
   #post-area .post {
-    margin: 15px 10px;
+    margin: 5px 0;
     display: inline-block;
     box-sizing: content-box;
-    width: calc(100% - 20px);
+    width: 100%;
   }
 
   #wrap {
@@ -2798,9 +2797,11 @@ ul#ToC-list li {
   font-weight: 400;
 }
 
+/*
 #post-area .post.category-online-exhibitions {
     border: 3px solid #f5a32f;
 }
+*/
 #post-area .post.category-online-exhibitions img { float: left; }
 
 
