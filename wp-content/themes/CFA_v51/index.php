@@ -14,7 +14,7 @@ $postnum=0;
 while (have_posts()) : the_post();
 $postnum++;
 
-  if ( $postnum == 3) {
+  if ( $postnum == 2) {
     include(get_template_directory() . '/advblock.php');
   }
 
