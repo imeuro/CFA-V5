@@ -996,6 +996,7 @@ div.wpcf7 input[type="submit"] {
 .type-post {
   position: relative;
 }
+.type-post.category-online-exhibitions { overflow: hidden; }
 
 .pinbin-image img {
   border-radius: 2px;
