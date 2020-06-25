@@ -17,6 +17,9 @@ $postnum++;
   if ( $postnum == 2) {
     include(get_template_directory() . '/advblock.php');
   }
+  if ( $postnum == 4) {
+    include(get_template_directory() . '/advblock2.php');
+  }
 
  ?>
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
