@@ -96,7 +96,9 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && documen
 				Ssaveme=Sfig.innerHTML;
 				e.innerHTML = Ssaveme;
 				var Sdida= e.querySelector('figcaption');
-				Sdida.classList.add('gallery-caption');
+				if (Sdida && Sdida.length > 0) {
+					Sdida.classList.add('gallery-caption');
+				}
 				var Sloader = document.createElement('div');
 				e.appendChild(Sloader);
 				Sloader.classList.add('swiper-lazy-preloader');
