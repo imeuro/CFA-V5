@@ -1257,7 +1257,10 @@ div.wpcf7 input[type="submit"] {
 figure.wp-block-image { margin: 60px auto; }
 .wp-block-gallery figure.wp-block-image { margin: 0 auto; }
 
-
+.wp-block-image img {
+    max-width: 100%;
+    height: auto;
+}
 .wp-block-image.alignfull img,
 .wp-block-image.alignwide img,
 .alignwide,
