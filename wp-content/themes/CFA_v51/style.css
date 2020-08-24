@@ -1683,7 +1683,7 @@ select {
   max-width: 640px;
   position: initial;
   margin-bottom: 0;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .CFAslider .swiper-pagination-bullet {
   width: 10px;
@@ -2347,7 +2347,8 @@ a.search_menu {
 #wpadminbar {display: none}
 .gallery-caption,
 .pinbin-copy p.wp-caption-text,
-.wp-block-image figcaption {font-size: 1.25rem; line-height: 1.5rem; margin: 1em; padding-bottom: 0em;}
+.wp-block-image figcaption,
+.wp-block-gallery figcaption {font-size: 1.25rem; line-height: 1.5rem; margin: 1em; padding-bottom: 0em;}
 
 .widget_wysija_cont {
     display: inline-block;
