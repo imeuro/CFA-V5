@@ -1254,7 +1254,8 @@ div.wpcf7 input[type="submit"] {
 
 
 
-figure.wp-block-image { margin: 60px auto; }
+figure.wp-block-image, 
+figure.wp-block-gallery { margin: 60px auto; }
 .wp-block-gallery figure.wp-block-image { margin: 0 auto; }
 
 .wp-block-image img {
@@ -1681,7 +1682,7 @@ select {
   width: 100%;
   max-width: 640px;
   position: initial;
-  margin-bottom: 40px;
+  margin-bottom: 0;
   margin-top: 10px;
 }
 .CFAslider .swiper-pagination-bullet {
