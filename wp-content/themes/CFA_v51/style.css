@@ -1254,10 +1254,14 @@ div.wpcf7 input[type="submit"] {
 
 
 
-figure.wp-block-image { margin: 60px auto; }
+figure.wp-block-image, 
+figure.wp-block-gallery { margin: 60px auto; }
 .wp-block-gallery figure.wp-block-image { margin: 0 auto; }
 
-
+.wp-block-image img {
+    max-width: 100%;
+    height: auto;
+}
 .wp-block-image.alignfull img,
 .wp-block-image.alignwide img,
 .alignwide,
@@ -1678,8 +1682,8 @@ select {
   width: 100%;
   max-width: 640px;
   position: initial;
-  margin-bottom: 40px;
-  margin-top: 10px;
+  margin-bottom: 0;
+  margin-top: 20px;
 }
 .CFAslider .swiper-pagination-bullet {
   width: 10px;
@@ -2343,7 +2347,8 @@ a.search_menu {
 #wpadminbar {display: none}
 .gallery-caption,
 .pinbin-copy p.wp-caption-text,
-.wp-block-image figcaption {font-size: 1.25rem; line-height: 1.5rem; margin: 1em; padding-bottom: 0em;}
+.wp-block-image figcaption,
+.wp-block-gallery figcaption {font-size: 1.25rem; line-height: 1.5rem; margin: 1em; padding-bottom: 0em;}
 
 .widget_wysija_cont {
     display: inline-block;
