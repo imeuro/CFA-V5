@@ -31,7 +31,18 @@ if (have_posts()) {
 <?php
 $postnum=0;
 while (have_posts()) { the_post();
-  ?>
+$postnum++;
+
+  if ( $postnum == 2) {
+    include(get_template_directory() . '/advblock.php');
+  }
+  if ( $postnum == 4) {
+    include(get_template_directory() . '/advblock2.php');
+  }
+  if ( $postnum == 8) {
+    include(get_template_directory() . '/advblock3.php');
+  }
+?>
 
       <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
 

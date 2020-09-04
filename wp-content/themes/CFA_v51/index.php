@@ -20,9 +20,9 @@ $postnum++;
   if ( $postnum == 4) {
     include(get_template_directory() . '/advblock2.php');
   }
-  // if ( $postnum == 8) {
-  //   include(get_template_directory() . '/advblock3.php');
-  // }
+  if ( $postnum == 8) {
+    include(get_template_directory() . '/advblock3.php');
+  }
  ?>
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
