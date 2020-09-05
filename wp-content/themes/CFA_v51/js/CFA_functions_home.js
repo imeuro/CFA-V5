@@ -253,15 +253,6 @@ function parallax(e) {
 }
 
 
-	// read and inject adv:
-	let adcont1;
-	// let adcont2;
-	// let adcont3;
-	fetch(themepath+'/ads/advblock1.php')
-	  .then(response => response.text())
-	  .then(text => adcont1 = text)
-
-	  console.log(adcont1);
 
 	// fetch(themepath+'/ads/advblock2.php')
 	//   .then(response => response.text())
@@ -276,27 +267,36 @@ function parallax(e) {
 let injectADS = () => {
 	// read and inject advs in position:
 	const adslot1 = document.querySelector('#post-area article:nth-child(2)');
-	let sp1 = document.createElement("span");
-	sp1.innerHTML=adcont1;
-	// Get the reference element
+	let sp1 = document.createElement("article");
+	sp1.setAttribute('class','post type-post status-publish format-adv1');
+	sp1.setAttribute('id', 'advblock1');
 	let sp2 = adslot1;
-	// Get the parent element
 	let parentDiv = sp2.parentNode
-
 	// Insert the new element into before sp2
 	parentDiv.insertBefore(sp1, sp2)
-
-
 }
-
+let injectADScont = (id) => {
+	let adcont1;
+	const target = document.getElementById(id);
+	fetch(themepath+'/ads/advblock1.php')
+	  .then(response => response.text())
+	  .then(text => target.innerHTML = text);
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   // ...
+  injectADS();
+
 });
 
 
 window.addEventListener("load", function() {
- // ...
- //injectADS();
+
+ injectADScont('advblock1');
+ // injectADScont('advblock2');
+ // injectADScont('advblock3');
+
+ $container.isotope('reLayout');
+
 });
 
