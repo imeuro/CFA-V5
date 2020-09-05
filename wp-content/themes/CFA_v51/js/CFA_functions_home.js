@@ -284,7 +284,7 @@ let injectADS = () => {
 	// Insert the new element into before sp2_2
 	parentDiv_2.insertBefore(sp1_2, sp2_2)	
 
-	const adslot3 = document.querySelector('#post-area article:nth-child(7)');
+	const adslot3 = document.querySelector('#post-area article:nth-child(8)');
 	let sp1_3 = document.createElement("article");
 	sp1_3.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-adv3 post-ad-insert');
 	sp1_3.setAttribute('id', 'advblock3');
@@ -317,6 +317,6 @@ window.addEventListener("load", function() {
  okresize();
  setTimeout(function(){
  	$container.isotope('reLayout');
- },500);
+ },1000);
 });
 
