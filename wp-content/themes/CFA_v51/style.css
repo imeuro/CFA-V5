@@ -2861,18 +2861,18 @@ button.micrio-switch {
 
 
 /* ADV STUFF */
-#post-ad-insert .adv-block {
+.post-ad-insert .adv-block {
   max-width: 100%
 }
-#post-ad-insert .adv-image {
+.post-ad-insert .adv-image {
   width: 100%;
   max-width: 100%;
 }
-#post-ad-insert .adv-image img {
+.post-ad-insert .adv-image img {
   width: 100%;
   max-width: 100%;
 }
-#post-ad-insert .adv-copy {
+.post-ad-insert .adv-copy {
   position: absolute;
   bottom: 10px;
   left: 15px;
@@ -2888,13 +2888,13 @@ button.micrio-switch {
   backdrop-filter: blur(3px);
   text-align: center;
 }
-#post-ad-insert .adv-copy p { margin: 0 auto; }
-#post-ad-insert .adv-copy img {
+.post-ad-insert .adv-copy p { margin: 0 auto; }
+.post-ad-insert .adv-copy img {
   width: 150px;
 }
 
 @media all and (min-width: 769px) {
-  #post-ad-insert .adv-copy {
+  .post-ad-insert .adv-copy {
     opacity: 0;
     transition: opacity 500ms ease-in-out;
     background: rgba(255,255,255, 0.5);
@@ -2904,10 +2904,10 @@ button.micrio-switch {
     top: 0;
     text-align: center;
   }  
-  #post-ad-insert:hover .adv-copy {
+  .post-ad-insert:hover .adv-copy {
     opacity: 1;
   }
-  #post-ad-insert .adv-copy img {
+  .post-ad-insert .adv-copy img {
     width: 175px;
   }
 }
