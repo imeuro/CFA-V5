@@ -228,28 +228,66 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 
 
 // parallaxx banner
-document.addEventListener("mousemove", parallax);
-    const bgpic = document.querySelector("#exhibition-banner");
-    const text = document.querySelector("#exhibition-banner a");
-    // Magic happens here
-    function parallax(e) {
-        let _w = window.innerWidth/2;
-        let _h = window.innerHeight/2;
-        let _mouseX = e.clientX;
-        let _mouseY = e.clientY;
-        let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${50 - (_mouseY - _h) * 0.01}%`;
-        let _depth2 = `${50 - (_mouseY - _h) * 0.006}%`;
-        let _depth3 = `${50 - (_mouseX - _w) * 0.003}%`;
-        // let x = `${_depth3}, ${_depth2}, ${_depth1}`;
-        let x = `${_depth1}`;
-        let ty = `${_depth2}`;
-        let tx = `${_depth3}`;
-        // console.log(ty);
-        bgpic.style.backgroundPosition = x;
-        text.style.top = ty;
-        text.style.left = tx;
-    }
+const bgpic = document.querySelector("#exhibition-banner");
+const text = document.querySelector("#exhibition-banner a");
+if (bgpic) {
+	document.addEventListener("mousemove", parallax);
+}
+// Magic happens here
+function parallax(e) {
+    let _w = window.innerWidth/2;
+    let _h = window.innerHeight/2;
+    let _mouseX = e.clientX;
+    let _mouseY = e.clientY;
+    let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${50 - (_mouseY - _h) * 0.01}%`;
+    let _depth2 = `${50 - (_mouseY - _h) * 0.006}%`;
+    let _depth3 = `${50 - (_mouseX - _w) * 0.003}%`;
+    // let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+    let x = `${_depth1}`;
+    let ty = `${_depth2}`;
+    let tx = `${_depth3}`;
+    // console.log(ty);
+    bgpic.style.backgroundPosition = x;
+    text.style.top = ty;
+    text.style.left = tx;
+}
 
+
+	// read and inject adv:
+	let adcont1;
+	// let adcont2;
+	// let adcont3;
+	fetch(themepath+'/ads/advblock1.php')
+	  .then(response => response.text())
+	  .then(text => adcont1 = text)
+
+	  console.log(adcont1);
+
+	// fetch(themepath+'/ads/advblock2.php')
+	//   .then(response => response.text())
+	//   .then(text => adcont2 = text)
+
+	// fetch(themepath+'/ads/advblock3.php')
+	//   .then(response => response.text())
+	//   .then(text => adcont3 = text)
+
+
+
+let injectADS = () => {
+	// read and inject advs in position:
+	const adslot1 = document.querySelector('#post-area article:nth-child(2)');
+	let sp1 = document.createElement("span");
+	sp1.innerHTML=adcont1;
+	// Get the reference element
+	let sp2 = adslot1;
+	// Get the parent element
+	let parentDiv = sp2.parentNode
+
+	// Insert the new element into before sp2
+	parentDiv.insertBefore(sp1, sp2)
+
+
+}
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -259,5 +297,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.addEventListener("load", function() {
  // ...
+ //injectADS();
 });
 

@@ -4,7 +4,7 @@ var sw = document.body.clientWidth;
 var bodyClasses = document.body.classList; // usage: bodyClasses.contains('my-class-name')
 var ENV = window.location.host;
 var basepath = '/cfa/';
-if (ENV == 'localhost' || ENV == 'nas.imeuro.io' || ENV == 'www.meuro.dev') { basepath = '/conceptualfinearts/cfa/'; }
+if (ENV == 'localhost' || ENV == 'nas.imeuro.io' || ENV == 'meuro.dev') { basepath = '/conceptualfinearts/cfa/'; }
 var themepath = basepath+'wp-content/themes/CFA_v51/';
 var whitecurtain = document.getElementById('whitecurtain');
 var modal = document.getElementById('modal');
