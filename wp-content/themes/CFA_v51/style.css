@@ -2889,7 +2889,7 @@ button.micrio-switch {
   text-align: center;
 }
 .post-ad-insert .adv-copy p { margin: 0 auto; }
-.post-ad-insert .adv-copy img {
+#post-area .post-ad-insert .adv-copy img {
   width: 150px;
 }
 
