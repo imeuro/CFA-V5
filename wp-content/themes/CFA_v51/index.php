@@ -13,6 +13,8 @@
 $postnum=0;
 while (have_posts()) : the_post();
 $postnum++;
+$pagenum = get_query_var('paged') ? get_query_var('paged') : 1 ;
+
 
   // if ( $postnum == 2) {
   //   include(get_template_directory() . '/advblock.php');
@@ -23,6 +25,7 @@ $postnum++;
   // if ( $postnum == 8) {
   //   include(get_template_directory() . '/advblock3.php');
   // }
+
  ?>
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
