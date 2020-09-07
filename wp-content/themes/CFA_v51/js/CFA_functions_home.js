@@ -253,17 +253,6 @@ function parallax(e) {
 }
 
 
-
-	// fetch(themepath+'/ads/advblock2.php')
-	//   .then(response => response.text())
-	//   .then(text => adcont2 = text)
-
-	// fetch(themepath+'/ads/advblock3.php')
-	//   .then(response => response.text())
-	//   .then(text => adcont3 = text)
-
-
-
 let getADS = () => {
 	// read and inject advs in position:
 	const adslot1 = document.querySelector('#post-area article:nth-child(2)');
