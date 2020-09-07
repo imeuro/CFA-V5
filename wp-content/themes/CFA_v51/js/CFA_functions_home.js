@@ -264,7 +264,7 @@ function parallax(e) {
 
 
 
-let injectADS = () => {
+let getADS = () => {
 	// read and inject advs in position:
 	const adslot1 = document.querySelector('#post-area article:nth-child(2)');
 	let sp1 = document.createElement("article");
@@ -302,8 +302,7 @@ let injectADScont = (id) => {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  // ...
-  injectADS();
+  getADS();
 
 });
 

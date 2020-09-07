@@ -1,5 +1,5 @@
 <?php
-$baseurl = str_replace('/ads/advblock1.php','','http://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']);
+$baseurl = str_replace('/ads/advblock1.php','','https://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']);
 ?>
 
 <div class="adv-block newitem">
