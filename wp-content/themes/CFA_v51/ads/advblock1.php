@@ -7,7 +7,7 @@ $baseurl = str_replace('/ads/advblock1.php','','https://'. $_SERVER['SERVER_NAME
       <div class="adv-image">
         <img src="<?php echo $baseurl.'ads/kalliste-cover.jpg' ?>" loading="lazy" />
       </div>
-      <div class="adv-copy">
+      <div class="adv-copy" id="kalliste">
         <p><img src="<?php echo $baseurl.'ads/kalliste-logo.svg' ?>" loading="lazy" /></p>
       </div>
   </a>
