@@ -292,6 +292,15 @@ let getADS = () => {
 	let parentDiv_3 = sp2_3.parentNode
 	// Insert the new element into before sp2_3
 	parentDiv_3.insertBefore(sp1_3, sp2_3)
+
+	const adslot4 = document.querySelector('#post-area article:nth-child(11)');
+	let sp1_4 = document.createElement("article");
+	sp1_4.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-adv3 post-ad-insert');
+	sp1_4.setAttribute('id', 'advblock3');
+	let sp2_4 = adslot4;
+	let parentDiv_4 = sp2_4.parentNode
+	// Insert the new element into before sp2_4
+	parentDiv_4.insertBefore(sp1_4, sp2_4)
 }
 let injectADScont = (id) => {
 	let adcont1;
