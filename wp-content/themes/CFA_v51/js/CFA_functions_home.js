@@ -302,20 +302,20 @@ let injectADScont = (id) => {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  getADS();
+  // getADS();
 
 });
 
 
 window.addEventListener("load", function() {
 
- injectADScont('advblock1');
- injectADScont('advblock2');
- injectADScont('advblock3');
+ // injectADScont('advblock1');
+ // injectADScont('advblock2');
+ // injectADScont('advblock3');
 
- okresize();
- setTimeout(function(){
- 	$container.isotope('reLayout');
- },1000);
+ // okresize();
+ // setTimeout(function(){
+ // 	$container.isotope('reLayout');
+ // },1000);
 });
 
