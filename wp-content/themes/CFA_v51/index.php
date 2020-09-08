@@ -11,6 +11,7 @@
 
 <?php
 $postnum=0;
+$currentTS = time();
 while (have_posts()) : the_post();
   $postnum++;
 

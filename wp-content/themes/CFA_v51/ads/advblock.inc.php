@@ -1,5 +1,4 @@
 <?php
-$currentTS = time();
 $pagenum = get_query_var('paged') ? get_query_var('paged') : 1 ;
 
 $advposts = get_posts(array(
