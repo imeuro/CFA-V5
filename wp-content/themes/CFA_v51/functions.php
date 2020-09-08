@@ -498,3 +498,15 @@ add_theme_support( 'align-wide' );
 add_filter( 'big_image_size_threshold', '__return_false' );
 
 add_filter('jpeg_quality', function($arg){return 100;});
+
+
+// add capability to upload svg or other mime types
+// https://www.elegantthemes.com/blog/wordpress/how-to-fix-the-sorry-this-file-type-is-not-permitted-for-security-reasons-error-in-wordpress
+function CFA_mime_types( $mimes ) {
+	// New allowed mime types.
+	$mimes['svg'] = 'image/svg+xml';
+	// Remove a mime type.
+	unset( $mimes['exe'] );
+	return $mimes;
+}
+add_filter( 'upload_mimes', 'CFA_mime_types' );

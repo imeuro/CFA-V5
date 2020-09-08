@@ -11,18 +11,13 @@
 
 <?php
 $postnum=0;
+$currentTS = time();
 while (have_posts()) : the_post();
-$postnum++;
+  $postnum++;
 
-  // if ( $postnum == 2) {
-  //   include(get_template_directory() . '/advblock.php');
-  // }
-  // if ( $postnum == 4) {
-  //   include(get_template_directory() . '/advblock2.php');
-  // }
-  // if ( $postnum == 8) {
-  //   include(get_template_directory() . '/advblock3.php');
-  // }
+  // check for available ads...
+  include( 'ads/advblock.inc.php' );
+
  ?>
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 

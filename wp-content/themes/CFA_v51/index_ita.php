@@ -30,8 +30,13 @@ if (have_posts()) {
 
 <?php
 $postnum=0;
+$currentTS = time();
 while (have_posts()) { the_post();
-$postnum++;
+  $postnum++;
+
+  // check for available ads...
+  include( 'ads/advblock.inc.php' );
+
 ?>
 
       <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
