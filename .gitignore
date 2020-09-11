@@ -18,12 +18,9 @@ CFA-content/mu-plugins/
 CFA-content/wp-cache-config.php
 CFA-content/plugins/*
 !CFA-content/plugins/cfa/
-wp-admin/
-wp-includes/
+wordpress
 
 
 /.htaccess
-/license.txt
-/readme.html
 /sitemap.xml
 /sitemap.xml.gz
