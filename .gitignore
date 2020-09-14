@@ -18,6 +18,7 @@ CFA-content/mu-plugins/
 CFA-content/wp-cache-config.php
 CFA-content/plugins/*
 !CFA-content/plugins/cfa/
+!CFA-content/plugins/google-analytics-dashboard-for-wp
 wordpress
 
 
