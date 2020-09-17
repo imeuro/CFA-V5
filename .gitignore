@@ -22,7 +22,7 @@ CFA-content/plugins/*
 !CFA-content/plugins/google-analytics-dashboard-for-wp
 
 wordpress
-
+dbs
 
 /.htaccess
 /sitemap.xml
