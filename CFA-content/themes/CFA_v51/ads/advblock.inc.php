@@ -19,7 +19,7 @@ if (!empty($advposts)) {
     
   if (($currentTS > $advStart && $currentTS < $advEnd ) && $pagenum === 1) {
     ?>
-    <article id="post-<?php echo $advpost->ID; ?>" class="post type-post has-post-thumbnail hentry status-publish format-adv3 post-ad-insert">
+    <article id="ADVblock-<?php echo $advpost->post_title; ?>" class="post type-post has-post-thumbnail hentry status-publish format-adv3 post-ad-insert">
       <div class="adv-block newitem">
       <a href="<?php echo get_field('sponsor_url',$advpost->ID); ?>?cid=CFA" target="_blank" class="left">
           <div class="adv-image">
