@@ -69,8 +69,8 @@ endif;
 
 		<div id="social-pad">
 			<ul>
-				<!-- <li class="FB_btn"><a href="https://www.facebook.com/Conceptualfinearts" target="_blank">FB</a></li> -->
-				<li class="IG_btn"><a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank">IG</a></li>
+				<!-- <li class="FB_btn"><a href="https://www.facebook.com/Conceptualfinearts" target="_blank" rel="noopener">FB</a></li> -->
+				<li class="IG_btn"><a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank" rel="noopener">IG</a></li>
 			</ul>
 		</div>
 

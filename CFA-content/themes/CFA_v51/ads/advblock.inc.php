@@ -21,7 +21,7 @@ if (!empty($advposts)) {
     ?>
     <article id="ADVblock-<?php echo $advpost->post_title; ?>" class="post type-post has-post-thumbnail hentry status-publish format-adv3 post-ad-insert">
       <div class="adv-block newitem">
-      <a href="<?php echo get_field('sponsor_url',$advpost->ID); ?>?cid=CFA" target="_blank" class="left">
+      <a href="<?php echo get_field('sponsor_url',$advpost->ID); ?>?cid=CFA" target="_blank" rel="nofollow noopener" class="left">
           <div class="adv-image">
             <?php foreach ($advpics as $advpic) {
               $advpicsrc =  wp_get_attachment_image_src($advpic["sponsor_pic"]["ID"], 'large' );
