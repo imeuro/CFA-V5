@@ -13,7 +13,7 @@ endif;
   <head>
     	<meta charset="<?php bloginfo('charset'); ?>" />
       <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
       <!--meta name="keywords" content="a list, of keywords, separated, by commas"-->
       <meta name="description" content="<?php
         if ( is_home() || is_page('it') ) : bloginfo('description');
