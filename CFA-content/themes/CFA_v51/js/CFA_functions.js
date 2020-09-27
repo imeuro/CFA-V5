@@ -120,6 +120,7 @@ let appendENV = (env) => {
 		divEnv.innerHTML = "🛠️ on "+env+" 🛠️";
 		document.head.appendChild(cssENV);
 		document.body.appendChild(divEnv)
+		
 	}
 }
 
