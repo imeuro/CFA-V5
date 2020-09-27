@@ -3,8 +3,12 @@
 var sw = document.body.clientWidth;
 var bodyClasses = document.body.classList; // usage: bodyClasses.contains('my-class-name')
 var ENV = window.location.host;
+let devENV = null;
 var basepath = '/cfa/';
-if (ENV == 'localhost' || ENV == 'nas.imeuro.io' || ENV == 'meuro.dev') { basepath = '/conceptualfinearts/cfa/'; }
+if (ENV == 'localhost' || ENV == 'nas.imeuro.io' || ENV == 'meuro.dev') {
+	basepath = '/conceptualfinearts/cfa/';
+	devENV = true;
+}
 var themepath = basepath+'wp-content/themes/CFA_v51/';
 var whitecurtain = document.getElementById('whitecurtain');
 var modal = document.getElementById('modal');
@@ -90,6 +94,35 @@ let cazzatadiExplore = () => {
 
 }
 
+let appendENV = (env) => {
+	if (typeof devENV !== 'undefined') {
+		let divEnv = document.createElement('div');
+		let cssENV = document.createElement('style');
+		cssENV.innerHTML = `
+			.env-revealer {
+			    position: absolute;
+			    top: -30px;
+			    left: 50%;
+			    transform: translateX(-50%);
+			    color: #444;
+			    font-size: 16px;
+			    line-height: 16px;
+			    background: #fff;
+			    padding: 10px 10px;
+			    font-weight: 700;
+			    width: auto;
+			    text-align: center;
+			    text-transform: uppercase;
+			    border-radius: 50%;
+			}
+		`;
+		divEnv.setAttribute('class', 'env-revealer');
+		divEnv.innerHTML = "🛠️ on "+env+" 🛠️";
+		document.head.appendChild(cssENV);
+		document.body.appendChild(divEnv)
+	}
+}
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -101,6 +134,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById('logo').addEventListener('click', function(){
 			window.location.href = basepath;
 	});
+
+	appendENV(ENV);
 
 });
 
