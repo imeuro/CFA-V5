@@ -95,7 +95,7 @@ let cazzatadiExplore = () => {
 }
 
 let appendENV = (env) => {
-	if (typeof devENV !== 'undefined') {
+	if (typeof devENV !== 'undefined' && devENV !== null) {
 		let divEnv = document.createElement('div');
 		let cssENV = document.createElement('style');
 		cssENV.innerHTML = `
