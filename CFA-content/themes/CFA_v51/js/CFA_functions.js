@@ -9,7 +9,7 @@ if (ENV == 'localhost' || ENV == 'nas.imeuro.io' || ENV == 'meuro.dev') {
 	basepath = '/conceptualfinearts/cfa/';
 	devENV = true;
 }
-var themepath = basepath+'wp-content/themes/CFA_v51/';
+var themepath = basepath+'CFA-content/themes/CFA_v51/';
 var whitecurtain = document.getElementById('whitecurtain');
 var modal = document.getElementById('modal');
 var AltLang = document.getElementById('lang-switcher');
