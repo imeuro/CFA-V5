@@ -16,7 +16,7 @@ while (have_posts()) : the_post();
   $postnum++;
 
   // check for available ads...
-  include( 'ads/advblock.inc.php' );
+  include( 'ads/advblock.home.inc.php' );
 
  ?>
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

@@ -13,9 +13,6 @@ if (!empty($advposts)) {
   $advpics = get_field('sponsor_pics',$advpost->ID);
   $advStart = get_field('sponsor_start_date',$advpost->ID);
   $advEnd = get_field('sponsor_end_date',$advpost->ID);
-  ?>
-  <?php 
-
     
   if (($currentTS > $advStart && $currentTS < $advEnd ) && $pagenum === 1) {
     ?>
