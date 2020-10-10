@@ -2921,6 +2921,7 @@ body .pea_cook_wrapper.pea_cook_bottomcenter {
     left: 0;
     width: 90vw;
     max-width: 600px;
+    border: 1px solid #f0f0f0;
     margin: 0px 5vw;
     padding-right: 8px;
     box-sizing: border-box;
