@@ -68,4 +68,22 @@ function exclude_category( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'exclude_category' );
+
+
+ 
+// Insert ads after second paragraph of single post content.
+// https://wordpress.stackexchange.com/questions/74235/show-content-after-the-first-and-second-paragraph/74242
+function the_injected_content($pnum, $pcont) {
+	$paragraphAfter[$pnum] = $pcont; //display after the fifth paragraph
+
+	$content = apply_filters( 'the_content', get_the_content() );
+	$content = explode("</p>", $content);
+	$count = count($content);
+	for ($i = 0; $i < $count; $i++ ) {
+	    if ( array_key_exists($i, $paragraphAfter) ) {
+	        echo $paragraphAfter[$i];
+	    }
+	    echo $content[$i] . "</p>";
+	}
+}
 ?>

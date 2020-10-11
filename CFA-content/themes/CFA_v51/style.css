@@ -2861,7 +2861,7 @@ button.micrio-switch {
 
 
 /* ADV STUFF */
-.inarticle-ad-insert {
+.inarticle-spinsert {
   position: relative;
   display: inline-block;
   height: 100%;
@@ -2869,6 +2869,15 @@ button.micrio-switch {
 }
 .post-spinsert .spblock {
   max-width: 100%
+}
+.inarticle-spinsert-small .spblock a {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
 }
 .post-spinsert .spimage {
   width: 100%;
@@ -2879,7 +2888,7 @@ button.micrio-switch {
   max-width: 100%;
   float: left;
 }
-.post-spinsert .spcopy {
+.post-spinsert.inarticle-spinsert-full .spcopy {
   position: absolute;
   bottom: 10px;
   left: 15px;
@@ -2895,25 +2904,32 @@ button.micrio-switch {
   backdrop-filter: blur(3px);
   text-align: center;
 }
-.inarticle-ad-insert .spcopy {
-    height: 175px;
+.inarticle-spinsert .spcopy {
+  height: 175px;
+}
+.inarticle-spinsert-small .spimage,
+.inarticle-spinsert-small .spcopy {
+  flex: 0 0 45%;
+  text-align: center;
+  height: auto;
 }
 
 .post-spinsert .spcopy p { margin: 0 auto; }
-.inarticle-ad-insert .spcopy p {
+.inarticle-spinsert .spcopy p {
     padding: 0;
 }
 #post-area .post-spinsert .spcopy img,
-.inarticle-ad-insert .spcopy img {
+.inarticle-spinsert .spcopy img {
   width: 150px;
+  max-width: 100%;
 }
 
 @media all and (min-width: 769px) {
-  .inarticle-ad-insert {
+  .inarticle-spinsert {
     display: inline-block;
     height: 100%;
   }
-  .post-spinsert .spcopy {
+  .post-spinsert.inarticle-spinsert-full .spcopy {
     opacity: 0;
     transition: opacity 500ms ease-in-out;
     background: rgba(255,255,255, 0.5);

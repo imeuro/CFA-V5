@@ -6,11 +6,19 @@
 ?>
 <?php get_header(); ?>
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	<?php 
+  if (have_posts()) : while (have_posts()) : the_post(); 
+  $advposition = get_field('sponsor_position',$post->ID);
+  ?>
 
    		<article id="post-<?php the_ID(); ?>" <?php post_class('scroller'); ?>>
 
         <div class="pinbin-copy">
+
+        <?php if ($advposition == 'start') :
+          include('ads/advblock.single.inc.php'); 
+        endif; ?>
+
 
           <?php
         if (!get_field('author_name',$post->ID)) :  // old format ?>
@@ -41,14 +49,20 @@
 					<?php endif; ?>
           
 
-          <?php include('ads/advblock.single.inc.php'); ?>
+          <?php if ($advposition == 'summary') :
+            include('ads/advblock.single.inc.php'); 
+          endif; ?>
 
 
-          <?php if (get_field('display_automatic_summary')): ?>
+          <?php if (get_field('display_automatic_summary')) : ?>
             <div class="container summary-container"></div>
           <?php endif; ?>
 
-          <?php the_content('Read more'); ?>
+          <?php if ($advposition == 'inpage') :
+            include('ads/advblock.single.inc.php');
+          else :
+            the_content('Read more'); 
+          endif; ?>
 
           <div class="clear"></div>
 

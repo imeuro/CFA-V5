@@ -12,31 +12,38 @@ $advinsert = get_posts(array(
 if (!empty($advinsert)) {
   $currentTS = time();
   $advpost = $advinsert[0];
-  $advformat = get_field('sponsor_format',$advpost->ID);
+  $advposition = get_field('sponsor_position',$post->ID);
+  $advformat = get_field('sponsor_format',$post->ID);
   $advpics = get_field('sponsor_pics',$advpost->ID);
   $advStart = get_field('sponsor_start_date',$advpost->ID);
   $advEnd = get_field('sponsor_end_date',$advpost->ID);
 
 
-  if ( ($currentTS > $advStart && $currentTS < $advEnd) ) {
-  ?>
-  <section id="ADVblock-inarticle-<?php echo $advpost->post_title; ?>" class="type-post post-spinsert inarticle-ad-insert">
-    <div class="spblock newitem">
-      <a href="<?php echo get_field('sponsor_url',$advpost->ID); ?>?cid=CFA" target="_blank" rel="nofollow noopener" class="left">
-          <div class="spimage">
-            <?php foreach ($advpics as $advpic) {
-              $advpicsrc =  wp_get_attachment_image_src($advpic["sponsor_pic"]["ID"], 'medium' );
-              echo '<img src="'.$advpicsrc[0].'" loading="lazy" />';
-            }
-            ?>
-          </div>
-          <div class="spcopy" id="<?php echo $advpost->post_title ?>">
-            <p><img src="<?php echo get_field('sponsor_logo',$advpost->ID); ?>" loading="lazy" /></p>
-          </div>
-      </a>
-    </div>
-  </section>
-  <?php
+  if ( $currentTS > $advStart && $currentTS < $advEnd  ) {
+
+    $advout = '<section id="ADVblock-inarticle-'.$advpost->post_title.'" class="type-post post-spinsert inarticle-spinsert inarticle-spinsert-'.$advposition.' inarticle-spinsert-'.$advformat.'">';
+    $advout .= '  <div class="spblock newitem">';
+    $advout .= '    <a href="'.get_field("sponsor_url",$advpost->ID).'?cid=CFA" target="_blank" rel="nofollow noopener" class="left">';
+    $advout .= '      <div class="spimage">';
+    foreach ($advpics as $advpic) {
+      $advpicsrc =  wp_get_attachment_image_src($advpic["sponsor_pic"]["ID"], "medium" );
+      $advout .= '        <img src="'.$advpicsrc[0].'" loading="lazy" />';
+    }
+    
+    $advout .= '      </div>';
+    $advout .= '      <div class="spcopy" id="'.$advpost->post_title.'">';
+    $advout .= '        <p><img src="'.get_field('sponsor_logo',$advpost->ID).'" loading="lazy" /></p>';
+    $advout .= '      </div>';
+    $advout .= '     </a>';
+    $advout .= '  </div>';
+    $advout .= '</section>';
+
+    if ($advposition == 'inpage') {
+      the_injected_content(2,$advout);
+    } else if ($advposition == 'start' || $advposition == 'summary') {
+      echo $advout;
+    }
+    
   }
 
 }
