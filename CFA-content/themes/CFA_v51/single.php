@@ -9,6 +9,7 @@
 	<?php 
   if (have_posts()) : while (have_posts()) : the_post(); 
   $advposition = get_field('sponsor_position',$post->ID);
+  $advdisplay = get_field('post_sponsor_display',$post->ID);
   ?>
 
    		<article id="post-<?php the_ID(); ?>" <?php post_class('scroller'); ?>>
@@ -16,6 +17,7 @@
         <div class="pinbin-copy">
 
         <?php if ($advposition == 'start') :
+          $articleposition = 'start';
           include('ads/advblock.single.inc.php'); 
         endif; ?>
 
@@ -49,7 +51,8 @@
 					<?php endif; ?>
           
 
-          <?php if ($advposition == 'summary') :
+          <?php if (!$advposition || $advposition == 'summary') :
+            $articleposition = 'summary';
             include('ads/advblock.single.inc.php'); 
           endif; ?>
 
@@ -59,6 +62,7 @@
           <?php endif; ?>
 
           <?php if ($advposition == 'inpage') :
+            $articleposition = 'inpage';
             include('ads/advblock.single.inc.php');
           else :
             the_content('Read more'); 
