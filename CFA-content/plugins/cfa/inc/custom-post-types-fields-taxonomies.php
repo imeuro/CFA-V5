@@ -140,7 +140,7 @@ function CFA_custom_post_type() {
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'menu_position'       => 20,
-		'menu_icon'           => 'dashicons-businessman',
+		'menu_icon'           => 'dashicons-carrot',
 		'show_in_admin_bar'   => true,
 		'show_in_nav_menus'   => true,
 		'can_export'          => true,

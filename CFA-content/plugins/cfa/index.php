@@ -86,4 +86,27 @@ function the_injected_content($pnum, $pcont) {
 	    echo $content[$i] . "</p>";
 	}
 }
+
+
+// setta i valori di default per il gli ACF relativi algli sponsors
+function set_default_acf_values() {
+    $args = [
+        'post_type'      => array('post','cfa_translations'),
+        'posts_per_page' => -1,
+    ];
+    $posts = get_posts($args);
+    foreach($posts as $post) {
+        if (empty(get_field('post_sponsor_display', $post->ID))) {
+             update_field('post_sponsor_display', 1, $post->ID);
+        }
+        if (empty(get_field('post_sponsor_position', $post->ID))) {
+             update_field('post_sponsor_position', 'summary', $post->ID);
+        }
+        if (empty(get_field('post_sponsor_format', $post->ID))) {
+             update_field('post_sponsor_format', 'full', $post->ID);
+        }
+    }
+}
+add_action('admin_init', 'set_default_acf_values');
+
 ?>

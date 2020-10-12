@@ -2865,7 +2865,7 @@ button.micrio-switch {
   position: relative;
   display: inline-block;
   height: 100%;
-  margin-bottom: 70px;
+  margin: 50px 0;
 }
 .post-spinsert .spblock {
   max-width: 100%

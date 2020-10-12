@@ -12,14 +12,14 @@ $advinsert = get_posts(array(
 if (!empty($advinsert)) {
   $currentTS = time();
   $advpost = $advinsert[0];
-  $advposition = get_field('sponsor_position',$post->ID);
-  $advformat = get_field('sponsor_format',$post->ID);
+  $advdisplay = get_field('post_sponsor_display',$post->ID);
+  $advposition = get_field('post_sponsor_position',$post->ID);
+  $advformat = get_field('post_sponsor_format',$post->ID);
   $advpics = get_field('sponsor_pics',$advpost->ID);
   $advStart = get_field('sponsor_start_date',$advpost->ID);
   $advEnd = get_field('sponsor_end_date',$advpost->ID);
 
-
-  if ( $currentTS > $advStart && $currentTS < $advEnd  ) {
+  if ( $advdisplay == true && $currentTS > $advStart && $currentTS < $advEnd  ) {
 
     $advout = '<section id="ADVblock-inarticle-'.$advpost->post_title.'" class="type-post post-spinsert inarticle-spinsert inarticle-spinsert-'.$advposition.' inarticle-spinsert-'.$advformat.'">';
     $advout .= '  <div class="spblock newitem">';
@@ -38,12 +38,17 @@ if (!empty($advinsert)) {
     $advout .= '  </div>';
     $advout .= '</section>';
 
-    if ($advposition == 'inpage') {
-      the_injected_content(2,$advout);
-    } else if ($advposition == 'start' || $advposition == 'summary') {
+    // print the stuff...
+    if ($advposition == 'start' && $articleposition == 'start') { 
       echo $advout;
     }
-    
+    if ($advposition == 'summary' && $articleposition == 'summary') { 
+      echo $advout;
+    }
+    if ($advposition == 'inpage' && $articleposition == 'inpage') {
+      the_injected_content(2,$advout);
+    } 
+
   }
 
 }

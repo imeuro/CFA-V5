@@ -35,7 +35,7 @@ while (have_posts()) { the_post();
   $postnum++;
 
   // check for available ads...
-  include( 'ads/advblock.advblock.home.inc.php' );
+  include( 'ads/advblock.home.inc.php' );
 
 ?>
 
