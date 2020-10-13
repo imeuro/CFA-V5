@@ -2968,6 +2968,7 @@ body .pea_cook_wrapper.pea_cook_bottomcenter {
 body .pea_cook_wrapper p {
   font-family: inherit;
   font-size: 14px;
+  font-weight: 400;
   line-height: 16px;
   display: flex;
   flex-flow: row nowrap;
