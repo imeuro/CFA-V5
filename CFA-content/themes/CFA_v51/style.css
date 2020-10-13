@@ -2228,8 +2228,6 @@ a.search_menu {
     display: none;
   }
 
-
-
   #header { padding-bottom: 45px; }
   .single-post.menu_open #site-navigation #main-nav-wrapper {
     left: 0;
@@ -2311,6 +2309,7 @@ a.search_menu {
   #wrap.fixd {
     margin-top: -102px;
   }
+  .single .pinbin-copy { margin-top:0; }
   .container .CFAslider {
     margin-left: -10%;
     margin-right: -10%;
@@ -2336,7 +2335,6 @@ a.search_menu {
   }
 
   #wrap .category-description { width: 90%;}
-
 }
 
 @media only screen and (max-width: 330px) {
@@ -2804,12 +2802,6 @@ ul#ToC-list li {
   color: rgba(255,255,255,0.75);
   font-weight: 400;
 }
-
-/*
-#post-area .post.category-online-exhibitions {
-    border: 3px solid #f5a32f;
-}
-*/
 #post-area .post.category-online-exhibitions img { float: left; }
 
 
