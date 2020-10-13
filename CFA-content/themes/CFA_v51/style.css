@@ -2089,6 +2089,7 @@ a.search_menu {
     padding-top: 200px;
     margin: 0 auto 0 auto;
   }
+  .single .pinbin-copy { margin-top:180px; }
   h1 {
     font-size: 2em;
     line-height: 1;
@@ -2789,6 +2790,7 @@ ul#ToC-list li {
 }
 #exhibition-banner a h2 {
   margin: 0;
+  font-weight: 700;
 }
 #exhibition-banner a p {
   display: -webkit-box;

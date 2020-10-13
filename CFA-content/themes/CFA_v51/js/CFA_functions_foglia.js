@@ -375,6 +375,32 @@ let clearMicriocontent = () => {
 	}
 }
 
+let checkRevealSponsor = () => {
+	const artsponsor = document.querySelector('.inarticle-spinsert-full');
+	if (artsponsor!== null && sw > 768) {
+		document.addEventListener('scroll', () => {
+			setTimeout(() => {
+				revealSponsor(artsponsor);
+			},300)
+		})
+	}
+}
+let revealSponsor = (artsponsor) => {
+	let wscroll = window.scrollY;
+	if (artsponsor!== null) {
+		let artDiv = document.querySelector('.single .pinbin-copy');
+		let artstyle = window.getComputedStyle ? getComputedStyle(artDiv, null) : el.currentStyle;
+		let artMTopNum = artstyle.marginTop.replace('px','');
+		let artsponsorOffsetTop = parseInt(artsponsor.offsetTop)+parseInt(artMTopNum);
+		let artsponsorOffsetBottom = parseInt(artsponsor.offsetTop)+parseInt(artMTopNum)+parseInt(artsponsor.scrollHeight);
+		if (wscroll >= artsponsorOffsetTop && wscroll <= artsponsorOffsetBottom) {
+			artsponsor.querySelector('.spcopy').style.opacity = '1';
+		} else {
+			artsponsor.querySelector('.spcopy').style.opacity = '0';
+		}
+	}
+}
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -383,6 +409,7 @@ document.addEventListener("DOMContentLoaded", function() {
   ShowMeHome();
   injectMicrio();
   checkGallery();
+  checkRevealSponsor();
 });
 
 
