@@ -375,8 +375,10 @@ let clearMicriocontent = () => {
 	}
 }
 
+
+// adv stuff:
 let checkRevealSponsor = () => {
-	const artsponsor = document.querySelector('.inarticle-spinsert-full');
+	const artsponsor = document.querySelector('.inarticle-spinsert-normal');
 	if (artsponsor!== null && sw > 768) {
 		document.addEventListener('scroll', () => {
 			setTimeout(() => {
@@ -384,6 +386,16 @@ let checkRevealSponsor = () => {
 			},300)
 		})
 	}
+
+	const overlayAD = document.querySelector('.inarticle-spinsert-overlay');
+	if (overlayAD!== null) {
+		setTimeout(function() { overlayAD.classList.add('open'); },1000);
+		overlayAD.addEventListener('click',function(){
+			overlayAD.classList.remove('open');
+			setTimeout(function() { overlayAD.remove(); },500);
+		})
+	}
+
 }
 let revealSponsor = (artsponsor) => {
 	let wscroll = window.scrollY;
@@ -400,7 +412,6 @@ let revealSponsor = (artsponsor) => {
 		}
 	}
 }
-
 
 
 document.addEventListener("DOMContentLoaded", function() {

@@ -19,24 +19,41 @@ if (!empty($advinsert)) {
   $advStart = get_field('sponsor_start_date',$advpost->ID);
   $advEnd = get_field('sponsor_end_date',$advpost->ID);
 
+
+
   if ( $advdisplay == true && $currentTS > $advStart && $currentTS < $advEnd  ) {
 
-    $advout = '<section id="ADVblock-inarticle-'.$advpost->post_title.'" class="type-post post-spinsert inarticle-spinsert inarticle-spinsert-'.$advposition.' inarticle-spinsert-'.$advformat.'">';
-    $advout .= '  <div class="spblock newitem">';
-    $advout .= '    <a href="'.get_field("sponsor_url",$advpost->ID).'?cid=CFA" target="_blank" rel="nofollow noopener" class="left">';
-    $advout .= '      <div class="spimage">';
-    foreach ($advpics as $advpic) {
-      $advpicsrc =  wp_get_attachment_image_src($advpic["sponsor_pic"]["ID"], "medium" );
-      $advout .= '        <img src="'.$advpicsrc[0].'" loading="lazy" />';
+    if ($advformat == 'fixed') {
+
+      $advout = '<section id="ADVblock-inarticle-'.$advpost->post_title.'" class="type-post post-spinsert inarticle-spinsert inarticle-spinsert-'.$advposition.' inarticle-spinsert-'.$advformat.'">';
+      $advout .= '  <div class="spblock newitem" style="background-image:url('.wp_get_attachment_image_src($advpics[0]["sponsor_pic"]["ID"], "medium" )[0].')">';
+      $advout .= '    <a href="'.get_field("sponsor_url",$advpost->ID).'?cid=CFA" target="_blank" rel="nofollow noopener" class="left">';      
+      $advout .= '      <div class="spcopy" id="'.$advpost->post_title.'">';
+      $advout .= '        <p><img src="'.get_field('sponsor_logo',$advpost->ID).'" loading="lazy" /></p>';
+      $advout .= '      </div>';
+      $advout .= '     </a>';
+      $advout .= '  </div>';
+      $advout .= '</section>';
+
+    } else {
+
+      $advout = '<section id="ADVblock-inarticle-'.$advpost->post_title.'" class="type-post post-spinsert inarticle-spinsert inarticle-spinsert-'.$advposition.' inarticle-spinsert-'.$advformat.'">';
+      $advout .= '  <div class="spblock newitem">';
+      $advout .= '    <a href="'.get_field("sponsor_url",$advpost->ID).'?cid=CFA" target="_blank" rel="nofollow noopener" class="left">';
+      $advout .= '      <div class="spimage">';
+      foreach ($advpics as $advpic) {
+        $advpicsrc =  wp_get_attachment_image_src($advpic["sponsor_pic"]["ID"], "medium" );
+        $advout .= '        <img src="'.$advpicsrc[0].'" loading="lazy" />';
+      }
+      $advout .= '      </div>';
+      $advout .= '      <div class="spcopy" id="'.$advpost->post_title.'">';
+      $advout .= '        <p><img src="'.get_field('sponsor_logo',$advpost->ID).'" loading="lazy" /></p>';
+      $advout .= '      </div>';
+      $advout .= '     </a>';
+      $advout .= '  </div>';
+      $advout .= '</section>';
+
     }
-    
-    $advout .= '      </div>';
-    $advout .= '      <div class="spcopy" id="'.$advpost->post_title.'">';
-    $advout .= '        <p><img src="'.get_field('sponsor_logo',$advpost->ID).'" loading="lazy" /></p>';
-    $advout .= '      </div>';
-    $advout .= '     </a>';
-    $advout .= '  </div>';
-    $advout .= '</section>';
 
     // print the stuff...
     if ($advposition == 'start' && $articleposition == 'start') { 

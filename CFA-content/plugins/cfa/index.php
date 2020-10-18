@@ -88,10 +88,10 @@ function the_injected_content($pnum, $pcont) {
 }
 
 
-// setta i valori di default per il gli ACF relativi algli sponsors
+// setta i valori di default per il gli ACF relativi agli sponsors
 function set_default_acf_values() {
     $args = [
-        'post_type'      => array('post','cfa_translations'),
+        'post_type'      => 'post',
         'posts_per_page' => -1,
     ];
     $posts = get_posts($args);
@@ -102,8 +102,8 @@ function set_default_acf_values() {
         if (empty(get_field('post_sponsor_position', $post->ID))) {
              update_field('post_sponsor_position', 'summary', $post->ID);
         }
-        if (empty(get_field('post_sponsor_format', $post->ID))) {
-             update_field('post_sponsor_format', 'full', $post->ID);
+        if (empty(get_field('post_sponsor_format', $post->ID)) || get_field('post_sponsor_format', $post->ID) == 'full') {
+             update_field('post_sponsor_format', 'normal', $post->ID);
         }
     }
 }

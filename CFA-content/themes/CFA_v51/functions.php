@@ -497,7 +497,7 @@ add_theme_support( 'align-wide' );
 // https://hollypryce.com/disable-image-scaling-wordpress/
 add_filter( 'big_image_size_threshold', '__return_false' );
 
-add_filter('jpeg_quality', function($arg){return 100;});
+add_filter('jpeg_quality', function($arg){return 90;});
 
 
 // add capability to upload svg or other mime types
