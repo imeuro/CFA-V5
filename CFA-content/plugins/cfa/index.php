@@ -91,7 +91,7 @@ function the_injected_content($pnum, $pcont) {
 // setta i valori di default per il gli ACF relativi agli sponsors
 function set_default_acf_values() {
     $args = [
-        'post_type'      => 'post',
+        'post_type'      => array('post','cfa_translations'),
         'posts_per_page' => -1,
     ];
     $posts = get_posts($args);
