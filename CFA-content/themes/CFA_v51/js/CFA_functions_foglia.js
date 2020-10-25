@@ -253,6 +253,7 @@ var bottomLinks = function(context) {
 		});
 	}
 }
+// Foglia: button to return home
 let ShowMeHome = () => {
 	if( document.documentElement.scrollTop > logo_v5.offsetHeight ) {
 		showmehome.classList.remove('hidden');
@@ -374,6 +375,14 @@ let clearMicriocontent = () => {
 		micrioInstance = null;
 	}
 }
+
+
+// load more (homepage) posts at the end
+let requireJS = document.createElement('script');
+requireJS.src = 'https://requirejs.org/docs/release/2.3.6/minified/require.js';
+requireJS.setAttribute('data-main',themepath+'js/CFA_LoadMore.js');
+document.body.append(requireJS);
+
 
 
 

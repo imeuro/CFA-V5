@@ -10,7 +10,7 @@
 
    		<article id="post-<?php the_ID(); ?>" <?php post_class('scroller'); ?>>
 
-        <div class="pinbin-copy">
+        <div class="pinbin-copy single-pinbin-copy">
 
           <?php
         if (!get_field('author_name',$post->ID)) :  // old format ?>

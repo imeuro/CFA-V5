@@ -1052,7 +1052,8 @@ div.wpcf7 input[type="submit"] {
   padding: 0 0 1.5rem 0;
 }
 .home .pinbin-copy p,
-.archive .pinbin-copy p {
+.archive .pinbin-copy p,
+.append-posts .pinbin-copy p {
   line-height: 26px;
   font-size: 24px;
   text-transform: uppercase;
@@ -1065,10 +1066,12 @@ div.wpcf7 input[type="submit"] {
   border-radius: 0;
 }
 .home .pinbin-copy p small,
-.archive .pinbin-copy p small {font-size: 1.1rem;}
+.archive .pinbin-copy p small,
+.append-posts .pinbin-copy p small {font-size: 1.1rem;}
 
 .home .pinbin-copy p span,
-.archive .pinbin-copy p span {
+.archive .pinbin-copy p span,
+.append-posts .pinbin-copy p span {
   display: block;
   margin-top: 10px;
   font-size: 16px;
@@ -1085,7 +1088,7 @@ div.wpcf7 input[type="submit"] {
   display: inline-block;
   margin: 15px 0;
 }
-.single .pinbin-copy,
+.single .single-pinbin-copy,
 .page .pinbin-copy {
   padding: 2% 8%;
   color: #444;
@@ -1098,7 +1101,7 @@ div.wpcf7 input[type="submit"] {
   margin-top: 50px;
   box-sizing: border-box;
 }
-.single .pinbin-copy {
+.single .single-pinbin-copy {
   width: 80vw;
   max-width: 640px;
   margin-top: 0;
@@ -1106,7 +1109,7 @@ div.wpcf7 input[type="submit"] {
   box-sizing: content-box;
 }
 @media all and (min-width: 768px) {
-  .single .pinbin-copy {
+  .single .single-pinbin-copy {
     margin-top: 175px;
     background: #fff;
     z-index: 100;
@@ -2089,7 +2092,7 @@ a.search_menu {
     padding-top: 200px;
     margin: 0 auto 0 auto;
   }
-  .single .pinbin-copy { margin-top:180px; }
+  .single .single-pinbin-copy { margin-top:180px; }
   h1 {
     font-size: 2em;
     line-height: 1;
@@ -2309,7 +2312,7 @@ a.search_menu {
   #wrap.fixd {
     margin-top: -102px;
   }
-  .single .pinbin-copy { margin-top:0; }
+  .single .single-pinbin-copy { margin-top:0; }
   .container .CFAslider {
     margin-left: -10%;
     margin-right: -10%;

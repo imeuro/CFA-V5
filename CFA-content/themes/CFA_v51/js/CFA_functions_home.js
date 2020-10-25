@@ -53,7 +53,7 @@ function randomFromInterval(from,to) {
     return Math.floor(Math.random()*(to-from+1)+from);
 }
 
-if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') === true) { // check classe in body
+if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') === true || bodyClasses.contains('moreposts')) { // check classe in body
 
 	if (typeof jQuery == "function") {
 
