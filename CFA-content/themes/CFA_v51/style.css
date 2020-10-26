@@ -2933,5 +2933,10 @@ article.type-post:not(.isotope-item):after {
     position: absolute;
 }
 #post-area.append-posts {
-    margin-top: 200px;
+    margin-top: 50px;
+}
+@media all and (min-width: 768px) {
+  #post-area.append-posts {
+      margin-top: 200px;
+  }
 }
