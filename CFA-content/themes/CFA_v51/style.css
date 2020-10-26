@@ -1863,7 +1863,7 @@ div#closemenu:hover,
   border-top: 1px solid #ececec;
   text-align: center;
   position: relative;
-  z-index: 100;
+  z-index: 1;
   background: #fff;
   width: 80vw;
   max-width: 640px;
@@ -1873,7 +1873,7 @@ div#closemenu:hover,
   margin: 0 auto;
   text-align: center;
   padding-top: 50px;
-  z-index: 100;
+  z-index: 1;
   position: relative;
   background: #fff;
   width: 80vw;
@@ -1923,6 +1923,10 @@ div#closemenu:hover,
 @media only screen and (min-width: 768px) {
   .share-link-buttons-whatsapp { display:none; }
   .share-link-buttons-print { display:block; }
+  .share-link,
+  .posttags {
+    z-index: 100;
+  }
 }
 
 /* roba Bio (contenuto del post type: cfa_authors) */
