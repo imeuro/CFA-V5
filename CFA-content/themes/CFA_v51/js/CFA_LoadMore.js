@@ -31,7 +31,7 @@ let LoadHPCont = () => {
 
 						// libs for isotope with require.js
 						requirejs(['jquery-1.12.4.min'], function(jquery) {
-							requirejs(['jquery.isotope.min', 'jquery.hoverdir', 'CFA_functions_home'], function(isotope, hoverdir) {
+							requirejs(['jquery.isotope.min', 'jquery.hoverdir'], function(isotope, hoverdir) {
 								requirejs(['CFA_functions_home'], function(functions_home) {
 
 									// fill the div
