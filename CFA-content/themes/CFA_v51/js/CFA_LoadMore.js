@@ -54,7 +54,12 @@ let LoadHPCont = () => {
 												  gutterWidth: 10
 												}
 											});
-										},1000);
+										},500);
+
+										setTimeout(function(){
+											jQuery('#post-area.isotope').isotope('reLayout');
+										},2500);
+
 									}
 
 								});
