@@ -25,12 +25,12 @@ let LoadHPCont = () => {
 
 
 		// listen scroll pos and fill the div
-		const scrolltrigger = document.documentElement.scrollHeight - document.documentElement.clientHeight - 1500; // 500px before bottom
+		const scrolltrigger = document.documentElement.scrollHeight / 2; // half page
 		document.addEventListener('scroll', function() {
 			if (!fillnonce) {
 				setTimeout(function() { 
 					if (document.documentElement.scrollTop >= scrolltrigger && !fillnonce){
-
+						console.debug('metà pagina: '+scrolltrigger);
 						if (sw>767) {
 							// libs for isotope with require.js
 							requirejs(['jquery-1.12.4.min'], function(jquery) {
@@ -38,6 +38,7 @@ let LoadHPCont = () => {
 									requirejs(['CFA_functions_home'], function(functions_home) {
 
 										// fill the div
+										HPDOM = HPDOM.replace(' loading="lazy"','');
 										postareaDiv.innerHTML = HPDOM;
 
 										// make it look good
@@ -93,7 +94,7 @@ loadhammer = () => {
 	let isLoaded = [];
 	let postareaDivImgs = postareaDiv.querySelectorAll('img');
 	if (postareaDivImgs.length > 0) {
-		setInterval( () => {
+		checkhammer = setInterval( () => {
 			Array.from(postareaDivImgs).forEach( (img,i) => {
 				isLoaded[i] = img.complete && img.naturalHeight !== 0;
 			})
@@ -102,9 +103,13 @@ loadhammer = () => {
 				setTimeout(function(){
 					jQuery('#post-area.isotope').isotope('reLayout');
 				},500);
-				clearInterval(loadhammer);
+				clearInterval(checkhammer);
 			}
 		}, 1000 );
+
+		setTimeout(function(){
+			jQuery('#post-area.isotope').isotope('reLayout');
+		},10000);
 	}
 }
 
