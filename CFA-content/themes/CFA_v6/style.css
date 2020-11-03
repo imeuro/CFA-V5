@@ -427,7 +427,7 @@ body {
     color: #000305;
     font-size: 1.6rem; /* Base font size: 16px */
     font-weight: 300;
-    font-family: "Arapey", serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.4rem;
     margin: 0;
     padding: 0;
@@ -456,9 +456,23 @@ h6 {
   margin-bottom: .8rem;
 }
 
+/*****************************
+     CUSTOM FONT
+*****************************/
+@font-face {
+    font-family: 'Sometimes Times';
+    src: url('fonts/SometimesTimes-Regular.woff2') format('woff2'),
+        url('fonts/SometimesTimes-Regular.woff') format('woff'),
+        url('fonts/SometimesTimes-Regular.svg#SometimesTimes-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 
-
+/* ==========================================================================
+   Outils
+   ========================================================================== */
 .defloater {clear: both;}
 .left {float: left;}
 .right {float: right;}
@@ -697,23 +711,10 @@ ul#header-menu li a {
   text-transform: uppercase;
   text-decoration: none;
   color: #f5a32f;
-  font-family: 'BenchNine', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   opacity: 1;
   transition: opacity 200ms ease-in-out;
-}
-ul#header-menu li a.funny {
-  font-size: 36px;
-  line-height: 29px;
-  font-weight: 700;
-  background-image: url(https://media.giphy.com/media/9PcEY5kYpR3QrQxxhL/giphy.gif);
-  background-position: center center;
-  background-size: contain;
-  color: transparent;
-  -moz-background-clip: text;
-  -webkit-background-clip: text;
-  text-transform: uppercase;
-  background-clip: text;
 }
 ul#header-menu li a:hover {
   opacity: .75;
@@ -787,7 +788,7 @@ div.wpcf7 input[type="submit"] {
   font-weight: 300;
   background: #fff;
   color: #f5a32f;
-  font-family: 'BenchNine', sans-serif;
+  font-family: 'Inter', sans-serif;
   border: 0;
   padding: 1rem;
   text-transform: uppercase;
@@ -831,7 +832,7 @@ div.wpcf7 input[type="submit"] {
   text-transform: uppercase;
   text-align: center;
   font-size: 20px;
-  font-family: 'BenchNine', sans-serif;
+  font-family: 'Inter', sans-serif;
   letter-spacing: 0px;
   width: 160px;
   opacity: 1;
@@ -982,9 +983,11 @@ div.wpcf7 input[type="submit"] {
 }
 
 .single h1 {
+  font-family: 'Sometimes Times', serif;
   text-align: center;
-  line-height: 1em;
-  margin: 10px 20px;
+  font-size: 6em;
+  line-height: 1.15em;
+  margin: 10px -15vw 40px -15vw;
 }
 
 .single p a,
@@ -1041,10 +1044,15 @@ div.wpcf7 input[type="submit"] {
 }
 
 .pinbin-copy .excerpt-container {
+  font-family: 'Sometimes Times', serif;
   width: 100%;
   font-style: italic;
   text-align: center;
   margin-bottom: 70px;
+}
+.pinbin-copy .excerpt-container p {
+  font-size: 1.25em;
+  letter-spacing: 0.75px;
 }
 
 .pinbin-copy  p {
@@ -1083,6 +1091,7 @@ div.wpcf7 input[type="submit"] {
 .single .post div.post-data,
 .single .cfa_translations small.date,
 .single .cfa_translations div.post-data {
+  font-family: 'Sometimes Times', serif;
   text-align: center;
   width: 100%;
   display: inline-block;
@@ -1215,7 +1224,7 @@ div.wpcf7 input[type="submit"] {
   display: inline-block;
   padding: 10px 10px;
   color: #f5a32f;
-  font-family: 'BenchNine', sans-serif;
+  font-family: 'Inter', sans-serif;
   text-transform: uppercase;
   text-decoration: none;
   line-height: 19px;
@@ -1930,7 +1939,7 @@ div#closemenu:hover,
 }
 
 /* roba Bio (contenuto del post type: cfa_authors) */
-small.author { font-size: 120%; }
+small.author { font-size: 100%; }
 small.author:before { content: "by  "; font-size: 66%; }
 img.author-pic { margin: 0 20px 20px 0; }
 .cfa_authors h1 {
@@ -2278,7 +2287,12 @@ a.search_menu {
     box-sizing: border-box;
     height: 250px;
   }
-  .single h1,
+  .single h1 {
+    font-size: 3.5em;
+    padding: 20px 0;
+    margin: 0 -5vw 0 -5vw;
+    width: 90vw;
+  }
   .single .post small.date,
   .single .post div.post-data {
     padding: 20px 20px 0 20px;
@@ -2326,6 +2340,11 @@ a.search_menu {
     margin-top: -102px;
   }
   .single .single-pinbin-copy { margin-top:0; }
+  .pinbin-copy p {
+    font-size: 1.25em;
+    letter-spacing: 0.75px;
+  }
+
   .container .CFAslider {
     margin-left: -10%;
     margin-right: -10%;
@@ -2363,7 +2382,12 @@ a.search_menu {
 .gallery-caption,
 .pinbin-copy p.wp-caption-text,
 .wp-block-image figcaption,
-.wp-block-gallery figcaption {font-size: 1.25rem; line-height: 1.5rem; margin: 1em; padding-bottom: 0em;}
+.wp-block-gallery figcaption {
+  font-size: 1.15rem;
+  line-height: 1.75rem;
+  margin: 1em;
+  padding-bottom: 0em;
+}
 
 .widget_wysija_cont {
     display: inline-block;
@@ -2408,7 +2432,7 @@ p.wysija-paragraph {
   line-height: 20px;
   background: #f5a32f;
   color: #fff;
-  font-family: 'BenchNine', sans-serif;
+  font-family: 'Inter', sans-serif;
   padding: 10px 40px;
   text-transform: uppercase;
   cursor: pointer;
@@ -2418,7 +2442,7 @@ p.wysija-paragraph {
 }
 span.wpcf7-not-valid-tip { color: #f5a32f; }
 .widget_wysija_cont .updated {
-  font-family: "Arapey", serif;
+  font-family: 'Inter', sans-serif;
   font-size: 2rem;
   border: 1px solid #f5a32f;
   border-radius: 3px;
@@ -2611,7 +2635,7 @@ ul#ToC-list li {
   text-transform: uppercase;
   text-decoration: none;
   color: #f5a32f;
-  font-family: 'BenchNine', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
 }
 
@@ -2660,7 +2684,7 @@ ul#ToC-list li {
 }
 /*@media screen and (min-width: 768px) {*/
   #menu-item-94491 .focus {
-    font-family: 'BenchNine', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight:700;
     font-size: 22px;
     line-height: 20px;
@@ -2856,7 +2880,7 @@ ul#ToC-list li {
 
 
 button.micrio-switch {
-    font: 700 16px/32px 'Arapey';
+    font: 700 16px/32px 'Inter', sans-serif;
     color: #fff;
     text-transform: uppercase;
     background: #f5a32f;
