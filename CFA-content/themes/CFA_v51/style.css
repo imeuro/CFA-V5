@@ -2972,10 +2972,11 @@ button.micrio-switch {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  background: rgba(255,255,255, 0.5);
+  /* background: rgba(255,255,255, 0.5); */
+  background:transparent;
   box-sizing: border-box;
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
+  /* -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px); */
   text-align: center;
   border-radius: 2px;
 }
