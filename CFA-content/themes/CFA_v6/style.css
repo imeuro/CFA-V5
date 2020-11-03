@@ -1062,16 +1062,18 @@ div.wpcf7 input[type="submit"] {
 .home .pinbin-copy p,
 .archive .pinbin-copy p,
 .append-posts .pinbin-copy p {
-  line-height: 26px;
-  font-size: 24px;
-  text-transform: uppercase;
+  line-height: 36px;
+  font-size: 30px;
   position: absolute;
   bottom: 0;
-  padding: 5px 25px;
+  padding: 15px 25px;
   background: rgba(0, 0, 0, 0.5);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: 0;
+  font-family: 'Sometimes Times';
+  letter-spacing: 1.5px;
+  text-transform: initial;
 }
 .home .pinbin-copy p small,
 .archive .pinbin-copy p small,
@@ -1082,8 +1084,9 @@ div.wpcf7 input[type="submit"] {
 .append-posts .pinbin-copy p span {
   display: block;
   margin-top: 10px;
-  font-size: 16px;
-  line-height: 16px;
+  font-family: 'Inter';
+  font-size: 13px;
+  line-height: 14px;
   text-transform: none;
   color: rgba(255,255,255,0.75);
 }
@@ -2341,8 +2344,9 @@ a.search_menu {
   }
   .single .single-pinbin-copy { margin-top:0; }
   .pinbin-copy p {
-    font-size: 1.25em;
+    font-size: 1.15em;
     letter-spacing: 0.75px;
+    line-height: 1.375em;
   }
 
   .container .CFAslider {
@@ -2829,6 +2833,10 @@ ul#ToC-list li {
 #exhibition-banner a h2 {
   margin: 0;
   font-weight: 700;
+  font-family: 'Sometimes Times';
+  font-size: 30px;
+  line-height: 36px;
+  text-transform: initial;
 }
 #exhibition-banner a p {
   display: -webkit-box;
@@ -2836,7 +2844,7 @@ ul#ToC-list li {
   -webkit-box-orient: vertical;
   padding: 0;
   overflow: hidden;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 16px;
   text-transform: none;
   color: rgba(255,255,255,0.75);
