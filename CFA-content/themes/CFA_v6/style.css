@@ -643,16 +643,11 @@ nav#archive-nav-below a {
   margin: 20px auto;
 }
 #main-nav-wrapper #logo svg {
-  position: fixed;
   z-index: 200;
   width: 283px;
   height: auto;
   margin: 0 auto;
   padding: 0;
-}
-.home #main-nav-wrapper #logo svg,
-.page #main-nav-wrapper #logo svg {
-  position: initial;
 }
 .home #logo svg path {
   transition: fill .5s linear;
@@ -1028,7 +1023,6 @@ div.wpcf7 input[type="submit"] {
   font-size: 1.25em;
   letter-spacing: 0.75px;
   text-rendering: optimizeLegibility;
-  text-shadow: 0px 0px 1px #000000;
 }
 
 .pinbin-copy  p {
@@ -1077,7 +1071,6 @@ div.wpcf7 input[type="submit"] {
   display: inline-block;
   margin: 15px 0;
   text-rendering: optimizeLegibility;
-  text-shadow: 0px 0px 1px #000000;
 }
 .single .single-pinbin-copy,
 .page .pinbin-copy {
@@ -1094,7 +1087,7 @@ div.wpcf7 input[type="submit"] {
 }
 .single .single-pinbin-copy {
   width: 80vw;
-  max-width: 640px;
+  max-width: 550px;
   margin-top: 0;
   text-align: justify;
   box-sizing: content-box;
@@ -1280,7 +1273,7 @@ figure.wp-block-gallery { margin: 60px auto; }
 #post-area .cfa_translations {
   max-width: 40vw;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 #post-area .post .pinbin-copy,

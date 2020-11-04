@@ -112,7 +112,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 		        //disable resizing
 		        resizable: false,
 		        spineAlign: {
-		          gutterWidth: 10
+		          gutterWidth: 12
 		        }
 		      });
 
@@ -148,7 +148,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 		        //disable resizing
 		        resizable: false,
 		        spineAlign: {
-		          gutterWidth: 10
+		          gutterWidth: 12
 		        }
 		      });
 		      $container.isotope('reLayout');
@@ -161,9 +161,10 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 		    loading: {
 		      finished: undefined,
 		      finishedMsg: "<em>No other items to load.</em>",
-		      img: themepath+"images/tiny_red.gif",
+		      // img: themepath+"images/tiny_red.gif",
+		      img: null,
 		      msg: null,
-		      msgText: "",
+		      msgText: "loading...",
 		      selector: null,
 		      speed: 'fast',
 		      start: undefined
