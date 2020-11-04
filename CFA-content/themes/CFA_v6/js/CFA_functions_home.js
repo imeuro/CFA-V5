@@ -161,10 +161,9 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 		    loading: {
 		      finished: undefined,
 		      finishedMsg: "<em>No other items to load.</em>",
-		      // img: themepath+"images/tiny_red.gif",
-		      img: null,
+		      img: themepath+"images/tiny_red.gif",
 		      msg: null,
-		      msgText: "loading...",
+		      msgText: "",
 		      selector: null,
 		      speed: 'fast',
 		      start: undefined
