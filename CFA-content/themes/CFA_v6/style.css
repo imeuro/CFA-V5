@@ -700,7 +700,7 @@ ul#header-menu li {
 ul#header-menu li:nth-child(odd) { text-align: left; }
 ul#header-menu li:nth-child(even) { text-align: right; }
 ul#header-menu li a {
-  font-size: 22px;
+  font-size: 18px;
   line-height: 20px;
   text-transform: uppercase;
   text-decoration: none;
@@ -806,11 +806,11 @@ div.wpcf7 input[type="submit"] {
 
 #lang-switcher,
 #social-pad {
-  margin-top: -95px;
+  margin-top: -100px;
   float: left;
   text-transform: uppercase;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Inter', sans-serif;
   letter-spacing: 0px;
   width: 120px;
