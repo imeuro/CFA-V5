@@ -831,7 +831,7 @@ div.wpcf7 input[type="submit"] {
   /*border-bottom: 5px double #f5a32f;*/
   text-decoration: none;
   text-align: center;
-  font-size 700;
+  font-weight: 700;
 }
 #social-pad {
     float: right;
