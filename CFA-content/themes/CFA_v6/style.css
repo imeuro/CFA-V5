@@ -500,7 +500,7 @@ div.page.hentry {
 --------------------------------------------------------------*/
 
 /* List styles */
-body.home  #main-nav-wrapper {min-height: 140px;}
+body.home  #main-nav-wrapper {height: 0;}
 
 
 #wrap.fixd {position: absolute;}
@@ -657,6 +657,7 @@ nav#archive-nav-below a {
 .home #logo svg path {
   transition: fill .5s linear;
 }
+.home #logo svg g,
 .home #logo.white svg g {
     fill: url(#white-fill);
 }
@@ -1071,7 +1072,7 @@ div.wpcf7 input[type="submit"] {
 .single .single-pinbin-copy,
 .page .pinbin-copy {
   padding: 2% 8%;
-  color: #444;
+  color: #000000;
   font-size: 15px;
   line-height: 18px;
   width: 100%;
@@ -1260,6 +1261,9 @@ figure.wp-block-gallery { margin: 60px auto; }
 --------------------------------------------------------------*/
 #post-area {
   margin: 145px auto 0 auto;
+}
+.home #post-area {
+    margin-top: 0;
 }
 
 #post-area .post,
