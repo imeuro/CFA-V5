@@ -255,7 +255,7 @@ var bottomLinks = function(context) {
 }
 // Foglia: button to return home
 let ShowMeHome = () => {
-	if( document.documentElement.scrollTop > logo_v5.offsetHeight ) {
+	if( document.documentElement.scrollTop > logo_v6.offsetHeight ) {
 		showmehome.classList.remove('hidden');
 	} else {
 		showmehome.classList.add('hidden');

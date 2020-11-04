@@ -639,33 +639,27 @@ nav#archive-nav-below a {
 
 #main-nav-wrapper #logo {
   width: 283px;
-  height: 115px;
-  padding-bottom: 60px;
-  margin: 0 auto;
-  cursor: pointer;
-  position: relative;
-  z-index: 10;
-  text-indent: -9999px;
+  height: 140px;
+  margin: 20px auto;
 }
-#logo {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI4MCIgaGVpZ2h0PSI5MyIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjgwIDkzIiB4bWw6c3BhY2U9InByZXNlcnZlIiBzdHlsZT0iIj48cmVjdCBpZD0iYmFja2dyb3VuZHJlY3QiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjAiIHk9IjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0ibm9uZSIvPjxnIGNsYXNzPSJjdXJyZW50TGF5ZXIiIHN0eWxlPSIiPjx0aXRsZT5MYXllciAxPC90aXRsZT48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQ2LjYgOC4xQzQ1LjQgMy4zIDQxLjYtMC4xIDM1LjUgMGMtMC4zIDAtMC43IDAuMS0xIDAuMSAtMC42IDAuMi0xLjMgMC4zLTEuOSAwLjUgLTIuOSAxLjEtNS4zIDMuNS02LjMgNi42IC0wLjYgMS43LTAuNSA0LjEtMC41IDYuNHYxNy44YzAgMi4xLTAuMSA0LjMgMC40IDUuOSAwLjggMi44IDIuNSA0LjggNC43IDYuMiAxLjMgMC44IDMuOSAxLjkgNi4zIDEuNSA0LjMtMC43IDYuNi0yLjQgOC41LTUuNSAxLjItMi4xIDEuMi01LjEgMS4yLTguNXYtMTdDNDYuOSAxMiA0NyA5LjcgNDYuNiA4LjF6TTM2LjYgMzguMmMtMSAwLjItMS45LTAuMi0yLjUtMC41IC0yLjQtMS40LTEuOS00LjItMS45LTcuOVYxNS40YzAtMi0wLjMtNS4xIDAuMy02LjYgMC40LTAuOSAxLjItMS42IDIuMS0yIDAuMy0wLjEgMC42LTAuMSAwLjktMC4yIDIgMCAzLjEgMC43IDMuOCAxLjkgMC44IDEuMyAwLjQgNS41IDAuNCA3LjZ2MTQuMUMzOS45IDM0LjUgNDAuNCAzNy42IDM2LjYgMzguMnoiIGlkPSJzdmdfMSIgY2xhc3M9IiIgZmlsbC1vcGFjaXR5PSIxIiBmaWxsPSIjZjVhMzJmIi8+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMS4xIDE1LjdjLTIuMyAwLTQuNiAwLTYuOSAwIDAtMi4xIDAuMy01LjctMC40LTcgLTEuNC0yLjQtNS0yLjctNi42LTAuMkM2LjMgOS45IDYuNyAxMy4yIDYuNyAxNS40YzAgNC43IDAgOS41IDAgMTQuMiAwIDEuOS0wLjMgNS4xIDAuMyA2LjUgMS4yIDIuNyA1IDIuOSA2LjcgMC41IDEtMS41IDAuNi01LjcgMC42LTguMiAyLjMgMCA0LjYgMCA2LjkgMCAwIDEuNiAwIDMuMyAwIDQuOSAwIDEuMiAwLjEgMi40LTAuMiAzLjQgLTAuNiAyLjctMi4xIDQuNy00IDYuMiAtMC45IDAuNy0xLjkgMS4zLTMuMSAxLjZDNy42IDQ2LjcgMi40IDQyLjYgMC43IDM4LjRjLTEuMS0yLjctMC43LTcuMy0wLjctMTAuOSAwLTQuMiAwLTguMyAwLTEyLjUgMC0yLjMtMC4yLTUgMC4zLTcgMC42LTIuNCAyLTQuMyAzLjctNS43IDEtMC44IDIuMS0xLjQgMy40LTEuOCAxLTAuMyAyLjYtMC42IDQtMC40IDAuOSAwLjIgMS43IDAuMiAyLjUgMC40IDMuNiAxLjIgNi4yIDQuMiA3IDguMSAwLjIgMC44IDAuMSAxLjggMC4xIDIuN0MyMS4xIDEyLjggMjEuMSAxNC4yIDIxLjEgMTUuN3pNMTAwIDE1LjdjLTIuMyAwLTQuNiAwLTYuOSAwIDAtMi4xIDAuMy01LjctMC40LTcgLTEuNC0yLjQtNS0yLjctNi42LTAuMiAtMC45IDEuNC0wLjUgNC43LTAuNSA3IDAgNC43IDAgOS41IDAgMTQuMiAwIDEuOS0wLjMgNS4xIDAuMyA2LjUgMS4yIDIuNyA1IDIuOSA2LjcgMC41IDEtMS41IDAuNi01LjcgMC42LTguMiAyLjMgMCA0LjYgMCA2LjkgMCAwIDEuNiAwIDMuMSAwIDQuNyAwIDEuMyAwIDIuNi0wLjIgMy42IC0wLjcgMi44LTIuMiA0LjktNC4yIDYuNCAtMC45IDAuNy0yIDEuMi0zLjIgMS41IC02LjEgMS45LTExLjItMi4zLTEyLjgtNi40IC0xLjEtMi43LTAuNy03LjMtMC43LTEwLjkgMC00LjIgMC04LjMgMC0xMi41IDAtMi4zLTAuMi01IDAuMy03IDAuNi0yLjQgMi00LjMgMy43LTUuNyAxLTAuOCAyLjEtMS40IDMuNC0xLjggNi44LTIuMSAxMi4yIDIuNyAxMy40IDcuNkMxMDAuMyAxMC4yIDEwMCAxMy4yIDEwMCAxNS43ek01MS40IDAuNWMyLjUgMCA1IDAgNy41IDAgMi45IDkuOCA1LjggMTkuNiA4LjcgMjkuNCAwIDAgMCAwIDAgMCAwLTkuOCAwLTE5LjYgMC0yOS40IDIuMiAwIDQuNCAwIDYuNiAwIDAgMTQuNyAwIDI5LjMgMCA0NCAtMi40IDAtNC44IDAtNy4xIDAgLTMtOS40LTYtMTguNy05LjEtMjguMSAwIDAgMCAwIDAgMCAwIDkuNCAwIDE4LjcgMCAyOC4xIC0yLjIgMC00LjQgMC02LjYgMEM1MS40IDI5LjkgNTEuNCAxNS4yIDUxLjQgMC41ek0xMDQuNiAwLjVjNi4zIDAgMTIuNiAwIDE4LjkgMCAwIDIuMiAwIDQuNCAwIDYuNyAtNC4xIDAtOC4yIDAtMTIuMiAwIDAgNCAwIDggMCAxMiAzIDAgNiAwIDkgMCAwIDIuMiAwIDQuNSAwIDYuNyAtMyAwLTYgMC04LjkgMCAwIDQgMCA4IDAgMTIgNC4xIDAgOC4yIDAgMTIuMiAwIDAgMi4yIDAgNC40IDAgNi42IC02LjMgMC0xMi42IDAtMTguOSAwQzEwNC42IDI5LjkgMTA0LjYgMTUuMiAxMDQuNiAwLjV6TTE4My4xIDBjNi45IDAgMTMuOCAwIDIwLjcgMCAwIDIuMiAwIDQuNCAwIDYuNyAtMi4zIDAtNC43IDAtNyAwIDAgMTIuNCAwIDI0LjkgMCAzNy4zIC0yLjIgMC00LjQgMC02LjcgMCAwLTEyLjQgMC0yNC45IDAtMzcuMyAtMi40IDAtNC43IDAtNy4xIDBDMTgzLjEgNC40IDE4My4xIDIuMiAxODMuMSAwek0yMDYuOCAwYzIuMiAwIDQuMyAwIDYuNSAwIDAgOS42IDAgMTkuMiAwIDI4LjggMCAzLjktMC42IDYuOCAxLjkgOC40IDAuNSAwLjMgMS40IDAuNyAyLjUgMC41IDQuMS0wLjcgMy4zLTUuMSAzLjMtOS44IDAtOS4zIDAtMTguNiAwLTI3LjkgMi4zIDAgNC42IDAgNyAwIDAgOC4xIDAgMTYuMSAwIDI0LjIgMCAyLjUgMCA1IDAgNy41IDAgMS41IDAuMSAzLjEtMC4yIDQuNCAtMSA0LjUtNC44IDguNS0xMC40IDguNCAtNS40LTAuMS05LjEtMy42LTEwLjItOCAtMC40LTEuNC0wLjMtMy4yLTAuMy01IDAtMi42IDAtNS4yIDAtNy44QzIwNi44IDE1LjggMjA2LjggNy45IDIwNi44IDB6TTI2MS45IDBjMi4yIDAgNC40IDAgNi43IDAgMCAxMi40IDAgMjQuOSAwIDM3LjMgMy44IDAgNy42IDAgMTEuNCAwIDAgMi4yIDAgNC40IDAgNi42IC02IDAtMTIuMSAwLTE4LjEgMEMyNjEuOSAyOS4zIDI2MS45IDE0LjcgMjYxLjkgMHpNMTgxLjQgOS4xYy0wLjQtMi4yLTAuOC0zLjctMS44LTUuMSAtMS4zLTEuOC0zLjEtMy4xLTUuNS0zLjcgLTEuNS0wLjQtMy41LTAuMy01LjQtMC4zIC0yLjcgMC01LjQgMC04LjEgMCAwIDE0LjYgMCAyOS4zIDAgNDMuOSAyLjIgMCA0LjQgMCA2LjcgMCAwLTYuMiAwLTEyLjQgMC0xOC43IDIgMCA0LjMgMC4yIDYtMC4yIDQuMS0xIDctMy44IDgtNy44IDAuMy0xLjMgMC4zLTIuOSAwLjMtNC41QzE4MS41IDExLjUgMTgxLjYgMTAuMiAxODEuNCA5LjF6TTE3NSAxNS41Yy0wLjMgMS42LTEuNCAyLjgtMy4xIDMuMSAtMC44IDAtMS41IDAtMi4zIDAuMSAtMC44IDAtMS42IDAtMi40IDAgMC00IDAtNy45IDAtMTEuOSAyLjkgMCA1LjctMC40IDcgMS4zIDAuNyAwLjkgMC43IDIgMC43IDMuN0MxNzUgMTMuMSAxNzUgMTQuMyAxNzUgMTUuNXpNMjQ5IDBjLTMuMSAwLTYuMSAwLTkuMiAwIC0yLjUgMTQuNi01IDI5LjMtNy41IDQzLjkgMi4zIDAgNC42IDAgNi45IDAgMC45LTYuMiAxLjktMTIuNCAyLjgtMTguNiAxLjUgMCAzIDAgNC41IDAgMC45IDYuMiAxLjkgMTIuMyAyLjggMTguNSAwLjIgMC4xIDEuNSAwLjEgMS44IDAuMSAxLjcgMCAzLjUgMCA1LjIgMEMyNTMuOSAyOS4zIDI1MS41IDE0LjcgMjQ5IDB6TTI0My4xIDE4LjZjMC40LTIuOCAwLjgtNS42IDEuMi04LjQgMC40IDIuOCAwLjggNS42IDEuMiA4LjRDMjQ0LjggMTguNiAyNDQgMTguNiAyNDMuMSAxOC42ek0yNjcuNiA1OC44YzAtMi44LTIuMS02LjQtNS40LTUuMSAtMS45IDAuOC0yLjggNC0yIDYuNiAxLjIgMy45IDQuMyA2LjIgNy4xIDguNSAyLjMgMS44IDQuMSA0LjMgNS41IDYuOSAxLjUgMi45IDIuMSA2LjggMC43IDEwLjMgLTEuMiAzLTMuMiA1LjEtNi40IDYuMSAtMC44IDAuMi0xLjUgMC4yLTIuNCAwLjQgLTEuMiAwLjItMi43IDAtMy43LTAuMiAtMS4xLTAuMy0yLjEtMC42LTMtMS4yIC0yLjctMS43LTQuMy00LjQtNS4yLTggLTAuMi0xLTAuMi0yLTAuNC0zLjEgMi4xLTAuMSA0LjItMC4zIDYuNC0wLjQgMCAyLjcgMS41IDUuOCAzLjQgNi42IDAuNiAwLjIgMS41IDAuMiAyLjIgMC4xIDIuMy0wLjYgMy45LTMuMiAzLjEtNi4zIC0wLjctMi43LTIuNy00LjYtNC42LTYuMSAtMC43LTAuNy0xLjQtMS40LTIuMi0yLjEgLTIuMi0xLjgtNC4yLTQtNS43LTYuNCAtMS4xLTEuOC0yLjQtNS4yLTEuOC04LjQgMC4yLTEuMSAwLjMtMi4xIDAuNy0zIDEuMS0yLjkgMy4yLTUgNi4zLTYgMC43LTAuMiAxLjUtMC4yIDIuMy0wLjQgMS0wLjIgMi4zLTAuMSAzLjIgMC4xIDEgMC4yIDEuOSAwLjUgMi44IDAuOCAzLjQgMS41IDUuMSA0LjcgNS43IDkuMUMyNzEuOSA1OCAyNjkuNyA1OC40IDI2Ny42IDU4Ljh6TTQwLjcgNDguNmM2LjMgMCAxMi42IDAgMTguOSAwIDAgMi4yIDAgNC40IDAgNi43IC00LjEgMC04LjIgMC0xMi4yIDAgMCA0IDAgOCAwIDEyIDMgMCA2IDAgOSAwIDAgMi4yIDAgNC41IDAgNi43IC0zIDAtNiAwLTguOSAwIDAgNi4yIDAgMTIuNCAwIDE4LjYgLTIuMiAwLTQuNCAwLTYuNyAwQzQwLjcgNzggNDAuNyA2My4zIDQwLjcgNDguNnpNNzUuNiA0OC42YzIuNSAwIDUgMCA3LjUgMCAyLjkgOS44IDUuOCAxOS42IDguNyAyOS40IDAgMCAwIDAgMCAwIDAtOS44IDAtMTkuNiAwLTI5LjQgMi4yIDAgNC40IDAgNi42IDAgMCAxNC43IDAgMjkuMyAwIDQ0IC0yLjQgMC00LjggMC03LjEgMCAtMy05LjQtNi0xOC43LTkuMS0yOC4xIDAgMCAwIDAgMCAwIDAgOS40IDAgMTguNyAwIDI4LjEgLTIuMiAwLTQuNCAwLTYuNiAwQzc1LjYgNzggNzUuNiA2My4zIDc1LjYgNDguNnpNMTA0LjQgNDguNmM2LjMgMCAxMi42IDAgMTguOSAwIDAgMi4yIDAgNC40IDAgNi43IC00LjEgMC04LjIgMC0xMi4yIDAgMCA0IDAgOCAwIDEyIDMgMCA2IDAgOSAwIDAgMi4yIDAgNC41IDAgNi43IC0zIDAtNiAwLTguOSAwIDAgNCAwIDggMCAxMiA0LjEgMCA4LjIgMCAxMi4yIDAgMCAyLjIgMCA0LjQgMCA2LjYgLTYuMyAwLTEyLjYgMC0xOC45IDBDMTA0LjQgNzggMTA0LjQgNjMuMyAxMDQuNCA0OC42ek02NC4xIDQ4LjdjMi4yIDAgNC40IDAgNi43IDAgMCAxNC42IDAgMjkuMyAwIDQzLjkgLTIuMiAwLTQuNCAwLTYuNyAwQzY0LjEgNzggNjQuMSA2My4zIDY0LjEgNDguN3pNMjMwLjQgNDguMWM2LjkgMCAxMy44IDAgMjAuNyAwIDAgMi4yIDAgNC40IDAgNi43IC0yLjMgMC00LjcgMC03IDAgMCAxMi40IDAgMjQuOSAwIDM3LjMgLTIuMiAwLTQuNCAwLTYuNyAwIDAtMTIuNCAwLTI0LjkgMC0zNy4zIC0yLjMgMC00LjcgMC03LjEgMEMyMzAuNCA1Mi41IDIzMC40IDUwLjMgMjMwLjQgNDguMXpNMjI0LjYgNzAuN2MwLjQtMC40IDAuNy0wLjcgMS4xLTEuMSAwLjktMS4xIDEuNi0yLjQgMi4xLTMuOSAwLjQtMS40IDAuNC0zLjIgMC40LTUgMC0xLjUgMC4xLTMuMS0wLjEtNC41IC0wLjktNC41LTMtNi45LTcuNC03LjkgLTIuMS0wLjUtNC45LTAuMi03LjMtMC4yIC0yIDAtNCAwLTYgMCAwIDE0LjYgMCAyOS4zIDAgNDMuOSAyLjIgMCA0LjQgMCA2LjcgMCAwLTYuMiAwLTEyLjQgMC0xOC43IDEuMyAwIDIuNiAwIDMuOSAwIDAuMiAwIDAuNCAwIDAuNiAwIDEuNSA2LjMgMyAxMi41IDQuNSAxOC44IDIuNCAwIDQuOCAwIDcuMiAwQzIyOC4xIDg1IDIyNi40IDc3LjkgMjI0LjYgNzAuN3pNMjIxLjYgNjMuNmMtMC41IDIuNi0yLjIgMy4yLTUuNCAzLjIgLTAuOCAwLTEuNiAwLTIuNCAwIDAtNCAwLTcuOSAwLTExLjkgMi42IDAgNS45LTAuNCA3IDEuMSAwLjcgMC45IDAuOCAyLjIgMC44IDMuOUMyMjEuNiA2MS4xIDIyMS42IDYyLjQgMjIxLjYgNjMuNnpNMTk0LjMgNDguMWMtMy4xIDAtNi4xIDAtOS4yIDAgLTIuNSAxNC42LTUgMjkuMy03LjUgNDMuOSAyLjMgMCA0LjYgMCA2LjkgMCAwLjktNi4yIDEuOS0xMi40IDIuOC0xOC42IDEuNSAwIDMgMCA0LjUgMCAwLjkgNi4yIDEuOCAxMi40IDIuOCAxOC42IDIuMyAwIDQuNyAwIDcgMEMxOTkuMiA3Ny40IDE5Ni43IDYyLjggMTk0LjMgNDguMXpNMTkwLjkgNjYuN2MtMC44IDAtMS43IDAtMi41IDAgMC40LTIuOCAwLjgtNS42IDEuMi04LjQgMC40IDIuOCAwLjggNS42IDEuMiA4LjNDMTkwLjkgNjYuNyAxOTAuOSA2Ni43IDE5MC45IDY2Ljd6IiBpZD0ic3ZnXzIiIGNsYXNzPSIiIGZpbGw9IiNmNWEzMmYiIGZpbGwtb3BhY2l0eT0iMSIvPjwvZz48L3N2Zz4=);
-  background-repeat: no-repeat;
-  background-size: 280px 93px;
-  background-position: 2px 18px;
-}
-#main-nav-wrapper #logo img,
 #main-nav-wrapper #logo svg {
-  padding: 0 0 40px 0;
   position: fixed;
-  margin: 20px auto 0 auto;
   z-index: 200;
-  width: 292px;
+  width: 283px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
 }
-#main-nav-wrapper #logo svg {
-  fill: #f5a32f;
+.home #main-nav-wrapper #logo svg,
+.page #main-nav-wrapper #logo svg {
+  position: initial;
 }
-.single #main-nav-wrapper #logo svg { height: 60px; }
-
+.home #logo svg path {
+  transition: fill .5s linear;
+}
+.home #logo.white svg g {
+    fill: url(#white-fill);
+}
 #logo-print { display: none; }
 
 span.CFA_headline {
@@ -710,9 +704,10 @@ ul#header-menu li a {
   line-height: 20px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #f5a32f;
+  color: #444;
+  border-bottom: 5px double #f5a32f99;
   font-family: 'Inter', sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   opacity: 1;
   transition: opacity 200ms ease-in-out;
 }
@@ -755,23 +750,6 @@ ul#header-menu li a:hover {
     height: 20px;
     background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 75%);
   }
-}
-
-
-.single #main-nav-wrapper #logo img,
-.page #main-nav-wrapper #logo img,
-.search #main-nav-wrapper #logo img,
-.archive #main-nav-wrapper #logo img {
-  position: relative;
-  width: 190px;
-  height: auto;
-  margin: 0;
-  padding: 10px 10px 80px 10px;
-  text-align: center;
-}
-#main-nav-wrapper.trigger #logo img {
-  height:42px;
-  padding: 4px 0;
 }
 
 .pinbin-image img {
@@ -826,7 +804,8 @@ div.wpcf7 input[type="submit"] {
   transition: all 250ms ease-in-out;
 }
 
-#lang-switcher {
+#lang-switcher,
+#social-pad {
   margin-top: -95px;
   float: left;
   text-transform: uppercase;
@@ -834,83 +813,67 @@ div.wpcf7 input[type="submit"] {
   font-size: 20px;
   font-family: 'Inter', sans-serif;
   letter-spacing: 0px;
-  width: 160px;
+  width: 120px;
   opacity: 1;
   transition: top 250ms ease-in-out, opacity 150ms linear;
   position: relative;
   top: 0;
+  left: 40px;
 }
-#lang-switcher span,
-#lang-switcher a {
-  color: #9f9d94;
-  padding: 10px 25px;
+#lang-switcher span, #lang-switcher a, #social-pad a {
+  padding: 0px 0 4px 0;
+  margin: 0 30px 0px 0;
   display: inline-block;
-  width: 60px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  margin-bottom: 3px;
-}
-#lang-switcher a {
-  color: #f5a32f;
-  text-decoration: none
-}
-
-
-#social-pad {
-  margin-top: -95px;
-  float: right;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 18px;
-  width: 95px;
-  opacity: 1;
-  transition: top 250ms ease-in-out, opacity 150ms linear;
-  position: relative;
-  top: 0;
-}
-#social-pad ul,
-#social-pad li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  width: 60px;
-  display: inline-block;
-  float: left;
-}
-#social-pad li {
-    width: 60px;
-}
-#social-pad .FB_btn a,
-#social-pad .IG_btn a {
-  display: block;
   width: 30px;
-  height: 35px;
-  padding: 0px 30px;
-  background: url(./images/noun_FB.svg) no-repeat center center transparent;
-  background-size: 20px;
-  text-indent: -9999px;
+  box-sizing: border-box;
+  margin-bottom: 3px;
+  color: #444;
+  border-bottom: 5px double #f5a32f99;
+  text-decoration: none;
+  text-align: center;
 }
-#social-pad .IG_btn a {
-  background: url(./images/noun_IG.svg) no-repeat center center transparent;
-  background-size: 25px;
+#social-pad {
+    float: right;
+    width: auto;
+    right: 40px;
+    left: initial;
 }
+#social-pad a {
+    width: auto;
+    margin: 0;
+}
+
 
 
 @media only screen and (max-width: 640px) {
-  #lang-switcher {
-    position: relative;
-    top: 105px;
-    left: -20px;
-    z-index: 11;
+  #main-nav-wrapper #logo {
+    margin: 0px auto;
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    padding-bottom: 5px;
+    background-size: 50%;
+    background-position: center 10px;
+    -webkit-tap-highlight-color: transparent;
   }
+  #main-nav-wrapper #logo img,
+  #main-nav-wrapper #logo svg {
+    width: 100%;
+    max-width: 200px;
+  }
+  .single #main-nav-wrapper #logo img,
+  .page #main-nav-wrapper #logo img {
+    position: initial;
+  }
+  #lang-switcher,
   #social-pad {
     position: relative;
     top: 105px;
-    right: -10px;
+    left: 15px;
     z-index: 11;
   }
   #site-navigation.shrink #lang-switcher,
-#site-navigation.shrink #social-pad {
+  #site-navigation.shrink #social-pad {
      top: 95px;
   }
   .modal-open #lang-switcher { z-index: 9; }
@@ -1053,6 +1016,8 @@ div.wpcf7 input[type="submit"] {
 .pinbin-copy .excerpt-container p {
   font-size: 1.25em;
   letter-spacing: 0.75px;
+  text-rendering: optimizeLegibility;
+  text-shadow: 0px 0px 1px #000000;
 }
 
 .pinbin-copy  p {
@@ -1070,7 +1035,7 @@ div.wpcf7 input[type="submit"] {
   background: rgba(0, 0, 0, 0.5);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border-radius: 0;
+  border-radius: 2px;
   font-family: 'Sometimes Times';
   letter-spacing: 1.5px;
   text-transform: initial;
@@ -1099,6 +1064,8 @@ div.wpcf7 input[type="submit"] {
   width: 100%;
   display: inline-block;
   margin: 15px 0;
+  text-rendering: optimizeLegibility;
+  text-shadow: 0px 0px 1px #000000;
 }
 .single .single-pinbin-copy,
 .page .pinbin-copy {
@@ -2260,22 +2227,7 @@ a.search_menu {
   .single-post.menu_open #site-navigation #main-nav-wrapper {
     left: 0;
   }
-  #main-nav-wrapper #logo {
-    margin: 0px auto;
-    width: auto;
-    max-width: 415px;
-    height: 80px;
-    padding-bottom: 5px;
-    background-size: 50%;
-    background-position: center 10px;
-    -webkit-tap-highlight-color: transparent;
-    }
-  #main-nav-wrapper #logo img,
-  #main-nav-wrapper #logo svg {
-    margin: 20px 0;
-    width: 50%;
-    height: auto;
-  }
+
 
   #modal #closecard {
     top: 20px;
@@ -2304,14 +2256,7 @@ a.search_menu {
     margin: 0 0 20px 0;
     box-sizing: border-box;
     }
-  .single #main-nav-wrapper #logo img,
-  .page #main-nav-wrapper #logo img {
-    width: 100%;
-    margin: 0;
-    padding: 20px 0;
-    text-align: center;
-    position: initial;
-  }
+
   #post-area {
     width: 100%;
   }

@@ -299,6 +299,20 @@ let injectADScont = (id) => {
 	  .then(text => target.innerHTML = text);
 }
 
+
+const logoTransition = () => {
+	const postareaDiv = document.getElementById('post-area');
+	document.addEventListener('scroll', function() {
+		setTimeout(function() {
+			if (document.scrollingElement.scrollTop > postareaDiv.offsetTop-logo_v6.clientHeight) {
+				logo_v6.classList.add('white');
+			} else {
+				logo_v6.classList.remove('white');
+			}
+		},500);
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   // getADS();
 
@@ -306,15 +320,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 window.addEventListener("load", function() {
+	logoTransition();
 
- // injectADScont('advblock1');
- // injectADScont('advblock2');
- // injectADScont('advblock3');
- // injectADScont('advblock4');
-
- // okresize();
- // setTimeout(function(){
- // 	$container.isotope('reLayout');
- // },1000);
 });
 

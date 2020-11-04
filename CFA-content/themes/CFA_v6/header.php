@@ -39,21 +39,25 @@ endif;
  	<!-- logo and navigation -->
 
 <div id="logo-print">
-	<img src="<?php echo get_template_directory_uri(); ?>/images/logo-CFA-orange.svg" width="283" alt="CONCEPTUAL FINE ARTS" />
+	<img src="<?php echo get_template_directory_uri(); ?>/images/CFA_logo_v6.svg" width="283" alt="CONCEPTUAL FINE ARTS" />
 </div>
 
  <nav id="site-navigation">
 
     <div id="main-nav-wrapper" class="<?php if (!is_home() || !is_front_page() || !is_page('it')) : echo 'single '; endif; ?>left on">
 		<?php if (is_home() || is_front_page() || is_page('it')) :
-			echo '<h1 id="logo">CONCEPTUAL FINE ARTS</h1> ';
+			echo '<h1 id="logo">';
+      include("images/CFA_logo_v6.svg");
+      echo '</h1> ';
 		else:
-			echo '<div id="logo">CONCEPTUAL FINE ARTS</div>';
+			echo '<div id="logo">';
+      include("images/CFA_logo_v6.svg");
+      echo '</div>';
 		endif; ?>
 
 		<?php
 		wp_nav_menu( array(
-	    	'menu'				=> 'Header-menu',
+	    'menu'				=> 'Header-menu',
 			'menu_id'			=> 'header-menu',
 			'container'			=> 'ul',
 		) );
@@ -68,10 +72,7 @@ endif;
 		</div>
 
 		<div id="social-pad">
-			<ul>
-				<!-- <li class="FB_btn"><a href="https://www.facebook.com/Conceptualfinearts" target="_blank" rel="noopener">FB</a></li> -->
-				<li class="IG_btn"><a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank" rel="noopener">IG</a></li>
-			</ul>
+			<a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank" rel="noopener">INSTAGRAM</a>
 		</div>
 
 	</div>

@@ -13,9 +13,9 @@ var themepath = basepath+'CFA-content/themes/CFA_v6/';
 var whitecurtain = document.getElementById('whitecurtain');
 var modal = document.getElementById('modal');
 var AltLang = document.getElementById('lang-switcher');
-var header_v5 = document.getElementById('site-navigation');
-var logo_v5 = document.getElementById('logo');
-var menu_v5 = document.getElementById('header-menu');
+var header_v6 = document.getElementById('site-navigation');
+var logo_v6 = document.getElementById('logo');
+var menu_v6 = document.getElementById('header-menu');
 
 
 ////////////////////////////////////
@@ -29,22 +29,22 @@ var resizzabolHeader = function() {
 	var me = this;
 
 	me.init = function() {
-		menu_v5.innerHTML = menu_v5.innerHTML+'<span class="shade"></span>';
+		menu_v6.innerHTML = menu_v6.innerHTML+'<span class="shade"></span>';
 		window.addEventListener('scroll', function() { me.scrolling(); });
 	};
 	me.shrink = function() {
-		header_v5.classList.add('shrink');
+		header_v6.classList.add('shrink');
 		document.querySelector('#header-menu .shade').style.display = 'none';
 	};
 	me.expand = function() {
-		header_v5.classList.remove('shrink')
+		header_v6.classList.remove('shrink')
 		document.querySelector('#header-menu .shade').style.display = 'block';
 	};
 	me.scrolling = function() {
 		if ( modal.classList.contains('empty') === true || bodyClasses.contains('single') === false ) {
-			// console.log(header_v5.offsetTop);
-			// console.log(logo_v5.offsetHeight);
-			if( document.documentElement.scrollTop > logo_v5.offsetHeight ) {
+			// console.log(header_v6.offsetTop);
+			// console.log(logo_v6.offsetHeight);
+			if( document.documentElement.scrollTop > logo_v6.offsetHeight ) {
 				me.shrink();
 			} else {
 				me.expand();
@@ -81,18 +81,18 @@ let showPopNL = (timer) => {
 	}
 }
 
-let cazzatadiExplore = () => {
-	let EXPitem = document.getElementById('menu-item-94491');
-	let EXPlink = EXPitem.firstChild.getAttribute('href');
-	let EXPcont = EXPitem.innerHTML;
+// let cazzatadiExplore = () => {
+// 	let EXPitem = document.getElementById('menu-item-94491');
+// 	let EXPlink = EXPitem.firstChild.getAttribute('href');
+// 	let EXPcont = EXPitem.innerHTML;
 
-	EXPitem.innerHTML = '<div class="focus explore-menu-btn"><div class="focus--mask"><div class="focus--mask-inner">'+EXPcont+'</div></div></div>';
+// 	EXPitem.innerHTML = '<div class="focus explore-menu-btn"><div class="focus--mask"><div class="focus--mask-inner">'+EXPcont+'</div></div></div>';
 
-	EXPitem.addEventListener("click", function() {
-		location.href = EXPlink;
-	});
+// 	EXPitem.addEventListener("click", function() {
+// 		location.href = EXPlink;
+// 	});
 
-}
+// }
 
 let appendENV = (env) => {
 	if (typeof devENV !== 'undefined' && devENV !== null) {
@@ -100,24 +100,25 @@ let appendENV = (env) => {
 		let cssENV = document.createElement('style');
 		cssENV.innerHTML = `
 			.env-revealer {
-			    position: absolute;
-			    top: -30px;
-			    left: 50%;
-			    transform: translateX(-50%);
-			    color: #444;
-			    font-size: 16px;
-			    line-height: 16px;
-			    background: #fff;
-			    padding: 10px 10px;
-			    font-weight: 700;
-			    width: auto;
-			    text-align: center;
-			    text-transform: uppercase;
-			    border-radius: 50%;
+				position: fixed;
+				top: 50%;
+				z-index: 1400;
+				right: -60px;
+				transform: rotate(-90deg);
+				color: #444;
+				font-size: 14px;
+				line-height: 16px;
+				background: #fff;
+				padding: 10px 10px;
+				font-weight: 700;
+				width: auto;
+				text-align: center;
+				text-transform: uppercase;
+				border-radius: 2px 0 0 2px;
 			}
 		`;
 		divEnv.setAttribute('class', 'env-revealer');
-		divEnv.innerHTML = "🛠️ on "+env+" 🛠️";
+		divEnv.innerHTML = "🛠️ "+env+" 🛠️";
 		document.head.appendChild(cssENV);
 		document.body.appendChild(divEnv)
 		
@@ -142,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.addEventListener("load", function() {
 	console.log('done with page load.');
-	cazzatadiExplore();
+	//cazzatadiExplore();
 	//if (sw>=768) { cazzatadiExplore(); }
 	document.getElementById('whitecurtain').classList.add('hidden');
 });
