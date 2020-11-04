@@ -827,8 +827,8 @@ div.wpcf7 input[type="submit"] {
   width: 30px;
   box-sizing: border-box;
   margin-bottom: 3px;
-  color: #444;
-  border-bottom: 5px double #f5a32f99;
+  color: #f5a32f;
+  /*border-bottom: 5px double #f5a32f;*/
   text-decoration: none;
   text-align: center;
 }
