@@ -704,10 +704,10 @@ ul#header-menu li a {
   line-height: 20px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #444;
-  border-bottom: 5px double #f5a32f99;
+  color: #f5a32f;
+  /*border-bottom: 5px double #f5a32f99;*/
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   opacity: 1;
   transition: opacity 200ms ease-in-out;
 }
@@ -2744,7 +2744,7 @@ ul#ToC-list li {
 /* EXHIBITION BANNER */
 #exhibition-banner {
   position: relative;
-  top: 170px;
+  top: 180px;
   width: 100%;
   min-height: 50vh;
   padding: 0;
