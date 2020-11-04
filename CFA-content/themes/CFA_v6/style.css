@@ -705,7 +705,7 @@ ul#header-menu li a {
   line-height: 20px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #f5a32f;
+  color: #000;
   /*border-bottom: 5px double #f5a32f99;*/
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -714,6 +714,10 @@ ul#header-menu li a {
 }
 ul#header-menu li a:hover {
   opacity: .75;
+}
+
+.home ul#header-menu li a {
+  color: #f5a32f
 }
 @media only screen and (max-width: 640px) {
   #header-menu {
@@ -810,7 +814,7 @@ div.wpcf7 input[type="submit"] {
   margin-top: -100px;
   float: left;
   text-transform: uppercase;
-  text-align: center;
+  text-align: left;
   font-size: 18px;
   font-family: 'Inter', sans-serif;
   letter-spacing: 0px;
@@ -828,11 +832,16 @@ div.wpcf7 input[type="submit"] {
   width: 30px;
   box-sizing: border-box;
   margin-bottom: 3px;
-  color: #f5a32f;
+  color: #000;
   /*border-bottom: 5px double #f5a32f;*/
   text-decoration: none;
   text-align: center;
   font-weight: 700;
+}
+.home #lang-switcher span,
+.home #lang-switcher a,
+.home #social-pad a {
+  color: #f5a32f;
 }
 #social-pad {
     float: right;
@@ -1025,6 +1034,7 @@ div.wpcf7 input[type="submit"] {
 .pinbin-copy  p {
   margin: 0;
   padding: 0 0 1.5rem 0;
+  letter-spacing: -0.25px;
 }
 .home .pinbin-copy p,
 .archive .pinbin-copy p,
