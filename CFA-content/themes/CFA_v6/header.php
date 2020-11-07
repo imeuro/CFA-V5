@@ -44,7 +44,12 @@ endif;
 
  <nav id="site-navigation">
 
-    <div id="main-nav-wrapper" class="<?php if (!is_home() || !is_front_page() || !is_page('it')) : echo 'single '; endif; ?>left on">
+    <div id="main-nav-wrapper">
+
+      <button id="hambmenu">
+        <?php include("images/hamburger.svg"); ?>
+      </button>
+
 		<?php if (is_home() || is_front_page() || is_page('it')) :
 			echo '<h1 id="logo">';
       include("images/CFA_logo_v6.svg");
@@ -55,26 +60,29 @@ endif;
       echo '</div>';
 		endif; ?>
 
-		<?php
-		wp_nav_menu( array(
-	    'menu'				=> 'Header-menu',
-			'menu_id'			=> 'header-menu',
-			'container'			=> 'ul',
-		) );
-		?>
+    <div class="sidemenu">
+  		<?php
+  		wp_nav_menu( array(
+  	    'menu'				=> 'Header-menu',
+  			'menu_id'			=> 'header-menu',
+  			'container'			=> 'ul',
+  		) );
+  		?>
 
-		<div id="lang-switcher">
-			<?php
-				if ( function_exists('get_langswitcherDOM') ) {
-					echo get_langswitcherDOM(); // plugins/cfa/index.php
-				}
-			?>
-		</div>
+  		<div id="lang-switcher" class="menu">
+  			<?php
+  				if ( function_exists('get_langswitcherDOM') ) {
+  					echo get_langswitcherDOM(); // plugins/cfa/index.php
+  				}
+  			?>
+  		</div>
 
-		<div id="social-pad">
-			<a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank" rel="noopener">INSTAGRAM</a>
-		</div>
+  		<ul id="social-pad" class="menu">
+  			<li><a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank" rel="noopener">INSTAGRAM</a></li>
+  		</ul>
+    </div>
 
+    <button></button>
 	</div>
 
 

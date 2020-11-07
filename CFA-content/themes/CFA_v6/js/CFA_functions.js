@@ -25,35 +25,41 @@ var menu_v6 = document.getElementById('header-menu');
 
 
 // HEADER resizabble allo scroll
-var resizzabolHeader = function() {
-	var me = this;
+// var resizzabolHeader = function() {
+// 	var me = this;
 
-	me.init = function() {
-		menu_v6.innerHTML = menu_v6.innerHTML+'<span class="shade"></span>';
-		window.addEventListener('scroll', function() { me.scrolling(); });
-	};
-	me.shrink = function() {
-		header_v6.classList.add('shrink');
-		document.querySelector('#header-menu .shade').style.display = 'none';
-	};
-	me.expand = function() {
-		header_v6.classList.remove('shrink')
-		document.querySelector('#header-menu .shade').style.display = 'block';
-	};
-	me.scrolling = function() {
-		if ( modal.classList.contains('empty') === true || bodyClasses.contains('single') === false ) {
-			// console.log(header_v6.offsetTop);
-			// console.log(logo_v6.offsetHeight);
-			if( document.documentElement.scrollTop > logo_v6.offsetHeight ) {
-				me.shrink();
-			} else {
-				me.expand();
-			}
-		} else { me.shrink(); }
-	};
-};
-var eyesonHeader = new resizzabolHeader();
-eyesonHeader.init();
+// 	me.init = function() {
+// 		menu_v6.innerHTML = menu_v6.innerHTML+'<span class="shade"></span>';
+// 		window.addEventListener('scroll', function() { me.scrolling(); });
+// 	};
+// 	me.shrink = function() {
+// 		header_v6.classList.add('shrink');
+// 		document.querySelector('#header-menu .shade').style.display = 'none';
+// 	};
+// 	me.expand = function() {
+// 		header_v6.classList.remove('shrink')
+// 		document.querySelector('#header-menu .shade').style.display = 'block';
+// 	};
+// 	me.scrolling = function() {
+// 		if ( modal.classList.contains('empty') === true || bodyClasses.contains('single') === false ) {
+// 			// console.log(header_v6.offsetTop);
+// 			// console.log(logo_v6.offsetHeight);
+// 			if( document.documentElement.scrollTop > logo_v6.offsetHeight ) {
+// 				me.shrink();
+// 			} else {
+// 				me.expand();
+// 			}
+// 		} else { me.shrink(); }
+// 	};
+// };
+// var eyesonHeader = new resizzabolHeader();
+// eyesonHeader.init();
+
+// menu
+const menubtn = document.getElementById('hambmenu');
+menubtn.addEventListener('click', () => {
+	menubtn.parentElement.classList.toggle('menu-open');
+})
 
 
 // protect images - attempt

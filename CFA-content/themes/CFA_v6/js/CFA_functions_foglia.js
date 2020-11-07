@@ -286,6 +286,7 @@ let checkGallery = () => {
 let micrioInstance = null;
 let injectMicrio = () => {
 	const MicrioTag = document.querySelectorAll('a.micrio-code');
+	const MicrioIframe = document.querySelectorAll('iframe[src*="micr.io"]');
 	if (MicrioTag.length >= 1) {
 		console.debug('Micr.io tag present: injecting library...');
 		
@@ -319,6 +320,16 @@ let injectMicrio = () => {
 			el.addEventListener('click', function(){ 
 				initMicrioFS(MicrioID,Mdiv);
 			 });
+		});
+		return true
+	} else if (MicrioIframe.length >= 1) {
+		Array.from(MicrioIframe).forEach(function(el) {
+			let contDiv = document.createElement('div');
+			contDiv.classList.add('wp-block-image','alignfull','size-large')
+			// insert wrapper before el in the DOM tree
+			el.parentNode.insertBefore(contDiv, el);
+			// move el into wrapper
+			contDiv.appendChild(el);
 		});
 		return true
 	} else {
