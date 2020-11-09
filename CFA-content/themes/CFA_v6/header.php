@@ -82,7 +82,6 @@ endif;
   		</ul>
     </div>
 
-    <button></button>
 	</div>
 
 
