@@ -657,7 +657,7 @@ nav#archive-nav-below a {
 }
 .sidemenu {
   position: fixed;
-  top: -100%;
+  top: 100%;
   left: 0;
   opacity: 0;
   z-index: 8;
@@ -665,7 +665,7 @@ nav#archive-nav-below a {
   width: 100vw;
   background: #fff;
   padding-top: 20px;
-  transition:  150ms ease-in-out;
+  transition:  300ms ease-in-out;
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
@@ -681,7 +681,7 @@ nav#archive-nav-below a {
   align-items: center;
   justify-content: center;
   list-style: none;
-  margin: 0 0 20px 0;
+  margin: 100px 0 20px 0;
   padding: 0;
   width: 100%;
 }
