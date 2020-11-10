@@ -29,14 +29,16 @@ var menu_v6 = document.getElementById('header-menu');
 const menubtn = document.getElementById('hambmenu');
 let topscroll = 0;
 menubtn.addEventListener('click', () => {
-	if (bodyClasses.contains('fixd') === false) { 
+	if (bodyClasses.contains('fixd','single') === false) { 
 		topscroll = document.scrollingElement.scrollTop;
 	}
 	menubtn.parentElement.classList.toggle('menu-open');
 	setTimeout(() => {
-		document.body.classList.toggle('fixd');
-		if (bodyClasses.contains('fixd') === false) { 
-			document.scrollingElement.scrollTo(0,topscroll)
+		if (bodyClasses.contains('single') === false) {
+			document.body.classList.toggle('fixd');
+			if (bodyClasses.contains('fixd') === false) { 
+				document.scrollingElement.scrollTo(0,topscroll)
+			}
 		}
 	},100)
 })
