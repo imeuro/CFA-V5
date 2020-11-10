@@ -729,6 +729,7 @@ nav#archive-nav-below a {
   }
   .sidemenu {
     background: transparent;
+    opacity: 1;
     left: 0;
     width: 100%;
     height: auto;
