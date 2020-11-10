@@ -302,7 +302,6 @@ let injectADScont = (id) => {
 
 const logoTransition = () => {
 
-	
 	document.addEventListener('scroll', function() {
 		let postareaDivTop = document.getElementById('post-area').getBoundingClientRect().top;
 		let svgbottom = logo_v6.firstElementChild.getBoundingClientRect().y + logo_v6.firstElementChild.getBoundingClientRect().height;

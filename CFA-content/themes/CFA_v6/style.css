@@ -709,9 +709,9 @@ nav#archive-nav-below a {
 .sidemenu .menu li a:hover {
   opacity: .75;
 }
-.sidemenu .menu#lang-switcher span,
-.sidemenu .menu#lang-switcher a { margin-right: 20px }
-.sidemenu .menu#lang-switcher span {
+.sidemenu .menu #lang-switcher span,
+.sidemenu .menu #lang-switcher a:last-child { margin-left: 20px }
+.sidemenu .menu #lang-switcher span {
   font-size: 18px;
   line-height: 20px;
   font-weight: 700;
@@ -750,8 +750,8 @@ nav#archive-nav-below a {
     margin: 0 30px;
   }
   .sidemenu .menu li { padding: 0 0 6px 0; }
-  .sidemenu .menu li:nth-child(odd), #lang-switcher li { text-align: left; }
-  .sidemenu .menu li:nth-child(even), #social-pad li { text-align: right; }
+  .sidemenu .menu li:nth-child(odd) { text-align: left; }
+  .sidemenu .menu li:nth-child(even) { text-align: right; }
   .sidemenu .menu li a {
     font-size: 28px;
     line-height: 36px;
