@@ -27,8 +27,18 @@ var menu_v6 = document.getElementById('header-menu');
 
 // menu
 const menubtn = document.getElementById('hambmenu');
+let topscroll = 0;
 menubtn.addEventListener('click', () => {
+	if (bodyClasses.contains('fixd') === false) { 
+		topscroll = document.scrollingElement.scrollTop;
+	}
 	menubtn.parentElement.classList.toggle('menu-open');
+	setTimeout(() => {
+		document.body.classList.toggle('fixd');
+		if (bodyClasses.contains('fixd') === false) { 
+			document.scrollingElement.scrollTo(0,topscroll)
+		}
+	},100)
 })
 
 // move lang-switcher in menu

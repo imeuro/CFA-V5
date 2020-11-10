@@ -1,5 +1,5 @@
 <svg id="hambmenu-icon" width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect id="line1" width="200" height="20" rx="4" fill="#000"/>
-<rect id="line2" y="50" width="200" height="20" rx="4" fill="#000"/>
-<rect id="line3" y="100" width="200" height="20" rx="4" fill="#000"/>
+<rect id="line1" width="200" height="10" rx="4" fill="#000"/>
+<rect id="line2" y="50" width="200" height="10" rx="4" fill="#000"/>
+<rect id="line3" y="100" width="200" height="10" rx="4" fill="#000"/>
 </svg>

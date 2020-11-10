@@ -491,6 +491,7 @@ h6 {
 .right {float: right;}
 .hidden {display: none;}
 .transparent {opacity: 0;}
+.fixd { position: fixed; }
 
 
 
@@ -590,9 +591,6 @@ nav#archive-nav-below a {
 }
 #logo-print { display: none; }
 
-#site-navigation {
-  height: 120px;
-}
 #main-nav-wrapper #logo {
   width: 250px;
   height: 123px;
@@ -611,12 +609,6 @@ nav#archive-nav-below a {
 .home #logo svg path {
   transition: fill .5s linear;
 }
-/*.home #logo svg g,
-.home #logo.white svg g,
-.home #hambmenu-icon rect {
-    fill: url(#white-fill);
-    transition: all 250ms ease-in-out;
-}*/
 .home .WLOGO {
   position: fixed;
   left: 50%;
@@ -636,12 +628,12 @@ nav#archive-nav-below a {
 #hambmenu {
   display: block;
   width: 80px;
-  height: 122.5px;
+  height: 50px;
   background: transparent;
   border: none;
   position: absolute;
-  left: 10px;
-  top: 10px;
+  right: 0px;
+  top: 7px;
   z-index: 10;
   outline-color: transparent;
   outline-width: 0;
@@ -655,40 +647,43 @@ nav#archive-nav-below a {
   transition: all 250ms ease-in-out;
 }
 .menu-open #hambmenu-icon rect#line1 {
-    transform: rotate(45deg) translateY(-40px) translateX(15px);
+    transform: rotate(-45deg) translateY(110px) translateX(-25px) scale(0.5);
 }
 .menu-open #hambmenu-icon rect#line2 {
     opacity: 0;
 }
 .menu-open #hambmenu-icon rect#line3 {
-    transform: rotate(-45deg) translateY(0px) translateX(-70px);
+    transform: rotate(45deg) translateY(-80px) translateX(65px) scale(0.5);
 }
 .sidemenu {
   position: fixed;
-  top: 0;
-  left: -100%;
-  z-index: 9;
+  top: -100%;
+  left: 0;
+  opacity: 0;
+  z-index: 8;
   height: 100%;
-  width: 90vw;
+  width: 100vw;
   background: #fff;
   padding-top: 20px;
-  transition: left 500ms ease-in-out;
+  transition:  150ms ease-in-out;
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
   justify-content: center;
 }
 .menu-open .sidemenu {
-  left: 0;
+  top: 0;
+  opacity: 1;
 }
 .sidemenu .menu {
   display: flex;
   flex-flow: column nowrap;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   list-style: none;
   margin: 0 0 20px 0;
   padding: 0;
+  width: 100%;
 }
 .sidemenu .menu li {
   padding: 0 40px 25px 40px;
@@ -717,9 +712,6 @@ nav#archive-nav-below a {
   font-weight: 300;
   color: #000;
   font-family: 'Sometimes Times', serif;
-}
-.home #wrap {
-  margin-top: 135px;
 }
 
 
