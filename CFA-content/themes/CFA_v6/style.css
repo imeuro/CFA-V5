@@ -1532,21 +1532,23 @@ article.cfa_translations .pinbin-text a span {
 
 #infscr-loading {
   position: fixed;
-  bottom: 20px;
-  width: 40%;
+  bottom: 0;
+  width: 100%;
   left: 50%;
   text-align: center;
   box-sizing: content-box;
   z-index: 900;
   opacity: 1;
-  padding: 3px 10px;
+  padding: 0;
   display: block;
-  background: #fff9;
+  background: #fff;
   -webkit-transform: translate(-50%);
-          transform: translate(-50%);
-  border-radius: 2px;
+  transform: translate(-50%);
 }
-
+#infscr-loading img {
+    width: 25px;
+    margin: 25px;
+}
 .hashcloud a {
   color: #444;
   text-decoration: none;
