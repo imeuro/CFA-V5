@@ -77,9 +77,6 @@ endif;
   			?>
   		</div>
 
-  		<ul id="social-pad" class="menu">
-  			<li><a href="https://www.instagram.com/conceptual_fine_arts/" target="_blank" rel="noopener">INSTAGRAM</a></li>
-  		</ul>
     </div>
 
 	</div>
