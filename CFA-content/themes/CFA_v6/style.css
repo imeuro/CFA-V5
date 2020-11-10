@@ -659,13 +659,12 @@ nav#archive-nav-below a {
   position: fixed;
   top: 100%;
   left: 0;
-  opacity: 0;
-  z-index: 8;
+  z-index: 10;
   height: 100%;
   width: 100vw;
   background: #fff;
   padding-top: 20px;
-  transition:  300ms ease-in-out;
+  transition: top 300ms ease-in-out;
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
@@ -673,7 +672,6 @@ nav#archive-nav-below a {
 }
 .menu-open .sidemenu {
   top: 0;
-  opacity: 1;
 }
 .sidemenu .menu {
   display: flex;
@@ -729,7 +727,6 @@ nav#archive-nav-below a {
   }
   .sidemenu {
     background: transparent;
-    opacity: 1;
     top: 0;
     left: 0;
     width: 100%;
