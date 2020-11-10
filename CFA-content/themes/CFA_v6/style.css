@@ -2481,10 +2481,10 @@ ul#ToC-list li {
   content: "";
   position: absolute;
   top: 22px;
-  left: 13px;
+  left: 12px;
   width: 15px;
-  height: 3px;
-  border-radius: 3px;
+  height: 1px;
+  border-radius: 0;
   background-color: #000;
   transform: rotate(-50deg);
   display: inline-block;
@@ -2505,8 +2505,8 @@ ul#ToC-list li {
   text-transform: uppercase;
   text-decoration: none;
   color: #000;
-  font-family: 'NeueHaasGroteskDisp Std', sans-serif;
-  font-weight: 700;
+  font-family: 'Sometimes Times', serif;
+  font-weight: 300;
 }
 
 
