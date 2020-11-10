@@ -696,26 +696,27 @@ nav#archive-nav-below a {
   flex: 1 0 calc(50% - 80px);
 }
 .sidemenu .menu li a {
-  font-size: 18px;
-  line-height: 20px;
+  font-size: 28px;
+  line-height: 30px;
   text-transform: uppercase;
   text-decoration: none;
   color: #000;
-  font-family: 'NeueHaasGroteskDisp Std', sans-serif;
-  font-weight: 700;
+  font-family: 'Sometimes Times', serif;
+  font-weight: 300;
   opacity: 1;
   transition: opacity 200ms ease-in-out;
 }
 .sidemenu .menu li a:hover {
   opacity: .75;
 }
-.sidemenu .menu #lang-switcher span,
+.sidemenu .menu #lang-switcher span:last-child,
 .sidemenu .menu #lang-switcher a:last-child { margin-left: 20px }
 .sidemenu .menu #lang-switcher span {
-  font-size: 18px;
-  line-height: 20px;
-  font-weight: 700;
+  font-size: 26px;
+  line-height: 36px;
+  font-weight: 300;
   color: #000;
+  font-family: 'Sometimes Times', serif;
 }
 .home #wrap {
   margin-top: 135px;
@@ -754,7 +755,7 @@ nav#archive-nav-below a {
   .sidemenu .menu li:nth-child(even) { text-align: right; }
   .sidemenu .menu li a {
     font-size: 28px;
-    line-height: 36px;
+    line-height: 30px;
     text-transform: uppercase;
     text-decoration: none;
     color: #000;
@@ -895,12 +896,13 @@ div.wpcf7 input[type="submit"] {
 }
 
 .single h1 {
+  color: #000;
   font-family: 'Sometimes Times', serif;
   font-weight: 300;
   text-align: center;
-  font-size: 5.5em;
+  font-size: 5em;
   line-height: 1.15em;
-  margin: 0 -15vw 60px -15vw;
+  margin: 0 -15vw 10px -15vw;
 }
 
 .single p a,
@@ -961,10 +963,10 @@ div.wpcf7 input[type="submit"] {
   width: 100%;
   font-style: italic;
   text-align: center;
-  margin-bottom: 70px;
+  margin: 15px auto 70px auto;
 }
 .pinbin-copy .excerpt-container p {
-  font-size: 1.25em;
+  font-size: 1.625em;
   letter-spacing: 0.75px;
   text-rendering: optimizeLegibility;
 }
@@ -1019,8 +1021,9 @@ div.wpcf7 input[type="submit"] {
   text-align: center;
   width: 100%;
   display: inline-block;
-  margin: 15px 0;
+  margin: 25px 0;
   text-rendering: optimizeLegibility;
+  font-size: 21px;
 }
 .single .single-pinbin-copy,
 .page .pinbin-copy {
@@ -1873,7 +1876,7 @@ div#closemenu:hover,
 
 /* roba Bio (contenuto del post type: cfa_authors) */
 small.author { font-size: 100%; }
-small.author:before { content: "by  "; font-size: 66%; }
+small.author:before { content: "by  "; }
 img.author-pic { margin: 0 20px 20px 0; }
 .cfa_authors h1 {
   text-align: left;

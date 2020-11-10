@@ -66,19 +66,6 @@ let showPopNL = (timer) => {
 	}
 }
 
-// let cazzatadiExplore = () => {
-// 	let EXPitem = document.getElementById('menu-item-94491');
-// 	let EXPlink = EXPitem.firstChild.getAttribute('href');
-// 	let EXPcont = EXPitem.innerHTML;
-
-// 	EXPitem.innerHTML = '<div class="focus explore-menu-btn"><div class="focus--mask"><div class="focus--mask-inner">'+EXPcont+'</div></div></div>';
-
-// 	EXPitem.addEventListener("click", function() {
-// 		location.href = EXPlink;
-// 	});
-
-// }
-
 let appendENV = (env) => {
 	if (typeof devENV !== 'undefined' && devENV !== null) {
 		let divEnv = document.createElement('div');
@@ -119,9 +106,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 	document.getElementById('logo').addEventListener('click', function(){
-			window.location.href = basepath;
-	});
-	document.querySelector('.WLOGO').addEventListener('click', function(){
 			window.location.href = basepath;
 	});
 

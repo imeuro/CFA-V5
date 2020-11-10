@@ -329,6 +329,11 @@ const logoTransition = () => {
 			whiteMask.setAttribute('y',123);
 		}
 	});
+
+	document.querySelector('.WLOGO').addEventListener('click', function(){
+			window.location.href = basepath;
+	});
+
 }
 
 
