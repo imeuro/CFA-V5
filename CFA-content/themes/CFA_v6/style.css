@@ -617,6 +617,22 @@ nav#archive-nav-below a {
     fill: url(#white-fill);
     transition: all 250ms ease-in-out;
 }*/
+.home .WLOGO {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  cursor: pointer;
+  z-index: 11;
+  width: 300px;
+  height: 150px;
+}
+.home .WLOGO svg {
+    width: 300px;
+    height: auto;
+}
+
+
 #hambmenu {
   display: block;
   width: 80px;

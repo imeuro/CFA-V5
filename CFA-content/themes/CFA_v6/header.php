@@ -52,7 +52,7 @@ endif;
 
 		<?php if (is_home() || is_front_page() || is_page('it')) :
 			echo '<h1 id="logo">';
-      include("images/CFA_logo_v6.svg");
+      include("images/CFA_logo_v6_BLACK.svg");
       echo '</h1> ';
 		else:
 			echo '<div id="logo">';
@@ -87,6 +87,11 @@ endif;
 
   </nav>
 
+  <?php if (is_home() || is_front_page() || is_page('it')) :
+    echo '<div class="WLOGO">';
+    include("images/CFA_logo_v6_WHITE.svg");
+    echo '</div> ';
+  endif; ?>
 <div class="clear"></div>
 <?php                       
 ////////////////////////////////////////////

@@ -301,17 +301,66 @@ let injectADScont = (id) => {
 
 
 const logoTransition = () => {
-	const postareaDiv = document.getElementById('post-area');
+
+	
 	document.addEventListener('scroll', function() {
-		setTimeout(function() {
-			if (document.scrollingElement.scrollTop > postareaDiv.offsetTop-logo_v6.clientHeight) {
-				logo_v6.classList.add('white');
-			} else {
-				logo_v6.classList.remove('white');
+		// setTimeout(function() {
+			let postareaDivTop = document.getElementById('post-area').getBoundingClientRect().top;
+			let svgbottom = logo_v6.firstElementChild.getBoundingClientRect().y + logo_v6.firstElementChild.getBoundingClientRect().height;
+
+			console.debug('document.scrollingElement.scrollTop:' + document.scrollingElement.scrollTop);
+			console.debug('postareaDivTop:'+postareaDivTop);
+			// console.debug('svgbottom: '+svgbottom);
+
+			//blacklogo
+			const blackMask = document.querySelector('.blacklogo');
+			if ((document.scrollingElement.scrollTop > 32) && postareaDivTop > 0) {
+				blackMask.setAttribute('y',(svgbottom - postareaDivTop)*-1);
+			} else if (document.scrollingElement.scrollTop <= 32) {
+				blackMask.setAttribute('y',0);
+			} else if (postareaDivTop <= 0) {
+				blackMask.setAttribute('y',-147);
 			}
-		},500);
+			//whitelogo
+			const whiteMask = document.querySelector('.whitelogo');
+			if ((document.scrollingElement.scrollTop > postareaDivTop - svgbottom) && postareaDivTop > 0) {
+				whiteMask.setAttribute('y',147-(svgbottom - postareaDivTop));
+			} else if (postareaDivTop <= 0) {
+				whiteMask.setAttribute('y',0);
+			} else if (document.scrollingElement.scrollTop <= 32) {
+				whiteMask.setAttribute('y',147);
+			}
+
+
+
+		// },100);
 	});
 }
+
+var whiteLogo = function() {
+  $('#logo').each(function(){
+    var $this = $(this),
+        $rect = $this.find($('[class~="whitelogo"]')),
+        valY = ((100 - parseFloat($rect.attr('data-percent'))) * parseFloat($rect.attr('height')) ) / 100,
+        $animationDiv = $('<div></div>');
+
+    $animationDiv.css('top', parseFloat($rect.attr('height')));
+    $animationDiv.animate(
+      {
+        top: valY
+      },
+      {
+        duration: 1000,
+        step: function(value, properties) {
+          if (properties.prop === 'top') {
+            $rect.attr('y', value);
+          }
+        }
+      }
+    );
+  });
+};
+
 
 document.addEventListener("DOMContentLoaded", function() {
   // getADS();
