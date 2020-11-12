@@ -423,22 +423,22 @@ table {
 
 html { font-size: 62.5%; }  /* Base font size: 10px */
 body {
-    background: #fff;
-    color: #000305;
-    font-size: 1.6rem; /* Base font size: 16px */
-    font-weight: 300;
-    font-family: 'NeueHaasGroteskDisp Std', sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    line-height: 1.4rem;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    position: relative;
-    left: 0;
-    transition: left 500ms ease-in-out;
-    /* max-width: 100vw; */
-  }
+  background: #fff;
+  color: #000;
+  font-size: 1.6rem; /* Base font size: 16px */
+  font-weight: 300;
+  font-family: 'NeueHaasGroteskDisp Std', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.4rem;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  position: relative;
+  left: 0;
+  transition: left 500ms ease-in-out;
+  /* max-width: 100vw; */
+}
 
 /* Headings */
 h2 {font-size: 2.4rem;line-height: 2.6rem;} /* 22px */
@@ -776,24 +776,6 @@ nav#archive-nav-below a {
   transition: opacity 0.3s linear;
 }
 
-span.CFA_headline {
-  padding-left: 1px;
-  text-align: left;
-}
-span.postcount span {
-  background: transparent;
-  color: #000;
-  box-shadow: 0px 0px 1px #232323;
-  letter-spacing: 3px;
-  padding: 0 1px;
-  line-height: 20px;
-  margin-right: 3px;
-  text-align: center;
-}
-span.postcount span:last-child {
-  color: #f5a32f;
-}
-
 div.wpcf7 input[type="submit"] {
   font-size: 24px;
   font-weight: 300;
@@ -1018,7 +1000,7 @@ div.wpcf7 input[type="submit"] {
 }
 .single .single-pinbin-copy,
 .page .pinbin-copy {
-  padding: 2% 8%;
+  padding: 0 5vw;
   color: #444;
   font-size: 15px;
   line-height: 18px;
@@ -2254,33 +2236,20 @@ a.search_menu {
     display: inline-block;
     width: 100%;
 }
-p.wysija-paragraph {
-  width: 40%;
-  margin: 0 5%;
-  float: left;
-  display: inline-block;
-}
 @media only screen and (max-width: 767px) {
   p.wysija-paragraph {
     width: 90%;
   }
 }
-.widget_wysija_cont .wysija-paragraph label {
-  width: 100%;
-  text-align: center;
-  margin: 20px 0 0 0;
-  font-size: 2rem;
-}
+
+    max-width: 640px;
 .widget_wysija_cont .wysija-paragraph input {
-  text-align: center;
-  margin: 0;
   width: 100%;
-  max-width: 767px;
-  padding: 7px 10px;
-  line-height: 20px;
-  font-size: 2rem;
-  height: 40px;
-  box-sizing: border-box;
+  max-width: 250px;
+  height: 60px;
+  background: transparent;
+  border-bottom: 5px solid #ffcc33;
+  color: #fff;
 }
 .widget_wysija_cont .wysija-paragraph textarea {
   width: 100%;
@@ -2349,10 +2318,6 @@ div.wpcf7-validation-errors {
 .text-center {text-align: center;}
 .text-right {text-align: right;}
 
-.page .pinbin-copy {
-  padding: 0 8% 50px 8%;
-  margin-top: 0;
-}
 .page-template-residency-page .pinbin-copy {
   width: 100%;
   max-width: 100vw;
@@ -2455,7 +2420,7 @@ ul#ToC-list li {
   right: 20px;
   width: 50px;
   height: 50px;
-  background: rgba(255,255,255,.5);
+  background: transparent;
   border: none;
   border-radius: 3px;
   z-index: 10;
@@ -2678,4 +2643,84 @@ article.type-post:not(.isotope-item):after {
   #post-area.append-posts {
       margin-top: 200px;
   }
+}
+
+/* DEFAULT PAGE TEMPLATE */
+body.page-template-default {
+  background: #000;
+  color: #fff;
+}
+.page-template-default #main-nav-wrapper #logo svg path,
+#hambmenu-icon rect {
+    fill: #fff;
+}
+.page-template-default .pinbin-copy,
+.page-template-default .sidemenu .menu li a,
+.page-template-default .sidemenu .menu #lang-switcher span,
+.page-template-default p a,
+.page-template-default #showmehome {
+    color: #fff;
+}
+.page-template-default .pinbin-copy,
+.page-template-default .pinbin-copy form.widget_wysija p {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+.page-template-default .pinbin-copy h1 {
+  flex: 1 0 100%;
+  margin-bottom: 80px;
+  font-family: 'Sometimes Times', serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 5em;
+  line-height: 1.15em;
+  margin: 0 -15vw 80px -15vw;
+}
+.page-template-default .pinbin-copy h2,
+.page-template-default .pinbin-copy h2 + p,
+.page-template-default .pinbin-copy form.widget_wysija label,
+.page-template-default .pinbin-copy form.widget_wysija input {
+  flex: 0 0 50%;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+}
+.page-template-default .pinbin-copy h2,
+.page-template-default .pinbin-copy form.widget_wysija label {
+  text-align: right;
+  font-family: 'NeueHaasGroteskDisp Std', sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.page-template-default .pinbin-copy h2 + p,
+.page-template-default .pinbin-copy form.widget_wysija input {
+  font-size: 14px;
+  line-height: 22px;
+  padding-top: 14px;
+  letter-spacing: 0;
+  text-align: justify;
+}
+.page-template-default .pinbin-copy p a {
+  text-decoration: none;
+}
+.page-template-default .pinbin-copy p strong,
+.page-template-default .pinbin-copy p b {
+  text-decoration: none;
+  border-bottom: 2px solid #FFCC33;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+}
+.page-template-default .pinbin-copy .wp-block-spacer {
+    clear: both;
+    flex: 1 0 100%;
+}
+.page-template-default #uplink:before, #uplink:after {
+  background-color: #fff;
+}
+.page-template-default .pinbin-copy .widget_wysija_cont {
+  position: relative;
+  max-width: 640px;
 }
