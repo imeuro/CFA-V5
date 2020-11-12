@@ -2669,7 +2669,7 @@ body.page-template-default {
   justify-content: center;
 }
 .page-template-default .pinbin-copy h1 {
-  flex: 1 0 100%;
+  flex: 0 0 70vw;
   margin-bottom: 80px;
   font-family: 'Sometimes Times', serif;
   font-weight: 300;
