@@ -2667,6 +2667,7 @@ body.page-template-default {
   flex-flow: row wrap;
   align-items: flex-start;
   justify-content: center;
+  max-width: 1280px;
 }
 .page-template-default .pinbin-copy h1 {
   flex: 0 0 100vw;
@@ -2680,6 +2681,7 @@ body.page-template-default {
 }
 .page-template-default .pinbin-copy h2,
 .page-template-default .pinbin-copy h2 + p,
+.page-template-default .pinbin-copy h2 + .wp-block-group,
 .page-template-default .pinbin-copy form.widget_wysija label,
 .page-template-default .pinbin-copy form.widget_wysija input {
   flex: 0 0 50%;
@@ -2692,10 +2694,12 @@ body.page-template-default {
   text-align: right;
   font-family: 'NeueHaasGroteskDisp Std', sans-serif;
   font-size: 36px;
+  line-height: 38px;
   font-weight: 300;
   text-transform: uppercase;
 }
 .page-template-default .pinbin-copy h2 + p,
+.page-template-default .pinbin-copy h2 + .wp-block-group p,
 .page-template-default .pinbin-copy form.widget_wysija input {
   font-size: 14px;
   line-height: 22px;
@@ -2716,6 +2720,9 @@ body.page-template-default {
 .page-template-default .pinbin-copy .wp-block-spacer {
     clear: both;
     flex: 1 0 100%;
+}
+.page-template-default .pinbin-copy h2 + .wp-block-group {
+    padding-top: 0;
 }
 .page-template-default #uplink:before, #uplink:after {
   background-color: #fff;
