@@ -2646,12 +2646,13 @@ article.type-post:not(.isotope-item):after {
 }
 
 /* DEFAULT PAGE TEMPLATE */
-body.page-template-default {
+body.page-template-default,
+.page-template-default .sidemenu {
   background: #000;
   color: #fff;
 }
 .page-template-default #main-nav-wrapper #logo svg path,
-#hambmenu-icon rect {
+.page-template-default #hambmenu-icon rect {
     fill: #fff;
 }
 .page-template-default .pinbin-copy,
