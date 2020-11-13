@@ -386,8 +386,6 @@ if (bodyClasses.contains('single','single-post')) {
 }
 
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
   bottomLinks(window);
   get_summary(window);

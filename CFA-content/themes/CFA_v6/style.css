@@ -2662,6 +2662,14 @@ body.page-template-default,
 .page-template-default #showmehome {
     color: #fff;
 }
+.page-template-default #site-navigation {
+  position: initial;
+}
+.page-template-default #wrap {
+  padding-top: 0;
+  z-index: 10;
+  position: relative;
+}
 .page-template-default .pinbin-copy,
 .page-template-default .pinbin-copy form.widget_wysija p {
   display: flex;
@@ -2669,6 +2677,7 @@ body.page-template-default,
   align-items: flex-start;
   justify-content: center;
   max-width: 1280px;
+  position: relative;
 }
 .page-template-default .pinbin-copy h1 {
   flex: 0 0 100vw;
@@ -2685,7 +2694,7 @@ body.page-template-default,
 .page-template-default .pinbin-copy h2 + .wp-block-group,
 .page-template-default .pinbin-copy form.widget_wysija label,
 .page-template-default .pinbin-copy form.widget_wysija input {
-  flex: 0 0 50%;
+  flex: 0 0 100%;
   padding: 20px;
   margin: 0;
   box-sizing: border-box;
@@ -2731,4 +2740,17 @@ body.page-template-default,
 .page-template-default .pinbin-copy .widget_wysija_cont {
   position: relative;
   max-width: 640px;
+}
+
+@media (min-width: 767px) {
+  .page-template-default .pinbin-copy h2,
+  .page-template-default .pinbin-copy h2 + p,
+  .page-template-default .pinbin-copy h2 + .wp-block-group,
+  .page-template-default .pinbin-copy form.widget_wysija label,
+  .page-template-default .pinbin-copy form.widget_wysija input {
+    flex: 0 0 calc(50% - 40px);
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+  }
 }
