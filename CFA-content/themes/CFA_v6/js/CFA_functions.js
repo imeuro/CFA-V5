@@ -109,6 +109,18 @@ let appendENV = (env) => {
 	}
 }
 
+const PageReveal = () => {
+	const WC = document.getElementById('whitecurtain');
+	WC.classList.add('nofilter');
+	setTimeout(() => {
+		WC.classList.add('prehidden');
+	},1000);
+	setTimeout(() => {
+		WC.classList.add('hidden');
+		WC.classList.remove('nofilter','prehidden')
+	},2000);
+}
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -128,7 +140,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.addEventListener("load", function() {
 	console.log('done with page load.');
-	//cazzatadiExplore();
-	//if (sw>=768) { cazzatadiExplore(); }
-	document.getElementById('whitecurtain').classList.add('hidden');
+	PageReveal();
 });
