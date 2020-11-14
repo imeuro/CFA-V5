@@ -34,7 +34,7 @@ endif;
   </head>
 
   <body <?php body_class(); ?>>
-<div id="whitecurtain"></div>
+<div id="whitecurtain"><?php include("images/CFA_logo_v6.svg"); ?></div>
 
  	<!-- logo and navigation -->
 

@@ -1554,22 +1554,26 @@ margin-left: 120px;
 }
 
 #whitecurtain {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   width: 100%;
   height: 100vh;
   z-index: 1000;
   top: 0;
   opacity: 1;
-  background: url(./images/CFA_logo_v6_BLACK.svg) no-repeat center center #fff;
-  filter: grayscale(1) blur(10px);
-  transition: 1000ms linear;
+  background: #fff;
+  transition: 500ms linear;
 }
-#whitecurtain.nofilter {
-  filter: grayscale(1) blur(0);
-}
-#whitecurtain.prehidden {
-  opacity: 0;
-}
+#whitecurtain #CFAlogo-svg { opacity: 0.25; }
+
+#whitecurtain.prehidden { opacity: 0; }
+#whitecurtain #CFAlogo-C-svg,
+#whitecurtain #CFAlogo-A-svg,
+#whitecurtain #CFAlogo-cross-svg path:first-child,
+#whitecurtain.hidden { display:none; }
 
 #archivio {
   margin-bottom: 40px;
@@ -2348,6 +2352,7 @@ body.page-template-default,
   justify-content: center;
   max-width: 1280px;
   position: relative;
+  margin-bottom: 100px;
 }
 .page-template-default .pinbin-copy h1 {
   flex: 0 0 100vw;

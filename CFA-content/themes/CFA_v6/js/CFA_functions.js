@@ -111,14 +111,11 @@ let appendENV = (env) => {
 
 const PageReveal = () => {
 	const WC = document.getElementById('whitecurtain');
-	WC.classList.add('nofilter');
-	setTimeout(() => {
-		WC.classList.add('prehidden');
-	},1000);
+	WC.classList.add('prehidden');
 	setTimeout(() => {
 		WC.classList.add('hidden');
-		WC.classList.remove('nofilter','prehidden')
-	},2000);
+		WC.classList.remove('prehidden')
+	},500);
 }
 
 
@@ -126,7 +123,7 @@ const PageReveal = () => {
 document.addEventListener("DOMContentLoaded", function() {
 	console.debug('typeof jQuery:'+typeof jQuery);
 	// Website Credits
-	console.log("%c\n CONCEPTUAL FINE ARTS \n Powered by: Mauro Fioravanzi \n since oct 2013 \n",'background:#fff;color:#F7A420;font-weight:700');
+	console.log("%c\n CONCEPTUAL FINE ARTS rev. 6 \n © 2013-"+new Date().getFullYear()+" - all rights reserved \n",'background:#fff;color:#F7A420;font-weight:700');
 
 
 	document.getElementById('logo').addEventListener('click', function(){
