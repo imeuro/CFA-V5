@@ -78,8 +78,6 @@ function CFA_scripts() {
 	wp_enqueue_script( 'CFA-functions', get_template_directory_uri() . '/js/CFA_functions.js', array(), null, true );
 
 	wp_enqueue_style( 'style', get_stylesheet_uri(), '', '', 'all'  );
-	// OLD! wp_enqueue_style( 'CFA-font', 'https://fonts.googleapis.com/css?family=Arapey|BenchNine:700&display=swap' );
-	wp_enqueue_style( 'CFA-font', 'https://fonts.googleapis.com/css?family=Inter:wght@300;400;700&display=swap' );
 
 	wp_enqueue_style( 'Swiper', get_template_directory_uri() . '/js/swiper.min.css', '', '4.1.0', 'all'  );
 

@@ -14,7 +14,6 @@ endif;
     	<meta charset="<?php bloginfo('charset'); ?>" />
       <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-      <!--meta name="keywords" content="a list, of keywords, separated, by commas"-->
       <meta name="description" content="<?php
         if ( is_home() || is_page('it') ) : bloginfo('description');
         else :
@@ -30,6 +29,8 @@ endif;
       <link href="https://www.conceptualfinearts.com/cfa/favicon.ico" rel="shortcut icon" type="image/x-icon" />
       <link rel="profile" href="http://gmpg.org/xfn/11" />
       <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+      <link rel="preload" as="font" href="<?php echo get_template_directory_uri(); ?>/fonts/NHaasGroteskDSStd-55Rg.woff2">
+      <link rel="preload" as="font" href="<?php echo get_template_directory_uri(); ?>/fonts/SometimesTimes-Regular.woff2">
       <?php wp_head(); ?>
   </head>
 
