@@ -150,9 +150,18 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && documen
 if (window.location.search.substr(1) == "print=enabled") {
 	
 	var destroyFogliaswiper = function() {
-    if (typeof fogliaSwiper == 'object'){ 
-			fogliaSwiper.destroy();
-			console.log('fogliaswiper destroyed.');
+		if (typeof fogliaSwiper == 'object'){ 
+			if (typeof BlockSwiper == 'object') {
+				BlockSwiper.forEach((i) => {
+					i.destroy();
+				});
+				console.log('fogliaswipers destroyed.');
+			} else if (typeof curSwiper == 'object') {
+				curSwiper.forEach((i) => {
+					i.destroy();
+				});
+				console.log('legacy fogliaswipers destroyed.');
+			}
 		} 
 	};
 

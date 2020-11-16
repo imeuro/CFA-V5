@@ -20,13 +20,17 @@ body {
 #site-navigation,
 .prevContainer,
 .nextContainer,
+.swiper-pagination,
 .share-link,
-.posttags {
+.posttags,
+#post-area,
+#uplink,
+#showmehome {
     display: none;
 }
 
 .single h1 {
-    margin-top: 50px;
+    margin: 50px -70px 10px -70px;
 }
 .single .pinbin-copy { padding: 0; }
 h3.wp-caption-text.gallery-caption {
@@ -39,6 +43,18 @@ p {
   font-size: 14px; 
   line-height: 20px;
 }
+article img { 
+	page-break-before: avoid; 
+    page-break-after::avoid;
+    page-break-inside:avoid;
+    max-height: 400px;
+	height: auto;
+	width: auto !important;
+	max-width: 100%;
+	margin: 0 auto 30px auto;
+
+}
+/*
 .container .CFAslider,
 article img,
 article #gallery-1 img {
@@ -47,6 +63,11 @@ article #gallery-1 img {
 	width: auto !important;
 	max-width: 100%;
 	margin-bottom: 30px;
+}
+*/
+.swiper-wrapper {
+	display: flex;
+    flex-flow: column;
 }
 
 body:after { 

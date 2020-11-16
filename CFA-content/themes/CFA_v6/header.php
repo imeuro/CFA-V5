@@ -35,7 +35,7 @@ endif;
   </head>
 
   <body <?php body_class(); ?>>
-<div id="whitecurtain"><?php include("images/CFA_logo_v6.svg"); ?></div>
+<div id="whitecurtain"><img src="<?php echo get_template_directory_uri(); ?>/images/cross.gif" style="width: 25px;"></div>
 
  	<!-- logo and navigation -->
 
