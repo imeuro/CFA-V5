@@ -32,7 +32,7 @@ menubtn.addEventListener('click', () => {
 	if (bodyClasses.contains('fixd','single') === false) { 
 		topscroll = document.scrollingElement.scrollTop;
 	}
-	menubtn.parentElement.classList.toggle('menu-open');
+	document.getElementById('site-navigation').classList.toggle('menu-open');
 	setTimeout(() => {
 		if (bodyClasses.contains('single') === false) {
 			document.body.classList.toggle('fixd');
