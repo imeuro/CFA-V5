@@ -949,7 +949,7 @@ div.wpcf7 input[type="submit"] {
   position: absolute;
   bottom: 0;
   padding: 15px 25px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: 2px;
@@ -972,6 +972,7 @@ div.wpcf7 input[type="submit"] {
   line-height: 14px;
   text-transform: none;
   color: rgba(255,255,255,0.75);
+  letter-spacing: 0px;
 }
 .home .pinbin-copy p strong,
 .archive .pinbin-copy p strong,
