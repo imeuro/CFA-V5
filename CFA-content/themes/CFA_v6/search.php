@@ -45,14 +45,6 @@ $postnum++;
             </div>
           </a>
         </div>
-        <?php }
-        else { ?>
-         <div class="pinbin-text">
-         <h2><a href="<?php the_permalink() ?>" class="left"><span><?php
-            $excerpt = get_the_excerpt();
-            echo string_limit_words($excerpt,25);
-            ?></span> <br />continue...</a></h2>
-        </div>
         <?php } ?>
 </article>
 <?php endwhile; ?>

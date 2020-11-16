@@ -5,7 +5,7 @@ var bodyClasses = document.body.classList; // usage: bodyClasses.contains('my-cl
 var ENV = window.location.host;
 let devENV = null;
 var basepath = '/cfa/';
-if (ENV == 'localhost' || ENV == 'nas.imeuro.io' || ENV == 'meuro.dev') {
+if (ENV == 'localhost' || ENV == 'meuro.dev') {
 	basepath = '/conceptualfinearts/cfa/';
 	devENV = true;
 }
