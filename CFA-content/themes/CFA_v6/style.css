@@ -13,7 +13,7 @@
 /* 
 ###################
 OFFICIAL CFA ORANGE IS:
-#f5a32f
+#FFCC33
 ###################
 */
 
@@ -772,7 +772,7 @@ div.wpcf7 input[type="submit"] {
   font-size: 24px;
   font-weight: 300;
   background: #fff;
-  color: #f5a32f;
+  color: #FFCC33;
   font-family: 'NeueHaasGroteskDisp Std', sans-serif;
   border: 0;
   padding: 1rem;
@@ -1120,7 +1120,7 @@ div.wpcf7 input[type="submit"] {
   clear: both;
   display: inline-block;
   padding: 10px 10px;
-  color: #f5a32f;
+  color: #FFCC33;
   font-family: 'NeueHaasGroteskDisp Std', sans-serif;
   text-transform: uppercase;
   text-decoration: none;
@@ -1415,7 +1415,7 @@ blockquote {
   line-height: 23px;
   color: #111;
   margin-left: 20px;
-  border-left: 2px solid #f5a32f;
+  border-left: 2px solid #FFCC33;
   padding-left: 25px;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -1512,7 +1512,7 @@ select {
   width: 10px;
   height: 10px;
   margin: 0 5px;
-  background: #f5a32f;
+  background: #FFCC33;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -1938,7 +1938,7 @@ a.search_menu {
   max-width: 250px;
   height: 60px;
   background: transparent;
-  border-bottom: 5px solid #ffcc33;
+  border-bottom: 5px solid #FFCC33;
   color: #fff;
 }
 .widget_wysija_cont .wysija-paragraph textarea {
@@ -1946,21 +1946,21 @@ a.search_menu {
   box-sizing: border-box;
   font-size: 1.75rem;
 }
-span.wpcf7-not-valid-tip { color: #f5a32f; }
+span.wpcf7-not-valid-tip { color: #FFCC33; }
 .widget_wysija_cont .updated {
   font-family: 'NeueHaasGroteskDisp Std', sans-serif;
   font-size: 2rem;
-  border: 1px solid #f5a32f;
+  border: 1px solid #FFCC33;
   border-radius: 3px;
   color: #fff;
-  background: #f5a32f;
+  background: #FFCC33;
   text-align: center;
   margin: 40px 0;
   padding: 20px;
 }
 div.wpcf7-validation-errors {
-  border: 1px solid #f5a32f;
-  color: #f5a32f;
+  border: 1px solid #FFCC33;
+  color: #FFCC33;
   text-align: center;
   padding: 20px;
   margin: 0;
@@ -2079,7 +2079,7 @@ ul#ToC-list li a {
     margin-right: 10px;
     cursor: pointer;
     display: inline;
-    border-bottom: 1px solid #f5a32f;
+    border-bottom: 1px solid #FFCC33;
     /* text-decoration: underline; */
 }
 
@@ -2239,7 +2239,7 @@ button.micrio-switch {
     font: 700 16px/32px 'NeueHaasGroteskDisp Std', sans-serif;
     color: #fff;
     text-transform: uppercase;
-    background: #f5a32f;
+    background: #FFCC33;
     border: none;
     border-radius: 3px;
     padding: 5px 20px;
@@ -2353,7 +2353,7 @@ body.page-template-default,
   justify-content: center;
   max-width: 1280px;
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 .page-template-default .pinbin-copy h1 {
   flex: 0 0 100vw;
@@ -2432,6 +2432,16 @@ body.page-template-default,
     box-sizing: border-box;
     padding: 20px 0 0 0;
     outline: none;
+}
+.page-template-default .pinbin-copy .widget_wysija .formError .formErrorContent {
+    color: #FFCC33;
+    border: none;
+    background: none;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'NeueHaasGroteskDisp Std';
+    margin-top: 10px;
+    text-align: left;
 }
 .page-template-default .pinbin-copy .widget_wysija input[type=submit],
 #searchform input[type=submit] {
