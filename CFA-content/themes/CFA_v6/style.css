@@ -607,7 +607,7 @@ nav#archive-nav-below a {
 .home #logo svg path {
   transition: fill .5s linear;
 }
-.home .WLOGO {
+.WLOGO {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -617,7 +617,7 @@ nav#archive-nav-below a {
   width: 250px;
   height: 123px;
 }
-.home .WLOGO svg {
+.WLOGO svg {
     width: 250px;
     height: auto;
 }
