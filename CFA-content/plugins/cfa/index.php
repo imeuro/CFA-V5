@@ -19,7 +19,7 @@ function get_langswitcherDOM() {
 	$ldom = '';
 	global $post;
 
-	if (is_home() || is_front_page() || is_archive() || is_page('it')) {
+	if (is_home() || is_front_page() || is_archive() || is_search() || is_page('it')) {
 		$ldom .= '<li><a href="'.home_url('/').'" data-lang="EN">EN</a>';
 		$ldom .= '<a href="'.home_url('/it/').'" data-lang="IT">IT</a></li>';
 	} elseif ( is_single() || is_page() ) {

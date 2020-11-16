@@ -867,7 +867,8 @@ div.wpcf7 input[type="submit"] {
 }
 
 .single h1,
-.archive h1 {
+.archive h1,
+.search h1 {
   color: #000;
   font-family: 'Sometimes Times', serif;
   font-weight: 300;
@@ -952,6 +953,7 @@ div.wpcf7 input[type="submit"] {
 }
 .home .pinbin-copy p,
 .archive .pinbin-copy p,
+.search .pinbin-copy p,
 .append-posts .pinbin-copy p {
   line-height: 36px;
   font-size: 30px;
@@ -969,10 +971,12 @@ div.wpcf7 input[type="submit"] {
 }
 .home .pinbin-copy p small,
 .archive .pinbin-copy p small,
+.search .pinbin-copy p small,
 .append-posts .pinbin-copy p small {font-size: 1.1rem;}
 
 .home .pinbin-copy p span,
 .archive .pinbin-copy p span,
+.search .pinbin-copy p span,
 .append-posts .pinbin-copy p span {
   display: block;
   margin-top: 10px;
@@ -985,6 +989,7 @@ div.wpcf7 input[type="submit"] {
 }
 .home .pinbin-copy p strong,
 .archive .pinbin-copy p strong,
+.search .pinbin-copy p strong,
 .append-posts .pinbin-copy p strong {
   font-weight: 300;
 }
