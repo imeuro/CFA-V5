@@ -2488,5 +2488,8 @@ body.page-template-default,
     margin: 0;
     box-sizing: border-box;
   }
-  .page-template-default #wrap { margin-top: 230px; }
+  .page-template-default #wrap { 
+    margin-top: 230px;
+    max-width: 100%; 
+  }
 }
