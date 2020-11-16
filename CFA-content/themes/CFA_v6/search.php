@@ -9,45 +9,47 @@
 $postnum=0;
 while (have_posts()) : the_post(); 
 $postnum++;
-?>  
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-   <?php
-    $attachments = get_children(array('post_parent' => get_the_ID(), 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order'));
-      if ($attachments || has_post_thumbnail()) {
-            if ( ! is_array($attachments) ) continue;
-            $count = count($attachments);
-            $first_attachment = array_shift($attachments);
-            ?>
-        <div class="pinbin-image newitem">
-          <a href="<?php the_permalink(); ?>" class="left">
-            <?php
-            // check if the post has a Post Thumbnail assigned to it.
-            if ( has_post_thumbnail() ) {
-              $imgsrc =  wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large' );
-              echo '<img src="'.$imgsrc[0].'" loading="lazy" />';
-            } else {
-              $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, 'large' );
-              echo '<img src="'.$imgsrc[0].'" loading="lazy" />';
-            }
-            ?>
-            <div class="pinbin-copy">
-              <p>
-                <?php
-                if (get_the_title()!='') :
-                   echo '<strong>'.get_the_title().'</strong>';
-                endif;
-                if (has_excerpt($post->ID)) :
-                  echo '<span>'.get_the_excerpt().'</span>';
-                endif;
-                ?>
-              </p>
-            </div>
-          </a>
-        </div>
-        <?php } ?>
-</article>
-<?php endwhile; ?>
+if ($post->post_type == 'post') { ?>  
+  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+     <?php
+      $attachments = get_children(array('post_parent' => get_the_ID(), 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order'));
+        if ($attachments || has_post_thumbnail()) {
+              if ( ! is_array($attachments) ) continue;
+              $count = count($attachments);
+              $first_attachment = array_shift($attachments);
+              ?>
+          <div class="pinbin-image newitem">
+            <a href="<?php the_permalink(); ?>" class="left">
+              <?php
+              // check if the post has a Post Thumbnail assigned to it.
+              if ( has_post_thumbnail() ) {
+                $imgsrc =  wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large' );
+                echo '<img src="'.$imgsrc[0].'" loading="lazy" />';
+              } else {
+                $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, 'large' );
+                echo '<img src="'.$imgsrc[0].'" loading="lazy" />';
+              }
+              ?>
+              <div class="pinbin-copy">
+                <p>
+                  <?php
+                  if (get_the_title()!='') :
+                     echo '<strong>'.get_the_title().'</strong>';
+                  endif;
+                  if (has_excerpt($post->ID)) :
+                    echo '<span>'.get_the_excerpt().'</span>';
+                  endif;
+                  ?>
+                </p>
+              </div>
+            </a>
+          </div>
+          <?php } ?>
+  </article>
+<?php }
+endwhile; ?>
 </div>
 <?php else : ?>
 
