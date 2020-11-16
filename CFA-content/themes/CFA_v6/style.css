@@ -2338,12 +2338,18 @@ body.page-template-default,
 .page-template-default #showmehome {
     color: #fff;
 }
-.page-template-default #site-navigation { position: initial; }
+.page-template-default #site-navigation { 
+  position: fixed;
+  z-index: 1;
+}
 .page-template-default #hambmenu { position: fixed;  }
 .page-template-default #wrap {
   padding-top: 0;
-  z-index: 8;
   position: relative;
+  z-index: 9;
+  max-width: 640px;
+  margin: 170px auto 0 auto;
+  background: #000; 
 }
 .page-template-default .pinbin-copy,
 .page-template-default .pinbin-copy form.widget_wysija p {
@@ -2397,7 +2403,9 @@ body.page-template-default,
   text-decoration: none;
 }
 .page-template-default .pinbin-copy p strong,
-.page-template-default .pinbin-copy p b {
+.page-template-default .pinbin-copy p b,
+.page-template-default .pinbin-copy h2 b,
+.page-template-default .pinbin-copy h2 strong {
   text-decoration: none;
   border-bottom: 2px solid #FFCC33;
   letter-spacing: 0.5px;
@@ -2480,5 +2488,5 @@ body.page-template-default,
     margin: 0;
     box-sizing: border-box;
   }
-  .page-template-default #wrap { z-index: 9; }
+  .page-template-default #wrap { margin-top: 230px; }
 }
