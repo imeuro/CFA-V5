@@ -488,17 +488,14 @@ h6 {
 .clear { clear: both; }
 
 
-.page #wrap {
-  width: 100%;
-  max-width: 100vw;
-  padding-top: 170px;
-}
+.page #wrap,
 .search #wrap,
 .archive #wrap {
   width: 100%;
   max-width: 100vw;
-  padding-top: 30px;
+  padding-top: 170px;
 }
+
 div.page.hentry {
   width: 100%;
   display: block;
