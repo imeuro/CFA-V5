@@ -954,7 +954,7 @@ div.wpcf7 input[type="submit"] {
   backdrop-filter: blur(10px);
   border-radius: 2px;
   font-family: 'Sometimes Times';
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: initial;
   text-align: center;
 }
