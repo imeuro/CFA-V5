@@ -5,8 +5,8 @@
 ?>
 
 <?php get_header(); ?>
-<span id="trigger"></span>
 <?php if (have_posts()) : ?>
+
 <div id="post-area"><!--class="scroller"-->
 
 <?php
@@ -65,11 +65,7 @@ while (have_posts()) : the_post();
               <?php } ?>
         </article>
 
-<?php 
-
-
-
-endwhile; ?>
+<?php endwhile; ?>
 </div>
 <?php else : ?>
 

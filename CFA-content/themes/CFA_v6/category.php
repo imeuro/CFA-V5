@@ -2,17 +2,14 @@
 /**
  * Category index file
  */
-
 ?>
 
 <?php get_header(); ?>
-<span id="trigger"></span>
 <?php if (have_posts()) : ?>
 
-<h1 class="category-title left"><?php single_cat_title('Currently browsing section: "'); ?>".</h1>
+<h1 class="category-title left"><?php single_cat_title('Currently browsing section:<br/>"'); ?>"</h1>
 <div style="clear:both"></div>
 <div class="category-description"><?php echo category_description(); ?></div>
-
 
 <div id="post-area"><!--class="scroller"-->
 <?php 
@@ -21,7 +18,7 @@ while (have_posts()) : the_post();
 $postnum++;
 
 ?>  
-   		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
          <?php
           $attachments = get_children(array('post_parent' => get_the_ID(), 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order'));
@@ -31,42 +28,41 @@ $postnum++;
                   $first_attachment = array_shift($attachments);
                   ?>
               <div class="pinbin-image newitem">
-                <a href="<?php the_permalink() ?>" class="left">
+                <a href="<?php the_permalink(); ?>" class="left">
                   <?php
                   // check if the post has a Post Thumbnail assigned to it.
                   if ( has_post_thumbnail() ) {
-                    //$imgsrc = wp_get_attachment_thumb_url( get_post_thumbnail_id($post->ID));
-                    $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $size='medium' );
-                    echo '<img src="'.$imgsrc[0].'" />';
+                    $imgsrc =  wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large' );
+                    echo '<img src="'.$imgsrc[0].'" loading="lazy" />';
                   } else {
-                    $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, $size='medium' );
-                    echo '<img src="'.$imgsrc[0].'" />';
+                    $imgsrc =  wp_get_attachment_image_src($first_attachment->ID, 'large' );
+                    echo '<img src="'.$imgsrc[0].'" loading="lazy" />';
                   }
                   ?>
                   <div class="pinbin-copy">
-
                     <p>
-                      <small><?php the_time('F j, Y'); ?></small><br />
-                    <?php 
-                    if (get_the_title()!='') :
-                      the_title();
-                    else : 
-                      $excerpt = get_the_excerpt();
-                      echo string_limit_words($excerpt,15); 
-                    endif;
-                  ?></p></div>
+                      <?php
+                      if (get_the_title()!='') :
+                         echo '<strong>'.get_the_title().'</strong>';
+                      endif;
+                      if (has_excerpt($post->ID)) :
+                        echo '<span>'.get_the_excerpt().'</span>';
+                      endif;
+                      ?>
+                    </p>
+                  </div>
                 </a>
               </div>
-              <?php } 
+              <?php }
               else { ?>
                <div class="pinbin-text">
-               <h2><a href="<?php the_permalink() ?>" class="left"><span><?php 
+               <h2><a href="<?php the_permalink() ?>" class="left"><span><?php
                   $excerpt = get_the_excerpt();
-                  echo string_limit_words($excerpt,25); 
+                  echo string_limit_words($excerpt,25);
                   ?></span> <br />continue...</a></h2>
               </div>
               <?php } ?>
-       	</article>
+        </article>
 <?php endwhile; ?>
 </div>
 <?php else : ?>
