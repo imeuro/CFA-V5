@@ -1,6 +1,6 @@
 // foglia: load the posts in homepage as the user approaches the end of page
 document.body.classList.add('moreposts');
-const postareaTarget = document.getElementById('wrap');
+let postareaTarget = document.getElementById('wrap');
 let postareaDiv,
 	fillnonce = null;
 
