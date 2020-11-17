@@ -667,10 +667,6 @@ nav#archive-nav-below a {
 }
 .menu-open .sidemenu {
   top: 0;
-  z-index: 100;
-}
-.menu-open #main-nav-wrapper #logo {
-  z-index: 101;
 }
 .sidemenu .menu {
   display: flex;
