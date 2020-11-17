@@ -2517,6 +2517,6 @@ body.page-template-default,
   }  
   .page-template-default #wrap { 
     margin-top: 230px;
-    max-width: 100%; 
+    max-width: 768px; 
   }
 }
