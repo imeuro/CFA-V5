@@ -127,7 +127,7 @@ const logoTransition = () => {
 	else 
 		{ postareaDivName = 'post-area'; }
 	svgbottom = logo_v6.firstElementChild.getBoundingClientRect().y + logo_v6.firstElementChild.getBoundingClientRect().height;
-	initialpostareaDivTop = document.getElementById(postareaDivName).offsetTop;
+	initialpostareaDivTop = document.getElementById(postareaDivName).getBoundingClientRect().top;
 	const logoattack = initialpostareaDivTop-svgbottom;
 
 	document.addEventListener('scroll', function() {
