@@ -584,6 +584,7 @@ nav#archive-nav-below a {
   z-index: 9;
   overflow: hidden;
 }
+#site-navigation.menu-open { height: 100%; }
 #logo-print { display: none; }
 
 #main-nav-wrapper #logo {
