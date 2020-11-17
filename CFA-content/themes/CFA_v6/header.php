@@ -86,9 +86,9 @@ endif;
   </nav>
 
   <?php // if (is_home() || is_front_page() || is_archive() || is_search() || is_page('it')) :
-    echo '<div class="WLOGO">';
+    echo '<div class="WLOGO"><a href="'.get_home_url().' title="Conceptual Fine Arts - Homepage">';
     include("images/CFA_logo_v6_WHITE.svg");
-    echo '</div> ';
+    echo '</a></div> ';
   // endif; ?>
 <div class="clear"></div>
 <?php                       
