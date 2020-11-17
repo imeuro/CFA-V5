@@ -52,13 +52,13 @@ endif;
       </button>
 
 		<?php if (is_home() || is_front_page() || is_archive() || is_search() || is_page('it')) :
-			echo '<h1 id="logo">';
+			echo '<h1 id="logo"><a href="'.get_home_url().' title="Conceptual Fine Arts - Homepage">';
       include("images/CFA_logo_v6_BLACK.svg");
-      echo '</h1> ';
+      echo '</a></h1> ';
 		else:
-			echo '<div id="logo">';
+			echo '<div id="logo"><a href="'.get_home_url().' title="Conceptual Fine Arts - Homepage">';
       include("images/CFA_logo_v6_BLACK.svg");
-      echo '</div>';
+      echo '</a></div>';
 		endif; ?>
 
     <div class="sidemenu">

@@ -160,10 +160,6 @@ const logoTransition = () => {
 
 }
 
-document.getElementById('logo').addEventListener('click', function(){
-		window.location.href = basepath;
-});
-
 document.addEventListener("DOMContentLoaded", function() {
 	console.debug('typeof jQuery:'+typeof jQuery);
 	// Website Credits
