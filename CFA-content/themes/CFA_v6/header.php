@@ -26,7 +26,16 @@ endif;
       ?>">
       <meta name="language" content="<?php echo $lang; ?>">
       <title><?php wp_title('&#124;', true, 'right'); ?></title>
-      <link href="https://www.conceptualfinearts.com/cfa/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+      <link rel="apple-touch-icon" sizes="180x180" href="https://www.conceptualfinearts.com/apple-touch-icon.png?v6">
+      <link rel="icon" type="image/png" sizes="32x32" href="https://www.conceptualfinearts.com/favicon-32x32.png?v6">
+      <link rel="icon" type="image/png" sizes="16x16" href="https://www.conceptualfinearts.com/favicon-16x16.png?v6">
+      <link rel="manifest" href="https://www.conceptualfinearts.com/site.webmanifest?v6">
+      <link rel="mask-icon" href="https://www.conceptualfinearts.com/safari-pinned-tab.svg?v6" color="#5bbad5">
+      <link rel="shortcut icon" href="https://www.conceptualfinearts.com/favicon.ico?v6">
+      <meta name="msapplication-TileColor" content="#da532c">
+      <meta name="theme-color" content="#ffffff">
+
       <link rel="profile" href="http://gmpg.org/xfn/11" />
       <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
       <link rel="preload" as="font" href="<?php echo get_template_directory_uri(); ?>/fonts/NHaasGroteskDSStd-55Rg.woff2">
