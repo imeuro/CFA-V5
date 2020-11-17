@@ -78,6 +78,8 @@ let LoadHPCont = () => {
 							postareaDiv.innerHTML = HPDOM;
 						}
 
+						logoTransition();
+
 						fillnonce = true;
 					}
 

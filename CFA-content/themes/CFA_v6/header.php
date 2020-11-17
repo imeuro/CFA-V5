@@ -57,7 +57,7 @@ endif;
       echo '</h1> ';
 		else:
 			echo '<div id="logo">';
-      include("images/CFA_logo_v6.svg");
+      include("images/CFA_logo_v6_BLACK.svg");
       echo '</div>';
 		endif; ?>
 
@@ -85,11 +85,11 @@ endif;
 
   </nav>
 
-  <?php if (is_home() || is_front_page() || is_archive() || is_search() || is_page('it')) :
+  <?php // if (is_home() || is_front_page() || is_archive() || is_search() || is_page('it')) :
     echo '<div class="WLOGO">';
     include("images/CFA_logo_v6_WHITE.svg");
     echo '</div> ';
-  endif; ?>
+  // endif; ?>
 <div class="clear"></div>
 <?php                       
 ////////////////////////////////////////////

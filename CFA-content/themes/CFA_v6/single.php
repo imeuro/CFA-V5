@@ -60,12 +60,11 @@
         <div class="clear"></div>
 
         <div class="share-link">
-          <div class="share-link-title">Share this page:</div>
-
+          <!-- <div class="share-link-title">Share this page:</div> -->
           <ul class="share-link-buttons-list">
-            <li class="share-link-buttons">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()) ?>" class="share-link-facebook" title="Share via Facebook" target="_blank" rel="nofollow noopener">
-                <img alt="Share via Facebook" width="48" height="48" src="<?php echo get_template_directory_uri(); ?>/images/noun_FB.svg" />
+<!--             <li class="share-link-buttons">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=<?php // echo urlencode(get_permalink()) ?>" class="share-link-facebook" title="Share via Facebook" target="_blank" rel="nofollow noopener">
+                <img alt="Share via Facebook" width="48" height="48" src="<?php // echo get_template_directory_uri(); ?>/images/noun_FB.svg" />
               </a>
             </li>
             <li class="share-link-buttons share-link-buttons-whatsapp">
@@ -73,10 +72,10 @@
                 <img alt="Share via WhatsApp" width="48" height="48" src="<?php echo get_template_directory_uri(); ?>/images/noun_WA.svg"></a>
             </li>
             <li class="share-link-buttons">
-              <a href="http://www.tumblr.com/widgets/share/tool?canonicalUrl=<?php echo urlencode(get_permalink()) ?>&amp;name=<?php echo urlencode(get_the_title()) ?>" class="share-link-tumblr" title="Share via Tumblr" target="_blank" rel="nofollow noopener">
-                <img alt="Share via Tumblr" width="48" height="48" src="<?php echo get_template_directory_uri(); ?>/images/noun_TB.svg">
+              <a href="http://www.tumblr.com/widgets/share/tool?canonicalUrl=<?php // echo urlencode(get_permalink()) ?>&amp;name=<?php // echo urlencode(get_the_title()) ?>" class="share-link-tumblr" title="Share via Tumblr" target="_blank" rel="nofollow noopener">
+                <img alt="Share via Tumblr" width="48" height="48" src="<?php // echo get_template_directory_uri(); ?>/images/noun_TB.svg">
               </a>
-            </li>
+            </li> -->
             <li class="share-link-buttons">
               <a href="mailto:?Subject=<?php echo urlencode(get_the_title()) ?>&amp;Body=Hi,%20I%20found%20this%20article%20and%20thought%20you%20might%20like%20this:%20<?php echo urlencode(get_permalink()) ?>" class="share-link-email" title="Share via Email" rel="nofollow">
                 <img alt="Share via Email" width="48" height="48" src="<?php echo get_template_directory_uri(); ?>/images/noun_ML.svg">

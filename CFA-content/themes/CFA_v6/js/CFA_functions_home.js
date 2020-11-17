@@ -299,48 +299,6 @@ let injectADScont = (id) => {
 	  .then(text => target.innerHTML = text);
 }
 
-let exhiDiv,postareaDivName,initialpostareaDivTop,postareaDivTop,svgbottom,blackMask,whiteMask = '';
-const logoTransition = () => {
-	exhiDiv = document.getElementById('exhibition-banner');
-	if (exhiDiv) 
-		{ postareaDivName = 'exhibition-banner'; } 
-	else 
-		{ postareaDivName = 'post-area'; }
-	svgbottom = logo_v6.firstElementChild.getBoundingClientRect().y + logo_v6.firstElementChild.getBoundingClientRect().height;
-	initialpostareaDivTop = document.getElementById(postareaDivName).offsetTop;
-	const logoattack = initialpostareaDivTop-svgbottom;
-
-	document.addEventListener('scroll', function() {
-		postareaDivTop = document.getElementById(postareaDivName).getBoundingClientRect().top;
-		console.debug('postareaDivTop:'+postareaDivTop);
-		console.debug('document.scrollingElement.scrollTop:' + document.scrollingElement.scrollTop);
-		//blacklogo
-		blackMask = document.querySelector('.blacklogo');
-		if ((document.scrollingElement.scrollTop > logoattack) && postareaDivTop > 0) {
-			blackMask.setAttribute('y', postareaDivTop - svgbottom );
-		} else if (document.scrollingElement.scrollTop <= logoattack) {
-			blackMask.setAttribute('y', 0);
-		} else if (postareaDivTop <= 0 ) {
-			blackMask.setAttribute('y', logo_v6.offsetTop-svgbottom );
-		}
-		//whitelogo
-		whiteMask = document.querySelector('.whitelogo');
-		if ((document.scrollingElement.scrollTop > postareaDivTop - svgbottom) && postareaDivTop > 0) {
-			whiteMask.setAttribute('y', (svgbottom-logo_v6.offsetTop)-(svgbottom - postareaDivTop) );
-		} else if (postareaDivTop <= 0) {
-			whiteMask.setAttribute('y',0);
-		} else if (document.scrollingElement.scrollTop <= logoattack) {
-			whiteMask.setAttribute('y', svgbottom-logo_v6.offsetTop );
-		}
-	});
-
-	document.querySelector('.WLOGO').addEventListener('click', function(){
-			window.location.href = basepath;
-	});
-
-}
-
-
 
 
 document.addEventListener("DOMContentLoaded", function() {
