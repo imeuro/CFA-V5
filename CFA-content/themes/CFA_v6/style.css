@@ -1688,15 +1688,23 @@ margin-left: 120px;
     opacity: .5;
     transition: opacity 300ms ease-in-out;
 }
+.share-link ul li a:after {
+  content: attr(title);
+  display: block;
+  font-family: 'NeueHaasGroteskDisp Std';
+  text-decoration: none!important;
+  padding: 0;
+  margin-top: -15px;
+  font-size: 12px;
+  border: none;
+}
 .share-link ul li a:hover {
   opacity: 1;
 }
 
 .share-link-buttons-whatsapp { display:block; }
-.share-link-buttons-print { display:none; }
 @media only screen and (min-width: 768px) {
   .share-link-buttons-whatsapp { display:none; }
-  .share-link-buttons-print { display:block; }
   .share-link,
   .posttags {
     z-index: 100;
