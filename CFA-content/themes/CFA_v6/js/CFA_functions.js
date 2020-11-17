@@ -132,8 +132,8 @@ const logoTransition = () => {
 
 	document.addEventListener('scroll', function() {
 		postareaDivTop = document.getElementById(postareaDivName).getBoundingClientRect().top;
-		console.debug('postareaDivTop:'+postareaDivTop);
-		console.debug('document.scrollingElement.scrollTop:' + document.scrollingElement.scrollTop);
+		// console.debug('postareaDivTop:'+postareaDivTop);
+		// console.debug('document.scrollingElement.scrollTop:' + document.scrollingElement.scrollTop);
 		//blacklogo
 		blackMask = document.querySelector('.blacklogo');
 		if ((document.scrollingElement.scrollTop > logoattack) && postareaDivTop > 0) {
