@@ -1549,7 +1549,7 @@ article .nextContainer {
   position: absolute;
   top: 0;
   width: 50%;
-  height: calc(100% - 50px);
+  height: 0;
   z-index: 8;
   cursor: pointer;
   transition: top 300ms ease-in-out;
@@ -1715,12 +1715,14 @@ margin-left: 120px;
 }
 
 .share-link-buttons-whatsapp { display:block; }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 767px) {
   .share-link-buttons-whatsapp { display:none; }
   .share-link,
   .posttags {
     z-index: 100;
   }
+  article .prevContainer,
+  article .nextContainer { height: calc(100% - 50px); }
 }
 
 /* roba Bio (contenuto del post type: cfa_authors) */
@@ -2122,18 +2124,19 @@ ul#ToC-list li {
   outline: none;
   position: fixed;
   bottom: 5px;
-  right: 20px;
+  right: 15px;
   width: 50px;
   height: 50px;
   background: transparent;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   z-index: 10;
   opacity: .75;
   transition: opacity 150ms ease-in-out;
   margin: 0;
   padding: 0;
   cursor: pointer;
+  background: #fff;
 }
 #uplink:hover,
 #showmehome:hover { opacity: 1 }
@@ -2156,9 +2159,8 @@ ul#ToC-list li {
   transform: rotate(50deg);
 }
 #showmehome {
-  left: 20px;
+  left: 15px;
   right: initial;
-  height: auto;
   padding: 15px 5px 15px 15px;
   height: 20px;
   font-size: 22px;
@@ -2166,8 +2168,10 @@ ul#ToC-list li {
   text-transform: uppercase;
   text-decoration: none;
   color: #000;
+  background: #fff;
   font-family: 'Sometimes Times', serif;
-  font-weight: 300;
+  font-weight: 700;
+  width: 68px;
 }
 
 
