@@ -1543,6 +1543,19 @@ select {
 .gutenberg-swiper-block .gallery-caption {
   margin-left: 0;
 }
+/* frecce Swiper */
+article .prevContainer,
+article .nextContainer {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: calc(100% - 50px);
+  z-index: 8;
+  cursor: pointer;
+  transition: top 300ms ease-in-out;
+}
+article .prevContainer { left: 0; }
+article .nextContainer { right: 0; }
 
 .shareaholic-canvas:before {
    content: "Share this page: ";
