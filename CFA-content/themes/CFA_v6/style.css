@@ -2138,6 +2138,9 @@ ul#ToC-list li {
   cursor: pointer;
   background: #fff;
 }
+.page-template-default #uplink,
+.page-template-default #showmehome { background-color: #000; }
+
 #uplink:hover,
 #showmehome:hover { opacity: 1 }
 #uplink:before,
