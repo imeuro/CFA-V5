@@ -53,7 +53,7 @@ function randomFromInterval(from,to) {
     return Math.floor(Math.random()*(to-from+1)+from);
 }
 
-if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') === true || bodyClasses.contains('moreposts')) { // check classe in body
+if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') === true || bodyClasses.contains('search') === true || bodyClasses.contains('moreposts')) { // check classe in body
 
 	if (typeof jQuery == "function") {
 
@@ -112,7 +112,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 		        //disable resizing
 		        resizable: false,
 		        spineAlign: {
-		          gutterWidth: 10
+		          gutterWidth: 12
 		        }
 		      });
 
@@ -148,7 +148,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 		        //disable resizing
 		        resizable: false,
 		        spineAlign: {
-		          gutterWidth: 10
+		          gutterWidth: 12
 		        }
 		      });
 		      $container.isotope('reLayout');
@@ -161,7 +161,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 		    loading: {
 		      finished: undefined,
 		      finishedMsg: "<em>No other items to load.</em>",
-		      img: themepath+"images/tiny_red.gif",
+		      img: themepath+"images/cross.gif",
 		      msg: null,
 		      msgText: "",
 		      selector: null,
@@ -257,7 +257,7 @@ let getADS = () => {
 	// read and inject advs in position:
 	const adslot1 = document.querySelector('#post-area article:nth-child(2)');
 	let sp1 = document.createElement("article");
-	sp1.setAttribute('class','post type-post has-post-thumbnail hentry status-publish spformat1 post-spinsert');
+	sp1.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-adv1 post-ad-insert');
 	sp1.setAttribute('id', 'advblock1');
 	let sp2 = adslot1;
 	let parentDiv = sp2.parentNode
@@ -266,7 +266,7 @@ let getADS = () => {
 
 	const adslot2 = document.querySelector('#post-area article:nth-child(5)');
 	let sp1_2 = document.createElement("article");
-	sp1_2.setAttribute('class','post type-post has-post-thumbnail hentry status-publish spformat2 post-spinsert');
+	sp1_2.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-adv2 post-ad-insert');
 	sp1_2.setAttribute('id', 'advblock2');
 	let sp2_2 = adslot2;
 	let parentDiv_2 = sp2_2.parentNode
@@ -275,7 +275,7 @@ let getADS = () => {
 
 	const adslot3 = document.querySelector('#post-area article:nth-child(8)');
 	let sp1_3 = document.createElement("article");
-	sp1_3.setAttribute('class','post type-post has-post-thumbnail hentry status-publish spformat3 post-spinsert');
+	sp1_3.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-adv3 post-ad-insert');
 	sp1_3.setAttribute('id', 'advblock3');
 	let sp2_3 = adslot3;
 	let parentDiv_3 = sp2_3.parentNode
@@ -284,7 +284,7 @@ let getADS = () => {
 
 	const adslot4 = document.querySelector('#post-area article:nth-child(11)');
 	let sp1_4 = document.createElement("article");
-	sp1_4.setAttribute('class','post type-post has-post-thumbnail hentry status-publish spformat4 post-spinsert');
+	sp1_4.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-adv4 post-ad-insert');
 	sp1_4.setAttribute('id', 'advblock4');
 	let sp2_4 = adslot4;
 	let parentDiv_4 = sp2_4.parentNode
@@ -299,22 +299,14 @@ let injectADScont = (id) => {
 	  .then(text => target.innerHTML = text);
 }
 
+
+
 document.addEventListener("DOMContentLoaded", function() {
   // getADS();
-
 });
 
 
 window.addEventListener("load", function() {
-
- // injectADScont('advblock1');
- // injectADScont('advblock2');
- // injectADScont('advblock3');
- // injectADScont('advblock4');
-
- // okresize();
- // setTimeout(function(){
- // 	$container.isotope('reLayout');
- // },1000);
+	logoTransition();
 });
 

@@ -19,9 +19,9 @@ function get_langswitcherDOM() {
 	$ldom = '';
 	global $post;
 
-	if ( is_home() || is_front_page() || is_page('it') ) {
-		$ldom .= '<a href="'.home_url('/').'" data-lang="EN">EN</a>';
-		$ldom .= '<a href="'.home_url('/it/').'" data-lang="IT">IT</a>';
+	if (is_home() || is_front_page() || is_archive() || is_search() || is_page('it')) {
+		$ldom .= '<li><a href="'.home_url('/').'" data-lang="EN">EN</a>';
+		$ldom .= '<a href="'.home_url('/it/').'" data-lang="IT">IT</a></li>';
 	} elseif ( is_single() || is_page() ) {
 		$translationID = get_field('translation',$post->ID)[0];
 		$translationURL = get_permalink($translationID);
@@ -30,12 +30,12 @@ function get_langswitcherDOM() {
 
 		if ( 'cfa_translations' == get_post_type() || $post->post_parent == '95535' ) :
 			if ($translationID == null) { $translationURL = home_url('/'); } // No translation -> link to home ENG
-			$ldom .= '<a href="'.$translationURL.'" data-lang="EN">EN</a>';
-			$ldom .= '<span data-lang="IT">IT</span>';
+			$ldom .= '<li><a href="'.$translationURL.'" data-lang="EN">EN</a>';
+			$ldom .= '<span data-lang="IT">IT</span></li>';
 		else : 
 			if ($translationID == null) { $translationURL = home_url('/it/'); } // No translation ->link to home ITA
-			$ldom .= '<span data-lang="EN">EN</span>';
-			$ldom .= '<a href="'.$translationURL.'" data-lang="IT">IT</a>';
+			$ldom .= '<li><span data-lang="EN">EN</span>';
+			$ldom .= '<a href="'.$translationURL.'" data-lang="IT">IT</a></li>';
 		endif;
 	}
 	return $ldom;

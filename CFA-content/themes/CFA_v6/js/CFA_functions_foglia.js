@@ -150,9 +150,18 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && documen
 if (window.location.search.substr(1) == "print=enabled") {
 	
 	var destroyFogliaswiper = function() {
-    if (typeof fogliaSwiper == 'object'){ 
-			fogliaSwiper.destroy();
-			console.log('fogliaswiper destroyed.');
+		if (typeof fogliaSwiper == 'object'){ 
+			if (typeof BlockSwiper == 'object') {
+				BlockSwiper.forEach((i) => {
+					i.destroy();
+				});
+				console.log('fogliaswipers destroyed.');
+			} else if (typeof curSwiper == 'object') {
+				curSwiper.forEach((i) => {
+					i.destroy();
+				});
+				console.log('legacy fogliaswipers destroyed.');
+			}
 		} 
 	};
 
@@ -255,7 +264,7 @@ var bottomLinks = function(context) {
 }
 // Foglia: button to return home
 let ShowMeHome = () => {
-	if( document.documentElement.scrollTop > logo_v5.offsetHeight ) {
+	if( document.documentElement.scrollTop > logo_v6.offsetHeight ) {
 		showmehome.classList.remove('hidden');
 	} else {
 		showmehome.classList.add('hidden');
@@ -286,6 +295,7 @@ let checkGallery = () => {
 let micrioInstance = null;
 let injectMicrio = () => {
 	const MicrioTag = document.querySelectorAll('a.micrio-code');
+	const MicrioIframe = document.querySelectorAll('iframe[src*="micr.io"]');
 	if (MicrioTag.length >= 1) {
 		console.debug('Micr.io tag present: injecting library...');
 		
@@ -319,6 +329,16 @@ let injectMicrio = () => {
 			el.addEventListener('click', function(){ 
 				initMicrioFS(MicrioID,Mdiv);
 			 });
+		});
+		return true
+	} else if (MicrioIframe.length >= 1) {
+		Array.from(MicrioIframe).forEach(function(el) {
+			let contDiv = document.createElement('div');
+			contDiv.classList.add('wp-block-image','alignfull','size-large')
+			// insert wrapper before el in the DOM tree
+			el.parentNode.insertBefore(contDiv, el);
+			// move el into wrapper
+			contDiv.appendChild(el);
 		});
 		return true
 	} else {
@@ -378,12 +398,12 @@ let clearMicriocontent = () => {
 
 
 // load more (homepage) posts at the end
-let requireJS = document.createElement('script');
-requireJS.src = 'https://requirejs.org/docs/release/2.3.6/minified/require.js';
-requireJS.setAttribute('data-main',themepath+'js/CFA_LoadMore.js');
-document.body.append(requireJS);
-
-
+if (bodyClasses.contains('single','single-post')) {
+	let requireJS = document.createElement('script');
+	requireJS.src = 'https://requirejs.org/docs/release/2.3.6/minified/require.js';
+	requireJS.setAttribute('data-main',themepath+'js/CFA_LoadMore.js');
+	document.body.append(requireJS);
+}
 
 
 document.addEventListener("DOMContentLoaded", function() {

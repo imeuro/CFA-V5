@@ -1,0 +1,80 @@
+
+/**********************************/
+/*        PRINT-ONLY LAYOUT       */
+/**********************************/
+
+@page {
+   margin: 2cm;
+   size: portrait;
+}
+body { 
+	width: 100%;
+	margin: 0 auto;
+}
+#logo-print { 
+    margin-top: 20px;
+    text-align: center;
+    display: block;
+}
+#whitecurtain,
+#site-navigation,
+.prevContainer,
+.nextContainer,
+.swiper-pagination,
+.share-link,
+.posttags,
+#post-area,
+#uplink,
+#showmehome {
+    display: none;
+}
+
+.single h1 {
+    margin: 50px -70px 10px -70px;
+}
+.single .pinbin-copy { padding: 0; }
+h3.wp-caption-text.gallery-caption {
+font-size: 12px;
+}
+
+p { 
+  widows:3;
+  orphans: 3;
+  font-size: 14px; 
+  line-height: 20px;
+}
+article img { 
+	page-break-before: avoid; 
+    page-break-after::avoid;
+    page-break-inside:avoid;
+    max-height: 400px;
+	height: auto;
+	width: auto !important;
+	max-width: 100%;
+	margin: 0 auto 30px auto;
+
+}
+/*
+.container .CFAslider,
+article img,
+article #gallery-1 img {
+	max-height: 300px;
+	height: auto;
+	width: auto !important;
+	max-width: 100%;
+	margin-bottom: 30px;
+}
+*/
+.swiper-wrapper {
+	display: flex;
+    flex-flow: column;
+}
+
+body:after { 
+	content: "© Conceptual Fine Arts. All Rights Reserved."; 
+	font-size:12px; 
+	text-align: center; 
+	width: 100%;
+	display: inline-block;
+	padding-bottom: 60px;
+}
