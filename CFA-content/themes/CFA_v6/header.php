@@ -38,8 +38,8 @@ endif;
 
       <link rel="profile" href="http://gmpg.org/xfn/11" />
       <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-      <link rel="preload" as="font" href="<?php echo get_template_directory_uri(); ?>/fonts/NHaasGroteskDSStd-55Rg.woff2">
-      <link rel="preload" as="font" href="<?php echo get_template_directory_uri(); ?>/fonts/SometimesTimes-Regular.woff2">
+      <link rel="preload" as="font" href="<?php echo get_template_directory_uri(); ?>/fonts/NHaasGroteskDSStd-55Rg.woff2" crossorigin>
+      <link rel="preload" as="font" href="<?php echo get_template_directory_uri(); ?>/fonts/SometimesTimes-Regular.woff2" crossorigin>
       <?php wp_head(); ?>
   </head>
 
