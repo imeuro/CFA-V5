@@ -513,3 +513,10 @@ function CFA_mime_types( $mimes ) {
 	return $mimes;
 }
 add_filter( 'upload_mimes', 'CFA_mime_types' );
+
+// remove block-library/style.css:
+// /cfa/wordpress/wp-includes/css/dist/block-library/style.min.css?ver=5.5.3
+function remove_block_library_css()
+{
+wp_dequeue_style( 'wp-block-library' ); }
+add_action( 'wp_enqueue_scripts', 'remove_block_library_css' );
