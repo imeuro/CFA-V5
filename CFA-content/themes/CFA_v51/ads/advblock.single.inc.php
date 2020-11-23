@@ -14,18 +14,22 @@ if (!empty($advinsert)) {
   $advpost = $advinsert[0];
   $advdisplay = get_field('post_sponsor_display',$post->ID);
   $advposition = get_field('post_sponsor_position',$post->ID);
-  $advformat = get_field('post_sponsor_format',$post->ID);
+  //$advformat = get_field('post_sponsor_format',$post->ID);
   $advpics = get_field('sponsor_pics',$advpost->ID);
   $advStart = get_field('sponsor_start_date',$advpost->ID);
   $advEnd = get_field('sponsor_end_date',$advpost->ID);
 
-
+print_r( $advdisplay);
+print_r( $advposition);
+print_r( $advpics);
+print_r( $advStart);
+print_r( $advEnd);
 
   if ( $advdisplay == true && $currentTS > $advStart && $currentTS < $advEnd  ) {
 
-    if ($advformat == 'fixed') {
+    //if ($advformat == 'fixed') {
 
-      $advout = '<section id="ADVblock-inarticle-'.$advpost->post_title.'" class="type-post post-spinsert inarticle-spinsert inarticle-spinsert-'.$advposition.' inarticle-spinsert-'.$advformat.'">';
+      $advout = '<section id="spblock-inarticle-'.$advpost->post_title.'" class="type-post post-spinsert inarticle-spinsert inarticle-spinsert-'.$advposition.' inarticle-spinsert-'.$advformat.'">';
       $advout .= '  <div class="spblock newitem" style="background-image:url('.wp_get_attachment_image_src($advpics[0]["sponsor_pic"]["ID"], "medium" )[0].')">';
       $advout .= '    <a href="'.get_field("sponsor_url",$advpost->ID).'?cid=CFA" target="_blank" rel="nofollow noopener" class="left">';      
       $advout .= '      <div class="spcopy" id="'.$advpost->post_title.'">';
@@ -34,7 +38,7 @@ if (!empty($advinsert)) {
       $advout .= '     </a>';
       $advout .= '  </div>';
       $advout .= '</section>';
-
+/*
     } else {
 
       $advout = '<section id="ADVblock-inarticle-'.$advpost->post_title.'" class="type-post post-spinsert inarticle-spinsert inarticle-spinsert-'.$advposition.' inarticle-spinsert-'.$advformat.'">';
@@ -67,6 +71,8 @@ if (!empty($advinsert)) {
     } 
 
   }
+  */
+  echo $advout;
 
 }
 ?>

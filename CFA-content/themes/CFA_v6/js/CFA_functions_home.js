@@ -257,8 +257,8 @@ let getADS = () => {
 	// read and inject advs in position:
 	const adslot1 = document.querySelector('#post-area article:nth-child(2)');
 	let sp1 = document.createElement("article");
-	sp1.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-adv1 post-ad-insert');
-	sp1.setAttribute('id', 'advblock1');
+	sp1.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-sp1 post-spinsert');
+	sp1.setAttribute('id', 'spblock1');
 	let sp2 = adslot1;
 	let parentDiv = sp2.parentNode
 	// Insert the new element into before sp2
@@ -266,8 +266,8 @@ let getADS = () => {
 
 	const adslot2 = document.querySelector('#post-area article:nth-child(5)');
 	let sp1_2 = document.createElement("article");
-	sp1_2.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-adv2 post-ad-insert');
-	sp1_2.setAttribute('id', 'advblock2');
+	sp1_2.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-sp2 post-spinsert');
+	sp1_2.setAttribute('id', 'spblock2');
 	let sp2_2 = adslot2;
 	let parentDiv_2 = sp2_2.parentNode
 	// Insert the new element into before sp2_2
@@ -275,8 +275,8 @@ let getADS = () => {
 
 	const adslot3 = document.querySelector('#post-area article:nth-child(8)');
 	let sp1_3 = document.createElement("article");
-	sp1_3.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-adv3 post-ad-insert');
-	sp1_3.setAttribute('id', 'advblock3');
+	sp1_3.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-sp3 post-spinsert');
+	sp1_3.setAttribute('id', 'spblock3');
 	let sp2_3 = adslot3;
 	let parentDiv_3 = sp2_3.parentNode
 	// Insert the new element into before sp2_3
@@ -284,8 +284,8 @@ let getADS = () => {
 
 	const adslot4 = document.querySelector('#post-area article:nth-child(11)');
 	let sp1_4 = document.createElement("article");
-	sp1_4.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-adv4 post-ad-insert');
-	sp1_4.setAttribute('id', 'advblock4');
+	sp1_4.setAttribute('class','post type-post has-post-thumbnail hentry status-publish format-sp4 post-spinsert');
+	sp1_4.setAttribute('id', 'spblock4');
 	let sp2_4 = adslot4;
 	let parentDiv_4 = sp2_4.parentNode
 	// Insert the new element into before sp2_4

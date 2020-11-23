@@ -107,6 +107,6 @@ function set_default_acf_values() {
         }
     }
 }
-add_action('admin_init', 'set_default_acf_values');
+// add_action('admin_init', 'set_default_acf_values');
 
 ?>

@@ -406,6 +406,21 @@ if (bodyClasses.contains('single','single-post')) {
 }
 
 
+// close adv popup
+let spclose = document.querySelectorAll('#spcontainer, #spblock-close');
+if (spclose.length > 0) {
+	Array.from(spclose).forEach( function(element, index) {
+		element.addEventListener('click',() => {
+			spc = document.getElementById('spcontainer');
+			spc.classList.add('prehidden');
+			setTimeout(() => {
+				spc.classList.add('hidden');
+				spc.classList.remove('prehidden')
+			},250);
+		})
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   bottomLinks(window);
   get_summary(window);

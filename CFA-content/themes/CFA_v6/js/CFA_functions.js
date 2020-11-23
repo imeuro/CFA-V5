@@ -115,7 +115,7 @@ const PageReveal = () => {
 	setTimeout(() => {
 		WC.classList.add('hidden');
 		WC.classList.remove('prehidden')
-	},500);
+	},250);
 }
 
 
