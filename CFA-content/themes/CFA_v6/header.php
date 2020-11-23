@@ -56,7 +56,7 @@ endif;
 
     <div id="main-nav-wrapper">
 
-      <button id="hambmenu">
+      <button id="hambmenu" aria-label="Site Menu">
         <?php include("images/hamburger.svg"); ?>
       </button>
 

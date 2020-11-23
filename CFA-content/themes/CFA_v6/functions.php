@@ -301,8 +301,12 @@ function CFA_gallery_shortcode($attr) {
 	foreach ( $attachments as $id => $attachment ) {
 		$image_output = "<img data-src=\"";
 		$image_output .= wp_get_attachment_image_src( $id, $size, false )[0];
+		$image_output .= "\" alt=\"".$attachment->post_title."\" width=\"";
+		$image_output .= wp_get_attachment_image_src( $id, $size, false )[1];
+		$image_output .= "\" height=\"";
+		$image_output .= wp_get_attachment_image_src( $id, $size, false )[2];
 		$image_output .= "\" class=\"swiper-lazy\" />\n";
-    $image_output .= "<div class=\"swiper-lazy-preloader\"></div>";
+    	$image_output .= "<div class=\"swiper-lazy-preloader\"></div>";
 
 		$image_meta  = wp_get_attachment_metadata( $id );
 
