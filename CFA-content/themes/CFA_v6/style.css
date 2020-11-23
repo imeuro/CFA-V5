@@ -2346,6 +2346,7 @@ button.micrio-switch {
     background: #fff;
     border: 10px solid #fff;
     border-bottom: none;
+    border-radius: 2px;
     box-sizing: border-box;
 }
 .post-spinsert {
@@ -2362,6 +2363,7 @@ button.micrio-switch {
     text-align: center;
     margin: 0 auto;
     opacity: .75;
+    border-radius: 2px;
 }
 .post-spinsert-logo {
     position: absolute;
