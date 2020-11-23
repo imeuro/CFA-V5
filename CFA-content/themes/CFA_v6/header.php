@@ -46,9 +46,11 @@ endif;
 
  	<!-- logo and navigation -->
 
+<?php if ($_GET["print"] == 'enabled') : ?>
 <div id="logo-print">
 	<img src="<?php echo get_template_directory_uri(); ?>/images/CFA_logo_v6.svg" width="283" alt="CONCEPTUAL FINE ARTS" />
 </div>
+<?php endif; ?>
 
  <nav id="site-navigation">
 
