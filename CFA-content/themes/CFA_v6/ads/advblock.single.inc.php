@@ -24,7 +24,7 @@ if (!empty($advinsert)) {
       $advout = '<div id="spcontainer">';
       $advout .= '  <section id="spblock-inarticle-'.$advpost->post_title.'" class="inarticle-spinsert">';
       $advout .= '  <a href="'.get_field("sponsor_url",$advpost->ID).'?cid=CFA" target="_blank" rel="nofollow noopener" class="post-spinsert">';
-      $advout .= '    <img src="'.$advpics["sizes"]["large"].'" width="'.$advpics["sizes"]["large-width"].'" height="'.$advpics["sizes"]["large-height"].'" class="post-spinsert-image left" />';
+      $advout .= '    <img src="'.$advpics["sizes"]["1536x1536"].'" width="'.$advpics["sizes"]["1536x1536-width"].'" height="'.$advpics["sizes"]["1536x1536-height"].'" class="post-spinsert-image left" />';
       $advout .= '    <span class="post-spinsert-logo" id="'.$advpost->post_title.'">';
       $advout .= '      <img src="'.get_field('sponsor_post_logo',$advpost->ID).'" /';
       $advout .= '    </span>';
