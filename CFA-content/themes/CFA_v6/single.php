@@ -6,7 +6,7 @@
 ?>
 <?php get_header(); ?>
 
-  <div id="spcontainer"><?php include(get_template_directory().'/ads/advblock.single.inc.php') ?></div>
+  <?php include(get_template_directory().'/ads/advblock.single.inc.php') ?>
 
 	<?php if (have_posts()) : 
     while (have_posts()) : the_post(); ?>

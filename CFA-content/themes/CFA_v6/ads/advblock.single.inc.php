@@ -21,15 +21,17 @@ if (!empty($advinsert)) {
 
   if ( $advdisplay == true && $currentTS > $advStart && $currentTS < $advEnd  ) {
 
-      $advout = '<section id="spblock-inarticle-'.$advpost->post_title.'" class="inarticle-spinsert">';
+      $advout = '<div id="spcontainer">';
+      $advout .= '  <section id="spblock-inarticle-'.$advpost->post_title.'" class="inarticle-spinsert">';
       $advout .= '  <a href="'.get_field("sponsor_url",$advpost->ID).'?cid=CFA" target="_blank" rel="nofollow noopener" class="post-spinsert">';
       $advout .= '    <img src="'.$advpics["sizes"]["large"].'" width="'.$advpics["sizes"]["large-width"].'" height="'.$advpics["sizes"]["large-height"].'" class="post-spinsert-image left" />';
       $advout .= '    <span class="post-spinsert-logo" id="'.$advpost->post_title.'">';
       $advout .= '      <img src="'.get_field('sponsor_post_logo',$advpost->ID).'" /';
       $advout .= '    </span>';
       $advout .= '  </a>';
-      $advout .= '<button id="spblock-close">X</button>';
-      $advout .= '</section>';
+      $advout .= '  <button id="spblock-close">X</button>';
+      $advout .= '  </section>';
+      $advout .= '</div>';
 
       // print_r( $sponsorIDS);
       // print_r( $advposition);
