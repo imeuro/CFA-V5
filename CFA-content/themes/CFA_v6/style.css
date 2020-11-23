@@ -2409,9 +2409,11 @@ button.micrio-switch {
   .post-spinsert .spcopy img {
     width: 175px;
   }
-  .inarticle-spinsert,
-  .post-spinsert-image {
+  .inarticle-spinsert {
     max-width: 66vw;
+  }
+  .post-spinsert-image {
+    max-width: calc(66vw - 20px);
   }
 }
 
