@@ -2338,9 +2338,7 @@ button.micrio-switch {
 }
 .inarticle-spinsert {
     width: auto;
-    max-width: 95vw;
     height: auto;
-    max-height: 75vh;
     display: flex;
     flex-flow: column nowrap;
     text-align: center;
@@ -2357,6 +2355,7 @@ button.micrio-switch {
 .post-spinsert-image {
     width: auto;
     max-width: calc(95vw - 20px);
+    height: auto;
     max-height: 75vh;
     object-fit: cover;
     display: inline-block;
@@ -2409,11 +2408,8 @@ button.micrio-switch {
   .post-spinsert .spcopy img {
     width: 175px;
   }
-  .inarticle-spinsert {
-    max-width: 66vw;
-  }
   .post-spinsert-image {
-    max-width: calc(66vw - 20px);
+    max-width: calc(75vw - 20px);
   }
 }
 
