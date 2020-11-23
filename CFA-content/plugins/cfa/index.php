@@ -97,7 +97,7 @@ function set_default_acf_values() {
     $posts = get_posts($args);
     foreach($posts as $post) {
         // if (empty(get_field('post_sponsor_display', $post->ID))) {
-             update_field('post_sponsor_display', false, $post->ID);
+             update_field('post_sponsor_display', 0, $post->ID);
         // }
         // if (empty(get_field('post_sponsor_position', $post->ID))) {
         //      update_field('post_sponsor_position', 'summary', $post->ID);
