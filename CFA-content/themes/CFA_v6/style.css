@@ -1639,11 +1639,11 @@ margin-left: 120px;
   line-height: 14px;
   display:block;
 }
-.post-pubdate {
-  line-height: 28px;
-  text-align: right; 
+.pinbin-copy p.post-pubdate {
+    line-height: 28px;
+    text-align: right;
+    margin-top: 60px;
 }
-
 .share-link {
   padding: 50px 25px;
   border-top: 1px solid #ececec;
