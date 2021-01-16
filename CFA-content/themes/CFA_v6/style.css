@@ -2542,3 +2542,44 @@ body.page-template-default,
     max-width: 768px; 
   }
 }
+
+/* lightbox */
+.gslide-media.gslide-external { background-color: transparent; }
+.page-template-lightbox-page {
+  background: transparent;
+  color: #fff;
+}
+.page-template-lightbox-page.page .pinbin-copy ,
+.page-template-lightbox-page figure.wp-block-image, figure.wp-block-gallery {
+  margin: 0 auto
+}
+.page-template-lightbox-page .container .CFAslider,
+.page-template-lightbox-page .swiper-container-autoheight .swiper-slide { height: 100vh; }
+.page-template-lightbox-page .swiper-container-autoheight .swiper-slide img { 
+    height: 350px;
+    max-height: none;
+    width: auto;
+    max-width: 100%;
+}
+.page-template-lightbox-page .wp-block-image figcaption,
+.page-template-lightbox-page .wp-block-gallery figcaption { color: #fff; }
+.page-template-lightbox-page .CFAslider .swiper-pagination-bullets {
+  position: relative;
+  bottom: 20px;
+}
+@media (min-width: 767px) {
+  .page-template-lightbox-page .swiper-container-autoheight .swiper-slide img { 
+      height: 500px;
+      max-height: none;
+      width: auto;
+      max-width: 100%;
+  }
+  .glightbox-open .glightbox-clean .gclose { opacity: 1 }
+}
+
+
+
+
+
+
+

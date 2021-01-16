@@ -398,7 +398,7 @@ let clearMicriocontent = () => {
 
 
 // load more (homepage) posts at the end
-if (bodyClasses.contains('single','single-post')) {
+if (bodyClasses.contains('single','single-post',)) {
 	let requireJS = document.createElement('script');
 	requireJS.src = 'https://requirejs.org/docs/release/2.3.6/minified/require.js';
 	requireJS.setAttribute('data-main',themepath+'js/CFA_LoadMore.js');
@@ -406,12 +406,46 @@ if (bodyClasses.contains('single','single-post')) {
 }
 
 
+// Lightbox on links with #lightbox hashtag
+let checkLightbox = () => {
+	const activator = 'lightbox';
+	let scanLinks = document.querySelectorAll("a[href$='#"+activator+"']");
+	if (scanLinks.length > 0) {
+
+		Array.from(scanLinks).forEach((el) => {
+			el.classList.add('glightbox-black');
+			el.href = el.href.replace(/#.*$/, '');
+		});
+
+		let glightboxJS = document.createElement('script');
+		glightboxJS.src = themepath+'js/glightbox.min.js';
+		document.body.append(glightboxJS);
+
+		let glightboxCSS = document.createElement('link');
+		glightboxCSS.rel = 'stylesheet';
+		glightboxCSS.href = themepath+'glightbox.min.css';
+		document.head.append(glightboxCSS);
+
+		setTimeout(function() { 
+			var CFABlackLightbox = GLightbox({
+				selector: 	'.glightbox-black',
+				height:		'75vh'
+			});
+		},2000);
+
+	}
+}
+
+
 document.addEventListener("DOMContentLoaded", function() {
-  bottomLinks(window);
-  get_summary(window);
-  ShowMeHome();
-  injectMicrio();
-  checkGallery();
+  if ( bodyClasses.contains('no-header') === false ) {
+	bottomLinks(window);
+	get_summary(window);
+	ShowMeHome();
+	injectMicrio();
+	checkGallery();
+	checkLightbox();
+  }
 });
 
 
