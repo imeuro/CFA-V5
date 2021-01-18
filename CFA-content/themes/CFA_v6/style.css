@@ -2361,7 +2361,7 @@ body.page-template-default,
   background: #000;
   color: #fff;
 }
-.page-template-default #main-nav-wrapper #logo svg path:not(:last-child),
+.page-template-default #main-nav-wrapper #logo svg path,
 .page-template-default #hambmenu-icon rect {
     fill: #fff;
 }
