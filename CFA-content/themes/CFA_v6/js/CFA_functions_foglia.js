@@ -429,7 +429,7 @@ let checkLightbox = () => {
 		setTimeout(function() { 
 			var CFABlackLightbox = GLightbox({
 				selector: 	'.glightbox-black',
-				height:		'75vh'
+				height:		'95vh'
 			});
 		},2000);
 
