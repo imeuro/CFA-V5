@@ -43,16 +43,17 @@ if ( bodyClasses.contains('no-header') === false ) {
 			}
 		},100)
 	})
-
-	// move lang-switcher in menu
-	const moveLangSwitcher = () => {
-		const LS = document.getElementById('lang-switcher');
-		const HM = document.getElementById('header-menu');
-		HM.appendChild(LS.firstElementChild);
-		HM.lastElementChild.id = 'lang-switcher';
-		LS.remove();
-	}
 }
+
+// move lang-switcher in menu
+const moveLangSwitcher = () => {
+	const LS = document.getElementById('lang-switcher');
+	const HM = document.getElementById('header-menu');
+	HM.appendChild(LS.firstElementChild);
+	HM.lastElementChild.id = 'lang-switcher';
+	LS.remove();
+}
+
 
 // protect images - attempt
 if (ENV == 'www.conceptualfinearts.com') {
