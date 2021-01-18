@@ -2554,12 +2554,18 @@ body.page-template-default,
   margin: 0 auto
 }
 .page-template-lightbox-page .container .CFAslider,
-.page-template-lightbox-page .swiper-container-autoheight .swiper-slide { height: 100vh; }
+.page-template-lightbox-page .swiper-container-autoheight .swiper-slide { 
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
 .page-template-lightbox-page .swiper-container-autoheight .swiper-slide img { 
-    height: 350px;
-    max-height: none;
-    width: auto;
-    max-width: 100%;
+  height: 350px;
+  max-height: none;
+  width: auto;
+  max-width: 100%;
 }
 .page-template-lightbox-page .wp-block-image figcaption,
 .page-template-lightbox-page .wp-block-gallery figcaption { color: #fff; }
