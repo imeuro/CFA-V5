@@ -2562,7 +2562,7 @@ body.page-template-default,
   justify-content: space-evenly;
 }
 .page-template-lightbox-page .swiper-container-autoheight .swiper-slide img { 
-  height: 350px;
+  height: 300px;
   max-height: none;
   width: auto;
   max-width: 100%;
@@ -2575,7 +2575,7 @@ body.page-template-default,
 }
 @media (min-width: 767px) {
   .page-template-lightbox-page .swiper-container-autoheight .swiper-slide img { 
-      height: 500px;
+      height: 400px;
       max-height: none;
       width: auto;
       max-width: 100%;
