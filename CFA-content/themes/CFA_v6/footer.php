@@ -47,5 +47,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MLKFBX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+
+<script>
+(function() {
+  var script = document.createElement('script');
+  script.src = 'https://unpkg.com/web-vitals';
+  script.onload = function() {
+    webVitals.getCLS(console.log);
+    webVitals.getFID(console.log);
+    webVitals.getLCP(console.log);
+  }
+  document.head.appendChild(script);
+}())
+</script>
+
 </body>
 </html>
