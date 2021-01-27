@@ -51,14 +51,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 (function() {
-  var script = document.createElement('script');
-  script.src = 'https://unpkg.com/web-vitals';
-  script.onload = function() {
+  var wvscpt = document.createElement('script');
+  wvscpt.src = 'https://unpkg.com/web-vitals';
+  wvscpt.onload = function() {
     webVitals.getCLS(console.log);
     webVitals.getFID(console.log);
     webVitals.getLCP(console.log);
   }
-  document.head.appendChild(script);
+  document.head.appendChild(wvscpt);
 }())
 </script>
 
