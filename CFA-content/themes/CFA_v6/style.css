@@ -2583,6 +2583,7 @@ body.page-template-default,
   .glightbox-open .glightbox-clean .gclose { opacity: 1 }
 }
 
+.glightbox-mobile .gslide-external { max-height: 85vh; }
 .glightbox-clean .gnext,
 .glightbox-clean .gprev { opacity: 0 }
 
