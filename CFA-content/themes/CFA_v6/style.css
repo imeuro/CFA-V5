@@ -2575,7 +2575,7 @@ body.page-template-default,
 }
 @media (min-width: 767px) {
   .page-template-lightbox-page .swiper-container-autoheight .swiper-slide img { 
-      height: 400px;
+      height: 100vh;
       max-height: none;
       width: auto;
       max-width: 100%;
@@ -2583,7 +2583,7 @@ body.page-template-default,
   .glightbox-open .glightbox-clean .gclose { opacity: 1 }
 }
 
-.glightbox-mobile .gslide-external { max-height: 85vh; }
+.glightbox-mobile .gslide-external { max-height: 100vh; }
 .glightbox-clean .gnext,
 .glightbox-clean .gprev { opacity: 0 }
 
