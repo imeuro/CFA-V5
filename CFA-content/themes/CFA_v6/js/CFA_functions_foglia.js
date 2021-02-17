@@ -406,6 +406,37 @@ if (bodyClasses.contains('single','single-post')) {
 }
 
 
+// Lightbox on links with #lightbox hashtag
+let checkLightbox = () => {
+	const activator = 'lightbox';
+	let scanLinks = document.querySelectorAll("a[href$='#"+activator+"']");
+	if (scanLinks.length > 0) {
+
+		Array.from(scanLinks).forEach((el) => {
+			el.classList.add('glightbox-black');
+			el.href = el.href.replace(/#.*$/, '');
+		});
+
+		let glightboxJS = document.createElement('script');
+		glightboxJS.src = themepath+'js/glightbox.min.js';
+		document.body.append(glightboxJS);
+
+		let glightboxCSS = document.createElement('link');
+		glightboxCSS.rel = 'stylesheet';
+		glightboxCSS.href = themepath+'glightbox.min.css';
+		document.head.append(glightboxCSS);
+
+		setTimeout(function() { 
+			var CFABlackLightbox = GLightbox({
+				selector: 	'.glightbox-black',
+				height:		'95vh'
+			});
+		},2000);
+
+	}
+}
+
+
 // close adv popup
 let spclose = document.querySelectorAll('#spcontainer, #spblock-close');
 if (spclose.length > 0) {
@@ -422,11 +453,14 @@ if (spclose.length > 0) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  bottomLinks(window);
-  get_summary(window);
-  ShowMeHome();
-  injectMicrio();
-  checkGallery();
+  if ( bodyClasses.contains('no-header') === false ) {
+	bottomLinks(window);
+	get_summary(window);
+	ShowMeHome();
+	injectMicrio();
+	checkGallery();
+	checkLightbox();
+  }
 });
 
 

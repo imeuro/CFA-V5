@@ -1641,11 +1641,11 @@ margin-left: 120px;
   line-height: 14px;
   display:block;
 }
-.post-pubdate {
-  line-height: 28px;
-  text-align: right; 
+.pinbin-copy p.post-pubdate {
+    line-height: 28px;
+    text-align: right;
+    margin-top: 60px;
 }
-
 .share-link {
   padding: 50px 25px;
   border-top: 1px solid #ececec;
@@ -2438,7 +2438,7 @@ body.page-template-default,
   background: #000;
   color: #fff;
 }
-.page-template-default #main-nav-wrapper #logo svg path:not(:last-child),
+.page-template-default #main-nav-wrapper #logo svg path,
 .page-template-default #hambmenu-icon rect {
     fill: #fff;
 }
@@ -2619,3 +2619,53 @@ body.page-template-default,
     max-width: 768px; 
   }
 }
+
+/* lightbox */
+.gslide-media.gslide-external { background-color: transparent; }
+.page-template-lightbox-page {
+  background: transparent;
+  color: #fff;
+}
+.page-template-lightbox-page.page .pinbin-copy ,
+.page-template-lightbox-page figure.wp-block-image, figure.wp-block-gallery {
+  margin: 0 auto
+}
+.page-template-lightbox-page .container .CFAslider,
+.page-template-lightbox-page .swiper-container-autoheight .swiper-slide { 
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.page-template-lightbox-page .swiper-container-autoheight .swiper-slide img { 
+  height: 300px;
+  max-height: none;
+  width: auto;
+  max-width: 100%;
+}
+.page-template-lightbox-page .wp-block-image figcaption,
+.page-template-lightbox-page .wp-block-gallery figcaption { color: #fff; }
+.page-template-lightbox-page .CFAslider .swiper-pagination-bullets {
+  position: relative;
+  bottom: 20px;
+}
+@media (min-width: 767px) {
+  .page-template-lightbox-page .swiper-container-autoheight .swiper-slide img { 
+      height: 400px;
+      max-height: none;
+      width: auto;
+      max-width: 100%;
+  }
+  .glightbox-open .glightbox-clean .gclose { opacity: 1 }
+}
+
+.glightbox-mobile .gslide-external { max-height: 85vh; }
+.glightbox-clean .gnext,
+.glightbox-clean .gprev { opacity: 0 }
+
+
+
+
+
+

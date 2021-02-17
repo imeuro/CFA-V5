@@ -26,22 +26,24 @@ var menu_v6 = document.getElementById('header-menu');
 
 
 // menu
-const menubtn = document.getElementById('hambmenu');
-let topscroll = 0;
-menubtn.addEventListener('click', () => {
-	if (bodyClasses.contains('fixd','single') === false) { 
-		topscroll = document.scrollingElement.scrollTop;
-	}
-	document.getElementById('site-navigation').classList.toggle('menu-open');
-	setTimeout(() => {
-		if (bodyClasses.contains('single') === false) {
-			document.body.classList.toggle('fixd');
-			if (bodyClasses.contains('fixd') === false) { 
-				document.scrollingElement.scrollTo(0,topscroll)
-			}
+if ( bodyClasses.contains('no-header') === false ) {
+	const menubtn = document.getElementById('hambmenu');
+	let topscroll = 0;
+	menubtn.addEventListener('click', () => {
+		if (bodyClasses.contains('fixd','single') === false) { 
+			topscroll = document.scrollingElement.scrollTop;
 		}
-	},100)
-})
+		document.getElementById('site-navigation').classList.toggle('menu-open');
+		setTimeout(() => {
+			if (bodyClasses.contains('single') === false) {
+				document.body.classList.toggle('fixd');
+				if (bodyClasses.contains('fixd') === false) { 
+					document.scrollingElement.scrollTo(0,topscroll)
+				}
+			}
+		},100)
+	})
+}
 
 // move lang-switcher in menu
 const moveLangSwitcher = () => {
@@ -56,26 +58,6 @@ const moveLangSwitcher = () => {
 // protect images - attempt
 if (ENV == 'www.conceptualfinearts.com') {
 	document.addEventListener('contextmenu', event => event.preventDefault());
-}
-
-// NEWSLETTER popup
-let showPopNL = (timer) => {
-	if (document.getElementById('popNL') !== null) {
-		let popDiv = document.getElementById('popNL');
-		let popClose = popDiv.querySelector('.popclose');
-		let popSure = popDiv.querySelector('.popsure');
-
-		setTimeout(function(){
-			popDiv.classList.remove('hidden');
-		}, timer);
-
-		popSure.addEventListener("click", () => {
-			location.href=basepath+'/newsletter/';
-		});
-		popClose.addEventListener("click", () => {
-			popDiv.classList.add('hidden');
-		});
-	}
 }
 
 let appendENV = (env) => {

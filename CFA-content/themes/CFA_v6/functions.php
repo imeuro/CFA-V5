@@ -215,7 +215,7 @@ function CFA_gallery_shortcode($attr) {
 		'icontag'    => 'span',
 		'captiontag' => 'h3',
 		'columns'    => 1,
-		'size'       => '1536x1536',
+		'size'       => 'large',
 		'include'    => '',
 		'exclude'    => ''
 	), $attr, 'gallery'));
@@ -301,8 +301,12 @@ function CFA_gallery_shortcode($attr) {
 	foreach ( $attachments as $id => $attachment ) {
 		$image_output = "<img data-src=\"";
 		$image_output .= wp_get_attachment_image_src( $id, $size, false )[0];
+		$image_output .= "\" alt=\"".$attachment->post_title."\" width=\"";
+		$image_output .= wp_get_attachment_image_src( $id, $size, false )[1];
+		$image_output .= "\" height=\"";
+		$image_output .= wp_get_attachment_image_src( $id, $size, false )[2];
 		$image_output .= "\" class=\"swiper-lazy\" />\n";
-    $image_output .= "<div class=\"swiper-lazy-preloader\"></div>";
+    	$image_output .= "<div class=\"swiper-lazy-preloader\"></div>";
 
 		$image_meta  = wp_get_attachment_metadata( $id );
 
@@ -466,7 +470,7 @@ add_shortcode('mailpoet_undo_unsubscribe', 'mpoet_get_undo_unsubscribe');
 		foreach ($doubled_posts as $number) {
 			$split_count_posts .= "<span>".$number."</span>";
 		}
-		$short_txt .= '<span class="CFA_headline"><span class="postcount">'.$split_count_posts.'</span></span>';
+		$short_txt = '<span class="CFA_headline"><span class="postcount">'.$split_count_posts.'</span></span>';
 
     return $short_txt;
 }
@@ -509,3 +513,12 @@ function CFA_mime_types( $mimes ) {
 	return $mimes;
 }
 add_filter( 'upload_mimes', 'CFA_mime_types' );
+
+// remove block-library/style.css:
+// /cfa/wordpress/wp-includes/css/dist/block-library/style.min.css?ver=5.5.3
+// /cfa/CFA-content/plugins/wysija-newsletters/css/validationEngine.jquery.css?ver=2.14
+function remove_block_library_css() {
+wp_dequeue_style( 'wp-block-library' ); 
+wp_dequeue_style( 'validate-engine-css' ); 
+}
+add_action( 'wp_enqueue_scripts', 'remove_block_library_css' );

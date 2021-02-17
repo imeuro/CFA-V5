@@ -16,7 +16,7 @@ function cfa_gallery_render( $attributes, $content ) {
 		//$code .=print_r($imgID);
 		$imgAttr = wp_get_attachment_image_src($imgID,"medium", false);
 		$code .= '<li class="swiper-slide gallery-item">';
-		$code .= '<img data-src="'.$imgAttr[0].'" class="swiper-lazy" />';
+		$code .= '<img data-src="'.$imgAttr[0].'" alt="'.get_post_meta($imgID, '_wp_attachment_image_alt', TRUE).'" class="swiper-lazy" />';
 		$code .= '<small>'.wp_get_attachment_caption($imgID).'</small>';
 		$code .= '</li>';
 	}

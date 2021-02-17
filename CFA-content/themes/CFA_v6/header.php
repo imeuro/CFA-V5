@@ -38,25 +38,25 @@ endif;
 
       <link rel="profile" href="http://gmpg.org/xfn/11" />
       <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-      <link rel="preload" as="font" href="<?php echo get_template_directory_uri(); ?>/fonts/NHaasGroteskDSStd-55Rg.woff2">
-      <link rel="preload" as="font" href="<?php echo get_template_directory_uri(); ?>/fonts/SometimesTimes-Regular.woff2">
       <?php wp_head(); ?>
   </head>
 
   <body <?php body_class(); ?>>
-<div id="whitecurtain"><img src="<?php echo get_template_directory_uri(); ?>/images/cross.gif" style="width: 25px;"></div>
+<div id="whitecurtain"><img src="<?php echo get_template_directory_uri(); ?>/images/cross.gif" alt="loading..." style="width: 25px;"></div>
 
  	<!-- logo and navigation -->
 
+<?php if (isset($_GET["print"]) && $_GET["print"] == 'enabled') : ?>
 <div id="logo-print">
 	<img src="<?php echo get_template_directory_uri(); ?>/images/CFA_logo_v6.svg" width="283" alt="CONCEPTUAL FINE ARTS" />
 </div>
+<?php endif; ?>
 
  <nav id="site-navigation">
 
     <div id="main-nav-wrapper">
 
-      <button id="hambmenu">
+      <button id="hambmenu" aria-label="Site Menu">
         <?php include("images/hamburger.svg"); ?>
       </button>
 
