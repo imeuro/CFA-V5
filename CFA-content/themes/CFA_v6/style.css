@@ -2290,7 +2290,9 @@ button.micrio-switch {
 
 /* ADV STUFF */
 .post-spinsert .spblock {
-  max-width: 100%
+  max-width: 100%;
+  float: left;
+  position: relative;
 }
 .post-spinsert .spimage {
   width: 100%;
@@ -2404,7 +2406,7 @@ button.micrio-switch {
     top: 0;
     text-align: center;
   }  
-  .post-spinsert:hover .spcopy {
+  .post-spinsert a:hover .spcopy {
     opacity: 1;
   }
   .post-spinsert .spcopy img {

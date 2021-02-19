@@ -1,30 +1,47 @@
 <?php
-$pagenum = get_query_var('paged') ? get_query_var('paged') : 1 ;
-$sponsorIDS = get_field('select_ads_to_display',$post->ID);
-$advinsert = get_posts(array(
-  'include'     => $sponsorIDS,
-  'numberposts' => 1,
-  'post_status' => 'publish',
-  'post_type'   => 'cfa_sponsors',
-  'orderby'     => 'rand',
-));
-if (!empty($advinsert)) {
+// echo 'advblock.single.inc.php';
+$exclusive = get_field('exclusive_sponsorship_in_posts','option');
+if ($exclusive && $exclusive != null) {
+  // print_r( $exclusive );
+  $advpost = $exclusive;
+} else {
+  $advpost = get_posts(array(
+    'numberposts' => 1,
+    'post_status' => 'publish',
+    'post_type'   => 'cfa_sponsors',
+    'orderby'     => 'rand',
+  ));
+}
+if (!empty($advpost)) {
   $currentTS = time();
-  $advpost = $advinsert[0];
-  $advdisplay = get_field('post_sponsor_display',$post->ID);
-  $advposition = get_field('post_sponsor_position',$post->ID);
-  $advpics = get_field('sponsor_post_pic',$advpost->ID);
+  $advexcluded = get_field('exclude_posts_from_sponsorship','option');
+  $advdisplay = in_array($post->ID, $advexcluded);
+  // $advposition = get_field('post_sponsor_position',$post->ID);
+  $advpic = get_field('sponsor_pic_full',$advpost->ID);
   $advStart = get_field('sponsor_start_date',$advpost->ID);
   $advEnd = get_field('sponsor_end_date',$advpost->ID);
 
+  // echo '<br>post->ID: ';
+  // print_r( $post->ID);
+  // echo '<br>advexcluded: ';
+  // print_r( $advexcluded);
+  // echo '<br>advdisplay: ';
+  // print_r( $advdisplay);
+  // echo '<br>advpost: ';
+  // print_r( $advpost);
+  // echo '<br>advpic: ';
+  // print_r( $advpic);
+  // echo '<br>advStart: ';
+  // print_r( $advStart);
+  // echo '<br>advEnd: ';
+  // print_r( $advEnd);
 
-
-  if ( $advdisplay == true && $currentTS > $advStart && $currentTS < $advEnd  ) {
+  if ( $advdisplay != 1 && $currentTS > $advStart && $currentTS < $advEnd  ) {
 
       $advout = '<div id="spcontainer">';
       $advout .= '  <section id="spblock-inarticle-'.$advpost->post_title.'" class="inarticle-spinsert">';
       $advout .= '  <a href="'.get_field("sponsor_url",$advpost->ID).'?cid=CFA" target="_blank" rel="nofollow noopener" class="post-spinsert">';
-      $advout .= '    <img src="'.$advpics["sizes"]["1536x1536"].'" width="'.$advpics["sizes"]["1536x1536-width"].'" height="'.$advpics["sizes"]["1536x1536-height"].'" class="post-spinsert-image left" />';
+      $advout .= '    <img src="'.$advpic["sizes"]["1536x1536"].'" width="'.$advpic["sizes"]["1536x1536-width"].'" height="'.$advpic["sizes"]["1536x1536-height"].'" class="post-spinsert-image left" />';
       $advout .= '    <span class="post-spinsert-logo" id="'.$advpost->post_title.'">';
       $advout .= '      <img src="'.get_field('sponsor_post_logo',$advpost->ID).'" /';
       $advout .= '    </span>';
@@ -33,11 +50,7 @@ if (!empty($advinsert)) {
       $advout .= '  </section>';
       $advout .= '</div>';
 
-      // print_r( $sponsorIDS);
-      // print_r( $advposition);
-      // print_r( $advpics);
-      // print_r( $advStart);
-      // print_r( $advEnd);
+
 
       echo $advout;
   }

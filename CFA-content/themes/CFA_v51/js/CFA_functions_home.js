@@ -252,7 +252,7 @@ function parallax(e) {
     text.style.left = tx;
 }
 
-
+/*
 let getADS = () => {
 	// read and inject advs in position:
 	const adslot1 = document.querySelector('#post-area article:nth-child(2)');
@@ -298,6 +298,7 @@ let injectADScont = (id) => {
 	  .then(response => response.text())
 	  .then(text => target.innerHTML = text);
 }
+*/
 
 document.addEventListener("DOMContentLoaded", function() {
   // getADS();

@@ -10,12 +10,9 @@ $advposts = get_posts(array(
 ));
 if (!empty($advposts)) {
   $advpost = $advposts[0];
-  $advpics = get_field('sponsor_pics',$advpost->ID);
+  $advpic = get_field('sponsor_pic',$advpost->ID);
   $advStart = get_field('sponsor_start_date',$advpost->ID);
   $advEnd = get_field('sponsor_end_date',$advpost->ID);
-  ?>
-  <?php 
-
     
   if (($currentTS > $advStart && $currentTS < $advEnd ) && $pagenum === 1) {
     ?>
@@ -23,10 +20,9 @@ if (!empty($advposts)) {
       <div class="spblock newitem">
       <a href="<?php echo get_field('sponsor_url',$advpost->ID); ?>?cid=CFA" target="_blank" rel="nofollow noopener" class="left">
           <div class="spimage">
-            <?php foreach ($advpics as $advpic) {
-              $advpicsrc =  wp_get_attachment_image_src($advpic["sponsor_pic"]["ID"], 'large' );
+            <?php
+              $advpicsrc =  wp_get_attachment_image_src($advpic["ID"], 'large' );
               echo '<img src="'.$advpicsrc[0].'" loading="lazy" />';
-            }
             ?>
           </div>
           <div class="spcopy" id="<?php echo $advpost->post_title ?>">

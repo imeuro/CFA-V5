@@ -101,4 +101,19 @@ function bidirectional_acf_update_value( $value, $post_id, $field  ) {
 
 add_filter('acf/update_value/name=translation', 'bidirectional_acf_update_value', 10, 3);
 
+
+
+
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'CFA Settings',
+		'menu_title'	=> 'CFA Settings',
+		'menu_slug' 	=> 'CFA-settings',
+		'position' 		=> '35',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+}
 ?>
