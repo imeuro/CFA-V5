@@ -104,7 +104,6 @@ add_filter('acf/update_value/name=translation', 'bidirectional_acf_update_value'
 
 
 
-
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
@@ -115,5 +114,14 @@ if( function_exists('acf_add_options_page') ) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
+
+	// set session cookie for adv threshold
+	$cfacookiesp = $_COOKIE["cfa_sp"];
+	$threshold = get_field('sponsors_threshold','option');
+	if (!isset($cfacookiesp)) {
+		setcookie("cfa_sp", "0", 0);
+	} else {
+		setcookie("cfa_sp", $cfacookiesp+1, 0);
+	}
 }
 ?>
