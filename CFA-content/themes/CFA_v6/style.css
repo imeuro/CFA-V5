@@ -1018,6 +1018,12 @@ div.wpcf7 input[type="submit"] {
   text-align: justify;
   box-sizing: content-box;
 }
+.single-pinbin.copy h2,
+.single-pinbin.copy h3,
+.single-pinbin.copy h4,
+.single-pinbin.copy h5 {
+    margin-bottom: 3rem;
+}
 @media all and (min-width: 768px) {
   .single .single-pinbin-copy {
     margin-top: 200px;
