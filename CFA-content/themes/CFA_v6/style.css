@@ -2406,9 +2406,9 @@ button.micrio-switch {
     top: 0;
     text-align: center;
   }  
-  .post-spinsert a:hover .spcopy {
+/*  .post-spinsert a:hover .spcopy {
     opacity: 1;
-  }
+  }*/
   .post-spinsert .spcopy img {
     width: 175px;
   }
