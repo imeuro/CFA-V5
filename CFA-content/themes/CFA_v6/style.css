@@ -980,6 +980,14 @@ div.wpcf7 input[type="submit"] {
   text-transform: none;
   color: rgba(255,255,255,0.75);
 }
+.home .pinbin-copy p small,
+.archive .pinbin-copy p small,
+.search .pinbin-copy p small,
+.append-posts .pinbin-copy p small {
+    display: block;
+    line-height: 14px;
+    margin-top: 10px;
+}
 .home .pinbin-copy p strong,
 .archive .pinbin-copy p strong,
 .search .pinbin-copy p strong,
