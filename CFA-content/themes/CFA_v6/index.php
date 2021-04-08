@@ -42,18 +42,18 @@ while (have_posts()) : the_post();
                   ?>
                   <div class="pinbin-copy">
                     <p>
-	                    <?php
-	                    if (get_the_title()!='') :
-	                       echo '<strong>'.get_the_title().'</strong>';
-	                    endif;
-	                    if (get_field('author_name',$post->ID)) :
-	                       echo '<small>by '.get_field('author_name',$post->ID).'</small>';
-	                    endif;
-						if (has_excerpt($post->ID)) :
-	                    	echo '<span>'.get_the_excerpt().'</span>';
-	                    endif;
-		                  ?>
-		                </p>
+                      <?php
+                      if (get_the_title()!='') :
+                         echo '<strong>'.get_the_title().'</strong>';
+                      endif;
+                      if (get_field('author_name',$post->ID)) :
+                         echo '<small>by '.get_field('author_name',$post->ID).'</small>';
+                      endif;
+                      if (has_excerpt($post->ID)) :
+                      	echo '<span>'.get_the_excerpt().'</span>';
+                      endif;
+                      ?>
+                    </p>
 		              </div>
                 </a>
               </div>
