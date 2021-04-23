@@ -63,23 +63,24 @@ endif;
 add_action( 'after_setup_theme', 'CFA_setup' );
 
 // adds async and/or defer to <script> tag
-function add_async_forscript($url)
-{
+function add_async_forscript($url) {
     if (strpos($url, '#asyncload')===false)
         return $url;
     else if (is_admin())
         return str_replace('#asyncload', '', $url);
     else
         return str_replace('#asyncload', '', $url)."' async='async"; 
-
+}
+function add_defer_forscript($url) {
     if (strpos($url, '#deferload')===false)
         return $url;
     else if (is_admin())
-        return str_replace('?deferload', '', $url);
+        return str_replace('#deferload', '', $url);
     else
-        return str_replace('?deferload', '', $url)."'  defer"; 
+        return str_replace('#deferload', '', $url)."'  defer"; 
 }
 add_filter('clean_url', 'add_async_forscript', 11, 1);
+add_filter('clean_url', 'add_defer_forscript', 11, 1);
 
 
 if (!is_admin())
@@ -129,7 +130,7 @@ function CFA_scripts() {
 		//wp_register_script('jquery', false);
 		//wp_enqueue_script('jquery');
 		//wp_enqueue_script( 'Micrio', 'https://b.micr.io/micrio-2.8.min.js', array(), null, true );
-		wp_enqueue_script( 'Swiper', get_template_directory_uri() . '/js/swiper.min.js#asyncload?deferload', array(), null, true );
+		wp_enqueue_script( 'Swiper', get_template_directory_uri() . '/js/swiper.min.js#asyncload#deferload', array(), null, true );
 		wp_enqueue_script( 'CFA-functions-foglia', get_template_directory_uri() . '/js/CFA_functions_foglia.js', array( 'CFA-functions' ), null, true );
 
 	}
