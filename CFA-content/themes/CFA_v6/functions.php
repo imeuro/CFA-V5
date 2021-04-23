@@ -77,7 +77,8 @@ function add_defer_forscript($url) {
     else if (is_admin())
         return str_replace('#deferload', '', $url);
     else
-        return str_replace('#deferload', '', $url)."'  defer"; 
+    	$Turl = str_replace('#deferload', '', $url)."'  defer";
+        return substr($Turl, 0, -1); 
 }
 add_filter('clean_url', 'add_async_forscript', 11, 1);
 add_filter('clean_url', 'add_defer_forscript', 11, 1);
