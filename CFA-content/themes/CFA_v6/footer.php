@@ -54,19 +54,5 @@ setTimeout(function(){
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-
-<script>
-(function() {
-  var wvscpt = document.createElement('script');
-  wvscpt.src = 'https://unpkg.com/web-vitals';
-  wvscpt.onload = function() {
-    webVitals.getCLS(console.log);
-    webVitals.getFID(console.log);
-    webVitals.getLCP(console.log);
-  }
-  document.head.appendChild(wvscpt);
-}())
-</script>
-
 </body>
 </html>
