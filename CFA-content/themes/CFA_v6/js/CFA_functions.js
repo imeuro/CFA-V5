@@ -87,7 +87,7 @@ if ( bodyClasses.contains('home') || bodyClasses.contains('home-ITA') || bodyCla
 			checkGallery();
 			checkLightbox();
 		}
-	}
+	})
 }
 
 
