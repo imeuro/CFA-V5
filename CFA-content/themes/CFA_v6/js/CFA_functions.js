@@ -52,7 +52,7 @@ function wait(ms) {
 
 
 // load additional js's
-if ( bodyClasses.contains('home') || bodyClasses.contains('home-ITA') || bodyClasses.contains('archive') || bodyClasses.contains('search') ) {
+if ( bodyClasses.contains('home') || bodyClasses.contains('page-template-index_ita') || bodyClasses.contains('archive') || bodyClasses.contains('search') ) {
 	CFALoader({
 		src: themepath+'js/jquery-1.12.4.min.js'
 	}, "CFA_Home_Chain")
