@@ -76,7 +76,7 @@ if ( bodyClasses.contains('home') || bodyClasses.contains('home-ITA') || bodyCla
 		}, "CFA_Home_Chain"))
 } else {
 	CFALoader({
-		src: themepath+'js/CFA_functions_foglia.js'
+		src: themepath+'js/CFA_functions_foglia.js?hgvgh'
 	}, "CFA_Foglia_Chain")
 }
 
