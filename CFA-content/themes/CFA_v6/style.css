@@ -2433,10 +2433,6 @@ body.page-template-default,
   margin: 0;
   box-sizing: border-box;
 }
-.page-template-default .pinbin-copy h2+.wp-block-group p {
-    padding-top: 0;
-    padding-bottom: 40px;
-}
 .page-template-default .pinbin-copy h2,
 .page-template-default .pinbin-copy form.widget_wysija label {
   text-align: right;
@@ -2454,6 +2450,10 @@ body.page-template-default,
   padding-top: 14px;
   letter-spacing: 0;
   text-align: justify;
+}
+.page-template-default .pinbin-copy h2+.wp-block-group p {
+    padding-top: 0;
+    padding-bottom: 30px;
 }
 .page-template-default .pinbin-copy p a {
   text-decoration: none;
