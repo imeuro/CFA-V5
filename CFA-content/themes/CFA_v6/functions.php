@@ -99,12 +99,13 @@ function CFA_scripts() {
 
 	wp_enqueue_style( 'style', get_stylesheet_uri(), '', '', 'all'  );
 
-	wp_enqueue_style( 'Swiper', get_template_directory_uri() . '/js/swiper.min.css', '', '4.1.0', 'all'  );
+	// wp_enqueue_style( 'Swiper', get_template_directory_uri() . '/js/swiper.min.css', '', '4.1.0', 'all'  );
 
 	wp_enqueue_style( 'print', get_template_directory_uri() . "/print.css", 'style-css', '1.0', 'print' );
 
 
 	if ( is_home() || is_front_page() || is_archive() || is_search() || is_page('it') ) {
+		/*
 		wp_register_script('jquery', get_template_directory_uri() . '/js/jquery-1.12.4.min.js', array( ), '', false);
 		wp_register_script('jquery-migrate', get_template_directory_uri() . '/js/jquery-migrate-1.4.1.min.js', array( 'jquery' ), '', false);
 		wp_enqueue_script( 'jquery' );
@@ -115,6 +116,7 @@ function CFA_scripts() {
 		wp_enqueue_script( 'jquery-infinitescroll', get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array( 'jquery-hoverdir' ), null, true );
 		wp_enqueue_script( 'CFA-functions', get_template_directory_uri() . '/js/CFA_functions.js', array( 'jquery-infinitescroll' ), null, true );
 		wp_enqueue_script( 'CFA-functions-home', get_template_directory_uri() . '/js/CFA_functions_home.js', array( 'CFA-functions' ), null, true );
+		*/
 
 	} elseif (is_page('newsletter')) {
 		wp_register_script('jquery', get_template_directory_uri() . '/js/jquery-1.12.4.min.js', array( ), '', false);
@@ -130,8 +132,8 @@ function CFA_scripts() {
 		//wp_register_script('jquery', false);
 		//wp_enqueue_script('jquery');
 		//wp_enqueue_script( 'Micrio', 'https://b.micr.io/micrio-2.8.min.js', array(), null, true );
-		wp_enqueue_script( 'Swiper', get_template_directory_uri() . '/js/swiper.min.js#asyncload#deferload', array(), null, true );
-		wp_enqueue_script( 'CFA-functions-foglia', get_template_directory_uri() . '/js/CFA_functions_foglia.js', array( 'CFA-functions' ), null, true );
+		// wp_enqueue_script( 'Swiper', get_template_directory_uri() . '/js/swiper.min.js#asyncload#deferload', array(), null, true );
+		// wp_enqueue_script( 'CFA-functions-foglia', get_template_directory_uri() . '/js/CFA_functions_foglia.js', array( 'CFA-functions' ), null, true );
 
 	}
 

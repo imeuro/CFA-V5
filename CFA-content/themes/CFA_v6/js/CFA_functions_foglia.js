@@ -1,15 +1,47 @@
 /* custom CFA Functions - FOGLIA
 ================================================== */
-var modalSwiper = [];
-var fogliaSwiper = '';
-var BlockSwiper = [];
-var curModalSwiper = [];
+let modalSwiper = [];
+let BlockSwiper = [];
+let curModalSwiper = [];
+let fogliaSwiper = document.querySelectorAll('.CFAslider, .wp-block-gallery');
+
+
+// load additional js's
+
+CFALoader({
+    src: themepath+'js/CFA_LoadMore.js',
+    defer: ''
+}, "CFA_Foglia_Chain").then(
+    element => {
+    }
+);
+
+if (fogliaSwiper && fogliaSwiper.length > 0) {
+
+	CFALoader({
+		href: themepath+'js/swiper.min.css',
+		rel: 'stylesheet',
+		type: 'text/css',
+		media: 'all'
+	}, "CFA_Foglia_Chain", 'link', document.head)
+	.then( element => CFALoader({
+			src: themepath+'js/swiper.min.js',
+			async: true
+		}, "CFA_Foglia_Chain"))
+	.then( element => {
+    	gallery2swiper()
+    });
+
+}
+
+
 
 
 
 ////////////////////////////////////
 // Foglia / Foglia in Modal Functions
 ////////////////////////////////////
+
 
 // Foglia: Swiper init (see also @ line #308: modalSwiper )
 //===============================
@@ -48,10 +80,11 @@ function updateSwipeArea(SWname,delay) {
 	},delay);
 }
 
-if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && document.querySelector('.CFAslider, .wp-block-gallery') !== null) {
 
-	fogliaSwiper = document.querySelectorAll('.CFAslider, .wp-block-gallery');
 
+// Foglia: convert galleries to swipers
+//===============================
+function gallery2swiper () {
 	Array.from(fogliaSwiper).forEach(function (element, index) {
 
 
@@ -140,10 +173,9 @@ if ((bodyClasses.contains('single') || bodyClasses.contains('page') ) && documen
 			});	
 			curSwiper.init();
 		}
-		
 	});
-
 }
+
 
 // Foglia: handle printing event
 //===============================
@@ -394,15 +426,6 @@ let clearMicriocontent = () => {
 		micrioInstance.container.firstElementChild.remove();
 		micrioInstance = null;
 	}
-}
-
-
-// load more (homepage) posts at the end
-if (bodyClasses.contains('single','single-post',)) {
-	let requireJS = document.createElement('script');
-	requireJS.src = 'https://requirejs.org/docs/release/2.3.6/minified/require.js';
-	requireJS.setAttribute('data-main',themepath+'js/CFA_LoadMore.js');
-	document.body.append(requireJS);
 }
 
 

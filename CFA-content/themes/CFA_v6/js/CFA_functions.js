@@ -22,6 +22,65 @@ var menu_v6 = document.getElementById('header-menu');
 // Sitewide Functions
 ////////////////////////////////////
 
+// ext scripts/css loader
+function CFALoader(objAttr, chainId = null, elementType = "script", target = document.body) {
+	return new Promise(function (resolve, reject) {
+	    let element = document.createElement(elementType);
+
+	    for (const property in objAttr) {
+	        element.setAttribute(property, objAttr[property]);
+	    }
+	    let path = objAttr.src || objAttr.href;
+	    element.onload = () => {
+	        resolve(element);
+	        console.debug(`[CFALoader] ${path}\n`,  chainId + " - OK - Time: " + performance.now());
+	    };
+	    element.onerror = e => {
+	        reject(
+	            new Error(`[CFALoader] LOADING ERROR for: ${path}`)
+	        );
+	        console.debug(e);
+	    };
+
+	    target.appendChild(element);
+	});
+}
+
+function wait(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+// load additional js's
+if ( bodyClasses.contains('home') || bodyClasses.contains('home-ITA') || bodyClasses.contains('archive') || bodyClasses.contains('search') ) {
+	CFALoader({
+		src: themepath+'js/jquery-1.12.4.min.js'
+	}, "CFA_Home_Chain")
+	.then( element => CFALoader({
+			src: themepath+'js/jquery-migrate-1.4.1.min.js'
+		}, "CFA_Home_Chain"))
+	.then( element => CFALoader({
+			src: themepath+'js/modernizr.custom.97074.js'
+		}, "CFA_Home_Chain"))
+	.then( element => CFALoader({
+			src: themepath+'js/jquery.isotope.min.js'
+		}, "CFA_Home_Chain"))
+	.then( element => CFALoader({
+			src: themepath+'js/jquery.hoverdir.js'
+		}, "CFA_Home_Chain"))
+	.then( element => CFALoader({
+			src: themepath+'js/jquery.infinitescroll.min.js'
+		}, "CFA_Home_Chain"))
+	.then( element => CFALoader({
+			src: themepath+'js/CFA_functions_home.js'
+		}, "CFA_Home_Chain"))
+} else {
+	CFALoader({
+		src: themepath+'js/CFA_functions_foglia.js'
+	}, "CFA_Foglia_Chain")
+}
+
+
 
 
 
@@ -143,7 +202,6 @@ const logoTransition = () => {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-	console.debug('typeof jQuery:'+typeof jQuery);
 	// Website Credits
 	console.log("%c\n CONCEPTUAL FINE ARTS rev. 6 \n © 2013-"+new Date().getFullYear()+" - all rights reserved \n",'background:#fff;color:#F7A420;font-weight:700');
 
@@ -156,6 +214,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 window.addEventListener("load", function() {
-	console.log('done with page load.');
+	console.debug('done with page load.');
+	console.debug('typeof jQuery: '+typeof jQuery);
 	PageReveal();
 });

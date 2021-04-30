@@ -33,45 +33,96 @@ let LoadHPCont = () => {
 						console.debug('metà pagina: '+scrolltrigger);
 						if (sw>767) {
 							// libs for isotope with require.js
-							requirejs(['jquery-1.12.4.min'], function(jquery) {
-								requirejs(['jquery.isotope.min', 'jquery.hoverdir'], function(isotope, hoverdir) {
-									requirejs(['CFA_functions_home'], function(functions_home) {
+							CFALoader({
+								src: themepath+'js/jquery-1.12.4.min.js',
+								async: true
+							}, "CFA_Loadmore_Chain")
+							.then( element => CFALoader({
+								src: themepath+'js/jquery.isotope.min.js',
+								async: true
+							}, "CFA_Loadmore_Chain"))
+							.then( element => CFALoader({
+								src: themepath+'js/jquery.hoverdir.js',
+								async: true
+							}, "CFA_Loadmore_Chain"))
+							.then( element => CFALoader({
+								src: themepath+'js/CFA_functions_home.js',
+								async: true
+							}, "CFA_Loadmore_Chain"))
+							.then( element => {
+								// fill the div
+								HPDOM = HPDOM.replace(' loading="lazy"','');
+								postareaDiv.innerHTML = HPDOM;
 
-										// fill the div
-										HPDOM = HPDOM.replace(' loading="lazy"','');
-										postareaDiv.innerHTML = HPDOM;
+								// make it look good
+								
 
-										// make it look good
-										
-
-											// start hoverdir
-											jQuery('article.post .pinbin-image, article.cfa_translations .pinbin-image').each( function() {
-												jQuery(this).hoverdir({speed : 1000});
-											});
-
-
-											setTimeout(function() { 
-												// start isotope layout
-												jQuery('#post-area').isotope({
-													layoutMode: 'spineAlign',
-													resizable: false,
-													spineAlign: {
-													  gutterWidth: 10
-													}
-												});
-											},500);
-
-											// setTimeout(function(){
-											// 	jQuery('#post-area.isotope').isotope('reLayout');
-											// },2500);
-
-											// is every image loaded? yes -> reLayout
-											loadhammer();
-										
-
+									// start hoverdir
+									jQuery('article.post .pinbin-image, article.cfa_translations .pinbin-image').each( function() {
+										jQuery(this).hoverdir({speed : 1000});
 									});
-								});
-							});
+
+
+									setTimeout(function() { 
+										// start isotope layout
+										jQuery('#post-area').isotope({
+											layoutMode: 'spineAlign',
+											resizable: false,
+											spineAlign: {
+											  gutterWidth: 10
+											}
+										});
+									},500);
+
+									// setTimeout(function(){
+									// 	jQuery('#post-area.isotope').isotope('reLayout');
+									// },2500);
+
+									// is every image loaded? yes -> reLayout
+									loadhammer();
+							})
+
+
+
+							// requirejs(['jquery-1.12.4.min'], function(jquery) {
+							// 	requirejs(['jquery.isotope.min', 'jquery.hoverdir'], function(isotope, hoverdir) {
+							// 		requirejs(['CFA_functions_home'], function(functions_home) {
+
+							// 			// fill the div
+							// 			HPDOM = HPDOM.replace(' loading="lazy"','');
+							// 			postareaDiv.innerHTML = HPDOM;
+
+							// 			// make it look good
+										
+
+							// 				// start hoverdir
+							// 				jQuery('article.post .pinbin-image, article.cfa_translations .pinbin-image').each( function() {
+							// 					jQuery(this).hoverdir({speed : 1000});
+							// 				});
+
+
+							// 				setTimeout(function() { 
+							// 					// start isotope layout
+							// 					jQuery('#post-area').isotope({
+							// 						layoutMode: 'spineAlign',
+							// 						resizable: false,
+							// 						spineAlign: {
+							// 						  gutterWidth: 10
+							// 						}
+							// 					});
+							// 				},500);
+
+							// 				// setTimeout(function(){
+							// 				// 	jQuery('#post-area.isotope').isotope('reLayout');
+							// 				// },2500);
+
+							// 				// is every image loaded? yes -> reLayout
+							// 				loadhammer();
+										
+
+							// 		});
+							// 	});
+							// });
 
 						} else {
 							// fill the div
