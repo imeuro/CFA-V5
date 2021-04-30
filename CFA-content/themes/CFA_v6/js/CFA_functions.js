@@ -78,6 +78,16 @@ if ( bodyClasses.contains('home') || bodyClasses.contains('home-ITA') || bodyCla
 	CFALoader({
 		src: themepath+'js/CFA_functions_foglia.js?cb='+parseInt(Math.random()*1000000)
 	}, "CFA_Foglia_Chain")
+	.then( element => {
+		if ( bodyClasses.contains('no-header') === false ) {
+			bottomLinks(window);
+			get_summary(window);
+			ShowMeHome();
+			injectMicrio();
+			checkGallery();
+			checkLightbox();
+		}
+	}
 }
 
 
