@@ -16,7 +16,8 @@
 <?php wp_footer();
 ob_end_flush();
  ?>
- 
+
+<?php /*
 <!-- Facebook Pixel Code -->
 <script>
 setTimeout(function(){
@@ -38,6 +39,7 @@ src="https://www.facebook.com/tr?id=508657780012788&ev=PageView
 &noscript=1"/>
 </noscript>
 <!-- End Facebook Pixel Code -->
+*/ ?>
 
 <!-- Google Tag Manager -->
 <script>
