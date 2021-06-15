@@ -17,6 +17,7 @@
 ob_end_flush();
  ?>
 
+<?php /*
 <!-- Facebook Pixel Code -->
 <script>
 setTimeout(function(){
@@ -34,9 +35,11 @@ setTimeout(function(){
 </script>
 <noscript>
  <img height="1" width="1" 
-src="https://www.facebook.com/tr?id=508657780012788&ev=PageView&noscript=1"/>
+src="https://www.facebook.com/tr?id=508657780012788&ev=PageView
+&noscript=1"/>
 </noscript>
 <!-- End Facebook Pixel Code -->
+*/ ?>
 
 <!-- Google Tag Manager -->
 <script>
