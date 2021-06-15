@@ -36,11 +36,7 @@ endif;
       <meta name="msapplication-TileColor" content="#da532c">
       <meta name="theme-color" content="#ffffff">
 
-      <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/style.css" as="style">
       <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/js/swiper.min.css" as="style">
-      <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/js/CFA_functions.js" as="script">
-      <link rel="preload" href="https://www.conceptualfinearts.com/cfa/wordpress/wp-includes/js/wp-embed.min.js" as="script">
-      <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/js/swiper.min.js" as="script">
 
       <link rel="profile" href="http://gmpg.org/xfn/11" />
       <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
