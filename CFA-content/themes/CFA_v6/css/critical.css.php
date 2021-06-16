@@ -412,26 +412,6 @@ body {
   /* max-width: 100vw; */
 }
 
-
-@font-face {
-    font-family: 'NeueHaasGroteskDisp Std';
-    src: url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/NHaasGroteskDSStd-55Rg.woff2') format('woff2'),
-        url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/NHaasGroteskDSStd-55Rg.woff') format('woff'),
-        url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/NHaasGroteskDSStd-55Rg.svg#NHaasGroteskDSStd-55Rg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Sometimes Times';
-    src: url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/SometimesTimes-Regular.woff2') format('woff2'),
-        url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/SometimesTimes-Regular.woff') format('woff'),
-        url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/SometimesTimes-Regular.svg#SometimesTimes-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 /* Headings */
 h2 {font-size: 2.4rem;line-height: 2.6rem;} /* 22px */
 h3 {font-size: 2.2rem;line-height: 2.4rem;} /* 20px */
@@ -861,4 +841,114 @@ ul#ToC-list li a {
 ul#ToC-list li {
     padding: 3px 0;
     display: inline;
+}
+
+
+
+.single h1,
+.archive h1,
+.search h1,
+.error404 h1 {
+  color: #000;
+  font-family: 'Sometimes Times', serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 5em;
+  line-height: 1.15em;
+  margin: 0 -15vw 10px -15vw;
+}
+
+
+.single .single-pinbin-copy,
+.page .pinbin-copy,
+.error404 .pinbin-copy {
+  padding: 0 5vw;
+  color: #444;
+  font-size: 15px;
+  line-height: 18px;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+.single .single-pinbin-copy {
+  width: 80vw;
+  max-width: 550px;
+  margin-top: 0;
+  text-align: justify;
+  box-sizing: content-box;
+}
+@media all and (min-width: 768px) {
+  .single .single-pinbin-copy,
+  .error404 .pinbin-copy {
+    margin-top: 200px;
+    background: #fff;
+    z-index: 100;
+    position: relative;
+  }
+}
+.page .pinbin-copy h1,
+.search .pinbin-copy h1 {
+  text-align: center;
+  margin: 0 0 50px 0;
+  line-height: 1;
+  font-family: 'Sometimes Times';
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.search-results .page-header {
+  color: #000;
+  margin: 0;
+  max-width: 100vw;
+  padding: 0 5vw;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+.single .post small.date,
+.single .post div.post-data,
+.single .cfa_translations small.date,
+.single .cfa_translations div.post-data {
+  font-family: 'Sometimes Times', serif;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  margin: 25px 0;
+  text-rendering: optimizeLegibility;
+  font-size: 21px;
+}
+
+.home .pinbin-copy p small,
+.archive .pinbin-copy p small,
+.search .pinbin-copy p small,
+.append-posts .pinbin-copy p small {font-size: 1.1rem;}
+
+.home .pinbin-copy p span,
+.archive .pinbin-copy p span,
+.search .pinbin-copy p span,
+.append-posts .pinbin-copy p span {
+  display: block;
+  margin-top: 10px;
+  font-family: 'NeueHaasGroteskDisp Std', sans-serif;
+  font-size: 13px;
+  line-height: 14px;
+  text-transform: none;
+  color: rgba(255,255,255,0.75);
+}
+.home .pinbin-copy p small,
+.archive .pinbin-copy p small,
+.search .pinbin-copy p small,
+.append-posts .pinbin-copy p small {
+    display: block;
+    line-height: 14px;
+    margin-top: 10px;
+}
+.home .pinbin-copy p strong,
+.archive .pinbin-copy p strong,
+.search .pinbin-copy p strong,
+.append-posts .pinbin-copy p strong {
+  font-weight: 300;
 }
