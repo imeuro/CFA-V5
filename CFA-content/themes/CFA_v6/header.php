@@ -61,7 +61,7 @@ endif;
             font-style: normal;
             font-display: swap;
         }
-        <?php include( get_template_directory().'/css/critical.css.php') ?>
+        <?php include( get_template_directory().'/css/critical.min.css') ?>
       </style>
       <?php wp_head(); ?>
   </head>

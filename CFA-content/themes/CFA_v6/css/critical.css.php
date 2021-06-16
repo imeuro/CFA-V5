@@ -412,6 +412,26 @@ body {
   /* max-width: 100vw; */
 }
 
+
+@font-face {
+    font-family: 'NeueHaasGroteskDisp Std';
+    src: url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/NHaasGroteskDSStd-55Rg.woff2') format('woff2'),
+        url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/NHaasGroteskDSStd-55Rg.woff') format('woff'),
+        url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/NHaasGroteskDSStd-55Rg.svg#NHaasGroteskDSStd-55Rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Sometimes Times';
+    src: url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/SometimesTimes-Regular.woff2') format('woff2'),
+        url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/SometimesTimes-Regular.woff') format('woff'),
+        url('https://www.conceptualfinearts.com/cfa/CFA-content/themes/CFA_v6/fonts/SometimesTimes-Regular.svg#SometimesTimes-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Headings */
 h2 {font-size: 2.4rem;line-height: 2.6rem;} /* 22px */
 h3 {font-size: 2.2rem;line-height: 2.4rem;} /* 20px */
