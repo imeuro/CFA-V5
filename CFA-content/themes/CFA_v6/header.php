@@ -42,7 +42,27 @@ endif;
 
       <link rel="profile" href="http://gmpg.org/xfn/11" />
       <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-      <style type="text/css"><?php include(get_template_directory_uri().'/css/critical.css.php') ?></style>
+      <style type="text/css">
+        @font-face {
+            font-family: 'NeueHaasGroteskDisp Std';
+            src: url('<?php echo get_template_directory_uri(); ?>/fonts/NHaasGroteskDSStd-55Rg.woff2') format('woff2'),
+                url('<?php echo get_template_directory_uri(); ?>/fonts/NHaasGroteskDSStd-55Rg.woff') format('woff'),
+                url('<?php echo get_template_directory_uri(); ?>/fonts/NHaasGroteskDSStd-55Rg.svg#NHaasGroteskDSStd-55Rg') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Sometimes Times';
+            src: url('<?php echo get_template_directory_uri(); ?>/fonts/SometimesTimes-Regular.woff2') format('woff2'),
+                url('<?php echo get_template_directory_uri(); ?>/fonts/SometimesTimes-Regular.woff') format('woff'),
+                url('<?php echo get_template_directory_uri(); ?>/fonts/SometimesTimes-Regular.svg#SometimesTimes-Regular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        <?php include( get_template_directory().'/css/critical.css.php') ?>
+      </style>
       <?php wp_head(); ?>
   </head>
 

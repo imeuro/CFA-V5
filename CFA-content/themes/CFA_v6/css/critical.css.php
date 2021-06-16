@@ -432,27 +432,6 @@ h6 {
   margin-bottom: .8rem;
 }
 
-/*****************************
-     CUSTOM FONT
-*****************************/
-@font-face {
-    font-family: 'NeueHaasGroteskDisp Std';
-    src: url('fonts/NHaasGroteskDSStd-55Rg.woff2') format('woff2'),
-        url('fonts/NHaasGroteskDSStd-55Rg.woff') format('woff'),
-        url('fonts/NHaasGroteskDSStd-55Rg.svg#NHaasGroteskDSStd-55Rg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: optional;
-}
-@font-face {
-    font-family: 'Sometimes Times';
-    src: url('fonts/SometimesTimes-Regular.woff2') format('woff2'),
-        url('fonts/SometimesTimes-Regular.woff') format('woff'),
-        url('fonts/SometimesTimes-Regular.svg#SometimesTimes-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: optional;
-}
 
 
 /* ==========================================================================
@@ -723,10 +702,7 @@ nav#archive-nav-below a {
 #whitecurtain #CFAlogo-cross-svg path:first-child,
 #whitecurtain.hidden { display:none; }
 
-
-/* For devices with screen size lower than 768px */
-@media only screen and (max-width: 767px) {
-
+@media only screen and (min-width: 767px) {
   #site-navigation {
     height: 180px;
   }
@@ -773,6 +749,12 @@ nav#archive-nav-below a {
     margin-top: 180px;
   }
 
+}
+
+
+/* For devices with screen size lower than 768px */
+@media only screen and (max-width: 767px) {
+  
   #logo {
     margin: 0 auto;
     width: 640px;
@@ -859,61 +841,4 @@ ul#ToC-list li a {
 ul#ToC-list li {
     padding: 3px 0;
     display: inline;
-}
-#uplink,
-#showmehome {
-  outline: none;
-  position: fixed;
-  bottom: 5px;
-  right: 15px;
-  width: 50px;
-  height: 50px;
-  background: transparent;
-  border: none;
-  border-radius: 2px;
-  z-index: 10;
-  opacity: .75;
-  transition: opacity 150ms ease-in-out;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  background: #fff;
-}
-.page-template-default #uplink,
-.page-template-default #showmehome { background-color: #000; }
-
-#uplink:hover,
-#showmehome:hover { opacity: 1 }
-#uplink:before,
-#uplink:after {
-  content: "";
-  position: absolute;
-  top: 22px;
-  left: 12px;
-  width: 15px;
-  height: 1px;
-  border-radius: 0;
-  background-color: #000;
-  transform: rotate(-50deg);
-  display: inline-block;
-}
-#uplink:after {
-  left: initial;
-  right: 13px;
-  transform: rotate(50deg);
-}
-#showmehome {
-  left: 15px;
-  right: initial;
-  padding: 15px 5px 15px 15px;
-  height: 20px;
-  font-size: 22px;
-  line-height: 20px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #000;
-  background: #fff;
-  font-family: 'Sometimes Times', serif;
-  font-weight: 700;
-  width: 68px;
 }
