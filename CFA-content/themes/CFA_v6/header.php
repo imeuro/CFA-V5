@@ -36,6 +36,8 @@ endif;
       <meta name="msapplication-TileColor" content="#da532c">
       <meta name="theme-color" content="#ffffff">
 
+      <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/fonts/SometimesTimes-Regular.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/fonts/NHaasGroteskDSStd-55Rg.woff2" as="font" type="font/woff2" crossorigin>
       <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/js/swiper.min.css" as="style">
 
       <link rel="profile" href="http://gmpg.org/xfn/11" />
