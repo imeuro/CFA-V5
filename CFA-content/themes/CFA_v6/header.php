@@ -42,7 +42,7 @@ endif;
 
       <link rel="profile" href="http://gmpg.org/xfn/11" />
       <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-      <style type="text/css"><?php include(get_template_directory_uri().'/css/critical.css-php') ?></style>
+      <style type="text/css"><?php include(get_template_directory_uri().'/css/critical.css.php') ?></style>
       <?php wp_head(); ?>
   </head>
 
