@@ -74,55 +74,11 @@ let LoadHPCont = () => {
 										});
 									},500);
 
-									// setTimeout(function(){
-									// 	jQuery('#post-area.isotope').isotope('reLayout');
-									// },2500);
 
 									// is every image loaded? yes -> reLayout
 									loadhammer();
 							})
 
-
-
-							// requirejs(['jquery-1.12.4.min'], function(jquery) {
-							// 	requirejs(['jquery.isotope.min', 'jquery.hoverdir'], function(isotope, hoverdir) {
-							// 		requirejs(['CFA_functions_home'], function(functions_home) {
-
-							// 			// fill the div
-							// 			HPDOM = HPDOM.replace(' loading="lazy"','');
-							// 			postareaDiv.innerHTML = HPDOM;
-
-							// 			// make it look good
-										
-
-							// 				// start hoverdir
-							// 				jQuery('article.post .pinbin-image, article.cfa_translations .pinbin-image').each( function() {
-							// 					jQuery(this).hoverdir({speed : 1000});
-							// 				});
-
-
-							// 				setTimeout(function() { 
-							// 					// start isotope layout
-							// 					jQuery('#post-area').isotope({
-							// 						layoutMode: 'spineAlign',
-							// 						resizable: false,
-							// 						spineAlign: {
-							// 						  gutterWidth: 10
-							// 						}
-							// 					});
-							// 				},500);
-
-							// 				// setTimeout(function(){
-							// 				// 	jQuery('#post-area.isotope').isotope('reLayout');
-							// 				// },2500);
-
-							// 				// is every image loaded? yes -> reLayout
-							// 				loadhammer();
-										
-
-							// 		});
-							// 	});
-							// });
 
 						} else {
 							// fill the div
