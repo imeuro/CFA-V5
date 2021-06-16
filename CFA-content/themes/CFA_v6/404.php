@@ -12,18 +12,10 @@
 				<h1><?php _e( 'Page Not Found', 'pinbin') ?></h1>
 				<p>Apologies, the article at the URL you requested is not available.</p>
 
-				<script>
-					/*
-				setTimeout(function(){
-					window.location.href = '<?php echo esc_url( home_url( '/' ) ) ?>';
-				},5000);
-				*/
-				</script>
-
 				<p><?php _e( 'You might try the following:', 'pinbin') ?></p>
 				<ul class="page404exits">
 					<li><?php _e( 'Check spelling', 'pinbin') ?></li>
-					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>/"><?php _e( 'Return to  home page', 'pinbin') ?></a></li>
+					<li><a href="<?php echo esc_url( home_url() ); ?>/"><?php _e( 'Return to  home page', 'pinbin') ?></a></li>
 					<li><?php _e( 'Click ', 'pinbin') ?> <a href="javascript:history.back()"><?php _e( 'Return button', 'pinbin') ?></a></li>
 				</ul>
 
