@@ -68,7 +68,7 @@
               </a>
             </li>
             <li class="share-link-buttons share-link-buttons-print">
-              <a class="share-link-print" href="?print=enabled" target="_blank" rel="nofollow noopener" title="Print this Page" rel="nofollow">
+              <a class="share-link-print" href="?print=enabled" target="_blank" rel="nofollow noopener" title="Print this Page">
                 <img alt="Print this Page" width="48" height="48" src="<?php echo get_template_directory_uri(); ?>/images/noun_PR.svg">
               </a>
             </li>

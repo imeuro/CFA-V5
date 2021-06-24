@@ -12,8 +12,8 @@ endif;
 
   <head>
     	<meta charset="<?php bloginfo('charset'); ?>" />
-      <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+      <?php /*
       <meta name="description" content="<?php
         if ( is_home() || is_page('it') ) : bloginfo('description');
         else :
@@ -24,6 +24,7 @@ endif;
           echo $post_desc;
         endif;
       ?>">
+      */ ?>
       <meta name="language" content="<?php echo $lang; ?>">
       <title><?php wp_title('&#124;', true, 'right'); ?></title>
 
@@ -42,7 +43,7 @@ endif;
 
       <link rel="profile" href="http://gmpg.org/xfn/11" />
       <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-      <style type="text/css">
+      <style>
         @font-face {
             font-family: 'NeueHaasGroteskDisp Std';
             src: url('<?php echo get_template_directory_uri(); ?>/fonts/NHaasGroteskDSStd-55Rg.woff2') format('woff2'),
@@ -104,13 +105,13 @@ endif;
   		) );
   		?>
 
-  		<div id="lang-switcher" class="menu">
+  		<ul id="lang-switcher" class="menu">
   			<?php
   				if ( function_exists('get_langswitcherDOM') ) {
   					echo get_langswitcherDOM(); // plugins/cfa/index.php
   				}
   			?>
-  		</div>
+  		</ul>
 
     </div>
 
