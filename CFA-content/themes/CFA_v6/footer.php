@@ -8,7 +8,6 @@
 
 
 </div><!-- // close wrap div -->
-</div>
 
 <div id="modal" class="single hidden empty">
 </div>
