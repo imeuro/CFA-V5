@@ -518,3 +518,10 @@ wp_dequeue_style( 'wp-block-library' );
 wp_dequeue_style( 'validate-engine-css' ); 
 }
 add_action( 'wp_enqueue_scripts', 'remove_block_library_css' );
+
+// disable wp-embed.min.js
+// https://wordpress.stackexchange.com/questions/211701/what-does-wp-embed-min-js-do-in-wordpress-4-4
+function disable_wpembedJS(){
+  wp_deregister_script( 'wp-embed' );
+}
+add_action( 'wp_footer', 'disable_wpembedJS' );
