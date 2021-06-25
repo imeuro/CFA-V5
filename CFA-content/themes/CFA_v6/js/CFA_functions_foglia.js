@@ -9,7 +9,8 @@ let fogliaSwiper = document.querySelectorAll('.CFAslider, .wp-block-gallery');
 // load additional js's
 if (document.body.classList.contains('page') != true) {
 	CFALoader({
-	    src: themepath+'js/CFA_LoadMore.js?cb='+parseInt(Math.random()*1000000),
+	    src: themepath+'js/CFA_LoadMore.js',
+	    // src: themepath+'js/CFA_LoadMore.js?cb='+parseInt(Math.random()*1000000),
 	    defer: ''
 	}, "CFA_Foglia_Chain").then(
 	    element => {
