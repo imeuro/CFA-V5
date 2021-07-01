@@ -555,7 +555,6 @@ div.page.hentry {
 /* Main Navigation
 --------------------------------------------------------------*/
 
-/* List styles */
 body.home #main-nav-wrapper {
     height: 0;
 }
@@ -842,6 +841,19 @@ nav#archive-nav-below a {
 #whitecurtain #CFAlogo-cross-svg path:first-child,
 #whitecurtain.hidden {
     display: none;
+}
+
+.page-template-default .pinbin-copy,
+.page-template-default .pinbin-copy form.widget_wysija p {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 768px;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 0; 
+  background: #000;
 }
 
 .single .single-pinbin-copy,
