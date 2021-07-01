@@ -560,6 +560,13 @@ body.home #main-nav-wrapper {
     height: 0;
 }
 
+.page-template-default #wrap {
+  padding-top: 0;
+  position: relative;
+  z-index: 9;
+  max-width: 640px;
+  margin: 170px auto 100px auto; 
+}
 
 #wrap.fixd {
     position: absolute;
@@ -1002,7 +1009,10 @@ nav#archive-nav-below a {
     .home #wrap {
         margin-top: 180px;
     }
-
+    .page-template-default #wrap { 
+        margin-top: 230px;
+        max-width: 768px; 
+    }
 }
 
 

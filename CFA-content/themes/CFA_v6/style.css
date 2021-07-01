@@ -1365,13 +1365,7 @@ body.page-template-default,
   z-index: 10;
 }
 .page-template-default #hambmenu { position: fixed;  }
-.page-template-default #wrap {
-  padding-top: 0;
-  position: relative;
-  z-index: 9;
-  max-width: 640px;
-  margin: 170px auto 100px auto; 
-}
+
 .page-template-default .pinbin-copy,
 .page-template-default .pinbin-copy form.widget_wysija p {
   display: flex;
@@ -1526,10 +1520,6 @@ body.page-template-default,
   .page-template-default .pinbin-copy h2 {
     padding: 20px 20px 20px 0;
   }  
-  .page-template-default #wrap { 
-    margin-top: 230px;
-    max-width: 768px; 
-  }
 }
 
 /* lightbox */
