@@ -13,18 +13,6 @@ endif;
   <head>
     	<meta charset="<?php bloginfo('charset'); ?>" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-      <?php /*
-      <meta name="description" content="<?php
-        if ( is_home() || is_page('it') ) : bloginfo('description');
-        else :
-          global $post;
-          setup_postdata( $post );
-          $post_desc = get_the_excerpt();
-          $post_desc = str_replace('&nbsp; ','',$post_desc);
-          echo $post_desc;
-        endif;
-      ?>">
-      */ ?>
       <meta name="language" content="<?php echo $lang; ?>">
       <title><?php wp_title('&#124;', true, 'right'); ?></title>
 
@@ -66,6 +54,12 @@ endif;
         }
         <?php include( get_template_directory().'/css/critical.min.css') ?>
       </style>
+
+      <link rel="preload" href="<?php echo get_stylesheet_uri() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript>
+        <link rel="stylesheet" href="<?php echo get_stylesheet_uri() ?>">
+      </noscript>
+      
       <?php wp_head(); ?>
   </head>
 
