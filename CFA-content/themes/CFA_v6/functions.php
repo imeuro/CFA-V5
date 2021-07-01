@@ -99,8 +99,10 @@ function CFA_scripts() {
 
 	wp_enqueue_style( 'style', get_stylesheet_uri(), '', '', 'all'  );
 
-	wp_enqueue_style( 'print', get_template_directory_uri() . "/print.css", 'style-css', '1.0', 'print' );
-
+	if ($_GET['print'] && $_GET['print']=='enabled'){
+		wp_enqueue_style( 'print', get_template_directory_uri() . "/print.css", 'style-css', '1.0', 'print' );
+	}
+	
 	if (is_page('newsletter')) {
 		wp_register_script('jquery', get_template_directory_uri() . '/js/jquery-1.12.4.min.js', array( ), '', false);
 		wp_register_script('jquery-migrate', get_template_directory_uri() . '/js/jquery-migrate-1.4.1.min.js', array( 'jquery' ), '', false);

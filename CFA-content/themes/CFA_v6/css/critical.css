@@ -116,6 +116,19 @@ h1 {
     margin: 0.67em 0;
 }
 
+.single h1,
+.archive h1,
+.search h1,
+.error404 h1 {
+    color: #000;
+    font-family: 'Sometimes Times', serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 5em;
+    line-height: 1.15em;
+    margin: 0 -15vw 10px -15vw;
+}
+
 /**
  * Address styling not present in IE 8/9, Safari 5, and Chrome.
  */
@@ -823,20 +836,6 @@ nav#archive-nav-below a {
 #whitecurtain.hidden {
     display: none;
 }
-
-.single h1,
-.archive h1,
-.search h1,
-.error404 h1 {
-    color: #000;
-    font-family: 'Sometimes Times', serif;
-    font-weight: 300;
-    text-align: center;
-    font-size: 5em;
-    line-height: 1.15em;
-    margin: 0 -15vw 10px -15vw;
-}
-
 
 .single .single-pinbin-copy,
 .page .pinbin-copy,
