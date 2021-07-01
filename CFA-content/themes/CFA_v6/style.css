@@ -1366,26 +1366,6 @@ body.page-template-default,
 }
 .page-template-default #hambmenu { position: fixed;  }
 
-.page-template-default .pinbin-copy h1 {
-  flex: 0 0 100vw;
-  margin-bottom: 80px;
-  font-family: 'Sometimes Times', serif;
-  font-weight: 300;
-  text-align: center;
-  font-size: 5em;
-  line-height: 1.15em;
-  margin: 0 -15vw 80px -15vw;
-}
-.page-template-default .pinbin-copy h2,
-.page-template-default .pinbin-copy h2 + p,
-.page-template-default .pinbin-copy h2 + .wp-block-group,
-.page-template-default .pinbin-copy form.widget_wysija label,
-.page-template-default .pinbin-copy form.widget_wysija input {
-  flex: 0 0 100%;
-  padding: 20px;
-  margin: 0;
-  box-sizing: border-box;
-}
 .page-template-default .pinbin-copy h2,
 .page-template-default .pinbin-copy form.widget_wysija label {
   text-align: right;
