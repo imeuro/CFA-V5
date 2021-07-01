@@ -174,11 +174,6 @@ div.wpcf7 input[type="submit"] {
   text-rendering: optimizeLegibility;
 }
 
-.pinbin-copy  p {
-  margin: 0;
-  padding: 0 0 1.5rem 0;
-  letter-spacing: 0.5px;
-}
 .home .pinbin-copy p,
 .archive .pinbin-copy p,
 .search .pinbin-copy p,

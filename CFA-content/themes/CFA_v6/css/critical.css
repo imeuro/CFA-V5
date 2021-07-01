@@ -954,6 +954,12 @@ img.author-pic { margin: 0 20px 20px 0; }
     font-size: 21px;
 }
 
+.pinbin-copy  p {
+  margin: 0;
+  padding: 0 0 1.5rem 0;
+  letter-spacing: 0.5px;
+}
+
 .home .pinbin-copy p small,
 .archive .pinbin-copy p small,
 .search .pinbin-copy p small,
