@@ -940,7 +940,15 @@ img.author-pic { margin: 0 20px 20px 0; }
   font-weight: 300;
   text-transform: uppercase;
 }
-
+.page-template-default .pinbin-copy h2 + p,
+.page-template-default .pinbin-copy h2 + .wp-block-group p,
+.page-template-default .pinbin-copy form.widget_wysija input {
+  font-size: 14px;
+  line-height: 22px;
+  padding-top: 14px;
+  letter-spacing: 0;
+  text-align: justify;
+}
 .search-results .page-header {
     color: #000;
     margin: 0;
