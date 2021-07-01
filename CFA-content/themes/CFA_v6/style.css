@@ -865,16 +865,6 @@ margin-left: 120px;
   article .nextContainer { height: calc(100% - 50px); }
 }
 
-/* roba Bio (contenuto del post type: cfa_authors) */
-small.author { font-size: 100%; }
-small.author:before { content: "by  "; }
-img.author-pic { margin: 0 20px 20px 0; }
-.cfa_authors h1 {
-  text-align: left;
-  margin-bottom: 10px;
-  margin-top: 0;
-  padding: 0;
-}
 a.search_menu {
   cursor: pointer
 }
@@ -1002,13 +992,6 @@ a.search_menu {
     display: inline-block;
     box-sizing: content-box;
     width: 100%;
-  }
-
-
-  .pinbin-copy p {
-    font-size: 1.15em;
-    letter-spacing: 0.75px;
-    line-height: 1.375em;
   }
   .container .CFAslider {
     margin-left: -10%;

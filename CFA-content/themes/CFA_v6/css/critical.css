@@ -890,6 +890,17 @@ nav#archive-nav-below a {
     }
 }
 
+/* roba Bio (contenuto del post type: cfa_authors) */
+small.author { font-size: 100%; }
+small.author:before { content: "by  "; }
+img.author-pic { margin: 0 20px 20px 0; }
+.cfa_authors h1 {
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 0;
+  padding: 0;
+}
+
 .page .pinbin-copy h1,
 .search .pinbin-copy h1 {
     text-align: center;
@@ -1116,6 +1127,11 @@ nav#archive-nav-below a {
         display: block;
         margin: 0 0 20px 0;
         box-sizing: border-box;
+    }
+    .pinbin-copy p {
+        font-size: 1.15em;
+        letter-spacing: 0.75px;
+        line-height: 1.375em;
     }
 
 }
