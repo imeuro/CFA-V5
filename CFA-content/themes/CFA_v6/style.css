@@ -1444,6 +1444,8 @@ body.page-template-default,
     padding: 20px 0 20px 20px;
     margin: 0;
     box-sizing: border-box;
+    word-break: break-word;
+    letter-spacing: 0px;
   }
   .page-template-default .pinbin-copy h2 {
     padding: 20px 20px 20px 0;
