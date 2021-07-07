@@ -1507,19 +1507,23 @@ body.page-template-default,
   outline: none;
   position: fixed;
   bottom: 5px;
-  right: 20px;
+  right: 15px;
   width: 50px;
   height: 50px;
-  background: rgba(255,255,255,.5);
+  background: transparent;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   z-index: 10;
   opacity: .75;
   transition: opacity 150ms ease-in-out;
   margin: 0;
   padding: 0;
   cursor: pointer;
+  background: #fff;
 }
+.page-template-default #uplink,
+.page-template-default #showmehome { background-color: #000; }
+
 #uplink:hover,
 #showmehome:hover { opacity: 1 }
 #uplink:before,
@@ -1527,11 +1531,11 @@ body.page-template-default,
   content: "";
   position: absolute;
   top: 22px;
-  left: 13px;
+  left: 12px;
   width: 15px;
-  height: 3px;
-  border-radius: 3px;
-  background-color: #f5a32f;
+  height: 1px;
+  border-radius: 0;
+  background-color: #000;
   transform: rotate(-50deg);
   display: inline-block;
 }
@@ -1541,17 +1545,18 @@ body.page-template-default,
   transform: rotate(50deg);
 }
 #showmehome {
-  left: 20px;
+  left: 15px;
   right: initial;
-  height: auto;
   padding: 15px 5px 15px 15px;
   height: 20px;
   font-size: 22px;
   line-height: 20px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #f5a32f;
-  font-family: 'BenchNine', sans-serif;
+  color: #000;
+  background: #fff;
+  font-family: 'Sometimes Times', serif;
   font-weight: 700;
+  width: 68px;
 }
 
