@@ -129,8 +129,10 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 		// Home: actions at window load
 		//===============================
 
-		jQuery(window).load(function(){
+		// jQuery(window).load(function(){
+		console.debug('jQuery(window).load');
 
+		
 			// effetto hover su immagini in hp (idem a #234)
 			if(sw>1024){
 				jQuery('article.post .pinbin-image, article.cfa_translations .pinbin-image').each( function() {
@@ -222,7 +224,7 @@ if (bodyClasses.contains('home') === true || bodyClasses.contains('archive') ===
 		    //ga('send', 'pageview', '/scroll/'+pageNum);
 		    console.log('scroll/'+pageNum);
 		  });
-		});
+		// });
 	}
 }
 
@@ -306,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-window.addEventListener("load", function() {
+// window.addEventListener("load", function() {
 	logoTransition();
-});
+// });
 
