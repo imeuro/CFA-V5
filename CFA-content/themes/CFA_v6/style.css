@@ -356,7 +356,7 @@ figure.wp-block-gallery,
   font-family: 'Sometimes Times';
   font-weight: 900;
   font-size: 60px;
-  line-height: 60px;
+  line-height: 1.15;
 }
 .wp-block-cover p,
 .wp-block-cover-image p {
