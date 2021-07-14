@@ -120,9 +120,11 @@ if ( bodyClasses.contains('no-header') === false ) {
 const moveLangSwitcher = () => {
 	const LS = document.getElementById('lang-switcher');
 	const HM = document.getElementById('header-menu');
-	HM.appendChild(LS.firstElementChild);
-	HM.lastElementChild.id = 'lang-switcher';
-	LS.remove();
+	if (HM != null) {
+		HM.appendChild(LS.firstElementChild);
+		HM.lastElementChild.id = 'lang-switcher';
+		LS.remove();
+	}
 }
 
 
@@ -164,11 +166,13 @@ let appendENV = (env) => {
 
 const PageReveal = () => {
 	const WC = document.getElementById('whitecurtain');
-	WC.classList.add('prehidden');
-	setTimeout(() => {
-		WC.classList.add('hidden');
-		WC.classList.remove('prehidden')
-	},500);
+	if (WC != null) {
+		WC.classList.add('prehidden');
+		setTimeout(() => {
+			WC.classList.add('hidden');
+			WC.classList.remove('prehidden')
+		},500);
+	}
 }
 
 
