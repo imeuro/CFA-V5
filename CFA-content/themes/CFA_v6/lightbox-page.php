@@ -7,6 +7,7 @@ Template Name: lightbox-page
 	.page-template-lightbox-page,
 	.page-template-lightbox-page article,
 	.page-template-lightbox-page article .container {
+		background: #000;
 	    height: 100vh;
 	    width: 100vw;
 	    margin: 0;
